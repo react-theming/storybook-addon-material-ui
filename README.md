@@ -123,7 +123,7 @@ to help contribute to the project feel free to make an issue, PR or get in touch
 >You can start with an example project:
 
 >```shell 
->git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon->material-ui.git
+>git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon-material-ui.git
 >cd storybook-addon-material-ui\
 >npm i
 >npm start
