@@ -116,6 +116,18 @@ By default you see only assigned fields of selected theme. You can switch to `Fu
 ## Demo
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
 
+## CONTRIBUTING
+Our team welcom all contributing, testing, bug fixing. If you would like
+to help contribute to the project feel free to make an issue, PR or get in touch with me.
+
+>You can start with an example project:
+
+>```shell 
+>git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon->material-ui.git
+>cd storybook-addon-material-ui\
+>npm i
+>npm start
+>```
 
 ### smARTLight
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
