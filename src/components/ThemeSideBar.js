@@ -9,9 +9,9 @@ import TextField from 'material-ui/TextField';
 
 
 import { CSS_CLASS } from '../';
-import ThemePropTable from './ThemePropTable.jsx';
-import ThemePropBlock from './ThemePropBlock.jsx';
-import ReactScrollbar from './ReactScrollbar';
+//import ThemePropTable from './ThemePropTable.jsx';
+import ThemePropBlock from './ThemePropBlock';
+//import ReactScrollbar from './ReactScrollbar';
 
 const BAR_WIDTH = 400;
 

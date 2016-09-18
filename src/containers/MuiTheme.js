@@ -5,8 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { EVENT_ID_DATA } from '../';
 import { CSS_CLASS } from '../';
-import ThemeToolbar from '../components/ThemeToolbar.jsx';
-import ThemeSideBar from '../components/ThemeSideBar.jsx';
+import ThemeToolbar from '../components/ThemeToolbar';
+import ThemeSideBar from '../components/ThemeSideBar';
 import SplitPane from '../components/SplitPane';
 
 const propTypes = {

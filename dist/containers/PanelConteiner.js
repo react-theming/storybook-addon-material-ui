@@ -46,7 +46,7 @@ var _darkBaseTheme2 = _interopRequireDefault(_darkBaseTheme);
 
 var _ = require('../');
 
-var _ThemePanel = require('../components/ThemePanel.jsx');
+var _ThemePanel = require('../components/ThemePanel');
 
 var _ThemePanel2 = _interopRequireDefault(_ThemePanel);
 

@@ -43,11 +43,11 @@ var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 
 var _ = require('../');
 
-var _ThemeToolbar = require('../components/ThemeToolbar.jsx');
+var _ThemeToolbar = require('../components/ThemeToolbar');
 
 var _ThemeToolbar2 = _interopRequireDefault(_ThemeToolbar);
 
-var _ThemeSideBar = require('../components/ThemeSideBar.jsx');
+var _ThemeSideBar = require('../components/ThemeSideBar');
 
 var _ThemeSideBar2 = _interopRequireDefault(_ThemeSideBar);
 

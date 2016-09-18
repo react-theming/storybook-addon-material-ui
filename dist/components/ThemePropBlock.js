@@ -50,7 +50,7 @@ var _Toggle2 = _interopRequireDefault(_Toggle);
 
 var _ = require('../');
 
-var _ThemePropItem = require('./ThemePropItem.jsx');
+var _ThemePropItem = require('./ThemePropItem');
 
 var _ThemePropItem2 = _interopRequireDefault(_ThemePropItem);
 

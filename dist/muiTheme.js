@@ -26,7 +26,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _MuiTheme = require('./containers/MuiTheme.jsx');
+var _MuiTheme = require('./containers/MuiTheme');
 
 var _storybookAddons = require('@kadira/storybook-addons');
 

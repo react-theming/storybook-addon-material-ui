@@ -1,7 +1,7 @@
 // todo: addon for themes info
 
 import React from 'react';
-import { MuiTheme } from './containers/MuiTheme.jsx';
+import { MuiTheme } from './containers/MuiTheme';
 import addons from '@kadira/storybook-addons';
 import { EVENT_ID_INIT } from './';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';

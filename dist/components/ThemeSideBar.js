@@ -54,21 +54,17 @@ var _TextField2 = _interopRequireDefault(_TextField);
 
 var _ = require('../');
 
-var _ThemePropTable = require('./ThemePropTable.jsx');
-
-var _ThemePropTable2 = _interopRequireDefault(_ThemePropTable);
-
-var _ThemePropBlock = require('./ThemePropBlock.jsx');
+var _ThemePropBlock = require('./ThemePropBlock');
 
 var _ThemePropBlock2 = _interopRequireDefault(_ThemePropBlock);
 
-var _ReactScrollbar = require('./ReactScrollbar');
-
-var _ReactScrollbar2 = _interopRequireDefault(_ReactScrollbar);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//import ReactScrollbar from './ReactScrollbar';
+
 var BAR_WIDTH = 400;
+//import ThemePropTable from './ThemePropTable.jsx';
+
 
 var propTypes = {
     open: _react2.default.PropTypes.bool.isRequired,

@@ -9,7 +9,7 @@ import { EVENT_ID_INIT } from '../';
 import { EVENT_ID_DATA } from '../';
 
 
-import ThemePanel from '../components/ThemePanel.jsx';
+import ThemePanel from '../components/ThemePanel';
 
 export default class Panel extends React.Component {
     constructor(props, ...args) {

@@ -1,2 +1,7 @@
 node_modules
+example
+src
 .babelrc
+.eslintrc
+.scripts
+.storybook

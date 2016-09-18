@@ -8,7 +8,7 @@ var _storybookAddons = require('@kadira/storybook-addons');
 
 var _storybookAddons2 = _interopRequireDefault(_storybookAddons);
 
-var _PanelConteiner = require('./containers/PanelConteiner.jsx');
+var _PanelConteiner = require('./containers/PanelConteiner');
 
 var _PanelConteiner2 = _interopRequireDefault(_PanelConteiner);
 

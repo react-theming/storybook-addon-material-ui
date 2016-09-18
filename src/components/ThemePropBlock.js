@@ -6,7 +6,7 @@ import Chip from 'material-ui/Chip';
 import Toggle from 'material-ui/Toggle';
 
 import { CSS_CLASS } from '../';
-import ThemePropItem from './ThemePropItem.jsx';
+import ThemePropItem from './ThemePropItem';
 import { copyToClipboard } from '../Utils';
 
 const propTypes = {
