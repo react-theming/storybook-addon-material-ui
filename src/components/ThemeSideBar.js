@@ -41,16 +41,16 @@ export default class ThemeSideBar extends React.Component {
     renderContent() {
         return (
             <div
-               className={`${CSS_CLASS}-theme_sidebar-content`}
-               style={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'stretch',
+              className={`${CSS_CLASS}-theme_sidebar-content`}
+              style={{
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'stretch',
 
-                }}
+              }}
             >
-                <div style={{paddingLeft: 3, paddingBottom: 6}}>
+                <div style={{ paddingLeft: 3, paddingBottom: 6 }}>
                     <Paper>
                         <CardTitle
                           subtitle={`${this.props.themeName} properties`}
@@ -59,7 +59,7 @@ export default class ThemeSideBar extends React.Component {
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
-                       }}>
+                        }}>
                             <div>Theme Settings</div>
                             <div>
                                 <Toggle
@@ -68,7 +68,7 @@ export default class ThemeSideBar extends React.Component {
                                   labelStyle={this.toggleHeadStyle}
                                   toggled={this.props.fullTheme()}
                                   onToggle={() => this.props.fullTheme(!this.props.fullTheme())}
-                                 />
+                                />
                             </div>
                             <div>Full Settings</div>
                         </CardText>
@@ -124,12 +124,12 @@ function forTable(tableTame, objListFunc, themeInd) {
 function themesList(themeObj, props) {
     const themePropTable = (tableName, table) => (
         <ThemePropBlock
-            key={tableName}
-            settingsObj={table}
-            settingsName={tableName}
-            open={forTable(tableName, props.collapseList)}
-            override={forTable(tableName, props.themesOverrideList)}
-            onThemeTableOverride={onThemeTableOverride(tableName)}
+          key={tableName}
+          settingsObj={table}
+          settingsName={tableName}
+          open={forTable(tableName, props.collapseList)}
+          override={forTable(tableName, props.themesOverrideList)}
+          onThemeTableOverride={onThemeTableOverride(tableName)}
         />
     ); /* open={props.collapseList} */
 
@@ -145,14 +145,14 @@ function themesList(themeObj, props) {
             overTheme[tableName][propName] = value;
 //            console.log(overTheme);
             props.onThemeOverride(overTheme);
-        }
-    }
+        };
+    };
 
     const keyList = Object.keys(themeObj);
 
-    let strList = {};
+    const strList = {};
     keyList.forEach((val, ind) => {
-        if (typeof(themeObj[val]) === 'string'/* || typeof(themeObj[val]) === 'function'*/) {
+        if (typeof (themeObj[val]) === 'string'/* || typeof(themeObj[val]) === 'function'*/) {
             strList[val] = themeObj[val];
         }
     });
@@ -179,9 +179,9 @@ function themesList(themeObj, props) {
             /> */ : <CardTitle subtitle={'No palette here'} />;
 
     const tablesListObj = keyList.map((val, ind) => {
-        if (typeof(themeObj[val]) === 'object' && val !== 'palette') {
-            return ( themePropTable(val, themeObj[val])
-                   /*<ThemePropTable
+        if (typeof (themeObj[val]) === 'object' && val !== 'palette') {
+            return (themePropTable(val, themeObj[val])
+                   /* <ThemePropTable
                        key={val}
                        settingsObj={themeObj[val]}
                        settingsName={val}
@@ -197,33 +197,32 @@ function themesList(themeObj, props) {
 //      border: '5px #2196F3 solid',
         height: '100%',
         overflowY: 'scroll',
-    }
+    };
     return (
         <div
-            className={`${CSS_CLASS}-theme_sidebar-tables`}
-            style={{
+          className={`${CSS_CLASS}-theme_sidebar-tables`}
+          style={{
 
-                height: 100,
-                flexGrow: 1,
-                flexShrink: 1,
+              height: 100,
+              flexGrow: 1,
+              flexShrink: 1,
 //                overflowY: 'scroll',
-            }}
+          }}
         >
             <div
               className={`${CSS_CLASS}-theme_sidebar-tables-scroll`}
               style={scrollStyle}
             >
                <div style={{
-                        paddingLeft: 3,
-                        paddingRight: 12,
+                   paddingLeft: 3,
+                   paddingRight: 12,
 
-                    }}
-                >
-                   <div style={{backgroundColor: 'rgba(128, 128, 128, 0.04)',}}>
+               }}>
+                   <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.04)' }}>
                         {paletteList}
                         {tablesListObj}
                         {strListNode}
-                        <div style={{height: 16}}/>
+                        <div style={{ height: 16 }} />
                    </div>
                </div>
             </div>

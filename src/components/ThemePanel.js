@@ -31,7 +31,7 @@ const propTypes = {
     isSideBarOpen: React.PropTypes.bool.isRequired,
     themeJSON: React.PropTypes.string,
     onChangeTheme: React.PropTypes.func.isRequired,
-}
+};
 
 const defaultProps = {
     themesNameList: ['BaseLight', 'BaseDark'],
@@ -39,7 +39,7 @@ const defaultProps = {
     onThemeSelect: () => {},
     onToggleSideBar: () => {},
     isSideBarOpen: false,
-}
+};
 
 const contextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
@@ -67,38 +67,37 @@ export default class ThemeToolbar extends React.Component {
     render() {
         return (
             <div
-               style={{
-                    width: '100%',
+              style={{
+                  width: '100%',
 //                    height: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    backgroundColor: this.context.muiTheme.palette.canvasColor,
-                }}
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  backgroundColor: this.context.muiTheme.palette.canvasColor,
+              }}
             >
                 <DropDownMenu
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    underlineStyle={{ /*border: 'solid 2px black'*/ }}
-                    iconStyle={{ fill: this.context.muiTheme.palette.textColor }}
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  underlineStyle={{ /* border: 'solid 2px black'*/ }}
+                  iconStyle={{ fill: this.context.muiTheme.palette.textColor }}
                 >
                     {this.menuItems}
                 </DropDownMenu>
-                <div style={{width: 200, flexGrow: 1, padding: 16 }}>
+                <div style={{ width: 200, flexGrow: 1, padding: 16 }}>
                     <textarea
-                       style={{width: '100%', height: '100%'}}
-                       value={this.props.themeJSON}
-                       onChange={this.props.onChangeTheme}
+                      style={{ width: '100%', height: '100%' }}
+                      value={this.props.themeJSON}
+                      onChange={this.props.onChangeTheme}
                     />
 
                 </div>
-                <div style={{width: 200, padding: 16 }}>
+                <div style={{ width: 200, padding: 16 }}>
                    <Toggle
-                    label="Show Theme Editor"
-                    labelPosition="left"
-                    toggled={this.props.isSideBarOpen}
-                    onToggle={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
-
-                     />
+                     label="Show Theme Editor"
+                     labelPosition="left"
+                     toggled={this.props.isSideBarOpen}
+                     onToggle={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
+                   />
                  </div>
 
             </div>

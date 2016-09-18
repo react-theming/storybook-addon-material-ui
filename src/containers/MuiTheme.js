@@ -19,6 +19,7 @@ const propTypes = {
     onChangeState: React.PropTypes.func.isRequired,
     onThemeOverride: React.PropTypes.func.isRequired,
     initState: React.PropTypes.object,
+    channel: React.PropTypes.object,
 };
 
 export class MuiTheme extends React.Component {
@@ -47,18 +48,16 @@ export class MuiTheme extends React.Component {
         this.subState = this.subState.bind(this);
         this.wouldComponentUpdate = this.wouldComponentUpdate.bind(this);
         this.needComponentUpdate = this.needComponentUpdate.bind(this);
-
     }
 
 
     componentDidMount() {
         this.props.channel.on(EVENT_ID_DATA, this.onChannel);
-        if(!this.state.isMount) {
-            setTimeout(()=>{
+        if (!this.state.isMount) {
+            setTimeout(() => {
                 this.needComponentUpdate('ThemeSideBar');
-                this.setState({isMount: true})
-            },1);
-
+                this.setState({ isMount: true });
+            }, 1);
         }
     }
 
@@ -69,15 +68,15 @@ export class MuiTheme extends React.Component {
     onChannel(state) {
         this.needComponentUpdate('ThemeSideBar');
         this.isNewData = true;
-        /*const propsThemeOverFunc = this.props.onThemeOverride(this.state.themeInd);
+        /* const propsThemeOverFunc = this.props.onThemeOverride(this.state.themeInd);
         const themesAppliedList = propsThemeOverFunc(
             state.themesAppliedList[state.themeInd]
         );
         state.themesAppliedList = themesAppliedList;*/
-        this.setState({...state, isMount: false}, () => setTimeout(()=>{
+        this.setState({ ...state, isMount: false }, () => setTimeout(() => {
             this.isNewData = true;
-            this.setState({isMount: true});
-        },10) );
+            this.setState({ isMount: true });
+        }, 10));
     }
 
     changeTheme(ind) {
@@ -102,8 +101,8 @@ export class MuiTheme extends React.Component {
             const themesAppliedList = propsThemeOverFunc(overTheme);
 //            console.log(themesAppliedList);
             this.needComponentUpdate('ThemeSideBar');
-            this.setState({themesAppliedList});
-        }
+            this.setState({ themesAppliedList });
+        };
     }
 
     subState(componentName, prop) {
@@ -116,11 +115,11 @@ export class MuiTheme extends React.Component {
             this.setState(subState);
             this.needComponentUpdate(componentName);
             return val;
-        }
+        };
     }
 
     wouldComponentUpdate(componentName) {
-        if(this.UpdateList[componentName] == undefined) {
+        if (this.UpdateList[componentName] == undefined) {
             this.UpdateList[componentName] = false;
         }
         const upd = this.UpdateList[componentName];
@@ -139,7 +138,6 @@ export class MuiTheme extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         return true;
-
     }
 
     render() {
@@ -147,14 +145,14 @@ export class MuiTheme extends React.Component {
         const muiTheme = getMuiTheme(this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]));
         return (<MuiThemeProvider muiTheme={muiTheme/* this.state.muiTheme*/}>
                 <div
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: muiTheme.palette.canvasColor,
-                    }}
+                  style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: muiTheme.palette.canvasColor,
+                  }}
 
                 >
                     <SplitPane split="vertical"
@@ -167,7 +165,7 @@ export class MuiTheme extends React.Component {
                     >
                        {
                         true ? <div style={{/* flexGrow: 1 */}}>
-                            {/*<div style={{ width: '100%' }}>
+                            {/* <div style={{ width: '100%' }}>
                                   <ThemeToolbar
                                     themesNameList={ThemesNameList}
                                     defautThemeInd={this.state.themeInd}
@@ -184,12 +182,12 @@ export class MuiTheme extends React.Component {
                           shouldShowData={this.state.isMount}
                           open={this.state.isSideBarOpen}
                           theme={this.state.themesAppliedList[this.state.themeInd]}
-                          muiTheme= {muiTheme /*getMuiTheme(this.props.themesList[this.state.themeInd])*/}
+                          muiTheme={muiTheme}
                           themeName={ThemesNameList[this.state.themeInd]}
                           fullTheme={this.subState('ThemeSideBar', 'isFullTheme')}
                           collapseList={this.subState('ThemeSideBar', 'collapseList')}
                           themesOverrideList={this.subState('ThemeSideBar', 'currentThemeOverride')}
-                          onThemeOverride={this.onThemeOverride() /*this.props.onThemeOverride(this.state.themeInd)*/}
+                          onThemeOverride={this.onThemeOverride()}
                         />
                     </SplitPane>
                     </div>

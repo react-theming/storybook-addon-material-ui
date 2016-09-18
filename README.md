@@ -114,7 +114,7 @@ By default you see only assigned fields of selected theme. You can switch to `Fu
 > See details in [sreenshorts](https://github.com/sm-react/storybook-addon-material-ui/blob/master/docs/screenshorts.md)
 
 ## Demo
-(will be soon)
+[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
 
 
 

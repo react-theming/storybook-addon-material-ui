@@ -58,7 +58,7 @@ export default class ThemeToolbar extends React.Component {
             tooltip={this.props.isSideBarOpen ? 'Close side bar' : 'Open side bar'}
             onTouchTap={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
             tooltipPosition="bottom-left"
-        >
+          >
              {this.props.isSideBarOpen ? <SvgRight /> : <SvgLeft />}
            </IconButton>
 

@@ -18,21 +18,19 @@ class Resizer extends Component {
         return (
             <div className={classes.join(' ')}
 
-                 onMouseDown={this.onMouseDown}
-             >
+              onMouseDown={this.onMouseDown}
+            >
                  <div
-                    style={{
-                        left: 8,
-                        position: 'relative',
-                        width: 16,
-                        height: '100%',
-                        zIndex: 10,
-                        backgroundColor: 'rgba(175, 175, 175, 0)',
-                        cursor: 'col-resize',
-                    }}
-                 >
-
-                 </div>
+                   style={{
+                       left: 8,
+                       position: 'relative',
+                       width: 16,
+                       height: '100%',
+                       zIndex: 10,
+                       backgroundColor: 'rgba(175, 175, 175, 0)',
+                       cursor: 'col-resize',
+                   }}
+                 />
              </div>
         );
     }

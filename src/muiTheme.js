@@ -9,8 +9,6 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 
-
-
 lightBaseTheme.themeName = 'Light Theme';
 darkBaseTheme.themeName = 'Dark Theme';
 
@@ -35,14 +33,14 @@ export function muiTheme(themes) {
             themesInitList = [...themesInitList, themes];
         }
     }
-    let themesOverrideList = themesInitList.map(val => ({
+    const themesOverrideList = themesInitList.map(val => ({
         themeName: val.themeName,
         palette: {},
     }));
-    let themesAppliedList = makeClone(themesInitList);
+    const themesAppliedList = makeClone(themesInitList);
 //    themesOverrideList[0].palette.accent1Color = 'green'; // debug
     themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
-    let themesRenderedList = themeListRender(themesAppliedList);
+    const themesRenderedList = themeListRender(themesAppliedList);
 //    console.log(themesAppliedList);
 
     /*
@@ -64,34 +62,34 @@ export function muiTheme(themes) {
         currentThemeOverride: {},
 
     };
-    let storeState = (state, isNewData) => {
+    const storeState = (state, isNewData) => {
         storedState = state;
         const refreshPanel = {
             themesAppliedList,
             themesRenderedList,
             panelState: panelState(storedState),
-        }
-        if(!isNewData) channel.emit(EVENT_ID_DATA, refreshPanel);
+        };
+        if (!isNewData) channel.emit(EVENT_ID_DATA, refreshPanel);
     };
 
-    let onThemeOverride = (themeInd) => {
+    const onThemeOverride = (themeInd) => {
         return (overTheme) => {
             themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
             themesAppliedList[themeInd] = themeApply(themesInitList[themeInd], themesOverrideList[themeInd]);
             return themesAppliedList;
-        }
+        };
     };
 
 
     const panelState = (state) => {
-        const {themeInd, isSideBarOpen, currentThemeOverride} = state;
-        return {themeInd, isSideBarOpen, currentThemeOverride};
-    }
+        const { themeInd, isSideBarOpen, currentThemeOverride } = state;
+        return { themeInd, isSideBarOpen, currentThemeOverride };
+    };
     const initPanel = {
         themesAppliedList,
         themesRenderedList,
         panelState: panelState(storedState),
-    }
+    };
     channel.emit(EVENT_ID_INIT, initPanel);
 
     return (story) => {
@@ -118,34 +116,34 @@ export function muiTheme(themes) {
 */
 
 
-//export default muiTheme;
+// export default muiTheme;
 
 function themeApply(prevTheme, overTheme) {
-    let newTheme = makeClone(prevTheme);
+    const newTheme = makeClone(prevTheme);
     const keys = Object.keys(overTheme);
-    keys.forEach(val => {
-        if (typeof(overTheme[val]) === 'object') {
+    keys.forEach((val) => {
+        if (typeof (overTheme[val]) === 'object') {
            /* console.log('themeApply')
             console.log(val)
             console.log(newTheme[val])
             console.log(overTheme[val])*/
 
-            if (typeof(newTheme[val]) === 'undefined') {
+            if (typeof (newTheme[val]) === 'undefined') {
                 newTheme[val] = {};
             }
             const subKeys = Object.keys(overTheme[val]);
-            subKeys.forEach(prop => { newTheme[val][prop] = tryParse(overTheme[val][prop]); });
+            subKeys.forEach((prop) => { newTheme[val][prop] = tryParse(overTheme[val][prop]); });
         } else {
             newTheme[val] = overTheme[val];
         }
     });
 
-    return newTheme
+    return newTheme;
 }
 
 function themeListRender(themesAppliedList) {
-    let themesRenderedList = makeClone(themesAppliedList);
-    return themesRenderedList
+    const themesRenderedList = makeClone(themesAppliedList);
+    return themesRenderedList;
 }
 
 function makeClone(obj) {

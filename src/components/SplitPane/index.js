@@ -177,30 +177,30 @@ class SplitPane extends Component {
         const pane2Style = Object.assign({}, this.props.paneStyle || {}, this.props.pane2Style || {});
 
         return (
-            <div className={classes.join(' ')} style={style} ref={node => { this.splitPane = node; }}>
+            <div className={classes.join(' ')} style={style} ref={(node) => { this.splitPane = node; }}>
 
                 <Pane
-                    ref={node => { this.pane1 = node; }}
-                    key="pane1" className="Pane1"
-                    style={pane1Style}
-                    split={split}
+                  ref={(node) => { this.pane1 = node; }}
+                  key="pane1" className="Pane1"
+                  style={pane1Style}
+                  split={split}
                 >
                     {children[0]}
                 </Pane>
                 <Resizer
-                    ref={node => { this.resizer = node; }}
-                    key="resizer"
-                    className={disabledClass}
-                    onMouseDown={this.onMouseDown}
-                    style={this.props.resizerStyle || {}}
-                    split={split}
+                  ref={(node) => { this.resizer = node; }}
+                  key="resizer"
+                  className={disabledClass}
+                  onMouseDown={this.onMouseDown}
+                  style={this.props.resizerStyle || {}}
+                  split={split}
                 />
                 <Pane
-                    ref={node => { this.pane2 = node; }}
-                    key="pane2"
-                    className="Pane2"
-                    style={pane2Style}
-                    split={split}
+                  ref={(node) => { this.pane2 = node; }}
+                  key="pane2"
+                  className="Pane2"
+                  style={pane2Style}
+                  split={split}
                 >
                     {children[1]}
                 </Pane>

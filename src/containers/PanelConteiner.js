@@ -11,7 +11,12 @@ import { EVENT_ID_DATA } from '../';
 
 import ThemePanel from '../components/ThemePanel';
 
-export default class Panel extends React.Component {
+const propTypes = {
+    channel: React.PropTypes.object,
+};
+
+
+export default class PanelConteiner extends React.Component {
     constructor(props, ...args) {
         super(props, ...args);
 
@@ -38,7 +43,7 @@ export default class Panel extends React.Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        if(!this.isNewData) this.props.channel.emit(EVENT_ID_DATA, nextState);
+        if (!this.isNewData) this.props.channel.emit(EVENT_ID_DATA, nextState);
         this.isNewData = false;
     }
 
@@ -74,7 +79,7 @@ export default class Panel extends React.Component {
         const newTheme = JSON.parse(str);
         const themesAppliedList = this.state.themesAppliedList;
         themesAppliedList[this.state.themeInd] = newTheme;
-        this.setState({themesAppliedList})
+        this.setState({ themesAppliedList });
 //        console.log(newTheme);
     }
 
@@ -88,29 +93,31 @@ export default class Panel extends React.Component {
     render() {
         return this.state.isReady ?
         (
-            <MuiThemeProvider muiTheme={this.muiTheme /*this.state.muiTheme*/}>
+            <MuiThemeProvider muiTheme={this.muiTheme}>
                 <ThemePanel
-                    themesNameList={this.state.ThemesNameList}
-                    defautThemeInd={this.state.themeInd}
-                    isSideBarOpen={this.state.isSideBarOpen}
-                    onThemeSelect={this.onThemeSelect}
-                    onToggleSideBar={this.onToggleSideBar}
-                    themeJSON={JSON.stringify(this.state
+                  themesNameList={this.state.ThemesNameList}
+                  defautThemeInd={this.state.themeInd}
+                  isSideBarOpen={this.state.isSideBarOpen}
+                  onThemeSelect={this.onThemeSelect}
+                  onToggleSideBar={this.onToggleSideBar}
+                  themeJSON={JSON.stringify(this.state
                           .themesAppliedList[this.state.themeInd])}
-                    onChangeTheme={this.onChangeTheme}
+                  onChangeTheme={this.onChangeTheme}
                 />
             </MuiThemeProvider>
         ) : (
             <div
-                style={{
-                    padding: 16,
-                    fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif',
-                    color: 'rgb(68, 68, 68)',
-                }}
+              style={{
+                  padding: 16,
+                  fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif',
+                  color: 'rgb(68, 68, 68)',
+              }}
             >
                 waiting for muiTheme decorator...
             </div>
-        )
+        );
 //        return <div>Lorem</div>//<ThemePanel />;
     }
 }
+
+PanelConteiner.propTypes = propTypes;

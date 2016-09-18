@@ -1,6 +1,5 @@
 
 
-
 export function copyToClipboard(text) {
     return () => {
         const textElem = document.createElement('textarea');
@@ -20,5 +19,4 @@ export function copyToClipboard(text) {
         return successful;
     };
 }
-
 

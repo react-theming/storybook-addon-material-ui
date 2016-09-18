@@ -10,7 +10,7 @@ import Chip from 'material-ui/Chip';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import CloseIcone from 'material-ui/svg-icons/action/check-circle';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import { Tabs, Tab } from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
 
 import { CSS_CLASS } from '../';
@@ -21,7 +21,7 @@ const propTypes = {
     settingsName: React.PropTypes.string.isRequired,
     open: React.PropTypes.func.isRequired,
     override: React.PropTypes.func.isRequired,
-}
+};
 
 export default class ThemePropTable extends React.Component {
     constructor(props, context) {
@@ -58,7 +58,7 @@ export default class ThemePropTable extends React.Component {
             color: context.muiTheme.palette.primary1Color,
             fontSize: context.muiTheme.flatButton.fontSize,
         };
-        /*this.state = {
+        /* this.state = {
             isOpen: props.open()[props.settingsName],
 
         };*/
@@ -69,7 +69,7 @@ export default class ThemePropTable extends React.Component {
     }
 
     toggleOpen(e) {
-        /*const collapseList = this.props.open();
+        /* const collapseList = this.props.open();
         collapseList[this.props.settingsName] = !this.state.isOpen;
         this.props.open(collapseList);
         this.setState({isOpen : !this.state.isOpen})*/
@@ -81,7 +81,7 @@ export default class ThemePropTable extends React.Component {
     inputValue(propName) {
         return (event) => {
             this.props.onThemeTableOverride(propName, event.target.value);
-            /*let overObj = this.props.override();
+            /* let overObj = this.props.override();
             if(overObj == undefined) {
                 overObj = {}
             }
@@ -90,20 +90,19 @@ export default class ThemePropTable extends React.Component {
             overObj[propName] = event.target.value;
             this.props.override(overObj);
             */
-        }
+        };
     }
 
-    renderProp(val, ind ) {
+    renderProp(val, ind) {
         return (<PropRow
-                  key={val}
-                  val={val}
-                  ind={ind}
-                  settingsObj={this.props.settingsObj}
-                  inputValue={this.inputValue}
-                  isCollapsed={true}
-                />)
+          key={val}
+          val={val}
+          ind={ind}
+          settingsObj={this.props.settingsObj}
+          inputValue={this.inputValue}
+          isCollapsed
+        />);
     }
-
 
 
     render() {
@@ -112,15 +111,15 @@ export default class ThemePropTable extends React.Component {
 
 
         const keyList = Object.keys(settingsObj);
-        const rowList = keyList.map((val, ind) => ( this.renderProp(val, ind) ));
+        const rowList = keyList.map((val, ind) => (this.renderProp(val, ind)));
 
         return (
-            <Paper style={{marginTop: 6, paddingTop: 5, paddingBottom: 5}}>
-                <CardText style={{paddingTop: this.props.open() ? 10 : 1, paddingBottom: 1}}>
+            <Paper style={{ marginTop: 6, paddingTop: 5, paddingBottom: 5 }}>
+                <CardText style={{ paddingTop: this.props.open() ? 10 : 1, paddingBottom: 1 }}>
                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
+                       display: 'flex',
+                       justifyContent: 'space-between',
+                       alignItems: 'center',
                    }}>
                     <div>
                         <Chip onTouchTap={copyToClipboard(this.props.settingsName)} >
@@ -132,11 +131,11 @@ export default class ThemePropTable extends React.Component {
                     </div>
                     <div>
                          <Toggle
-                          label=""
-                          labelPosition="right"
-                          labelStyle={this.toggleHeadStyle}
-                          toggled={this.props.open() || false /* this.state.isOpen*/}
-                          onToggle={this.toggleOpen}
+                           label=""
+                           labelPosition="right"
+                           labelStyle={this.toggleHeadStyle}
+                           toggled={this.props.open() || false}
+                           onToggle={this.toggleOpen}
                          />
                      </div>
 
@@ -152,7 +151,7 @@ export default class ThemePropTable extends React.Component {
 
                            </TableHeaderColumn>
                        </TableRow>*/}
-                       {<TableRow style={{height: 32}}>
+                       {<TableRow style={{ height: 32 }}>
                            <TableHeaderColumn style={this.cellIndStyle} > # </TableHeaderColumn>
                            <TableHeaderColumn style={this.cellStyle} > Name </TableHeaderColumn>
                            <TableHeaderColumn style={this.cellStyle} > Value </TableHeaderColumn>
@@ -164,13 +163,13 @@ export default class ThemePropTable extends React.Component {
                     {
                         <TableBody
 
-                      displayRowCheckbox={false}
+                          displayRowCheckbox={false}
                         >
 
                         {rowList}
                     </TableBody> }
                 </Table> : null}
-                {/*<div style={{height: 4}}/>
+                {/* <div style={{height: 4}}/>
                 <Divider />*/}
             </CardText>
         </Paper>
@@ -211,7 +210,7 @@ class PropRow extends React.Component {
 
         this.state = {
             isCollapsed: props.isCollapsed,
-        }
+        };
 
         this.cellStyle = {
             margin: 4,
@@ -230,7 +229,7 @@ class PropRow extends React.Component {
             width: 24,
             height: 24,
         };
-        this.tabStyle = {height: 16, marginTop: -12,fontSize: 12};
+        this.tabStyle = { height: 16, marginTop: -12, fontSize: 12 };
 
         this.onSwitch = this.onSwitch.bind(this);
         this.renderPropCollapse = this.renderPropCollapse.bind(this);
@@ -239,7 +238,7 @@ class PropRow extends React.Component {
     }
 
     onSwitch() {
-        this.setState({isCollapsed: !this.state.isCollapsed});
+        this.setState({ isCollapsed: !this.state.isCollapsed });
     }
 
     renderPropCollapse(val, ind) {
@@ -247,38 +246,38 @@ class PropRow extends React.Component {
         const context = this.context;
         return (
             <TableRow
-               key={val}
-               style={{
-                    verticalAlign: 'top',
+              key={val}
+              style={{
+                  verticalAlign: 'top',
 //                    height: this.state.isCollapsed ? 32 : 32,
 //                    transition: 'height 200ms linear 0ms',
-                }}
+              }}
             >
                 <TableRowColumn style={this.cellIndStyle} >{ind + 1}</TableRowColumn>
                 <TableRowColumn style={this.cellStyle}><div title={val}>{val}</div></TableRowColumn>
                 <TableRowColumn
-                   style={{
-                    ...this.cellStyle,
-                    overflow: this.state.isCollapsed ? 'hidden' : 'visible'
-                    }}
+                  style={{
+                      ...this.cellStyle,
+                      overflow: this.state.isCollapsed ? 'hidden' : 'visible',
+                  }}
                 >
-                    {/*this.state.isCollapsed ?*/
+                    {/* this.state.isCollapsed ?*/
                      <input
-                      type="text"
-                      onChange={this.props.inputValue(val)}
-                      value={settingsObj[val]}
-                      title={settingsObj[val]}
-                      style={{
-                          border: 'none',
-                          width: '100%',
-                          fontStyle: 'italic',
+                       type="text"
+                       onChange={this.props.inputValue(val)}
+                       value={settingsObj[val]}
+                       title={settingsObj[val]}
+                       style={{
+                           border: 'none',
+                           width: '100%',
+                           fontStyle: 'italic',
 //                          paddingTop: 4,
-                          paddingBottom: 4,
+                           paddingBottom: 4,
 //                          marginTop: 4,
-                          backgroundColor: context.muiTheme.palette.canvasColor,
-                          color: context.muiTheme.palette.textColor,
-                      }}
-                    /> /*: null*/ }
+                           backgroundColor: context.muiTheme.palette.canvasColor,
+                           color: context.muiTheme.palette.textColor,
+                       }}
+                     /> /* : null*/ }
                     {this.renderE(val, ind)}
                 </TableRowColumn>
                 <TableRowColumn style={this.cellTollStyle} >
@@ -302,68 +301,69 @@ class PropRow extends React.Component {
         const context = this.context;
         return (
             <div style={{
-                    height: this.state.isCollapsed ? 2 : 226,
-                    transition: 'height 200ms linear 0ms',
-                    width: 360,
-                    marginLeft: -183,
-                    marginTop: 0,
-                    position: 'relative',
-                    overflow: 'hidden',
-                }}
-                className={`${CSS_CLASS}-proptable-expand`}
+                height: this.state.isCollapsed ? 2 : 226,
+                transition: 'height 200ms linear 0ms',
+                width: 360,
+                marginLeft: -183,
+                marginTop: 0,
+                position: 'relative',
+                overflow: 'hidden',
+            }}
+              className={`${CSS_CLASS}-proptable-expand`}
             >
                 {
                 !this.state.isCollapsed ?
                 <Paper
-                   style={{
-                    height: 208,
-                    width: 356,
-                    marginTop: 8,
-                    backgroundColor: context.muiTheme.palette.canvasColor,
-                    border: '1px red solid',
-                    borderColor: context.muiTheme.palette.borderColor,
+                  style={{
+                      height: 208,
+                      width: 356,
+                      marginTop: 8,
+                      backgroundColor: context.muiTheme.palette.canvasColor,
+                      border: '1px red solid',
+                      borderColor: context.muiTheme.palette.borderColor,
 //                    marginLeft: -184,
 //                    position: 'relative',
-                   }}
+                  }}
                 >
                    <div style={{
-                            height: 20,
-                            padding: 2,
-                            backgroundColor: context.muiTheme.palette.primary3Color,
-                            color: context.muiTheme.palette.secondaryTextColor,
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                        }} >
-                       {/*<div style={{padding: 3,}}>
+                       height: 20,
+                       padding: 2,
+                       backgroundColor: context.muiTheme.palette.primary3Color,
+                       color: context.muiTheme.palette.secondaryTextColor,
+                       display: 'flex',
+                       justifyContent: 'space-between',
+                   }} >
+                       {/* <div style={{padding: 3,}}>
                            {`${ind+1}`}
                        </div>*/}
-                       <div style={{padding: 3, marginLeft: 0}}>
+                       <div style={{ padding: 3, marginLeft: 0 }}>
                            <b>{`${val} = ${settingsObj[val]}`}</b>
                        </div>
                        <div id="button">
                            <IconButton
 
-                             style={{padding: 2, height: 24, width: 24}}
+                             style={{ padding: 2, height: 24, width: 24 }}
                              onTouchTap={this.onSwitch}
-                           > {/*tooltip="Collapse"
+                           > {/* tooltip="Collapse"
                              tooltipPosition="top-left"*/}
                               <CloseIcone
-                                 color={context.muiTheme.palette.secondaryTextColor}
-                                 hoverColor={context.muiTheme.palette.textColor}
-                                  viewBox='0 0 32 32'
+                                color={context.muiTheme.palette.secondaryTextColor}
+                                hoverColor={context.muiTheme.palette.textColor}
+                                viewBox="0 0 32 32"
                               />
                             </IconButton>
                        </div>
                    </div>
 
                     <Tabs
-                       tabItemContainerStyle={{height: 24,/* display: 'flex',fontSize: 8*/}}
-                       >
+                      tabItemContainerStyle={{ height: 24 /* display: 'flex',fontSize: 8*/ }}
+                    >
                         <Tab label="Color"
-                           style={this.tabStyle}>
+                          style={this.tabStyle}
+                        >
                             <MaterialColorPicker
-                                initColor={settingsObj[val]}
-                                onSubmit={this.props.inputValue(val)}
+                              initColor={settingsObj[val]}
+                              onSubmit={this.props.inputValue(val)}
                             />
                         </Tab>
                         <Tab label="Number" style={this.tabStyle} >
@@ -376,10 +376,10 @@ class PropRow extends React.Component {
                             </div>
                         </Tab>
                         <Tab
-                            label="String"
-                            data-route="/home"
-                            onActive={null/*handleActive*/}
-                            style={this.tabStyle}
+                          label="String"
+                          data-route="/home"
+                          onActive={null/* handleActive*/}
+                          style={this.tabStyle}
                         >
                             <div>
                                 <h2>Tab Three</h2>
@@ -410,35 +410,35 @@ class PropRow extends React.Component {
 
                 </Paper> : null}
             </div>
-        )
+        );
     }
 
     renderPropExpanded(val, ind) {
         const settingsObj = this.props.settingsObj;
         return (
                 <TableRow
-                   style={{ height: '' }}
+                  style={{ height: '' }}
                 >
-                    <TableHeaderColumn colSpan="4" style={{padding: 0}}>
-                        <div style={{height: 200, backgroundColor: '#ebebeb'}} >
+                    <TableHeaderColumn colSpan="4" style={{ padding: 0 }}>
+                        <div style={{ height: 200, backgroundColor: '#ebebeb' }} >
                            <div style={{
-                                    height: 20,
-                                    backgroundColor: '#bebebe',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }} >
+                               height: 20,
+                               backgroundColor: '#bebebe',
+                               display: 'flex',
+                               justifyContent: 'space-between',
+                           }} >
                                <div>
-                                   {`${ind+1} ${val} = ${settingsObj[val]}`}
+                                   {`${ind + 1} ${val} = ${settingsObj[val]}`}
                                </div>
                                <div id="button">
                                    <IconButton
                                      tooltip="Collapse"
                                      tooltipPosition="bottom-left"
-                                     style={{padding: 2, height: 24, width: 24}}
+                                     style={{ padding: 2, height: 24, width: 24 }}
                                      onTouchTap={this.onSwitch}
                                    >
                                       <CloseIcone
-                                          viewBox='0 0 32 32'
+                                        viewBox="0 0 32 32"
                                       />
                                     </IconButton>
                                </div>
@@ -447,11 +447,11 @@ class PropRow extends React.Component {
                         </div>
                     </TableHeaderColumn>
                 </TableRow>
-        )
+        );
     }
 
     render() {
-        return (this.renderPropCollapse(this.props.val, this.props.ind))
+        return (this.renderPropCollapse(this.props.val, this.props.ind));
 //        return (this.state.isCollapsed ?
 //                    this.renderPropCollapse(this.props.val, this.props.ind) :
 //                    this.renderPropExpanded(this.props.val, this.props.ind)

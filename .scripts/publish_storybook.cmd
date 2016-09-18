@@ -2,7 +2,7 @@
 
 setlocal enabledelayedexpansion
 
-set GIT_URL_CMD=git config --get remote.origin.url
+set GIT_URL_CMD=git config --get remote.github.url
 for /F "usebackq delims=" %%v in (`%GIT_URL_CMD%`) do set GIT_URL=%%v
 
 if %GIT_URL%=="" (
