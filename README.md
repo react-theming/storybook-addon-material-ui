@@ -1,3 +1,6 @@
+[![GitHub version](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui.svg)](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui)
+[![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
+
 #  Storybook-Addon-Material-UI 
 https://github.com/sm-react/storybook-addon-material-ui
 
@@ -108,3 +111,12 @@ By default you see only assigned fields of selected theme. You can switch to `Fu
 ![screen6](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen6.png)
 
 > See details in [sreenshorts](https://github.com/sm-react/storybook-addon-material-ui/blob/master/docs/screenshorts.md)
+
+## Demo
+(will be soon)
+
+
+
+[![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
+[![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
+
