@@ -1,0 +1,27 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "arrow-body-style": 0,
+    "prefer-arrow-callback": 0,
+    "func-names": 0,
+    "eqeqeq": 1,
+	"no-unused-vars": 1,
+    "react/jsx-no-bind": 1,
+    "react/jsx-uses-react": 1,
+    "react/prefer-stateless-function": 0,
+    // indentation
+    "indent": [ 2, 4 ],
+	// comment
+	'spaced-comment': ['warn', 'always', {
+      exceptions: ['-', '+','todo'],
+      markers: ['=', '!']           // space here to support sprockets directives
+    }],
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }
+}

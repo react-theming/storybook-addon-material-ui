@@ -1,0 +1,88 @@
+{
+  "name": "storybook-addon-material-ui",
+  "version": "0.6.0",
+  "description": "Storybook Addon for Material Ui Library",
+  "main": "dist/index.js",
+  "scripts": {
+    "publish-storybook": ".scripts\\publish_storybook.cmd",
+    "prepublish": ".scripts\\prepublish.cmd",
+    "lint": ".scripts\\lint.cmd src",
+    "lintfix": ".scripts\\lint.cmd src --fix",
+    "testonly": ".scripts\\test.cmd",
+    "test": "npm run lint && npm run testonly",
+    "test-watch": "bash .scripts\\test-watch.sh",
+    "storybook": "start-storybook -p 9010",
+    "start": "start-storybook -p 9001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sm-react/storybook-addon-material-ui.git"
+  },
+  "keywords": [
+    "storybook",
+    "react",
+    "material",
+    "ui",
+    "material-ui",
+    "addon",
+    "decorator",
+    "theme",
+    "editor",
+    "customization",
+	"dark theme",
+	"light theme"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sm-react/storybook-addon-material-ui/issues"
+  },
+  "homepage": "https://github.com/sm-react/storybook-addon-material-ui",
+  "devDependencies": {
+    "@kadira/react-storybook-addon-info": "^3.2.1",
+    "@kadira/storybook": "^2.5.2",
+    "@kadira/storybook-addons": "^1.5.0",
+    "@kadira/storybook-ui": "^3.0.0",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.5.0",
+    "babel-eslint": "^6.0.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.5.0",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.2.0",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.2.1",
+    "git-url-parse": "^6.0.1",
+    "jsdom": "^9.5.0",
+    "material-ui": "^0.15.4",
+    "mocha": "^3.0.2",
+    "node-sass": "^3.10.0",
+    "raw-loader": "^0.5.1",
+    "react": "^15.3.0",
+    "react-addons-test-utils": "^15.0.0",
+    "react-dom": "^15.3.0",
+    "sass-loader": "^4.0.2",
+    "shelljs": "^0.7.3",
+    "sinon": "^1.17.3",
+    "style-loader": "^0.13.1"
+  },
+  "peerDependencies": {
+    "@kadira/storybook-addons": "^1.3.0",
+    "material-ui": "^0.15.4",
+    "react": "^0.14.7 || ^15.0.0",
+    "react-dom": "^0.14.7 || ^15.0.0"
+  },
+  "dependencies": {
+    "@kadira/storybook": "^2.14.0",
+    "eslint-plugin-react": "^6.2.2",
+    "react-material-color-picker": "^1.1.0",
+    "react-tap-event-plugin": "^1.0.0"
+  }
+}

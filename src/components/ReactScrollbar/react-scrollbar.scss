@@ -1,0 +1,64 @@
+$color: black;
+$size: 10px;
+
+$isCorner: false;  //future: -reactjs-scrollbar-corner
+
+@mixin transition($param...) {
+    transition: $param;
+    -moz-transition: $param;
+    -webkit-transition: $param;
+    -o-transition: $param;
+}
+
+.-reactjs-scrollbar {
+    &-area {
+        //@include transition(all 0.5s ease);
+        &\:dragging {
+            //@include transition(none);
+        }
+        &\:scrolling {
+          @include transition(all 0.5s ease);
+
+          .-reactjs-scrollbar-thumb {
+            @include transition(all 0.5s ease);
+          }
+        }
+        &:hover {
+            .-reactjs-scrollbar-track {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-track { /*future: .-reactjs-scrollbar */
+        @include transition(all 0.5s ease);
+        opacity: 0.5;
+        background: rgba($color, 0);
+        &:hover {
+            background: rgba($color, 0.3);
+        }
+        &\:vertical {
+            width: $size;
+            height: 100%;
+            top: 0;
+            right: 0;
+        }
+        &\:horizontal {
+            height: $size;
+            width: 100%;
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    &-thumb {
+        //@include transition(all 0.5s ease);
+        background: rgba($color, 0.5);
+        cursor: default;
+        width: $size;     //note: width of vertical thumb
+        height: $size;    //note: height of horizontal thumb
+        &\:dragging {
+            //@include transition(none);
+        }
+    }
+}
