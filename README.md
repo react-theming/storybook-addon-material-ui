@@ -1,8 +1,9 @@
-#  _storybook-addon-_**Material-Ui** https://github.com/sm-react/storybook-addon-material-ui
+#  Storybook-Addon-Material-UI 
+https://github.com/sm-react/storybook-addon-material-ui
 
 Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies development of material-ui based components.
 
-![screen1](doc/screen1.png)
+![screen1](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen1.png)
 
 ## Features
 
@@ -40,7 +41,7 @@ import RaisedButtonExampleSimple from '../RaisedButtonExampleSimple.jsx';
 import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 storiesOf('Material-UI', module)
-// Add the `muiTheme` decorator to add material-ui support to your stories.
+// Add the `muiTheme` decorator to provide material-ui support to your stories.
 // You can also configure `muiTheme` as a global decorator.
     .addDecorator(muiTheme())
     .add('Card Example Controlled', () => (
@@ -62,7 +63,7 @@ storiesOf('Material-UI', module)
         </div>
     </div>));
 ```
-> Note : You can switch between the loaded themes. Out of the box, you have two base themes, but you can simply add your custome themes like this:
+> Note : You can switch between the loaded themes. Out of the box, you have two base themes, but you can simply add your custom themes like this:
 
 ```js
 import React from 'react';
@@ -76,7 +77,7 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 // Create your own theme like this. 
 // Note: you can specify theme name in `themeName` field. Otherwise it will be displayed by the number.
-// you can specify only the required fields overriding the `Light Base Theme`
+// you can specify only required fields overriding the `Light Base Theme`
 const newTheme = {
     themeName: 'Grey Theme',
     palette: {
@@ -119,9 +120,9 @@ storiesOf('Material-UI', module)
 ## Usage
 
 Select `MATERIAL-UI` panel. You can select the theme you need to see and you will see the all theme settings in right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
-![screen2](doc/screen3.png)
+![screen3](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen3.png)
 
 By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in `Theme setting`.
-![screen1](doc/screen6.png)
+![screen6](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen6.png)
 
-> See details in [sreenshorts](doc/screenshorts.md)
+> See details in [sreenshorts](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screenshorts.md)

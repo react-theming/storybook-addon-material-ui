@@ -1,6 +1,7 @@
 node_modules
 example
 src
+docs
 .babelrc
 .eslintrc
 .scripts
