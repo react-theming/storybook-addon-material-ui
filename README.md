@@ -10,7 +10,7 @@ Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [ma
 - Wrapped in the theme provider. Just start to develop with base light theme.
 - Injected TapEvent Plugin. Test on mobile devices.
 - Switching themes. See how it looks in one click.
-- Creating your castom theme. By coding or in visual editor.
+- Creating your castom theme. By code or in visual editor.
 - Dynamic visual themes editing. Discover the all avalibale theme properties.
 - Save made changes. (soon)
 
@@ -45,23 +45,14 @@ storiesOf('Material-UI', module)
 // You can also configure `muiTheme` as a global decorator.
     .addDecorator(muiTheme())
     .add('Card Example Controlled', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
             <CardExampleControlled />
-        </div>
-    </div>))
-  .add('Raised Button Example Simple', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
+        ))
+    .add('Raised Button Example Simple', () => (
             <RaisedButtonExampleSimple />
-        </div>
-    </div>))
-  .add('Date Picker Example Simple', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
+        ))
+    .add('Date Picker Example Simple', () => (
             <DatePickerExampleSimple />
-        </div>
-    </div>));
+        ));
 ```
 > Note : You can switch between the loaded themes. Out of the box, you have two base themes, but you can simply add your custom themes like this:
 
@@ -96,33 +87,24 @@ const newTheme = {
 storiesOf('Material-UI', module)
     .addDecorator(muiTheme([newTheme]))
     .add('Card Example Controlled', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
             <CardExampleControlled />
-        </div>
-    </div>))
-  .add('Raised Button Example Simple', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
+        ))
+    .add('Raised Button Example Simple', () => (
             <RaisedButtonExampleSimple />
-        </div>
-    </div>))
-  .add('Date Picker Example Simple', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
+        ))
+    .add('Date Picker Example Simple', () => (
             <DatePickerExampleSimple />
-        </div>
-    </div>));
+        ));
 
 
 ```
 
 ## Usage
 
-Select `MATERIAL-UI` panel. You can select the theme you need to see and you will see the all theme settings in right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
+Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
 ![screen3](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen3.png)
 
 By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in `Theme setting`.
 ![screen6](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen6.png)
 
-> See details in [sreenshorts](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screenshorts.md)
+> See details in [sreenshorts](https://github.com/sm-react/storybook-addon-material-ui/blob/master/docs/screenshorts.md)
