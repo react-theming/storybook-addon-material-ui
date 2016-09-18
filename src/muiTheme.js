@@ -4,6 +4,7 @@ import React from 'react';
 import { MuiTheme } from './containers/MuiTheme';
 import addons from '@kadira/storybook-addons';
 import { EVENT_ID_INIT } from './';
+import { EVENT_ID_DATA } from './';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
@@ -54,7 +55,7 @@ export function muiTheme(themes) {
 
     let storedState = {
         themeInd: 0,
-        isSideBarOpen: true,
+        isSideBarOpen: false,
         isFullTheme: false,
         collapseList: {
             palette: true,
@@ -63,19 +64,21 @@ export function muiTheme(themes) {
         currentThemeOverride: {},
 
     };
-    let storeState = (state) => {
+    let storeState = (state, isNewData) => {
         storedState = state;
-//        console.log(storedState)
+        const refreshPanel = {
+            themesAppliedList,
+            themesRenderedList,
+            panelState: panelState(storedState),
+        }
+        if(!isNewData) channel.emit(EVENT_ID_DATA, refreshPanel);
     };
 
     let onThemeOverride = (themeInd) => {
         return (overTheme) => {
-//            console.info('index')
-//            console.log(overTheme)
             themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
             themesAppliedList[themeInd] = themeApply(themesInitList[themeInd], themesOverrideList[themeInd]);
             return themesAppliedList;
-//            themesRenderedList = themeListRender(themesAppliedList);
         }
     };
 
@@ -92,9 +95,10 @@ export function muiTheme(themes) {
     channel.emit(EVENT_ID_INIT, initPanel);
 
     return (story) => {
+        const storyItem = story();
         return (
             <MuiTheme
-              story={story}
+              story={storyItem}
               themesAppliedListInit={themesAppliedList}
               themesRenderedList={themesRenderedList}
               onThemeOverride={onThemeOverride}

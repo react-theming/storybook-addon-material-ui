@@ -11,16 +11,6 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-function inject() { // note feature! (move to index)
-    try {
-        injectTapEventPlugin();
-    } catch (err) {
-        console.log(err);
-    }
-}
-inject();
-
 
 export default class ThemeToolbar extends React.Component {
 

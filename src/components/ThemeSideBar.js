@@ -9,9 +9,7 @@ import TextField from 'material-ui/TextField';
 
 
 import { CSS_CLASS } from '../';
-//import ThemePropTable from './ThemePropTable.jsx';
 import ThemePropBlock from './ThemePropBlock';
-//import ReactScrollbar from './ReactScrollbar';
 
 const BAR_WIDTH = 400;
 
@@ -22,6 +20,8 @@ const propTypes = {
     muiTheme: React.PropTypes.object.isRequired,
     fullTheme: React.PropTypes.func.isRequired,
     collapseList: React.PropTypes.func.isRequired,
+    shouldComponentUpdate: React.PropTypes.bool.isRequired,
+    shouldShowData: React.PropTypes.bool.isRequired,
 };
 
 export default class ThemeSideBar extends React.Component {
@@ -74,7 +74,9 @@ export default class ThemeSideBar extends React.Component {
                         </CardText>
                     </Paper>
                 </div>
-                {themesList(this.props.fullTheme() ? this.props.muiTheme : this.props.theme, this.props)}
+                {this.props.shouldShowData ?
+                    themesList(this.props.fullTheme() ? this.props.muiTheme : this.props.theme, this.props)
+                 : null}
             </div>
         );
     }

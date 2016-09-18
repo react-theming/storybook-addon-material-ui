@@ -27,15 +27,18 @@ export default class ThemePropBlock extends React.Component {
         this.state = {
             toolCollapsedList: {}
         }
+        this.needComponentUpdate = false;
         this.valueHandler = this.valueHandler.bind(this);
         this.onToolCollapse = this.onToolCollapse.bind(this);
         this.renderProp = this.renderProp.bind(this);
         this.renderColl = this.renderColl.bind(this);
         this.renderExp = this.renderExp.bind(this);
+
     }
 
     valueHandler(propName) {
         return (event) => {
+            this.needComponentUpdate = true;
             this.props.onThemeTableOverride(propName, event.target.value);
         }
     }
@@ -44,8 +47,15 @@ export default class ThemePropBlock extends React.Component {
         return (isCol) => {
             const { toolCollapsedList } = this.state;
             toolCollapsedList[val] = isCol;
+            this.needComponentUpdate = true;
             this.setState({toolCollapsedList});
         }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        const f = this.needComponentUpdate;
+        this.needComponentUpdate = false;
+        return f;
     }
 
     renderProp(val, ind, isOpen, isHeader) {
@@ -93,6 +103,11 @@ export default class ThemePropBlock extends React.Component {
     render() {
 //        console.warn('render ThemePropBlock')
         const {settingsName, open} = this.props
+        const openThis = (f) => {
+            if (typeof(f) === 'undefined') return open();
+            this.needComponentUpdate = true;
+            open(f);
+        }
         return (
             <Paper
                 style={{
@@ -103,7 +118,7 @@ export default class ThemePropBlock extends React.Component {
                     marginTop: 8,
                 }}
             >
-                <BlockHeader {...{settingsName, open}} />
+                <BlockHeader {...{settingsName, openThis}} />
                 <div style={{height: 16}}/>
 
                 {/* this.props.open() ? this.renderExp() : */ this.renderColl() }
@@ -122,9 +137,7 @@ function BlockHeader(props, context) {
         fontSize: context.muiTheme.flatButton.fontSize,
     };
     const toggleOpen = (e) => {
-
-        props.open(!props.open());
-//        this.forceUpdate();
+        props.openThis(!props.openThis());
     }
     return (
         <div style={{
@@ -145,7 +158,7 @@ function BlockHeader(props, context) {
                   label=""
                   labelPosition="right"
                   labelStyle={toggleHeadStyle}
-                  toggled={props.open() || false}
+                  toggled={props.openThis() || false}
                   onToggle={toggleOpen}
                  />
              </div>

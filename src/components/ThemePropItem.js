@@ -241,7 +241,41 @@ function PropTool(props, context) {
 
 PropTool.contextTypes = contextTypes;
 
+
 function PropToolPicker(props, context) {
+    const {settingsObj, valueHandler, onToolTogle} = props;
+//    const initColor = (parseInt(settingsObj) === settingsObj) ? '' : settingsObj;
+    const initColor = `${settingsObj}`;
+    const style = {
+        height: props.isCollapsed ? 0 : 200,
+        transition: 'height 300ms ease 0ms',
+        overflow: 'hidden',
+    }
+    const tabStyle = {height: 16, marginTop: -12,fontSize: 12};
+    const onSubmit = (event) => {
+        valueHandler(event);
+        onToolTogle();
+    }
+    // fixme: check onReset
+    return(
+        <div {...{style}}>
+           <div style={{border: 'solid 1px grey'}}>
+                <MaterialColorPicker
+                    initColor={initColor}
+                    onSubmit={onSubmit}
+                    onSelect={valueHandler}
+                    onHover={valueHandler}
+                    onReset={onSubmit}
+                />
+            </div>
+        </div>
+    )
+}
+
+PropToolPicker.contextTypes = contextTypes;
+
+
+function PropToolPickerFull(props, context) {
     const {settingsObj, valueHandler, onToolTogle} = props;
     const initColor = (parseInt(settingsObj) === settingsObj) ? '' : settingsObj;
 //    const initColor = `${settingsObj} `;
@@ -316,4 +350,4 @@ function PropToolPicker(props, context) {
     )
 }
 
-PropToolPicker.contextTypes = contextTypes;
+PropToolPickerFull.contextTypes = contextTypes;

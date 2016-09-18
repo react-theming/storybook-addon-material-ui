@@ -15,6 +15,7 @@ Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [ma
 - Switching themes. See how it looks in one click.
 - Creating your castom theme. By code or in visual editor.
 - Dynamic visual themes editing. Discover the all avalibale theme properties.
+- Google [material color](https://material.google.com/style/color.html#color-color-palette) palette [picker](https://github.com/sm-react/react-material-color-picker)
 - Save made changes. (soon)
 
 ## Getting Started

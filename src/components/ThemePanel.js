@@ -10,13 +10,14 @@ import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
+import Toggle from 'material-ui/Toggle';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-function inject() { // note feature! (move to index)
+function inject() {
     try {
         injectTapEventPlugin();
     } catch (err) {
-        console.log(err);
+        console.warn(err);
     }
 }
 inject();
@@ -28,6 +29,8 @@ const propTypes = {
     onThemeSelect: React.PropTypes.func.isRequired,
     onToggleSideBar: React.PropTypes.func.isRequired,
     isSideBarOpen: React.PropTypes.bool.isRequired,
+    themeJSON: React.PropTypes.string,
+    onChangeTheme: React.PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -65,8 +68,11 @@ export default class ThemeToolbar extends React.Component {
         return (
             <div
                style={{
+                    width: '100%',
+//                    height: '100%',
                     display: 'flex',
-                    backgroundColor: this.context.muiTheme.palette.alternateTextColor,
+                    justifyContent: 'space-between',
+                    backgroundColor: this.context.muiTheme.palette.canvasColor,
                 }}
             >
                 <DropDownMenu
@@ -77,13 +83,23 @@ export default class ThemeToolbar extends React.Component {
                 >
                     {this.menuItems}
                 </DropDownMenu>
-                <IconButton
-                    tooltip={this.props.isSideBarOpen ? 'Close side bar' : 'Open side bar'}
-                    onTouchTap={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
-                    tooltipPosition="bottom-left"
-                >
-                    {this.props.isSideBarOpen ? <SvgRight /> : <SvgLeft />}
-                </IconButton>
+                <div style={{width: 200, flexGrow: 1, padding: 16 }}>
+                    <textarea
+                       style={{width: '100%', height: '100%'}}
+                       value={this.props.themeJSON}
+                       onChange={this.props.onChangeTheme}
+                    />
+
+                </div>
+                <div style={{width: 200, padding: 16 }}>
+                   <Toggle
+                    label="Show Theme Editor"
+                    labelPosition="left"
+                    toggled={this.props.isSideBarOpen}
+                    onToggle={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
+
+                     />
+                 </div>
 
             </div>
         );

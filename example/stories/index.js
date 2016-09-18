@@ -1,13 +1,6 @@
 import React from 'react';
 import { storiesOf, action, setAddon, addDecorator } from '@kadira/storybook';
 
-
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-// injectTapEventPlugin();
-
-
-// import {MuiTheme} from './react-storybook-decorator-material-ui/MuiTheme.jsx';
 import {muiTheme} from './../../src/';
 
 import CardExampleControlled from '../CardExampleControlled.jsx';
@@ -17,12 +10,16 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 const newTheme = {
     themeName: 'Grey Theme',
-    themeFunc: (x) => x.palette.text1,
     palette: {
+        primary1Color: '#00bcd4',
         alternateTextColor: '#4a4a4a',
+        canvasColor: '#616161',
+        textColor: '#bdbdbd',
+        secondaryTextColor: 'rgba(255, 255, 255, 0.54)',
+        disabledColor: '#757575',
+        accent1Color: '#607d8b',
     },
 };
-
 
 
 storiesOf('Material-UI', module)
