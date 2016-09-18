@@ -44,9 +44,8 @@ var _darkBaseTheme2 = _interopRequireDefault(_darkBaseTheme);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// todo: addon for themes info
+_lightBaseTheme2.default.themeName = 'Light Theme'; // todo: addon for themes info
 
-_lightBaseTheme2.default.themeName = 'Light Theme';
 _darkBaseTheme2.default.themeName = 'Dark Theme';
 
 function muiTheme(themes) {
@@ -89,7 +88,7 @@ function muiTheme(themes) {
 
     var storedState = {
         themeInd: 0,
-        isSideBarOpen: true,
+        isSideBarOpen: false,
         isFullTheme: false,
         collapseList: {
             palette: true
@@ -98,19 +97,21 @@ function muiTheme(themes) {
         currentThemeOverride: {}
 
     };
-    var storeState = function storeState(state) {
+    var storeState = function storeState(state, isNewData) {
         storedState = state;
-        //        console.log(storedState)
+        var refreshPanel = {
+            themesAppliedList: themesAppliedList,
+            themesRenderedList: themesRenderedList,
+            panelState: panelState(storedState)
+        };
+        if (!isNewData) channel.emit(_.EVENT_ID_DATA, refreshPanel);
     };
 
     var onThemeOverride = function onThemeOverride(themeInd) {
         return function (overTheme) {
-            //            console.info('index')
-            //            console.log(overTheme)
             themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
             themesAppliedList[themeInd] = themeApply(themesInitList[themeInd], themesOverrideList[themeInd]);
             return themesAppliedList;
-            //            themesRenderedList = themeListRender(themesAppliedList);
         };
     };
 
@@ -129,8 +130,9 @@ function muiTheme(themes) {
     channel.emit(_.EVENT_ID_INIT, initPanel);
 
     return function (story) {
+        var storyItem = story();
         return _react2.default.createElement(_MuiTheme.MuiTheme, {
-            story: story,
+            story: storyItem,
             themesAppliedListInit: themesAppliedList,
             themesRenderedList: themesRenderedList,
             onThemeOverride: onThemeOverride,
@@ -149,7 +151,7 @@ function muiTheme(themes) {
     defautThemeInd = {defautThemeInd}
 */
 
-//export default muiTheme;
+// export default muiTheme;
 
 function themeApply(prevTheme, overTheme) {
     var newTheme = makeClone(prevTheme);

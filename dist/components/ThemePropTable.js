@@ -132,7 +132,7 @@ var ThemePropTable = function (_React$Component) {
             color: context.muiTheme.palette.primary1Color,
             fontSize: context.muiTheme.flatButton.fontSize
         };
-        /*this.state = {
+        /* this.state = {
             isOpen: props.open()[props.settingsName],
          };*/
 
@@ -145,7 +145,7 @@ var ThemePropTable = function (_React$Component) {
     (0, _createClass3.default)(ThemePropTable, [{
         key: 'toggleOpen',
         value: function toggleOpen(e) {
-            /*const collapseList = this.props.open();
+            /* const collapseList = this.props.open();
             collapseList[this.props.settingsName] = !this.state.isOpen;
             this.props.open(collapseList);
             this.setState({isOpen : !this.state.isOpen})*/
@@ -160,7 +160,7 @@ var ThemePropTable = function (_React$Component) {
 
             return function (event) {
                 _this2.props.onThemeTableOverride(propName, event.target.value);
-                /*let overObj = this.props.override();
+                /* let overObj = this.props.override();
                 if(overObj == undefined) {
                     overObj = {}
                 }
@@ -230,7 +230,7 @@ var ThemePropTable = function (_React$Component) {
                                 label: '',
                                 labelPosition: 'right',
                                 labelStyle: this.toggleHeadStyle,
-                                toggled: this.props.open() || false /* this.state.isOpen*/,
+                                toggled: this.props.open() || false,
                                 onToggle: this.toggleOpen
                             })
                         )
@@ -386,7 +386,7 @@ var PropRow = function (_React$Component2) {
                             overflow: this.state.isCollapsed ? 'hidden' : 'visible'
                         })
                     },
-                    /*this.state.isCollapsed ?*/
+                    /* this.state.isCollapsed ?*/
                     _react2.default.createElement('input', {
                         type: 'text',
                         onChange: this.props.inputValue(val),
@@ -402,7 +402,7 @@ var PropRow = function (_React$Component2) {
                             backgroundColor: context.muiTheme.palette.canvasColor,
                             color: context.muiTheme.palette.textColor
                         }
-                    }) /*: null*/,
+                    }) /* : null*/,
                     this.renderE(val, ind)
                 ),
                 _react2.default.createElement(
@@ -491,12 +491,13 @@ var PropRow = function (_React$Component2) {
                     _react2.default.createElement(
                         _Tabs.Tabs,
                         {
-                            tabItemContainerStyle: { height: 24 }
+                            tabItemContainerStyle: { height: 24 /* display: 'flex',fontSize: 8*/ }
                         },
                         _react2.default.createElement(
                             _Tabs.Tab,
                             { label: 'Color',
-                                style: this.tabStyle },
+                                style: this.tabStyle
+                            },
                             _react2.default.createElement(_reactMaterialColorPicker2.default, {
                                 initColor: settingsObj[val],
                                 onSubmit: this.props.inputValue(val)
@@ -526,7 +527,7 @@ var PropRow = function (_React$Component2) {
                             {
                                 label: 'String',
                                 'data-route': '/home',
-                                onActive: null /*handleActive*/,
+                                onActive: null /* handleActive*/,
                                 style: this.tabStyle
                             },
                             _react2.default.createElement(

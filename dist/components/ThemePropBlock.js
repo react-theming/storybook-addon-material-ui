@@ -87,6 +87,7 @@ var ThemePropBlock = function (_React$Component) {
         _this.state = {
             toolCollapsedList: {}
         };
+        _this.needComponentUpdate = false;
         _this.valueHandler = _this.valueHandler.bind(_this);
         _this.onToolCollapse = _this.onToolCollapse.bind(_this);
         _this.renderProp = _this.renderProp.bind(_this);
@@ -101,6 +102,7 @@ var ThemePropBlock = function (_React$Component) {
             var _this2 = this;
 
             return function (event) {
+                _this2.needComponentUpdate = true;
                 _this2.props.onThemeTableOverride(propName, event.target.value);
             };
         }
@@ -113,8 +115,16 @@ var ThemePropBlock = function (_React$Component) {
                 var toolCollapsedList = _this3.state.toolCollapsedList;
 
                 toolCollapsedList[val] = isCol;
+                _this3.needComponentUpdate = true;
                 _this3.setState({ toolCollapsedList: toolCollapsedList });
             };
+        }
+    }, {
+        key: 'shouldComponentUpdate',
+        value: function shouldComponentUpdate(nextProps, nextState) {
+            var f = this.needComponentUpdate;
+            this.needComponentUpdate = false;
+            return f;
         }
     }, {
         key: 'renderProp',
@@ -168,11 +178,18 @@ var ThemePropBlock = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this5 = this;
+
             //        console.warn('render ThemePropBlock')
             var _props = this.props;
             var settingsName = _props.settingsName;
             var open = _props.open;
 
+            var openThis = function openThis(f) {
+                if (typeof f === 'undefined') return open();
+                _this5.needComponentUpdate = true;
+                open(f);
+            };
             return _react2.default.createElement(
                 _Paper2.default,
                 {
@@ -184,7 +201,7 @@ var ThemePropBlock = function (_React$Component) {
                         marginTop: 8
                     }
                 },
-                _react2.default.createElement(BlockHeader, { settingsName: settingsName, open: open }),
+                _react2.default.createElement(BlockHeader, { settingsName: settingsName, openThis: openThis }),
                 _react2.default.createElement('div', { style: { height: 16 } }),
                 /* this.props.open() ? this.renderExp() : */this.renderColl()
             );
@@ -205,9 +222,7 @@ function BlockHeader(props, context) {
         fontSize: context.muiTheme.flatButton.fontSize
     };
     var toggleOpen = function toggleOpen(e) {
-
-        props.open(!props.open());
-        //        this.forceUpdate();
+        props.openThis(!props.openThis());
     };
     return _react2.default.createElement(
         'div',
@@ -237,7 +252,7 @@ function BlockHeader(props, context) {
                 label: '',
                 labelPosition: 'right',
                 labelStyle: toggleHeadStyle,
-                toggled: props.open() || false,
+                toggled: props.openThis() || false,
                 onToggle: toggleOpen
             })
         )

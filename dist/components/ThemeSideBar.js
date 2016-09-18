@@ -60,11 +60,7 @@ var _ThemePropBlock2 = _interopRequireDefault(_ThemePropBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import ReactScrollbar from './ReactScrollbar';
-
 var BAR_WIDTH = 400;
-//import ThemePropTable from './ThemePropTable.jsx';
-
 
 var propTypes = {
     open: _react2.default.PropTypes.bool.isRequired,
@@ -72,7 +68,9 @@ var propTypes = {
     theme: _react2.default.PropTypes.object.isRequired,
     muiTheme: _react2.default.PropTypes.object.isRequired,
     fullTheme: _react2.default.PropTypes.func.isRequired,
-    collapseList: _react2.default.PropTypes.func.isRequired
+    collapseList: _react2.default.PropTypes.func.isRequired,
+    shouldComponentUpdate: _react2.default.PropTypes.bool.isRequired,
+    shouldShowData: _react2.default.PropTypes.bool.isRequired
 };
 
 var ThemeSideBar = function (_React$Component) {
@@ -152,7 +150,7 @@ var ThemeSideBar = function (_React$Component) {
                         )
                     )
                 ),
-                themesList(this.props.fullTheme() ? this.props.muiTheme : this.props.theme, this.props)
+                this.props.shouldShowData ? themesList(this.props.fullTheme() ? this.props.muiTheme : this.props.theme, this.props) : null
             );
         }
     }, {
@@ -261,7 +259,7 @@ function themesList(themeObj, props) {
     var tablesListObj = keyList.map(function (val, ind) {
         if ((0, _typeof3.default)(themeObj[val]) === 'object' && val !== 'palette') {
             return themePropTable(val, themeObj[val])
-            /*<ThemePropTable
+            /* <ThemePropTable
                 key={val}
                 settingsObj={themeObj[val]}
                 settingsName={val}
@@ -301,8 +299,7 @@ function themesList(themeObj, props) {
                         paddingLeft: 3,
                         paddingRight: 12
 
-                    }
-                },
+                    } },
                 _react2.default.createElement(
                     'div',
                     { style: { backgroundColor: 'rgba(128, 128, 128, 0.04)' } },

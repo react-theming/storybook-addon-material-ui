@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -52,47 +56,58 @@ var _ThemePanel2 = _interopRequireDefault(_ThemePanel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Panel = function (_React$Component) {
-    (0, _inherits3.default)(Panel, _React$Component);
+var propTypes = {
+    channel: _react2.default.PropTypes.object
+};
 
-    function Panel(props) {
+var PanelConteiner = function (_React$Component) {
+    (0, _inherits3.default)(PanelConteiner, _React$Component);
+
+    function PanelConteiner(props) {
         var _ref;
 
-        (0, _classCallCheck3.default)(this, Panel);
+        (0, _classCallCheck3.default)(this, PanelConteiner);
 
         for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
             args[_key - 1] = arguments[_key];
         }
 
-        var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = Panel.__proto__ || (0, _getPrototypeOf2.default)(Panel)).call.apply(_ref, [this, props].concat(args)));
+        var _this = (0, _possibleConstructorReturn3.default)(this, (_ref = PanelConteiner.__proto__ || (0, _getPrototypeOf2.default)(PanelConteiner)).call.apply(_ref, [this, props].concat(args)));
 
         _this.state = { isReady: false };
+        _this.isNewData = false;
 
-        //        const muiTheme = getMuiTheme(lightBaseTheme);
-        _this.onChannel = _this.onChannel.bind(_this);
+        _this.muiTheme = (0, _getMuiTheme2.default)(_lightBaseTheme2.default);
+
+        _this.onInitChannel = _this.onInitChannel.bind(_this);
+        _this.onDataChannel = _this.onDataChannel.bind(_this);
         _this.onThemeSelect = _this.onThemeSelect.bind(_this);
+        _this.onChangeTheme = _this.onChangeTheme.bind(_this);
         _this.onToggleSideBar = _this.onToggleSideBar.bind(_this);
         return _this;
     }
 
-    (0, _createClass3.default)(Panel, [{
+    (0, _createClass3.default)(PanelConteiner, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.props.channel.on(_.EVENT_ID_INIT, this.onChannel);
+            this.props.channel.on(_.EVENT_ID_INIT, this.onInitChannel);
+            this.props.channel.on(_.EVENT_ID_DATA, this.onDataChannel);
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            this.props.channel.removeListener(_.EVENT_ID_INIT, this.onChannel);
+            this.props.channel.removeListener(_.EVENT_ID_INIT, this.onInitChannel);
+            this.props.channel.removeListener(_.EVENT_ID_DATA, this.onDataChannel);
         }
     }, {
         key: 'componentWillUpdate',
         value: function componentWillUpdate(nextProps, nextState) {
-            this.props.channel.emit(_.EVENT_ID_DATA, nextState);
+            if (!this.isNewData) this.props.channel.emit(_.EVENT_ID_DATA, nextState);
+            this.isNewData = false;
         }
     }, {
-        key: 'onChannel',
-        value: function onChannel(props) {
+        key: 'onInitChannel',
+        value: function onInitChannel(props) {
             var state = props.panelState;
             state.themesAppliedList = props.themesAppliedList;
             state.muiTheme = (0, _getMuiTheme2.default)(props.themesAppliedList[props.panelState.themeInd]);
@@ -101,7 +116,19 @@ var Panel = function (_React$Component) {
             });
             state.isReady = true;
             this.setState(state);
-            console.info('the panel is initialized');
+        }
+    }, {
+        key: 'onDataChannel',
+        value: function onDataChannel(props) {
+            var state = props.panelState;
+            state.themesAppliedList = props.themesAppliedList;
+            state.muiTheme = (0, _getMuiTheme2.default)(props.themesAppliedList[props.panelState.themeInd]);
+            state.ThemesNameList = props.themesAppliedList.map(function (val, ind) {
+                return val.themeName || 'Theme ' + (ind + 1);
+            });
+            state.themeInd = props.panelState.themeInd;
+            this.isNewData = true;
+            this.setState(state);
         }
     }, {
         key: 'onThemeSelect',
@@ -111,6 +138,16 @@ var Panel = function (_React$Component) {
                 //            muiTheme: getMuiTheme(this.state.themesAppliedList[ind]),
                 themeInd: ind
             });
+        }
+    }, {
+        key: 'onChangeTheme',
+        value: function onChangeTheme(event) {
+            var str = event.target.value;
+            var newTheme = JSON.parse(str);
+            var themesAppliedList = this.state.themesAppliedList;
+            themesAppliedList[this.state.themeInd] = newTheme;
+            this.setState({ themesAppliedList: themesAppliedList });
+            //        console.log(newTheme);
         }
     }, {
         key: 'onToggleSideBar',
@@ -123,26 +160,36 @@ var Panel = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            console.warn('render PanelContainer');
             return this.state.isReady ? _react2.default.createElement(
                 _MuiThemeProvider2.default,
-                { muiTheme: this.state.muiTheme },
+                { muiTheme: this.muiTheme },
                 _react2.default.createElement(_ThemePanel2.default, {
                     themesNameList: this.state.ThemesNameList,
                     defautThemeInd: this.state.themeInd,
                     isSideBarOpen: this.state.isSideBarOpen,
                     onThemeSelect: this.onThemeSelect,
-                    onToggleSideBar: this.onToggleSideBar
+                    onToggleSideBar: this.onToggleSideBar,
+                    themeJSON: (0, _stringify2.default)(this.state.themesAppliedList[this.state.themeInd]),
+                    onChangeTheme: this.onChangeTheme
                 })
             ) : _react2.default.createElement(
                 'div',
-                null,
-                'the panel is not initialized'
+                {
+                    style: {
+                        padding: 16,
+                        fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif',
+                        color: 'rgb(68, 68, 68)'
+                    }
+                },
+                'waiting for muiTheme decorator...'
             );
             //        return <div>Lorem</div>//<ThemePanel />;
         }
     }]);
-    return Panel;
+    return PanelConteiner;
 }(_react2.default.Component);
 
-exports.default = Panel;
+exports.default = PanelConteiner;
+
+
+PanelConteiner.propTypes = propTypes;

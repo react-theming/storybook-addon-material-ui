@@ -243,7 +243,7 @@ function PropHeader(props, context) {
         },
         _react2.default.createElement(
             'div',
-            { style: {/*maxWidth: 40, minWidth: 20*/} },
+            { style: {/* maxWidth: 40, minWidth: 20*/} },
             isNotHeader ? ind + 1 : '#'
         ),
         _react2.default.createElement(
@@ -334,6 +334,43 @@ function PropToolPicker(props, context) {
     var settingsObj = props.settingsObj;
     var valueHandler = props.valueHandler;
     var onToolTogle = props.onToolTogle;
+    //    const initColor = (parseInt(settingsObj) === settingsObj) ? '' : settingsObj;
+
+    var initColor = '' + settingsObj;
+    var style = {
+        height: props.isCollapsed ? 0 : 200,
+        transition: 'height 300ms ease 0ms',
+        overflow: 'hidden'
+    };
+    var tabStyle = { height: 16, marginTop: -12, fontSize: 12 };
+    var onSubmit = function onSubmit(event) {
+        valueHandler(event);
+        onToolTogle();
+    };
+    // fixme: check onReset
+    return _react2.default.createElement(
+        'div',
+        { style: style },
+        _react2.default.createElement(
+            'div',
+            { style: { border: 'solid 1px grey' } },
+            _react2.default.createElement(_reactMaterialColorPicker2.default, {
+                initColor: initColor,
+                onSubmit: onSubmit,
+                onSelect: valueHandler,
+                onHover: valueHandler,
+                onReset: onSubmit
+            })
+        )
+    );
+}
+
+PropToolPicker.contextTypes = contextTypes;
+
+function PropToolPickerFull(props, context) {
+    var settingsObj = props.settingsObj;
+    var valueHandler = props.valueHandler;
+    var onToolTogle = props.onToolTogle;
 
     var initColor = parseInt(settingsObj) === settingsObj ? '' : settingsObj;
     //    const initColor = `${settingsObj} `;
@@ -353,12 +390,13 @@ function PropToolPicker(props, context) {
         _react2.default.createElement(
             _Tabs.Tabs,
             {
-                tabItemContainerStyle: { height: 24 }
+                tabItemContainerStyle: { height: 24 /* display: 'flex',fontSize: 8*/ }
             },
             _react2.default.createElement(
                 _Tabs.Tab,
                 { label: 'Color',
-                    style: tabStyle },
+                    style: tabStyle
+                },
                 _react2.default.createElement(
                     'div',
                     { style: { border: 'solid 1px grey' } },
@@ -394,7 +432,7 @@ function PropToolPicker(props, context) {
                 {
                     label: 'String',
                     'data-route': '/home',
-                    onActive: null /*handleActive*/,
+                    onActive: null /* handleActive*/,
                     style: tabStyle
                 },
                 _react2.default.createElement(
@@ -454,4 +492,4 @@ function PropToolPicker(props, context) {
     );
 }
 
-PropToolPicker.contextTypes = contextTypes;
+PropToolPickerFull.contextTypes = contextTypes;

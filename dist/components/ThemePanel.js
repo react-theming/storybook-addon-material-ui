@@ -70,6 +70,10 @@ var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
 var _Toolbar = require('material-ui/Toolbar');
 
+var _Toggle = require('material-ui/Toggle');
+
+var _Toggle2 = _interopRequireDefault(_Toggle);
+
 var _reactTapEventPlugin = require('react-tap-event-plugin');
 
 var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
@@ -77,11 +81,10 @@ var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function inject() {
-    // note feature! (move to index)
     try {
         (0, _reactTapEventPlugin2.default)();
     } catch (err) {
-        console.log(err);
+        console.warn(err);
     }
 }
 inject();
@@ -91,7 +94,9 @@ var propTypes = {
     defautThemeInd: _react2.default.PropTypes.number.isRequired,
     onThemeSelect: _react2.default.PropTypes.func.isRequired,
     onToggleSideBar: _react2.default.PropTypes.func.isRequired,
-    isSideBarOpen: _react2.default.PropTypes.bool.isRequired
+    isSideBarOpen: _react2.default.PropTypes.bool.isRequired,
+    themeJSON: _react2.default.PropTypes.string,
+    onChangeTheme: _react2.default.PropTypes.func.isRequired
 };
 
 var defaultProps = {
@@ -139,8 +144,11 @@ var ThemeToolbar = function (_React$Component) {
                 'div',
                 {
                     style: {
+                        width: '100%',
+                        //                    height: '100%',
                         display: 'flex',
-                        backgroundColor: this.context.muiTheme.palette.alternateTextColor
+                        justifyContent: 'space-between',
+                        backgroundColor: this.context.muiTheme.palette.canvasColor
                     }
                 },
                 _react2.default.createElement(
@@ -148,21 +156,31 @@ var ThemeToolbar = function (_React$Component) {
                     {
                         value: this.state.value,
                         onChange: this.handleChange,
-                        underlineStyle: {/*border: 'solid 2px black'*/},
+                        underlineStyle: {/* border: 'solid 2px black'*/},
                         iconStyle: { fill: this.context.muiTheme.palette.textColor }
                     },
                     this.menuItems
                 ),
                 _react2.default.createElement(
-                    _IconButton2.default,
-                    {
-                        tooltip: this.props.isSideBarOpen ? 'Close side bar' : 'Open side bar',
-                        onTouchTap: function onTouchTap() {
+                    'div',
+                    { style: { width: 200, flexGrow: 1, padding: 16 } },
+                    _react2.default.createElement('textarea', {
+                        style: { width: '100%', height: '100%' },
+                        value: this.props.themeJSON,
+                        onChange: this.props.onChangeTheme
+                    })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { style: { width: 200, padding: 16 } },
+                    _react2.default.createElement(_Toggle2.default, {
+                        label: 'Show Theme Editor',
+                        labelPosition: 'left',
+                        toggled: this.props.isSideBarOpen,
+                        onToggle: function onToggle() {
                             return _this2.props.onToggleSideBar(!_this2.props.isSideBarOpen);
-                        },
-                        tooltipPosition: 'bottom-left'
-                    },
-                    this.props.isSideBarOpen ? _react2.default.createElement(_chevronRight2.default, null) : _react2.default.createElement(_chevronLeft2.default, null)
+                        }
+                    })
                 )
             );
         }

@@ -70,21 +70,7 @@ var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
 var _Toolbar = require('material-ui/Toolbar');
 
-var _reactTapEventPlugin = require('react-tap-event-plugin');
-
-var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function inject() {
-    // note feature! (move to index)
-    try {
-        (0, _reactTapEventPlugin2.default)();
-    } catch (err) {
-        console.log(err);
-    }
-}
-inject();
 
 var ThemeToolbar = function (_React$Component) {
     (0, _inherits3.default)(ThemeToolbar, _React$Component);

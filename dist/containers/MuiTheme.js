@@ -62,10 +62,12 @@ var propTypes = {
     themeArr: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object),
     themeName: _react2.default.PropTypes.string,
     themeNameArr: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.string),
-    story: _react2.default.PropTypes.func.isRequired,
+    story: _react2.default.PropTypes.object.isRequired,
     //    onChangeTheme: React.PropTypes.func.isRequired,
     onChangeState: _react2.default.PropTypes.func.isRequired,
-    initState: _react2.default.PropTypes.object
+    onThemeOverride: _react2.default.PropTypes.func.isRequired,
+    initState: _react2.default.PropTypes.object,
+    channel: _react2.default.PropTypes.object
 };
 
 var MuiTheme = exports.MuiTheme = function (_React$Component) {
@@ -80,6 +82,7 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
         _this.state.themesAppliedList = props.themesAppliedListInit;
         _this.state.muiTheme = (0, _getMuiTheme2.default)(props.themesAppliedListInit[props.initState.themeInd]);
         _this.state.isMount = false;
+        _this.isNewData = false;
         /*
         this.state = {
             muiTheme: getMuiTheme(props.themesList[props.defautThemeInd]),
@@ -97,8 +100,6 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
         _this.subState = _this.subState.bind(_this);
         _this.wouldComponentUpdate = _this.wouldComponentUpdate.bind(_this);
         _this.needComponentUpdate = _this.needComponentUpdate.bind(_this);
-
-        console.log('MuiTheme constructor');
         return _this;
     }
 
@@ -110,6 +111,7 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
             this.props.channel.on(_.EVENT_ID_DATA, this.onChannel);
             if (!this.state.isMount) {
                 setTimeout(function () {
+                    _this2.needComponentUpdate('ThemeSideBar');
                     _this2.setState({ isMount: true });
                 }, 1);
             }
@@ -125,10 +127,17 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
             var _this3 = this;
 
             this.needComponentUpdate('ThemeSideBar');
+            this.isNewData = true;
+            /* const propsThemeOverFunc = this.props.onThemeOverride(this.state.themeInd);
+            const themesAppliedList = propsThemeOverFunc(
+                state.themesAppliedList[state.themeInd]
+            );
+            state.themesAppliedList = themesAppliedList;*/
             this.setState((0, _extends3.default)({}, state, { isMount: false }), function () {
                 return setTimeout(function () {
+                    _this3.isNewData = true;
                     _this3.setState({ isMount: true });
-                }, 1000);
+                }, 10);
             });
         }
     }, {
@@ -174,7 +183,6 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
                 var subState = {};
                 subState[prop] = val;
                 _this5.setState(subState);
-                console.log(subState);
                 _this5.needComponentUpdate(componentName);
                 return val;
             };
@@ -197,7 +205,8 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
     }, {
         key: 'componentWillUpdate',
         value: function componentWillUpdate(nextProps, nextState) {
-            this.props.onChangeState(nextState);
+            this.props.onChangeState(nextState, this.isNewData);
+            this.isNewData = false;
         }
     }, {
         key: 'shouldComponentUpdate',
@@ -207,12 +216,10 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            console.info('muiTheme render');
             var ThemesNameList = this.state.themesAppliedList.map(function (val, ind) {
                 return val.themeName || 'Theme ' + (ind + 1);
             });
             var muiTheme = (0, _getMuiTheme2.default)(this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]));
-            console.log(muiTheme.palette.canvasColor);
             return _react2.default.createElement(
                 _MuiThemeProvider2.default,
                 { muiTheme: muiTheme /* this.state.muiTheme*/ },
@@ -229,7 +236,7 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
                         }
 
                     },
-                    true ? _react2.default.createElement(
+                    _react2.default.createElement(
                         _SplitPane2.default,
                         { split: 'vertical',
                             minSize: 200,
@@ -240,31 +247,24 @@ var MuiTheme = exports.MuiTheme = function (_React$Component) {
                         true ? _react2.default.createElement(
                             'div',
                             { style: {/* flexGrow: 1 */} },
-                            this.props.story()
+                            this.props.story
                         ) : _react2.default.createElement(
                             'div',
                             null,
                             'Null'
                         ),
-                        this.state.isMount ? _react2.default.createElement(_ThemeSideBar2.default, {
-                            shouldComponentUpdate: this.wouldComponentUpdate('ThemeSideBar'),
+                        _react2.default.createElement(_ThemeSideBar2.default, {
+                            shouldComponentUpdate: true,
+                            shouldShowData: this.state.isMount,
                             open: this.state.isSideBarOpen,
                             theme: this.state.themesAppliedList[this.state.themeInd],
-                            muiTheme: muiTheme /*getMuiTheme(this.props.themesList[this.state.themeInd])*/,
+                            muiTheme: muiTheme,
                             themeName: ThemesNameList[this.state.themeInd],
                             fullTheme: this.subState('ThemeSideBar', 'isFullTheme'),
                             collapseList: this.subState('ThemeSideBar', 'collapseList'),
                             themesOverrideList: this.subState('ThemeSideBar', 'currentThemeOverride'),
-                            onThemeOverride: this.onThemeOverride() /*this.props.onThemeOverride(this.state.themeInd)*/
-                        }) : _react2.default.createElement(
-                            'div',
-                            null,
-                            'false'
-                        )
-                    ) : _react2.default.createElement(
-                        'div',
-                        null,
-                        'SplitPane'
+                            onThemeOverride: this.onThemeOverride()
+                        })
                     )
                 )
             );

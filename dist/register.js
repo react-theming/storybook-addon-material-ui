@@ -18,7 +18,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _storybookAddons2.default.register(_.ADDON_ID, function (api) {
     var channel = _storybookAddons2.default.getChannel();
-    console.info(_.PANEL_ID);
     _storybookAddons2.default.addPanel(_.PANEL_ID, {
         title: 'Material-UI',
         render: function render() {
