@@ -29,8 +29,8 @@
     "theme",
     "editor",
     "customization",
-	"dark theme",
-	"light theme"
+    "dark theme",
+    "light theme"
   ],
   "license": "MIT",
   "bugs": {
@@ -53,12 +53,12 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "enzyme": "^2.2.0",
-    "eslint": "^3.5.0",
-    "eslint-config-airbnb": "^11.1.0",
+    "eslint": "^2.10.0",
+    "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-babel": "^3.2.0",
     "eslint-plugin-import": "^1.15.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.2.1",
+    "eslint-plugin-jsx-a11y": "^1.2.0",
+    "eslint-plugin-react": "^5.0.1",
     "git-url-parse": "^6.0.1",
     "jsdom": "^9.5.0",
     "material-ui": "^0.15.4",
@@ -80,8 +80,15 @@
     "react-dom": "^0.14.7 || ^15.0.0"
   },
   "dependencies": {
-    "eslint-plugin-react": "^6.2.2",
+    "@kadira/storybook": "^2.18.1",
+    "eslint-config-airbnb": "^11.2.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-react": "^6.3.0",
+    "react": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-dom": "^15.3.2",
     "react-material-color-picker": "^1.1.0",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "sinon": "^1.17.6"
   }
 }

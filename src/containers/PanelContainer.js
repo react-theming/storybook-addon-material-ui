@@ -16,7 +16,7 @@ const propTypes = {
 };
 
 
-export default class PanelConteiner extends React.Component {
+export default class PanelContainer extends React.Component {
     constructor(props, ...args) {
         super(props, ...args);
 
