@@ -77,7 +77,6 @@ function muiTheme(themes) {
     //    themesOverrideList[0].palette.accent1Color = 'green'; // debug
     themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
     var themesRenderedList = themeListRender(themesAppliedList);
-    //    console.log(themesAppliedList);
 
     /*
         themesInitList - initial list of base and user themes

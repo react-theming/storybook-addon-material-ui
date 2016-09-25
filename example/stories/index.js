@@ -1,17 +1,20 @@
 import React from 'react';
-import { storiesOf, action, setAddon, addDecorator } from '@kadira/storybook';
+import { storiesOf, addDecorator } from '@kadira/storybook';
 
-import {muiTheme} from './../../src/';
+import { muiTheme } from './../../src/';
 
 import CardExampleControlled from '../CardExampleControlled.jsx';
 import RaisedButtonExampleSimple from '../RaisedButtonExampleSimple.jsx';
 import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
+import greyTheme from './greyTheme.json';
 
 const newTheme = {
-    themeName: 'Grey Theme',
+    themeName: 'New Theme',
+    themeFile: 'greyTheme.json',
     palette: {
         primary1Color: '#00bcd4',
+        primary2Color: '#26a69a',
         alternateTextColor: '#4a4a4a',
         canvasColor: '#616161',
         textColor: '#bdbdbd',
@@ -21,30 +24,34 @@ const newTheme = {
     },
 };
 
+/** note: decorators
+ *  You can add decorator globally:
+ *  addDecorator(muiTheme([newTheme]));
+ */
 
 storiesOf('Material-UI', module)
-    .addDecorator(muiTheme([newTheme]))
+    .addDecorator(muiTheme([greyTheme, newTheme]))
     .add('Card Example Controlled', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
-            <CardExampleControlled />
+          <CardExampleControlled />
         </div>
-    </div>))
-  .add('Raised Button Example Simple', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      </div>))
+    .add('Raised Button Example Simple', () => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
-            <RaisedButtonExampleSimple />
+          <RaisedButtonExampleSimple />
         </div>
-    </div>))
-  .add('Date Picker Example Simple', () => (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      </div>))
+    .add('Date Picker Example Simple', () => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
-            <DatePickerExampleSimple />
+          <DatePickerExampleSimple />
         </div>
-    </div>));
+      </div>));
 
 storiesOf('Without addon', module)
-    .add('Text', () =>(
-        <p>Lorem ipsum</p>
-
-))
+//    .addDecorator(muiTheme())
+    .add('Text', () => (
+      <p>Lorem ipsum</p>
+    ));

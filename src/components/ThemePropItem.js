@@ -1,5 +1,4 @@
 import React from 'react';
-import Paper from 'material-ui/Paper';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
 
@@ -39,52 +38,55 @@ export default class ThemePropItem extends React.Component {
         this.renderProp = this.renderProp.bind(this);
     }
 
+    shouldComponentUpdate(nextProps) {
+        return true;
+// future: shouldComponentUpdate
+//        const val = this.props.val;
+//        const shouldCollapsed = (nextProps.isCollapsed !== this.props.isCollapsed);
+//        const shouldOpen = (nextProps.isOpen !== this.props.isOpen);
+//        const shouldsettingsObj = (nextProps.settingsObj[val] !== this.props.settingsObj[val]);
+//        const shouldUpdate = (shouldCollapsed || shouldOpen || shouldsettingsObj);
+//        if (shouldUpdate) {
+//            console.log(
+//      `shouldUpdate: ${val} ${shouldCollapsed} ${shouldOpen} ${shouldsettingsObj}`
+//      );
+//        }
+//        return shouldUpdate;
+    }
+
     onToolTogle() {
         this.props.onCollapsed(!this.props.isCollapsed);
     }
 
-
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
-        const val = this.props.val;
-        const shouldCollapsed = (nextProps.isCollapsed !== this.props.isCollapsed);
-        const shouldOpen = (nextProps.isOpen !== this.props.isOpen);
-        const shouldsettingsObj = (nextProps.settingsObj[val] !== this.props.settingsObj[val]);
-        const shouldUpdate = (shouldCollapsed || shouldOpen || shouldsettingsObj);
-        if (shouldUpdate) {
-            console.log(`shouldUpdate: ${val} ${shouldCollapsed} ${shouldOpen} ${shouldsettingsObj}`);
-        }
-        return shouldUpdate;
-    }
-
-
     renderProp(isNotHeader) {
         const { palette } = this.context.muiTheme;
-        const { ind, val, settingsObj, valueHandler, isCollapsed, isOpen } = this.props;
+        const { ind, val, valueHandler, isCollapsed, isOpen, onSelect } = this.props;
+        const settingsObj = this.props.settingsObj || { isNotHeader };
         const onToolTogle = this.onToolTogle;
         const styleHR = { borderBottom: `solid ${palette.borderColor} 1px` };
         return (
-            <div>
-                <PropItem {...{ ind, val, settingsObj, valueHandler, isNotHeader, onToolTogle, isOpen }} />
-                <PropToolPicker
-                  {...{ isCollapsed, onToolTogle }}
-                  settingsObj={settingsObj[val]}
-                  valueHandler={valueHandler(val)}
-                />
-                <div style={{ height: isOpen ? 4 : 0, overflow: 'hidden' }}>
-                    <div style={styleHR} />
-                </div>
+          <div>
+            <PropItem
+              {...{ ind, val, settingsObj, valueHandler, isNotHeader, onToolTogle, isOpen, onSelect }}
+            />
+            <PropToolPicker
+              {...{ isCollapsed, onToolTogle }}
+              settingsObj={isNotHeader ? settingsObj[val] : ''}
+              valueHandler={valueHandler(val)}
+            />
+            <div style={{ height: isOpen ? 1 : 0, overflow: 'hidden' }}>
+              <div style={styleHR} />
             </div>
+          </div>
         );
     }
 
     render() {
-//        console.log(`render ${this.props.val}`);
         return (
-            <div>
-                {this.renderProp(!this.props.isHeader)}
+          <div>
+              {this.renderProp(!this.props.isHeader)}
 
-            </div>
+          </div>
         );
     }
 }
@@ -96,128 +98,150 @@ ThemePropItem.contextTypes = contextTypes;
 function PropItem(props, context) {
     const { palette } = context.muiTheme;
     const { settingsObj, val, ind, valueHandler, isOpen, isNotHeader } = props;
+    const color = typeof(settingsObj[val]) === 'string' ? settingsObj[val] : '';
+    const onSelect = () => {
+        const select = {
+            selectedProp: val,
+            selectedVal: `'${settingsObj[val]}'`,
+        }
+        props.onSelect(select);
+    }
     return (
+      <div
+        className={`${CSS_CLASS}-prop-item`}
+        style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'baseline',
+            flexWrap: 'wrap',
+            paddingRight: 4,
+            paddingTop: isNotHeader ? 4 : 16,
+            fontSize: 12,
+            height: isOpen ? 24 : 0,
+            transition: 'all 100ms ease 0ms',
+            overflow: 'hidden',
+            color: isNotHeader ? '' : palette.secondaryTextColor,
+        }}
+        onTouchTap={onSelect}
+      >
+        <PropHeader
+          {...{ val, ind, isNotHeader }}
+        />
         <div
-          className={`${CSS_CLASS}-prop-item`}
+          className={`${CSS_CLASS}-prop-value`}
           style={{
+              width: 'auto',
+              flexShrink: 1,
+              flexGrow: 1,
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'baseline',
-              flexWrap: 'wrap',
-              paddingRight: 4,
-//                paddingTop: 8,
-              fontSize: 12,
-              height: isOpen ? 38 : 0,
-              transition: 'height 400ms ease 0ms',
-              overflow: 'hidden',
-              color: isNotHeader ? '' : palette.secondaryTextColor,
           }}
         >
-            <PropHeader
-              {...{ val, ind, isNotHeader }}
-            />
-            <div
-              className={`${CSS_CLASS}-prop-value`}
-              style={{
-//                    minWidth: 135,
-//                    maxWidth: 250,
-                  width: 'auto',
-//                    paddingLeft: 16,
-                  flexShrink: 1,
-                  flexGrow: 1,
-//                    backgroundColor: '#bdcdd9',
-                  display: 'flex',
-                  justifyContent: 'space-between', //'flex-end',
-              }}
-            >
-                <PropInput
-                  valueHandler={valueHandler(val)}
-                  settingsObj={settingsObj[val]}
-                  isNotHeader={isNotHeader}
-                />
-                <PropTool
-                  color={settingsObj[val]}
-                  onTool={props.onToolTogle}
-                  isNotHeader={isNotHeader}
-                />
-            </div>
+          <PropInput
+            valueHandler={valueHandler(val) || null}
+            settingsObj={settingsObj[val] || ''}
+            isNotHeader={isNotHeader}
+          />
+          <PropTool
+            color={color}
+            onTool={props.onToolTogle}
+            isNotHeader={isNotHeader}
+          />
         </div>
+      </div>
     );
 }
 
+PropItem.propTypes = {
+    settingsObj: React.PropTypes.object.isRequired,
+    val: React.PropTypes.string.isRequired,
+    ind: React.PropTypes.number.isRequired,
+    onToolTogle: React.PropTypes.func.isRequired,
+    valueHandler: React.PropTypes.func.isRequired,
+    isOpen: React.PropTypes.bool.isRequired,
+    isNotHeader: React.PropTypes.bool.isRequired,
+};
 PropItem.contextTypes = contextTypes;
 
 function PropHeader(props, context) {
     const { ind, val, isNotHeader } = props;
     return (
-        <div
-          className={`${CSS_CLASS}-prop-header`}
-          title={val}
-          style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              overflowX: 'hidden',
-              flexShrink: 2,
-              flexGrow: 10,
-              width: 90,
-//                    backgroundColor: '#bdd9c9',
-          }}
-        >
-        <div style={{/* maxWidth: 40, minWidth: 20*/}} >
-            {isNotHeader ? ind + 1 : '#'}
+      <div
+        className={`${CSS_CLASS}-prop-header`}
+        title={val}
+        style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            overflowX: 'hidden',
+            flexShrink: 2,
+            flexGrow: 10,
+            width: 90,
+        }}
+      >
+        <div style={{ color: context.muiTheme.palette.secondaryTextColor }} >
+          {isNotHeader ? ind + 1 : '#'}
         </div>
         <div
           style={{
               marginLeft: 16,
               marginRight: 16,
-//                marginBottom: 4,
               minWidth: 100,
               textAlign: 'left',
               overflowX: 'hidden',
           }}
         >
-           <div>{isNotHeader ? val : 'Prop Name'}</div>
+          <div>{isNotHeader ? val : 'Prop Name'}</div>
         </div>
-    </div>
+      </div>
     );
 }
-
+PropHeader.propTypes = {
+    val: React.PropTypes.string.isRequired,
+    ind: React.PropTypes.number.isRequired,
+    isNotHeader: React.PropTypes.bool.isRequired,
+};
 PropHeader.contextTypes = contextTypes;
 
 function PropInput(props, context) {
     const { palette } = context.muiTheme;
     const { valueHandler, settingsObj, isNotHeader } = props;
-    const isInt = (settingsObj === parseInt(settingsObj));
+    const isInt = (settingsObj === parseInt(settingsObj, 10));
     const strStyle = {
         width: isInt ? 40 : 'auto',
         textAlign: isInt ? 'right' : 'left',
     };
     return (isNotHeader ?
-        <input
-          type="text"
-          onChange={valueHandler}
-          value={settingsObj}
-          title={settingsObj}
-          style={{
-              border: 'none',
-//              maxWidth: 130,
-              fontStyle: 'italic',
-              padding: 2,
-              backgroundColor: palette.canvasColor,
-              color: palette.textColor,
-              ...strStyle,
-          }}
-        /> : <div
-          style={{
-              border: 'none',
-              minWidth: 162,
-              padding: 2,
-              ...strStyle,
-          }}
-        > Prop Value </div>
+      <input
+        type="text"
+        onChange={valueHandler}
+        value={settingsObj}
+        title={settingsObj}
+        style={{
+            border: 'none',
+            fontStyle: 'italic',
+            padding: 2,
+            backgroundColor: palette.canvasColor,
+            color: palette.primary2Color,
+            ...strStyle,
+        }}
+      /> :
+      <div
+        style={{
+            border: 'none',
+            minWidth: 162,
+            padding: 2,
+            ...strStyle,
+        }}
+      >
+        Prop Value
+      </div>
     );
 }
-
+PropInput.propTypes = {
+    settingsObj: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    valueHandler: React.PropTypes.func,
+    isNotHeader: React.PropTypes.bool.isRequired,
+};
 PropInput.contextTypes = contextTypes;
 
 function PropTool(props, context) {
@@ -238,13 +262,52 @@ function PropTool(props, context) {
     };
     return <div {...toolProps} />;
 }
-
+PropTool.propTypes = {
+    isNotHeader: React.PropTypes.bool.isRequired,
+    color: React.PropTypes.string.isRequired,
+    onTool: React.PropTypes.func.isRequired,
+};
 PropTool.contextTypes = contextTypes;
 
 
 function PropToolPicker(props, context) {
     const { settingsObj, valueHandler, onToolTogle } = props;
-//    const initColor = (parseInt(settingsObj) === settingsObj) ? '' : settingsObj;
+    const initColor = `${settingsObj}`;
+    const style = {
+        height: props.isCollapsed ? 0 : 200,
+        transition: 'height 300ms ease 0ms',
+        overflow: 'hidden',
+    };
+    const onSubmit = (event) => {
+        valueHandler(event);
+        onToolTogle();
+    };
+    // fixme: check onReset
+    return (
+      <div {...{ style }}>
+        <div style={{ border: 'solid 1px grey' }}>
+          <MaterialColorPicker
+            initColor={initColor}
+            onSubmit={onSubmit}
+            onSelect={valueHandler}
+            onHover={valueHandler}
+            onReset={onSubmit}
+          />
+        </div>
+      </div>
+    );
+}
+PropToolPicker.propTypes = {
+    settingsObj: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    isCollapsed: React.PropTypes.bool.isRequired,
+    valueHandler: React.PropTypes.func.isRequired,
+    onToolTogle: React.PropTypes.func.isRequired,
+};
+PropToolPicker.contextTypes = contextTypes;
+
+// future: we will use when all components be ready
+function PropToolPickerFull(props, context) {
+    const { settingsObj, valueHandler, onToolTogle } = props;
     const initColor = `${settingsObj}`;
     const style = {
         height: props.isCollapsed ? 0 : 200,
@@ -256,99 +319,72 @@ function PropToolPicker(props, context) {
         valueHandler(event);
         onToolTogle();
     };
-    // fixme: check onReset
     return (
-        <div {...{ style }}>
-           <div style={{ border: 'solid 1px grey' }}>
-                <MaterialColorPicker
-                  initColor={initColor}
-                  onSubmit={onSubmit}
-                  onSelect={valueHandler}
-                  onHover={valueHandler}
-                  onReset={onSubmit}
-                />
+      <div {...{ style }}>
+        <Tabs
+          tabItemContainerStyle={{ height: 24 }}
+        >
+          <Tab
+            label="Color"
+            style={tabStyle}
+          >
+            <div style={{ border: 'solid 1px grey' }}>
+              <MaterialColorPicker
+                initColor={initColor}
+                onSubmit={onSubmit}
+                onSelect={valueHandler}
+                onReset={onSubmit}
+              />
             </div>
-        </div>
-    );
-}
-
-PropToolPicker.contextTypes = contextTypes;
-
-
-function PropToolPickerFull(props, context) {
-    const { settingsObj, valueHandler, onToolTogle } = props;
-    const initColor = (parseInt(settingsObj) === settingsObj) ? '' : settingsObj;
-//    const initColor = `${settingsObj} `;
-    const style = {
-        height: props.isCollapsed ? 0 : 200,
-        transition: 'height 300ms ease 0ms',
-        overflow: 'hidden',
-    };
-    const tabStyle = { height: 16, marginTop: -12, fontSize: 12 };
-    const onSubmit = (event) => {
-        valueHandler(event);
-        onToolTogle();
-    };
-    return (
-        <div {...{ style }}>
-           <Tabs
-             tabItemContainerStyle={{ height: 24 /* display: 'flex',fontSize: 8*/ }}
-           >
-            <Tab label="Color"
-              style={tabStyle}
-            >
-                <div style={{ border: 'solid 1px grey' }}>
-                    <MaterialColorPicker
-                      initColor={initColor}
-                      onSubmit={onSubmit}
-                      onSelect={valueHandler}
-                      onReset={onSubmit}
-                    />
-                </div>
-            </Tab>
-            <Tab label="Number" style={tabStyle} >
-                <div>
-                    <h2>Tab Two</h2>
-                    <p>
-                      This is another example tab.
-                    </p>
-                    <Slider name="slider0" defaultValue={0.5} />
-                </div>
-            </Tab>
-            <Tab
-              label="String"
-              data-route="/home"
-              onActive={null/* handleActive*/}
-              style={tabStyle}
-            >
-                <div>
-                    <h2>Tab Three</h2>
-                    <p>
-                      This is a third example tab.
-                    </p>
-                </div>
-            </Tab>
-            <Tab label="Palette" style={tabStyle} >
-                <div>
-                    <h2>Tab Two</h2>
-                    <p>
-                      This is another example tab.
-                    </p>
-                    <Slider name="slider0" defaultValue={0.5} />
-                </div>
-            </Tab>
-            <Tab label="Icon" style={tabStyle} >
-                <div>
-                    <h2>Tab Two</h2>
-                    <p>
-                      This is another example tab.
-                    </p>
-                    <Slider name="slider0" defaultValue={0.5} />
-                </div>
-            </Tab>
+          </Tab>
+          <Tab label="Number" style={tabStyle} >
+            <div>
+              <h2>Tab Two</h2>
+              <p>
+                This is another example tab.
+              </p>
+              <Slider name="slider0" defaultValue={0.5} />
+            </div>
+          </Tab>
+          <Tab
+            label="String"
+            data-route="/home"
+            onActive={null}
+            style={tabStyle}
+          >
+            <div>
+              <h2>Tab Three</h2>
+              <p>
+                This is a third example tab.
+              </p>
+            </div>
+          </Tab>
+          <Tab label="Palette" style={tabStyle} >
+            <div>
+              <h2>Tab Two</h2>
+              <p>
+                This is another example tab.
+              </p>
+              <Slider name="slider0" defaultValue={0.5} />
+            </div>
+          </Tab>
+          <Tab label="Icon" style={tabStyle} >
+            <div>
+              <h2>Tab Two</h2>
+              <p>
+                This is another example tab.
+              </p>
+              <Slider name="slider0" defaultValue={0.5} />
+            </div>
+          </Tab>
         </Tabs>
-        </div>
+      </div>
     );
 }
-
+PropToolPickerFull.propTypes = {
+    settingsObj: React.PropTypes.object.isRequired,
+    isCollapsed: React.PropTypes.bool.isRequired,
+    valueHandler: React.PropTypes.func.isRequired,
+    onToolTogle: React.PropTypes.func.isRequired,
+};
 PropToolPickerFull.contextTypes = contextTypes;

@@ -1,29 +1,33 @@
 import React from 'react';
-import { MuiTheme } from './containers/MuiTheme';
 import addons from '@kadira/storybook-addons';
 import { EVENT_ID_INIT } from './';
-import { EVENT_ID_DATA } from './';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import MuiTheme from './containers/MuiTheme';
 
 lightBaseTheme.themeName = 'Light Theme';
 darkBaseTheme.themeName = 'Dark Theme';
 
 export function muiTheme(themes) {
-    /*
-    the agrument 'themes' should be:
-    muiThemes (array): array with muiThemes;
-    */
+/** note: muiTheme arguments
+ *
+ *  the agrument 'themes' should be:
+ *     - muiThemes (array): array with muiThemes;
+ *     - muiTheme (object): single muiTheme;
+ *  muiTheme is a two nesting level object with new or overriding props
+ *
+ */
 
     const channel = addons.getChannel();
     let themesInitList = [lightBaseTheme, darkBaseTheme];
-    if (Array.isArray(themes)) {
-        themesInitList = [...themesInitList, ...themes];
-    } else {
-        if (themes) {
-            themesInitList = [...themesInitList, themes];
+    if (themes) {
+        if (Array.isArray(themes)) {
+            themesInitList = themes;
+        } else {
+            themesInitList = [themes];
         }
     }
+
     const themesOverrideList = themesInitList.map(val => ({
         themeName: val.themeName,
         palette: {},
@@ -32,12 +36,14 @@ export function muiTheme(themes) {
     themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
     const themesRenderedList = themeListRender(themesAppliedList);
 
-/*
-    themesInitList - initial list of base and user themes
-    themesOverrideList - list of overwritings made by user
-    themesAppliedList - overrided list (union InitList and OverrideList) - will be shown to user
-    themesRenderedList - overrided list - will be used in ThemeProvider (resolved all links)
-*/
+/** note: theme arrays description
+ *
+ *    themesInitList - initial list of base and user themes
+ *    themesOverrideList - list of overwritings made by user
+ *    themesAppliedList - overrided list (union InitList and OverrideList) - will be shown to user
+ *    themesRenderedList - overrided list - will be used in ThemeProvider (resolved all links)
+ *
+ */
 
     let storedState = {
         themeInd: 0,
@@ -49,51 +55,51 @@ export function muiTheme(themes) {
         currentThemeOverride: {},
     };
 
-    const storeState = (state, isNewData) => {
-        storedState = state;
-        const refreshPanel = {
-            themesAppliedList,
-            themesRenderedList,
-            panelState: panelState(storedState),
-        };
-        //fixme: EVENT_ID_DATA
-        if (!isNewData) channel.emit(EVENT_ID_DATA, refreshPanel);
-    };
-
     const panelState = (state) => {
         const { themeInd, isSideBarOpen, currentThemeOverride } = state;
-        return { themeInd, isSideBarOpen, currentThemeOverride };
+        return {
+            themeInd,
+            isSideBarOpen,
+            currentThemeOverride,
+            themesAppliedList,
+            themesRenderedList,
+        };
+    };
+
+    const storeState = (state) => {
+        storedState = state;
     };
 
     const onThemeOverride = (themeInd) => {
         return (overTheme) => {
             themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
-            themesAppliedList[themeInd] = themeApply(themesInitList[themeInd], themesOverrideList[themeInd]);
+            themesAppliedList[themeInd] = themeApply(
+              themesInitList[themeInd], themesOverrideList[themeInd]
+            );
             return themesAppliedList;
         };
     };
 
-    const initPanel = {
-        themesAppliedList,
-        themesRenderedList,
-        panelState: panelState(storedState),
-    };
-    //fixme: EVENT_ID_INIT (local gecorators?)
-    channel.emit(EVENT_ID_INIT, initPanel);
+    // fixme: EVENT_ID_INIT (local gecorators?)
+    try {
+        channel.emit(EVENT_ID_INIT, panelState(storedState));
+    } catch(err) {
+
+    }
 
     return (story) => {
         const storyItem = story();
         return (
-            <MuiTheme
-              story={storyItem}
-              themesAppliedListInit={themesAppliedList}
-              themesRenderedList={themesRenderedList}
-              onThemeOverride={onThemeOverride}
-              initState={storedState}
-              onChangeState={storeState}
-              themeListRender={themeListRender}
-              channel={channel}
-            />);
+          <MuiTheme
+            story={storyItem}
+            themesAppliedListInit={themesAppliedList}
+            themesRenderedList={themesRenderedList}
+            onThemeOverride={onThemeOverride}
+            initState={storedState}
+            onChangeState={storeState}
+            themeListRender={themeListRender}
+            channel={channel}
+          />);
     };
 }
 
@@ -102,12 +108,12 @@ function themeApply(prevTheme, overTheme) {
     const keys = Object.keys(overTheme);
     keys.forEach((val) => {
         if (typeof (overTheme[val]) === 'object') {
-
             if (typeof (newTheme[val]) === 'undefined') {
                 newTheme[val] = {};
             }
 
             const subKeys = Object.keys(overTheme[val]);
+            // note: find out a number or a string
             subKeys.forEach((prop) => { newTheme[val][prop] = tryParse(overTheme[val][prop]); });
         } else {
             newTheme[val] = overTheme[val];
@@ -123,10 +129,10 @@ function themeListRender(themesAppliedList) {
 }
 
 function makeClone(obj) {
-    //future: use immutable
+    // future: use immutable
     return JSON.parse(JSON.stringify(obj));
 }
 
 function tryParse(val) {
-    return parseInt(val) || val;
+    return parseInt(val, 10) || val;
 }

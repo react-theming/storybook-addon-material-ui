@@ -28,7 +28,7 @@ class Pane extends Component {
         }
 
         return (
-            <div className={classes.join(' ')} style={style}>{this.props.children}</div>
+          <div className={classes.join(' ')} style={style}>{this.props.children}</div>
         );
     }
 }

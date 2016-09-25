@@ -12,11 +12,13 @@
     "react/prefer-stateless-function": 0,
     // indentation
     "indent": [ 2, 4 ],
+    "max-len": [1, 100],
 	// comment
 	'spaced-comment': ['warn', 'always', {
       exceptions: ['-', '+','todo'],
       markers: ['=', '!']           // space here to support sprockets directives
     }],
+    "no-use-before-define": [ 2, { "functions": false } ],
   },
   "parserOptions": {
     "ecmaVersion": 6,
