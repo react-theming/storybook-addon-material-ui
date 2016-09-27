@@ -15,6 +15,7 @@ class Pane extends Component {
             flex: 1,
             position: 'relative',
             outline: 'none',
+            overflow: 'scroll',
         });
 
         if (this.state.size !== undefined) {
