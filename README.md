@@ -135,7 +135,9 @@ npm start
 ```
 ## Query string parameters
 As you select themes and other options it stores in adress bar line. So this state is retained when you refresh the page and you can use direct links to the desired states.
-```http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true```
+```
+http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
+```
 
 ## CONTRIBUTING 
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
