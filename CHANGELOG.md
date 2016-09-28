@@ -1,5 +1,11 @@
 ## Changelog
 
+### v0.7.0
+* appearance
+* save theme as JSON file
+* Query string parameters
+* clipboard string
+
 ### v0.6.0
 
 * publish to github and npm
