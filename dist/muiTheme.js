@@ -16,17 +16,11 @@ var _keys = require('babel-runtime/core-js/object/keys');
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
 exports.muiTheme = muiTheme;
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _MuiTheme = require('./containers/MuiTheme');
 
 var _storybookAddons = require('@kadira/storybook-addons');
 
@@ -42,31 +36,35 @@ var _darkBaseTheme = require('material-ui/styles/baseThemes/darkBaseTheme');
 
 var _darkBaseTheme2 = _interopRequireDefault(_darkBaseTheme);
 
+var _MuiTheme = require('./containers/MuiTheme');
+
+var _MuiTheme2 = _interopRequireDefault(_MuiTheme);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_lightBaseTheme2.default.themeName = 'Light Theme'; // todo: addon for themes info
-
+_lightBaseTheme2.default.themeName = 'Light Theme';
 _darkBaseTheme2.default.themeName = 'Dark Theme';
 
 function muiTheme(themes) {
-    /*
-     the agrument 'themes' could be:
-    ommited - will be default lightBaseTheme;
-    string: 'lightBaseTheme', 'darkBaseTheme';
-    string: yourTheme should be a file yourTheme.js;
-    string array: array with name of themes;
-    muiTheme (object): object with muiTheme;
-    muiThemes (array): array with muiThemes;
+    /** note: muiTheme arguments
+     *
+     *  the agrument 'themes' should be:
+     *     - muiThemes (array): array with muiThemes;
+     *     - muiTheme (object): single muiTheme;
+     *  muiTheme is a two nesting level object with new or overriding props
+     *
      */
+
     var channel = _storybookAddons2.default.getChannel();
     var themesInitList = [_lightBaseTheme2.default, _darkBaseTheme2.default];
-    if (Array.isArray(themes)) {
-        themesInitList = [].concat((0, _toConsumableArray3.default)(themesInitList), (0, _toConsumableArray3.default)(themes));
-    } else {
-        if (themes) {
-            themesInitList = [].concat((0, _toConsumableArray3.default)(themesInitList), [themes]);
+    if (themes) {
+        if (Array.isArray(themes)) {
+            themesInitList = themes;
+        } else {
+            themesInitList = [themes];
         }
     }
+
     var themesOverrideList = themesInitList.map(function (val) {
         return {
             themeName: val.themeName,
@@ -74,15 +72,16 @@ function muiTheme(themes) {
         };
     });
     var themesAppliedList = makeClone(themesInitList);
-    //    themesOverrideList[0].palette.accent1Color = 'green'; // debug
     themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
     var themesRenderedList = themeListRender(themesAppliedList);
 
-    /*
-        themesInitList - initial list of base and user themes
-        themesOverrideList - list of overwritings made by user
-        themesAppliedList - overrided list (union InitList and OverrideList) - will be shown to user
-        themesRenderedList - overrided list - will be used in ThemeProvider (resolved all links)
+    /** note: theme arrays description
+     *
+     *    themesInitList - initial list of base and user themes
+     *    themesOverrideList - list of overwritings made by user
+     *    themesAppliedList - overrided list (union InitList and OverrideList) - will be shown to user
+     *    themesRenderedList - overrided list - will be used in ThemeProvider (resolved all links)
+     *
      */
 
     var storedState = {
@@ -92,18 +91,25 @@ function muiTheme(themes) {
         collapseList: {
             palette: true
         },
-
         currentThemeOverride: {}
-
     };
-    var storeState = function storeState(state, isNewData) {
-        storedState = state;
-        var refreshPanel = {
+
+    var panelState = function panelState(state) {
+        var themeInd = state.themeInd;
+        var isSideBarOpen = state.isSideBarOpen;
+        var currentThemeOverride = state.currentThemeOverride;
+
+        return {
+            themeInd: themeInd,
+            isSideBarOpen: isSideBarOpen,
+            currentThemeOverride: currentThemeOverride,
             themesAppliedList: themesAppliedList,
-            themesRenderedList: themesRenderedList,
-            panelState: panelState(storedState)
+            themesRenderedList: themesRenderedList
         };
-        if (!isNewData) channel.emit(_.EVENT_ID_DATA, refreshPanel);
+    };
+
+    var storeState = function storeState(state) {
+        storedState = state;
     };
 
     var onThemeOverride = function onThemeOverride(themeInd) {
@@ -114,23 +120,14 @@ function muiTheme(themes) {
         };
     };
 
-    var panelState = function panelState(state) {
-        var themeInd = state.themeInd;
-        var isSideBarOpen = state.isSideBarOpen;
-        var currentThemeOverride = state.currentThemeOverride;
-
-        return { themeInd: themeInd, isSideBarOpen: isSideBarOpen, currentThemeOverride: currentThemeOverride };
-    };
-    var initPanel = {
-        themesAppliedList: themesAppliedList,
-        themesRenderedList: themesRenderedList,
-        panelState: panelState(storedState)
-    };
-    channel.emit(_.EVENT_ID_INIT, initPanel);
+    // fixme: EVENT_ID_INIT (local gecorators?)
+    try {
+        channel.emit(_.EVENT_ID_INIT, panelState(storedState));
+    } catch (err) {}
 
     return function (story) {
         var storyItem = story();
-        return _react2.default.createElement(_MuiTheme.MuiTheme, {
+        return _react2.default.createElement(_MuiTheme2.default, {
             story: storyItem,
             themesAppliedListInit: themesAppliedList,
             themesRenderedList: themesRenderedList,
@@ -143,29 +140,17 @@ function muiTheme(themes) {
     };
 }
 
-/*
-    onChangeTheme= {(ind) => {defautThemeInd = ind;}}
-    onOpenSideBar={(f) => {isSideBarOpen = f;}}
-    isSideBarOpen={isSideBarOpen}
-    defautThemeInd = {defautThemeInd}
-*/
-
-// export default muiTheme;
-
 function themeApply(prevTheme, overTheme) {
     var newTheme = makeClone(prevTheme);
     var keys = (0, _keys2.default)(overTheme);
     keys.forEach(function (val) {
         if ((0, _typeof3.default)(overTheme[val]) === 'object') {
-            /* console.log('themeApply')
-             console.log(val)
-             console.log(newTheme[val])
-             console.log(overTheme[val])*/
-
             if (typeof newTheme[val] === 'undefined') {
                 newTheme[val] = {};
             }
+
             var subKeys = (0, _keys2.default)(overTheme[val]);
+            // note: find out a number or a string
             subKeys.forEach(function (prop) {
                 newTheme[val][prop] = tryParse(overTheme[val][prop]);
             });
@@ -183,9 +168,10 @@ function themeListRender(themesAppliedList) {
 }
 
 function makeClone(obj) {
+    // future: use immutable
     return JSON.parse((0, _stringify2.default)(obj));
 }
 
 function tryParse(val) {
-    return parseInt(val) || val;
+    return parseInt(val, 10) || val;
 }

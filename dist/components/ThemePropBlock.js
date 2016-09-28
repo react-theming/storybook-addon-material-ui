@@ -8,6 +8,10 @@ var _keys = require('babel-runtime/core-js/object/keys');
 
 var _keys2 = _interopRequireDefault(_keys);
 
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -48,13 +52,19 @@ var _Toggle = require('material-ui/Toggle');
 
 var _Toggle2 = _interopRequireDefault(_Toggle);
 
+var _SclToggle = require('../material-desktop/SclToggle');
+
+var _SclToggle2 = _interopRequireDefault(_SclToggle);
+
+var _SclAvatar = require('../material-desktop/SclAvatar');
+
+var _SclAvatar2 = _interopRequireDefault(_SclAvatar);
+
 var _ = require('../');
 
 var _ThemePropItem = require('./ThemePropItem');
 
 var _ThemePropItem2 = _interopRequireDefault(_ThemePropItem);
-
-var _Utils = require('../Utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62,7 +72,6 @@ var propTypes = {
     settingsObj: _react2.default.PropTypes.object.isRequired,
     settingsName: _react2.default.PropTypes.string.isRequired,
     open: _react2.default.PropTypes.func.isRequired,
-    //    override: React.PropTypes.func.isRequired,
     onThemeTableOverride: _react2.default.PropTypes.func.isRequired
 };
 
@@ -90,41 +99,52 @@ var ThemePropBlock = function (_React$Component) {
         _this.needComponentUpdate = false;
         _this.valueHandler = _this.valueHandler.bind(_this);
         _this.onToolCollapse = _this.onToolCollapse.bind(_this);
+        _this.onSelect = _this.onSelect.bind(_this);
         _this.renderProp = _this.renderProp.bind(_this);
         _this.renderColl = _this.renderColl.bind(_this);
-        _this.renderExp = _this.renderExp.bind(_this);
         return _this;
     }
 
     (0, _createClass3.default)(ThemePropBlock, [{
-        key: 'valueHandler',
-        value: function valueHandler(propName) {
-            var _this2 = this;
-
-            return function (event) {
-                _this2.needComponentUpdate = true;
-                _this2.props.onThemeTableOverride(propName, event.target.value);
-            };
+        key: 'shouldComponentUpdate',
+        value: function shouldComponentUpdate() {
+            var f = this.needComponentUpdate;
+            this.needComponentUpdate = false;
+            return f;
         }
     }, {
         key: 'onToolCollapse',
         value: function onToolCollapse(val) {
-            var _this3 = this;
+            var _this2 = this;
 
             return function (isCol) {
-                var toolCollapsedList = _this3.state.toolCollapsedList;
+                var toolCollapsedList = _this2.state.toolCollapsedList;
 
                 toolCollapsedList[val] = isCol;
-                _this3.needComponentUpdate = true;
-                _this3.setState({ toolCollapsedList: toolCollapsedList });
+                _this2.needComponentUpdate = true;
+                _this2.setState({ toolCollapsedList: toolCollapsedList });
             };
         }
     }, {
-        key: 'shouldComponentUpdate',
-        value: function shouldComponentUpdate(nextProps, nextState) {
-            var f = this.needComponentUpdate;
-            this.needComponentUpdate = false;
-            return f;
+        key: 'onSelect',
+        value: function onSelect(sel) {
+            var select = {
+                selectedTable: this.props.settingsName,
+                selectedProp: '',
+                selectedVal: ''
+            };
+            var fullSelect = (0, _assign2.default)(select, sel);
+            this.props.onSelect(fullSelect);
+        }
+    }, {
+        key: 'valueHandler',
+        value: function valueHandler(propName) {
+            var _this3 = this;
+
+            return function (event) {
+                _this3.needComponentUpdate = true;
+                _this3.props.onThemeTableOverride(propName, event.target.value);
+            };
         }
     }, {
         key: 'renderProp',
@@ -134,8 +154,8 @@ var ThemePropBlock = function (_React$Component) {
                 {
                     key: val,
                     style: {
-                        minHeight: isOpen ? 32 : 0,
-                        transition: 'min-height 200ms linear 0ms'
+                        minHeight: isOpen ? 32 + (isHeader ? 12 : 0) : 0,
+                        transition: 'all 200ms linear 0ms'
                     }
                 },
                 isOpen ? _react2.default.createElement(_ThemePropItem2.default, {
@@ -146,7 +166,8 @@ var ThemePropBlock = function (_React$Component) {
                     isCollapsed: this.state.toolCollapsedList[val],
                     onCollapsed: this.onToolCollapse(val),
                     isOpen: isOpen || false,
-                    isHeader: isHeader || false
+                    isHeader: isHeader || false,
+                    onSelect: this.onSelect
                 }) : null
             );
         }
@@ -168,27 +189,20 @@ var ThemePropBlock = function (_React$Component) {
             );
         }
     }, {
-        key: 'renderExp',
-        value: function renderExp() {/*
-                                     const settingsObj = this.props.settingsObj;
-                                     const keyList = Object.keys(settingsObj);
-                                     const rowList = keyList.map((val, ind) => ( this.renderProp(val, ind, true) ));
-                                     return (<div>{rowList}</div>);*/
-        }
-    }, {
         key: 'render',
         value: function render() {
             var _this5 = this;
 
-            //        console.warn('render ThemePropBlock')
             var _props = this.props;
             var settingsName = _props.settingsName;
             var open = _props.open;
 
+            var onSelect = this.onSelect;
             var openThis = function openThis(f) {
                 if (typeof f === 'undefined') return open();
                 _this5.needComponentUpdate = true;
                 open(f);
+                return null;
             };
             return _react2.default.createElement(
                 _Paper2.default,
@@ -197,13 +211,13 @@ var ThemePropBlock = function (_React$Component) {
                         paddingLeft: 16,
                         paddingRight: 4,
                         paddingTop: 8,
-                        paddingBottom: 16,
+                        paddingBottom: 8,
                         marginTop: 8
                     }
                 },
-                _react2.default.createElement(BlockHeader, { settingsName: settingsName, openThis: openThis }),
-                _react2.default.createElement('div', { style: { height: 16 } }),
-                /* this.props.open() ? this.renderExp() : */this.renderColl()
+                _react2.default.createElement(BlockHeader, { settingsName: settingsName, openThis: openThis, onSelect: onSelect }),
+                _react2.default.createElement('div', { style: {/*height: 16*/} }),
+                this.renderColl()
             );
         }
     }]);
@@ -221,34 +235,26 @@ function BlockHeader(props, context) {
         color: context.muiTheme.palette.primary1Color,
         fontSize: context.muiTheme.flatButton.fontSize
     };
-    var toggleOpen = function toggleOpen(e) {
+    var toggleOpen = function toggleOpen() {
         props.openThis(!props.openThis());
     };
     return _react2.default.createElement(
         'div',
-        { style: {
+        {
+            style: {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center'
-            } },
+            }
+        },
+        _react2.default.createElement(_SclAvatar2.default, {
+            onTouchTap: props.onSelect,
+            text: props.settingsName
+        }),
         _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement(
-                _Chip2.default,
-                { onTouchTap: (0, _Utils.copyToClipboard)(props.settingsName) },
-                _react2.default.createElement(
-                    _Avatar2.default,
-                    { size: 18 },
-                    props.settingsName[0]
-                ),
-                props.settingsName
-            )
-        ),
-        _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(_Toggle2.default, {
+            _react2.default.createElement(_SclToggle2.default, {
                 label: '',
                 labelPosition: 'right',
                 labelStyle: toggleHeadStyle,
@@ -260,3 +266,7 @@ function BlockHeader(props, context) {
 }
 
 BlockHeader.contextTypes = contextTypes;
+BlockHeader.propTypes = {
+    openThis: _react2.default.PropTypes.func.isRequired,
+    settingsName: _react2.default.PropTypes.string.isRequired
+};

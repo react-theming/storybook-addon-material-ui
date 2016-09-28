@@ -63,8 +63,8 @@ var Resizer = function (_Component) {
             var classes = ['Resizer', split, className];
             return _react2.default.createElement(
                 'div',
-                { className: classes.join(' '),
-
+                {
+                    className: classes.join(' '),
                     onMouseDown: this.onMouseDown
                 },
                 _react2.default.createElement('div', {

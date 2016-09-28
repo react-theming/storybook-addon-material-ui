@@ -246,9 +246,13 @@ var SplitPane = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: classes.join(' '), style: style, ref: function ref(node) {
+                {
+                    className: classes.join(' '),
+                    style: style,
+                    ref: function ref(node) {
                         _this2.splitPane = node;
-                    } },
+                    }
+                },
                 _react2.default.createElement(
                     _Pane2.default,
                     {

@@ -21,7 +21,7 @@ Object.defineProperty(exports, 'muiTheme', {
     return _muiTheme.muiTheme;
   }
 });
-// addons, panels and events get unique names using a prefix
+// note: addons, panels and events get unique names using a prefix
 var ADDON_ID = exports.ADDON_ID = 'sm/storybook-addon-material-ui';
 var PANEL_ID = exports.PANEL_ID = ADDON_ID + '/material-panel';
 var EVENT_ID_INIT = exports.EVENT_ID_INIT = ADDON_ID + '/material-event/init';

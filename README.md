@@ -46,6 +46,7 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 storiesOf('Material-UI', module)
 // Add the `muiTheme` decorator to provide material-ui support to your stories.
+// If you do not specify any arguments it starts with two default themes
 // You can also configure `muiTheme` as a global decorator.
     .addDecorator(muiTheme())
     .add('Card Example Controlled', () => (
@@ -111,25 +112,41 @@ Select `MATERIAL-UI` panel. You can select the theme you need to see and you wil
 By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in `Theme setting`.
 ![screen6](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen6.png)
 
-> See details in [sreenshorts](https://github.com/sm-react/storybook-addon-material-ui/blob/master/docs/screenshorts.md)
+> See details in [sreenshorts](./docs/screenshorts.md)
+
+After you have made changes in the theme, you can save it and download as *.JSON file.
+>You can continue to work with this file:
+```
+import greyTheme from './greyTheme.json';
+addDecorator(greyTheme);
+```
 
 ## Demo
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
 
-## CONTRIBUTING
+#### Example project
+You can start with an example project:
+
+```shell 
+git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon-material-ui.git
+cd storybook-addon-material-ui\
+npm i
+npm start
+```
+## Query string parameters
+As you select themes and other options it stores in adress bar line. So this state is retained when you refresh the page and you can use direct links to the desired states.
+```http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true```
+
+## CONTRIBUTING 
+[![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
+### Developers:
 Our team welcom all contributing, testing, bug fixing. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
 
->You can start with an example project:
+### Designers:
+We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
->```shell 
->git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon-material-ui.git
->cd storybook-addon-material-ui\
->npm i
->npm start
->```
-
-### smARTLight
+#### smARTLight
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
 [![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
 

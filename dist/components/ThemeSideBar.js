@@ -40,23 +40,29 @@ var _Paper = require('material-ui/Paper');
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _Card = require('material-ui/Card');
+var _SclToggle = require('../material-desktop/SclToggle');
 
-var _Table = require('material-ui/Table');
+var _SclToggle2 = _interopRequireDefault(_SclToggle);
 
-var _Toggle = require('material-ui/Toggle');
+var _SvgButton = require('../material-desktop/SvgButton');
 
-var _Toggle2 = _interopRequireDefault(_Toggle);
+var _SvgButton2 = _interopRequireDefault(_SvgButton);
 
-var _TextField = require('material-ui/TextField');
+var _contentCopy = require('material-ui/svg-icons/content/content-copy');
 
-var _TextField2 = _interopRequireDefault(_TextField);
+var _contentCopy2 = _interopRequireDefault(_contentCopy);
+
+var _switchCamera = require('material-ui/svg-icons/image/switch-camera');
+
+var _switchCamera2 = _interopRequireDefault(_switchCamera);
 
 var _ = require('../');
 
 var _ThemePropBlock = require('./ThemePropBlock');
 
 var _ThemePropBlock2 = _interopRequireDefault(_ThemePropBlock);
+
+var _Utils = require('../Utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -78,24 +84,74 @@ var ThemeSideBar = function (_React$Component) {
 
     function ThemeSideBar(props) {
         (0, _classCallCheck3.default)(this, ThemeSideBar);
-        return (0, _possibleConstructorReturn3.default)(this, (ThemeSideBar.__proto__ || (0, _getPrototypeOf2.default)(ThemeSideBar)).call(this, props));
-        /*
-        this.state = {
-            isFullSet: props.fullTheme(),
-        }*/
-        //        console.log('ThemeSideBar constructor');
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (ThemeSideBar.__proto__ || (0, _getPrototypeOf2.default)(ThemeSideBar)).call(this, props));
+
+        _this.state = {
+            selectedTable: '',
+            selectedProp: '',
+            selectedVal: '',
+            isSelectedStyleObj: true
+        };
+
+        _this.clipString = _this.clipString.bind(_this);
+        _this.onSelect = _this.onSelect.bind(_this);
+        _this.onSwitchStyleObj = _this.onSwitchStyleObj.bind(_this);
+        _this.onCopy = _this.onCopy.bind(_this);
+        return _this;
     }
 
     (0, _createClass3.default)(ThemeSideBar, [{
         key: 'shouldComponentUpdate',
         value: function shouldComponentUpdate(nextProps, nextState) {
+            // fixme shouldComponentUpdate - remove
             return nextProps.shouldComponentUpdate;
+        }
+    }, {
+        key: 'onSelect',
+        value: function onSelect(sel) {
+            this.setState(sel);
+        }
+    }, {
+        key: 'onSwitchStyleObj',
+        value: function onSwitchStyleObj() {
+            var isObj = this.state.isSelectedStyleObj;
+            this.setState({ isSelectedStyleObj: !isObj });
+        }
+    }, {
+        key: 'onCopy',
+        value: function onCopy() {
+            var text = this.clipString();
+            (0, _Utils.copyToClipboardThis)(text);
+        }
+    }, {
+        key: 'clipString',
+        value: function clipString() {
+            var table = this.state.selectedTable;
+            var prop = this.state.selectedProp;
+            var val = this.state.selectedVal;
+            var isObj = this.state.isSelectedStyleObj;
+
+            var strTbl = table;
+            var strVal = isObj ? prop + ': ' + val + ',' : table + '.' + prop + ' = ' + val + ';';
+            return prop ? strVal : strTbl;
         }
     }, {
         key: 'renderContent',
         value: function renderContent() {
             var _this2 = this;
 
+            var palette = this.context.muiTheme.palette;
+
+            var styleHR = { borderBottom: 'solid ' + palette.borderColor + ' 1px' };
+            var blockStyle = {
+                width: 21,
+                height: 21,
+                marginLeft: 4,
+                border: 'solid 1px ' + palette.borderColor,
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                cursor: 'pointer'
+            };
             return _react2.default.createElement(
                 'div',
                 {
@@ -113,51 +169,124 @@ var ThemeSideBar = function (_React$Component) {
                     { style: { paddingLeft: 3, paddingBottom: 6 } },
                     _react2.default.createElement(
                         _Paper2.default,
-                        null,
-                        _react2.default.createElement(_Card.CardTitle, {
-                            subtitle: this.props.themeName + ' properties'
-                        }),
+                        { style: { paddingLeft: 16, paddingRight: 8, paddingTop: 8 } },
                         _react2.default.createElement(
-                            _Card.CardText,
-                            { style: {
+                            'h3',
+                            {
+                                style: {
+                                    margin: 0,
+                                    marginBottom: 4,
+                                    color: palette.secondaryTextColor,
+                                    fontSize: 16
+                                }
+                            },
+                            this.props.themeName + ' properties'
+                        ),
+                        _react2.default.createElement('div', { style: styleHR }),
+                        _react2.default.createElement(
+                            'div',
+                            {
+                                style: {
+                                    marginTop: 8,
                                     display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center'
-                                } },
+                                    alignItems: 'center',
+                                    fontSize: 14,
+                                    color: palette.secondaryTextColor
+                                }
+                            },
                             _react2.default.createElement(
                                 'div',
-                                null,
+                                {
+                                    style: {
+                                        color: !this.props.fullTheme() ? palette.textColor : ''
+                                    }
+                                },
                                 'Theme Settings'
                             ),
+                            _react2.default.createElement(_SclToggle2.default, {
+                                label: '',
+                                labelPosition: 'right',
+                                labelStyle: this.toggleHeadStyle,
+                                toggled: this.props.fullTheme(),
+                                onToggle: function onToggle() {
+                                    return _this2.props.fullTheme(!_this2.props.fullTheme());
+                                }
+                            }),
                             _react2.default.createElement(
                                 'div',
-                                null,
-                                _react2.default.createElement(_Toggle2.default, {
-                                    label: '',
-                                    labelPosition: 'right',
-                                    labelStyle: this.toggleHeadStyle,
-                                    toggled: this.props.fullTheme(),
-                                    onToggle: function onToggle() {
-                                        return _this2.props.fullTheme(!_this2.props.fullTheme());
+                                {
+                                    style: {
+                                        color: this.props.fullTheme() ? palette.textColor : ''
                                     }
-                                })
-                            ),
+                                },
+                                'Full Settings'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            {
+                                style: {
+                                    paddingBottom: 8,
+                                    paddingRight: 8
+                                }
+                            },
                             _react2.default.createElement(
                                 'div',
-                                null,
-                                'Full Settings'
+                                {
+                                    style: {
+                                        marginTop: 8,
+                                        //                      paddingBottom: 8,
+                                        //                        padding: 2,
+                                        width: '100%',
+                                        height: 24,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        border: '1px grey solid',
+                                        borderColor: palette.borderColor,
+                                        backgroundColor: 'rgba(128, 128, 128, 0.1)'
+                                    }
+                                },
+                                _react2.default.createElement('input', {
+                                    type: 'text',
+                                    onChange: null,
+                                    value: this.clipString(),
+                                    title: 'click to copy to clipboard',
+                                    disabled: true,
+                                    style: {
+                                        width: '100%',
+                                        padding: 2,
+                                        margin: 0,
+                                        border: 'none',
+                                        backgroundColor: 'rgba(0, 0, 0, 0)',
+                                        color: palette.secondaryTextColor,
+                                        cursor: 'text'
+                                    }
+                                }),
+                                _react2.default.createElement(_SvgButton2.default, {
+                                    icon: _react2.default.createElement(_contentCopy2.default, null),
+                                    tooltip: 'Copy to clipboard',
+                                    width: 48,
+                                    onTouchTap: this.onCopy
+                                }),
+                                _react2.default.createElement('div', { style: { width: 4 } }),
+                                _react2.default.createElement(_SvgButton2.default, {
+                                    icon: _react2.default.createElement(_switchCamera2.default, null),
+                                    tooltip: 'switch style',
+                                    width: 48,
+                                    onTouchTap: this.onSwitchStyleObj
+                                })
                             )
                         )
                     )
                 ),
-                this.props.shouldShowData ? themesList(this.props.fullTheme() ? this.props.muiTheme : this.props.theme, this.props) : null
+                this.props.shouldShowData ? themesList(this.props.fullTheme() ? this.props.muiTheme : this.props.theme, this.props, this.onSelect) : null
             );
         }
     }, {
         key: 'render',
         value: function render() {
-            //        console.log('ThemeSideBar Render');
-            var barWidth = this.props.open ? BAR_WIDTH : 0;
+            //        const barWidth = this.props.open ? BAR_WIDTH : 0; // fixme BAR_WIDTH
+
             return _react2.default.createElement(
                 'div',
                 {
@@ -180,7 +309,7 @@ ThemeSideBar.contextTypes = {
     muiTheme: _react2.default.PropTypes.object.isRequired
 };
 
-function forTable(tableTame, objListFunc, themeInd) {
+function forTable(tableTame, objListFunc) {
     return function (val) {
         var objList = objListFunc();
         var obj = objList[tableTame];
@@ -191,88 +320,61 @@ function forTable(tableTame, objListFunc, themeInd) {
         objListFunc(objList);
         return val;
     };
-
-    /*
-    const collapseList = this.props.open();
-    collapseList[this.props.settingsName] = !this.state.isOpen;
-    this.props.open(collapseList);
-    this.setState({isOpen : !this.state.isOpen})*/
 }
 
-function themesList(themeObj, props) {
-    var themePropTable = function themePropTable(tableName, table) {
-        return _react2.default.createElement(_ThemePropBlock2.default, {
-            key: tableName,
-            settingsObj: table,
-            settingsName: tableName,
-            open: forTable(tableName, props.collapseList),
-            override: forTable(tableName, props.themesOverrideList),
-            onThemeTableOverride: onThemeTableOverride(tableName)
-        });
-    }; /* open={props.collapseList} */
-
+function themesList(themeObj, _props, onSelect) {
     var onThemeTableOverride = function onThemeTableOverride(tableName) {
         return function (propName, value) {
             var overTheme = {};
             if (tableName === 'miscellaneous') {
                 overTheme[propName] = value;
-                props.onThemeOverride(overTheme);
+                _props.onThemeOverride(overTheme);
                 return;
             }
             overTheme[tableName] = {};
             overTheme[tableName][propName] = value;
-            //            console.log(overTheme);
-            props.onThemeOverride(overTheme);
+            _props.onThemeOverride(overTheme);
         };
+    };
+
+    var themePropTable = function themePropTable(tableName, table) {
+        return _react2.default.createElement(_ThemePropBlock2.default, {
+            key: tableName,
+            settingsObj: table,
+            settingsName: tableName,
+            open: forTable(tableName, _props.collapseList),
+            override: forTable(tableName, _props.themesOverrideList),
+            onThemeTableOverride: onThemeTableOverride(tableName),
+            onSelect: onSelect
+        });
     };
 
     var keyList = (0, _keys2.default)(themeObj);
 
     var strList = {};
-    keyList.forEach(function (val, ind) {
-        if (typeof themeObj[val] === 'string' /* || typeof(themeObj[val]) === 'function'*/) {
-                strList[val] = themeObj[val];
-            }
-    });
-
-    var strListNode = themePropTable('miscellaneous', strList);
-    /*
-                  <ThemePropTable
-                      key="misc"
-                      settingsObj={strList}
-                      settingsName="miscellaneous"
-                      open={props.collapseList}
-                      openThis={forTable('palette', props.collapseList)}
-                      override={props.themesOverrideList}
-                  />
-    */
-    var paletteList = themeObj.palette ? themePropTable('palette', themeObj.palette)
-    /* <ThemePropTable
-        key="palette"
-        settingsObj={themeObj.palette}
-        settingsName="palette"
-        open={props.collapseList}
-        openThis={forTable('palette', props.collapseList)}
-        override={props.themesOverrideList}
-    /> */ : _react2.default.createElement(_Card.CardTitle, { subtitle: 'No palette here' });
-
-    var tablesListObj = keyList.map(function (val, ind) {
-        if ((0, _typeof3.default)(themeObj[val]) === 'object' && val !== 'palette') {
-            return themePropTable(val, themeObj[val])
-            /* <ThemePropTable
-                key={val}
-                settingsObj={themeObj[val]}
-                settingsName={val}
-                open={props.collapseList}
-                openThis={forTable('palette', props.collapseList)}
-                override={props.themesOverrideList}
-            />*/
-            ;
+    keyList.forEach(function (val) {
+        if (typeof themeObj[val] === 'string') {
+            strList[val] = themeObj[val];
         }
     });
 
+    var strListNode = themePropTable('miscellaneous', strList);
+    var paletteList = themeObj.palette ? themePropTable('palette', themeObj.palette) : _react2.default.createElement(
+        'div',
+        null,
+        ' ',
+        'No palette here',
+        ' '
+    );
+
+    var tablesListObj = keyList.map(function (val) {
+        if ((0, _typeof3.default)(themeObj[val]) === 'object' && val !== 'palette') {
+            return themePropTable(val, themeObj[val]);
+        }
+        return null;
+    });
+
     var scrollStyle = {
-        //      border: '5px #2196F3 solid',
         height: '100%',
         overflowY: 'scroll'
     };
@@ -295,11 +397,13 @@ function themesList(themeObj, props) {
             },
             _react2.default.createElement(
                 'div',
-                { style: {
+                {
+                    style: {
                         paddingLeft: 3,
                         paddingRight: 12
 
-                    } },
+                    }
+                },
                 _react2.default.createElement(
                     'div',
                     { style: { backgroundColor: 'rgba(128, 128, 128, 0.04)' } },
