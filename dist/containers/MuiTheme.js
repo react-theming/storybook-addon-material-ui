@@ -54,6 +54,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
+var stringify = require('json-stringify-safe');
+
 var propTypes = {
     themesAppliedListInit: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.object),
     themeName: _react2.default.PropTypes.string,
@@ -156,7 +158,8 @@ var MuiTheme = function (_React$Component) {
         key: 'dataChannelSend',
         value: function dataChannelSend(data) {
             if (this.isChannelData || !this.state.isMount) return false;
-            this.props.channel.emit(_.EVENT_ID_DATA, data);
+            var dataStr = stringify(data);
+            this.props.channel.emit(_.EVENT_ID_DATA, dataStr);
             return true;
         }
     }, {
