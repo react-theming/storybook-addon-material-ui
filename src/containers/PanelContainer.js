@@ -82,8 +82,8 @@ export default class PanelContainer extends React.Component {
         this.setState({ ...initData, ...queryData, themesNameList, isReady: true });
     }
 
-    onDataChannel(stateData) {
-//        console.info(`Panel.onDataChannel: isMount = ${stateData.isMount}`);
+    onDataChannel(strData) {
+        const stateData = JSON.parse(strData);
         const themesNameList = this.genNameList(stateData.themesAppliedList);
         this.isChannelData = true; // note: this state received by channel, don't need to send back
         this.setState({ ...stateData, themesNameList });
