@@ -23,6 +23,20 @@ export function muiTheme(themes) {
     if (themes) {
         if (Array.isArray(themes)) {
             themesInitList = themes;
+            themesInitList.forEach((val, ind) => {
+                if (typeof(val) === 'string') {
+                    /* note: unsupported names goes as lightBaseTheme
+                    if (val === lightBaseTheme.themeName) {
+                        themesInitList[ind] = lightBaseTheme;
+                    }
+                    */
+                    if (val === darkBaseTheme.themeName) {
+                        themesInitList[ind] = darkBaseTheme;
+                    } else {
+                        themesInitList[ind] = lightBaseTheme;
+                    }
+                }
+            });
         } else {
             themesInitList = [themes];
         }
@@ -81,11 +95,7 @@ export function muiTheme(themes) {
     };
 
     // fixme: EVENT_ID_INIT (local gecorators?)
-    try {
-        channel.emit(EVENT_ID_INIT, panelState(storedState));
-    } catch(err) {
-
-    }
+    channel.emit(EVENT_ID_INIT, panelState(storedState));
 
     return (story) => {
         const storyItem = story();

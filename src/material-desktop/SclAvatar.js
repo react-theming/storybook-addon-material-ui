@@ -19,10 +19,12 @@ export default function SclAvatar(props) {
 //        left: -95 * (1 - props.scale) / 2,
 //        position: 'absolute',
     };
+    const chipProps = Object.assign({}, props);
+    delete chipProps.text;
     return (
       <div>
         <div style={style} >
-          <Chip {...props} >
+          <Chip {...chipProps} >
 
             {<Avatar>{props.text[0].toUpperCase()}</Avatar>}
             {props.text}

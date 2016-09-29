@@ -9,28 +9,14 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 import greyTheme from './greyTheme.json';
 
-const newTheme = {
-    themeName: 'New Theme',
-    themeFile: 'greyTheme.json',
-    palette: {
-        primary1Color: '#00bcd4',
-        primary2Color: '#26a69a',
-        alternateTextColor: '#4a4a4a',
-        canvasColor: '#616161',
-        textColor: '#bdbdbd',
-        secondaryTextColor: 'rgba(255, 255, 255, 0.54)',
-        disabledColor: '#757575',
-        accent1Color: '#607d8b',
-    },
-};
-
 /** note: decorators
  *  You can add decorator globally:
- *  addDecorator(muiTheme([newTheme]));
+ *  addDecorator(muiTheme(greyTheme));
+ *  You can pass a single object or an array of themes
  */
 
 storiesOf('Material-UI', module)
-    .addDecorator(muiTheme([greyTheme, newTheme]))
+    .addDecorator(muiTheme(['Light Theme', 'Dark Theme', greyTheme]))
     .add('Card Example Controlled', () => (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
@@ -51,7 +37,6 @@ storiesOf('Material-UI', module)
       </div>));
 
 storiesOf('Without addon', module)
-//    .addDecorator(muiTheme())
     .add('Text', () => (
       <p>Lorem ipsum</p>
     ));
