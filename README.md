@@ -149,6 +149,7 @@ to help contribute to the project feel free to make an issue, PR or get in touch
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### smARTLight
+[![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro" class="twitter-follow-button)
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
 [![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
 
