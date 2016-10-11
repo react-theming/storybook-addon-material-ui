@@ -10,6 +10,8 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 import greyTheme from './greyTheme.json';
 import SupportProject from '../SupportProject.jsx';
 
+const SHOW_SUPPORT = false;
+
 /** note: decorators
  *  You can add decorator globally:
  *  addDecorator(muiTheme(greyTheme));
@@ -21,7 +23,7 @@ storiesOf('Material-UI', module)
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
           {story()}
-          <SupportProject />
+          {SHOW_SUPPORT ? <SupportProject /> : null}
         </div>
       </div>
     ))
