@@ -24,6 +24,7 @@ Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [ma
 
 ## Demo
 Explore this live demo project:
+
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
 
 #### Example project
