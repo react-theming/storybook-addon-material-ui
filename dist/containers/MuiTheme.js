@@ -46,9 +46,9 @@ var _ThemeSideBar = require('../components/ThemeSideBar');
 
 var _ThemeSideBar2 = _interopRequireDefault(_ThemeSideBar);
 
-var _SplitPane = require('../components/SplitPane');
+var _reactSplitPane = require('react-split-pane');
 
-var _SplitPane2 = _interopRequireDefault(_SplitPane);
+var _reactSplitPane2 = _interopRequireDefault(_reactSplitPane);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -234,7 +234,7 @@ var MuiTheme = function (_React$Component) {
 
                     },
                     _react2.default.createElement(
-                        _SplitPane2.default,
+                        _reactSplitPane2.default,
                         {
                             split: 'vertical',
                             minSize: this.state.isSideBarOpen ? 200 : 0,
