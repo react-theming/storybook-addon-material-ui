@@ -9,7 +9,7 @@ __You can use this project as [online](https://sm-react.github.io/storybook-addo
 
 Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies [development](#getting-started) of material-ui based components.
 
-![screen1](docs/WatchMe.png)
+![screen1](docs/WatchMe.gif)
 
 ## Features
 
