@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { EVENT_ID_DATA, CSS_CLASS } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
 import ThemeSideBar from '../components/ThemeSideBar';
-import SplitPane from '../components/SplitPane';
+import SplitPane from 'react-split-pane';
 const stringify = require('json-stringify-safe');
 
 const propTypes = {
