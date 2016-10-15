@@ -7,7 +7,7 @@ import { EVENT_ID_DATA, CSS_CLASS } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
 import ThemeSideBar from '../components/ThemeSideBar';
 import SplitPane from 'react-split-pane';
-const stringify = require('json-stringify-safe');
+// const stringify = require('json-stringify-safe');
 
 const propTypes = {
     themesAppliedListInit: React.PropTypes.arrayOf(React.PropTypes.object),
@@ -92,8 +92,8 @@ export default class MuiTheme extends React.Component {
 
     dataChannelSend(data) {
         if (this.isChannelData || !this.state.isMount) return false;
-        const dataStr = stringify(data);
-        this.props.channel.emit(EVENT_ID_DATA, dataStr);
+//        const dataStr = stringify(data);
+        this.props.channel.emit(EVENT_ID_DATA, data);
         return true;
     }
 

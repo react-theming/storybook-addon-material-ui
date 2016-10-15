@@ -1,8 +1,8 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import TwitterButton from '../src/Utils/twitter';
-import GithubButton from '../src/Utils/github';
+import TwitterButton from './react-twitter-button';
+import GithubButton from './react-github-button';
 import smBackground from './smLogoBW.png'
 
 const Buttons = (

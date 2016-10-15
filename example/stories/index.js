@@ -10,7 +10,7 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 import greyTheme from './greyTheme.json';
 import SupportProject from '../SupportProject.jsx';
 
-const SHOW_SUPPORT = false;
+const SHOW_SUPPORT = true;
 
 /** note: decorators
  *  You can add decorator globally:
