@@ -4,19 +4,38 @@
 #  Storybook-Addon-Material-UI 
 https://github.com/sm-react/storybook-addon-material-ui
 
-Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies development of material-ui based components.
+### Visual theme editor
+__You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
 
-![screen1](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen1.png)
+Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies [development](#getting-started) of material-ui based components.
+
+[![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
 ## Features
 
 - Wrapped in the theme provider. Just start to develop with base light theme.
 - Injected TapEvent Plugin. Test on mobile devices.
 - Switching themes. See how it looks in one click.
-- Creating your castom theme. By code or in visual editor.
+- Creating your custom theme. By code or in visual editor.
 - Dynamic visual themes editing. Discover the all avalibale theme properties.
 - Google [material color](https://material.google.com/style/color.html#color-color-palette) palette [picker](https://github.com/sm-react/react-material-color-picker)
-- Save made changes. (soon)
+- Save made changes and download in JSON file
+
+
+## Demo
+Explore this live demo project:
+
+[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
+
+#### Example project
+You can start with an example project:
+
+```shell 
+git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon-material-ui.git
+cd storybook-addon-material-ui\
+npm i
+npm start
+```
 
 ## Getting Started
 
@@ -121,18 +140,6 @@ import greyTheme from './greyTheme.json';
 addDecorator(greyTheme);
 ```
 
-## Demo
-[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
-
-#### Example project
-You can start with an example project:
-
-```shell 
-git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon-material-ui.git
-cd storybook-addon-material-ui\
-npm i
-npm start
-```
 ## Query string parameters
 As you select themes and other options it stores in adress bar line. So this state is retained when you refresh the page and you can use direct links to the desired states.
 ```
@@ -149,6 +156,7 @@ to help contribute to the project feel free to make an issue, PR or get in touch
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### smARTLight
+[![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro)
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
 [![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
 
