@@ -9,6 +9,8 @@ import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 import greyTheme from './greyTheme.json';
 import SupportProject from '../SupportProject.jsx';
+import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard.jsx';
+import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 
 const SHOW_SUPPORT = true;
 
@@ -36,6 +38,15 @@ storiesOf('Material-UI', module)
     ))
     .add('Date Picker Example Simple', () => (
       <DatePickerExampleSimple />
+    ));
+
+storiesOf('Material App', module)
+    .addDecorator(muiTheme(['Light Theme', 'Dark Theme', greyTheme]))
+    .add('Hactoberfest issues:', () => (
+      <MaterialAppExampleCard />
+    ))
+    .add('blank page', () => (
+      <MaterialAppExampleProgress />
     ));
 
 storiesOf('Without addon', module)

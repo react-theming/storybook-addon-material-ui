@@ -12,7 +12,9 @@
     "test": "npm run lint && npm run testonly",
     "test-watch": "bash .scripts\\test-watch.sh",
     "storybook": "start-storybook -p 9010",
-    "start": "start-storybook -p 9001"
+    "start": "start-storybook -p 9001",
+    "lintMaterial": "eslint example/LoremMaterial --ext .jsx --ext .js",
+    "lintfixMaterial": "eslint example/LoremMaterial --ext .jsx --ext .js --fix"
   },
   "repository": {
     "type": "git",
