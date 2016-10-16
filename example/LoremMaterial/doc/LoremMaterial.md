@@ -76,7 +76,7 @@ git commit -m «my ready to PR story»
 git push
 
 ```
-- Make  Pull request from your Github repo. ![Material](ic_call_split_black.png)
+- Make  Pull request from your Github repo. ![Material](ic_call_merge_black.png)
 
 - encourage us by ![Material](ic_star_black.png) for our work!
 
