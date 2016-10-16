@@ -107,7 +107,7 @@ a {
               >
                 <div style={{ display: 'flex', margin: '10px 20px' }}>
                   <div style={{ minWidth: 300 }}>
-                    <a href="https://hacktoberfest.digitalocean.com/">
+                    <a href="https://hacktoberfest.digitalocean.com/"  target="blank">
                       <img src={hacktoberfestLogo} alt="H" />
                     </a>
                   </div>
@@ -159,7 +159,7 @@ a {
                     </li>
                     <li>
                       <p>
-                        <a href="https://guides.github.com/activities/contributing-to-open-source/">
+                        <a href="https://guides.github.com/activities/contributing-to-open-source/"  target="blank">
                           Contributing to Open Source on GitHub
                         </a>
                         <br />by GitHub
@@ -188,7 +188,7 @@ a {
                     </li>
                     <li>
                       <p>
-                        <a href="http://hood.ie/blog/welcoming-communities">
+                        <a href="http://hood.ie/blog/welcoming-communities"  target="blank">
                           Welcoming Communities
                         </a>
                         <br />by Gregor Martynus, Hoodie
@@ -206,7 +206,7 @@ a {
                     </li>
                     <li>
                       <p>
-                        <a href="http://contributor-covenant.org">
+                        <a href="http://contributor-covenant.org"  target="blank">
                           Contributor Covenant: A Code of Conduct for Open Source Projects
                         </a>
                         <br />by Coraline Ada Ehmke
@@ -225,7 +225,7 @@ a {
                   see how they look. For this we feel the need of help by
                   designers and front-end developers in material design.
                   Therefore, we are opening this trend and attract
-                  <a href="https://hacktoberfest.digitalocean.com/">
+                  <a href="https://hacktoberfest.digitalocean.com/"  target="blank">
                     <b> #hacktoberfest </b>
                   </a>
                   participants. We welcome all who wish to contribute.
@@ -248,14 +248,14 @@ a {
                   <ul>
                     <li>
                       It should be in the
-                      <a href="https://material.google.com/">
+                      <a href="https://material.google.com/"  target="blank">
                         <span> Material Design </span>
                       </a>
                       style
                     </li>
                     <li>
                       It should be based on the
-                      <a href="http://www.material-ui.com/#/">
+                      <a href="http://www.material-ui.com/#/"  target="blank">
                         <span> Material-UI </span>
                       </a>
                       library
@@ -268,7 +268,7 @@ a {
                     </li>
                     <li>
                       Should not copy an already existing
-                      <a href="https://sm-react.github.io/storybook-addon-material-ui">
+                      <a href="https://sm-react.github.io/storybook-addon-material-ui"  target="blank">
                         <span> story </span>
                       </a>
                     </li>
@@ -279,14 +279,14 @@ a {
                 </p>
                 <h3 style={{ textAlign: 'justify', fontSize: 16 }}>
                   to initiate the participation
-                  <a href="https://github.com/sm-react/storybook-addon-material-ui/fork">
+                  <a href="https://github.com/sm-react/storybook-addon-material-ui/fork"  target="blank">
                     <span> fork this project </span>
                   </a>
                   .
                 </h3>
                 <p style={{ textAlign: 'justify', fontSize: 16 }} >
                   See details
-                  <a href="https://github.com/sm-react/storybook-addon-material-ui/issues/19">
+                  <a href="https://github.com/sm-react/storybook-addon-material-ui/issues/19" target="blank">
                     <span> here</span>
                   </a>
                 </p>
