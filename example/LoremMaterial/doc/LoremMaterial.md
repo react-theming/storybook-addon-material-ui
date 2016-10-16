@@ -1,8 +1,10 @@
 
 ## Material content filling
 ![Material](ic_account_balance_black.png)
-For easy themes design we required a realistic-looking content. It will be possible to try out different themes and immediately see how they look. For this we feel the need of help by designers and front-end developers in material design. Therefore, we are opening this trend and attract #hacktoberfest participants. We welcome all who wish to contribute.
+For easy themes design we required a realistic-looking content. It will be possible to try out different themes and immediately see how they look. For this we feel the need of help by designers and front-end developers in material design. Therefore, we are opening this trend and attract **#hacktoberfest** participants. We welcome all who wish to contribute.
+
 We propose to fill this library by adding small pages or applications - each in a separate [story](https://sm-react.github.io/storybook-addon-material-ui/?theme-ind=0&theme-sidebar=false&theme-full=false&selectedKind=Material%20App&selectedStory=Hactoberfest%20issues%3A&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel). They should be made in the material design style and look like a real application (no need to use real data). We are pleased to see various interesting applications, but you can try your hand at creating something simple.
+
 We do not impose special restrictions to create pages, but please keep the following:
 - It should be in the [Material Design](https://material.google.com/) style
 - It should be based on the [Material-UI](http://www.material-ui.com/#/) library
@@ -13,8 +15,9 @@ We do not impose special restrictions to create pages, but please keep the follo
 
 ### to initiate the participation [fork this project](https://github.com/sm-react/storybook-addon-material-ui/fork).
 
+![Material](ic_flight_takeoff.png)
 Take `example/LoremMaterial/blankMaterialAppExampleProgress.jsx` as a starting point of development.
-![Material](ic_flight_takeoff_black.png)
+
 This project is built on the [React Storybook](https://getstorybook.io/docs) platform. It's a great basis for creating React components and applications. We create each `Lorem Material Page` as a separate `React Compenent` and add them as a story into storybook [follows](https://github.com/sm-react/storybook-addon-material-ui/blob/master/example/stories/index.js#L48)
 
 We use material-ui components from [Material-UI](http://www.material-ui.com/#/) set  - The most popular and complete library for React that Implement Google's Material Design.
@@ -30,12 +33,11 @@ To learn more about material design follow the [link](https://material.google.co
 We always welcome your questions, suggestions and ideas.
 
 ![Material](ic_accessibility_black.png)
-don't forget to register on the [hacktoberfest]() to win a t-shirt
+don't forget to register on the [hacktoberfest](https://hacktoberfest.digitalocean.com/) to win a t-shirt
 
 ### For more details about the process of developing
-- ![Material](ic_call_split_black_48dp_1x.png) [make a fork]().
-
-
+- [make a fork](https://github.com/sm-react/storybook-addon-material-ui/fork).
+![Material](ic_call_split_black.png)
 
 - clone your repo to local machine and install
 ```
@@ -44,7 +46,8 @@ cd storybook-addon-material-ui
 npm i
 ```
 
-- ![Material](ic_create_black.png) Find `example/LoremMaterial/blankMaterialAppExampleProgress.jsx` and use it as a blank to start developing.
+- Find `example/LoremMaterial/blankMaterialAppExampleProgress.jsx` and use it as a blank to start developing.
+![Material](ic_create_black.png)
 
 - Start storybook and check how it looks. Due to the [HMR] you will immediately see all the changes made to the file. Try different themes.
 ```
@@ -67,13 +70,13 @@ git commit -m «my material story»
 npm run lintfixMaterial
 ```
 
-- ![Material](ic_done_black.png) Make final commit and push it to github:
+- Make final commit and push it to github: ![Material](ic_done_black.png) 
 ```
 git commit -m «my ready to PR story»
 git push
 
 ```
-- ![Material](ic_call_split_black_48dp_1x.png) Make  Pull request from your Github repo.
+- Make  Pull request from your Github repo. ![Material](ic_call_split_black.png)
 
-- encourage us by ![Material](ic_call_split_black.png) for our work!
+- encourage us by ![Material](ic_star_black.png) for our work!
 
