@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "publish-storybook": ".scripts\\publish_storybook.cmd",
-    "prepublish": ".scripts\\prepublish.cmd",
+    "prepublish-omitted": ".scripts\\prepublish.cmd",
     "lint": ".scripts\\lint.cmd src",
     "lintfix": ".scripts\\lint.cmd src --fix",
     "testonly": ".scripts\\test.cmd",
