@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import DatePicker from 'material-ui/DatePicker';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -16,7 +16,9 @@ const styles = {
     width: '90%',    
   },
   label: {
-    color: 'black'
+/** note: need to use context.palette.secondaryTextColor
+ *    color: 'black'
+*/
   },
   textField: {
     width: '160%',
