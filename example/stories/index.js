@@ -11,6 +11,7 @@ import greyTheme from './greyTheme.json';
 import SupportProject from '../SupportProject.jsx';
 import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard.jsx';
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
+import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
 
 const SHOW_SUPPORT = true;
 
@@ -47,6 +48,9 @@ storiesOf('Material App', module)
     ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />
+    ))
+    .add('Airline booking', () => (
+      <MaterialAirlineBooking />
     ));
 
 storiesOf('Without addon', module)
