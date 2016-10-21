@@ -13,7 +13,7 @@ const styles = {
     width: '40%',
   },
   datePicker: {
-    width: '90%',    
+    width: '90%',
   },
   label: {
 /** note: need to use context.palette.secondaryTextColor
@@ -47,31 +47,115 @@ export default class MaterialAirlineBooking extends React.Component {
             adultNum: 1,
             childNum: 0,
             infantNum: 0,
-            dataSource: ["London", "Sydney", "Melbourne", "Dublin", "Cork", "Waterford", "Zürich", "Geneva", "Chur", "Hong Kong"]
+            dataSource: ["Ahmedabad",
+                         "Ankara",
+                         "Atlanta",
+                         "Bangalore",
+                         "Bangkok",
+                         "Barcelona",
+                         "Beijing",
+                         "Belo Horizonte",
+                         "Berlin",
+                         "Bogotá",
+                         "Boston",
+                         "Buenos Aires",
+                         "Changzhou",
+                         "Chengdu",
+                         "Chennai",
+                         "Chicago",
+                         "Chongqing",
+                         "Dallas–FortWorth",
+                         "Delhi",
+                         "Detroit",
+                         "Dhaka",
+                         "Guadalajara",
+                         "Guangzhou",
+                         "Hamburg",
+                         "Hangzhou",
+                         "Harbin",
+                         "Hong Kong",
+                         "Houston",
+                         "Hyderabad",
+                         "Inland Empire",
+                         "Istanbul",
+                         "Jakarta",
+                         "Jinan",
+                         "Karachi",
+                         "Kolkata",
+                         "Lagos",
+                         "Lima",
+                         "London",
+                         "Los Angeles",
+                         "Luanda",
+                         "Madrid",
+                         "Manila",
+                         "Melbourne",
+                         "Mexico City",
+                         "Miami",
+                         "Milan",
+                         "Monterrey",
+                         "Mumbai",
+                         "Munich",
+                         "Nagoya",
+                         "Nanchang",
+                         "Nanjing",
+                         "New York City",
+                         "Osaka",
+                         "Paris",
+                         "Philadelphia",
+                         "Phoenix",
+                         "Pune",
+                         "Qingdao",
+                         "Rhine-Ruhr",
+                         "Rio de Janeiro",
+                         "Rome",
+                         "San Francisco",
+                         "Santiago",
+                         "Seoul",
+                         "Shanghai",
+                         "Shantou",
+                         "Shenyang",
+                         "Shenzhen",
+                         "Singapore",
+                         "Stuttgart",
+                         "Surat",
+                         "Sydney",
+                         "São Paulo",
+                         "Taipei",
+                         "Tehran",
+                         "Tianjin",
+                         "Tokyo",
+                         "Toronto",
+                         "Washington D.C.",
+                         "Wenzhou",
+                         "Wuhan",
+                         "Xi'an",
+                         "Zhengzhou"
+                        ]
         };
     }
-    
-    handleChildChange(event, index, value) {      
+
+    handleChildChange(event, index, value) {
       this.setState({childNum: value});
     }
-    
-    handleAdultChange(event, index, value) {      
+
+    handleAdultChange(event, index, value) {
       this.setState({adultNum: value});
     }
-    
-    handleInfantChange(event, index, value) {      
+
+    handleInfantChange(event, index, value) {
       this.setState({infantNum: value});
     }
-    
+
     handleFlightType(event, value) {
       this.setState({flightType: value});
     }
-        
+
 
     render() {
       let returnDate;
       if(this.state.flightType === 'return') {
-        returnDate = (<DatePicker hintText="Return" autoOk={true} container="inline" mode="landscape" 
+        returnDate = (<DatePicker hintText="Return" autoOk={true} container="inline" mode="landscape"
             floatingLabelText="Return date:"
             floatingLabelFixed={true}
             floatingLabelStyle={styles.label}
@@ -80,13 +164,13 @@ export default class MaterialAirlineBooking extends React.Component {
         } else {
           returnDate = "";
         }
-            
+
       return (
         <div
           style={{
               margin: '20px 100px',
               minWidth: 400,
-              maxWidth: 450,              
+              maxWidth: 450,
           }}
         >
           <Card style={{ width: '100%' }} >
@@ -98,7 +182,7 @@ export default class MaterialAirlineBooking extends React.Component {
               <RadioButtonGroup name="flightType" style={{display: 'flex', justifyContent:'space-between'}} defaultSelected="return" onChange={this.handleFlightType.bind(this)}>
                 <RadioButton
                   value="return"
-                  label="Return"                    
+                  label="Return"
                   style={styles.radioButton}
                 />
                 <RadioButton
