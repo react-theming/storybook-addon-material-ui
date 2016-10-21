@@ -47,7 +47,7 @@ export default class MaterialAirlineBooking extends React.Component {
             adultNum: 1,
             childNum: 0,
             infantNum: 0,
-            dataSource: ["London", "Sydney", "Melbourne", "Dublin", "Cork", "Waterford"]
+            dataSource: ["London", "Sydney", "Melbourne", "Dublin", "Cork", "Waterford", "Zürich", "Geneva", "Chur", "Hong Kong"]
         };
     }
     
