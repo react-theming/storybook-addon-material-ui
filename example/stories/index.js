@@ -13,6 +13,7 @@ import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
 import HorizontalLinearStepper from '../LoremMaterial/Stepper.jsx';
+import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
 
 const SHOW_SUPPORT = true;
 
@@ -46,6 +47,12 @@ storiesOf('Material App', module)
     .addDecorator(muiTheme(['Light Theme', 'Dark Theme', greyTheme]))
     .add('Hactoberfest issues:', () => (
       <MaterialAppExampleCard />
+    ))
+    .add('Airline Booking', () => (
+      <MaterialAirlineBooking />
+    ))
+    .add('Contact List', () => (
+      <MaterialContactList />
     ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />

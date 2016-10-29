@@ -18,7 +18,7 @@ We do not impose special restrictions to create pages, but please keep the follo
 ![Material](ic_flight_takeoff.png)
 Take `example/LoremMaterial/blankMaterialAppExampleProgress.jsx` as a starting point of development.
 
-This project is built on the [React Storybook](https://getstorybook.io/docs) platform. It's a great basis for creating React components and applications. We create each `Lorem Material Page` as a separate `React Compenent` and add them as a story into storybook [follows](https://github.com/sm-react/storybook-addon-material-ui/blob/master/example/stories/index.js#L48)
+This project is built on the [React Storybook](https://getstorybook.io/docs) platform. It's a great basis for creating React components and applications. We create each `Lorem Material Page` as a separate `React Component` and add them as a story into storybook [follows](https://github.com/sm-react/storybook-addon-material-ui/blob/master/example/stories/index.js#L48)
 
 We use material-ui components from [Material-UI](http://www.material-ui.com/#/) set  - The most popular and complete library for React that Implement Google's Material Design.
 
@@ -26,7 +26,40 @@ The aim of our [project](https://github.com/sm-react/storybook-addon-material-ui
 
 We support [Material-UI Themes](http://www.material-ui.com/#/customization/themes) now.
 
+###### Creating Themed Components
+
+It's possible to create theme related components in two ways. Firstly, you can combine ready-made `Material-UI` elements into your component. They themselves support themes, so you don't need to do anything more. The second case occurs when you want to add own non `Material-UI` element and set its appearance based on the theme settings. You can do it manually by fetching theme data from the content and applying it to your elements. Look at this brief example:
+```
+const contextTypes = {
+    muiTheme: React.PropTypes.object.isRequired,
+};
+
+function HelloLabel(props, context) {
+    const { palette } = context.muiTheme;
+    const textStyle = {
+        color: palette.textColor,
+        backgroundColor: palette.canvasColor,
+    };
+    
+    return (
+      <div style={textStyle}>Hello, @{props.name}!</div>
+      );
+}
+HelloLabel.propTypes = {
+    name: React.PropTypes.string.isRequired,
+};
+HelloLabel.contextTypes = contextTypes;
+
+```
+Here we created a component which appearance is depended on current theme setting.
+
 You can edit theme data directly in the down-panel as a JSON structure. You can also edit the settings in the right panel using convenient tools. In any case, all changes will be immediately displayed in the selected story. Creating a new theme you need to specify only the parameters you want to override. All others will be taken from the base theme automatically. Please note that the settings specified in the pallete object will automatically be propagated to other objects. But you can set them directly. This is provided by the Material-UI library.
+> When you finished editing your theme via this Storybook addon save it to your project folder. So you could continue working from this point later or use it in your app.
+
+```
+import greyTheme from './greyTheme.json';
+addDecorator(muiTheme(greyTheme));
+```
 
 To learn more about material design follow the [link](https://material.google.com/)
 

@@ -44,7 +44,7 @@
     "@kadira/storybook": "^2.5.2",
     "@kadira/storybook-addon-options": "^1.0.1",
     "@kadira/storybook-addons": "^1.5.0",
-    "@kadira/storybook-ui": "^3.0.0",
+    "@kadira/storybook-ui": "^3.6.3",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.5.0",
     "babel-eslint": "^6.0.2",

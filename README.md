@@ -4,6 +4,8 @@
 #  Storybook-Addon-Material-UI 
 https://github.com/sm-react/storybook-addon-material-ui
 
+>## :jack_o_lantern: Check out our [Halloween Surprise](https://sm-react.github.io/storybook-addon-material-ui/?theme-ind=0&theme-sidebar=true&selectedKind=Helloween&selectedStory=Pumpkin%20Head&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
+
 ### Visual theme editor
 __You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
 
