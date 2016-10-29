@@ -13,6 +13,7 @@ import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
+import LoginPage from '../LoremMaterial/LoginPage.jsx';
 
 const SHOW_SUPPORT = true;
 
@@ -52,6 +53,9 @@ storiesOf('Material App', module)
     ))
     .add('Contact List', () => (
       <MaterialContactList />
+    ))
+    .add('Login Page', () => (
+      <LoginPage />
     ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />
