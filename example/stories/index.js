@@ -12,6 +12,7 @@ import SupportProject from '../SupportProject.jsx';
 import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard.jsx';
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
+import HorizontalLinearStepper from '../LoremMaterial/Stepper.jsx';
 
 const SHOW_SUPPORT = true;
 
@@ -51,6 +52,9 @@ storiesOf('Material App', module)
     ))
     .add('Airline booking', () => (
       <MaterialAirlineBooking />
+    ))
+    .add('Stepper', () => (
+      <HorizontalLinearStepper />
     ));
 
 storiesOf('Without addon', module)
