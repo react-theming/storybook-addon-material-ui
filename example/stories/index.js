@@ -21,6 +21,11 @@ import pumOrigTheme from '../LoremMaterial/pumOrigTheme.json';
 import pumFullTheme from '../LoremMaterial/pumFullTheme.json';
 import pumAltTheme from '../LoremMaterial/pumAltTheme.json';
 
+// Additional user themes
+import halloweentheme from '../LoremMaterial/halloweentheme.json';
+import pumAlt2Theme from '../LoremMaterial/pumAlt2Theme.json';
+const userTemes = [pumAlt2Theme, halloweentheme];
+
 import fifteen from 'fifteen-kilos';
 
 const SHOW_SUPPORT = true;
@@ -30,7 +35,15 @@ const SHOW_SUPPORT = true;
  *  addDecorator(muiTheme(greyTheme));
  *  You can pass a single object or an array of themes
  */
-addDecorator(muiTheme([pumOrigTheme, pumFullTheme, pumAltTheme,  'Light Theme', 'Dark Theme', greyTheme]));
+addDecorator(muiTheme([
+    pumOrigTheme,
+    pumFullTheme,
+    pumAltTheme,
+    'Light Theme',
+    'Dark Theme',
+    greyTheme,
+    ...userTemes,
+]));
 
 storiesOf('Helloween', module)
     .addDecorator((story) => (
@@ -93,9 +106,9 @@ storiesOf('Compatible Projects', module)
       </ReactTemesProvider>
     ))
     .add('fifteen-kilos', () => (
-        <ReactTemesProvider>
-          {fifteen}
-        </ReactTemesProvider>
+      <ReactTemesProvider>
+        {fifteen}
+      </ReactTemesProvider>
     ));
 
 storiesOf('Without addon', module)
@@ -106,14 +119,17 @@ storiesOf('Without addon', module)
 function ReactTemesProvider(props, context) {
     const { palette } = context.muiTheme;
     const themeProps = {
-        style: { color: palette.textColor }
-    }
-    return(
-        <div {...themeProps} >
-          {props.children}
-        </div>
-    )
+        style: { color: palette.textColor },
+    };
+    return (
+      <div {...themeProps} >
+        {props.children}
+      </div>
+    );
 }
+ReactTemesProvider.propTypes = {
+    children: React.PropTypes.element,
+};
 ReactTemesProvider.contextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
