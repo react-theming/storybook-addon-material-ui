@@ -2,7 +2,7 @@ import React from 'react';
 import { Step, Stepper, StepLabel } from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import Card from 'material-ui/Card';
+import { Card, CardActions } from 'material-ui/Card';
 
 class HorizontalLinearStepper extends React.Component {
     constructor(props) {
@@ -44,6 +44,9 @@ class HorizontalLinearStepper extends React.Component {
     render() {
         const { finished, stepIndex } = this.state;
         const contentStyle = { margin: '0 16px' };
+        const labelProps = {
+          style: { color: this.context.muiTheme.palette.textColor },
+        }
 
         return (
           <div
@@ -59,51 +62,57 @@ class HorizontalLinearStepper extends React.Component {
               <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
                 <Stepper activeStep={stepIndex}>
                   <Step>
-                    <StepLabel>Select options...</StepLabel>
+                    <StepLabel><span {...labelProps} >Select options...</span></StepLabel>
                   </Step>
                   <Step>
-                    <StepLabel>Review selections</StepLabel>
+                    <StepLabel><span {...labelProps} >Review selections</span></StepLabel>
                   </Step>
                   <Step>
-                    <StepLabel>Confirm</StepLabel>
+                    <StepLabel><span {...labelProps} >Confirm</span></StepLabel>
                   </Step>
                 </Stepper>
-                <div style={contentStyle}>
-                  {finished ? (
-                    <p>
-                      <RaisedButton
-                        label={'Click to Reset'}
-                        default
-                        onTouchTap={(event) => {
-                            event.preventDefault();
-                            this.setState({ stepIndex: 0, finished: false });
-                        }}
-                      />
-                    </p>
-                  ) : (
-                    <div>
-                      <p>{this.getStepContent(stepIndex)}</p>
-                      <div style={{ margin: '12px 0' }}>
-                        <FlatButton
-                          label="Back"
-                          disabled={stepIndex === 0}
-                          onTouchTap={this.handlePrev}
-                          style={{ marginRight: 12 }}
-                        />
+                <CardActions>
+                  <div style={contentStyle}>
+                    {finished ? (
+                      <p>
                         <RaisedButton
-                          label={stepIndex === 2 ? 'Finish' : 'Next'}
-                          primary
-                          onTouchTap={this.handleNext}
+                          label={'Click to Reset'}
+                          default
+                          onTouchTap={(event) => {
+                              event.preventDefault();
+                              this.setState({ stepIndex: 0, finished: false });
+                          }}
                         />
+                      </p>
+                    ) : (
+                      <div>
+                        <p>{this.getStepContent(stepIndex)}</p>
+                        <div style={{ margin: '12px 0' }}>
+                          <FlatButton
+                            label="Back"
+                            disabled={stepIndex === 0}
+                            onTouchTap={this.handlePrev}
+                            style={{ marginRight: 12 }}
+                          />
+                          <RaisedButton
+                            label={stepIndex === 2 ? 'Finish' : 'Next'}
+                            primary
+                            onTouchTap={this.handleNext}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
+                    )}
+                  </div>
+                </CardActions>
               </div>
             </Card>
           </div>
         );
     }
 }
+
+HorizontalLinearStepper.contextTypes = {
+    muiTheme: React.PropTypes.object.isRequired,
+};
 
 export default HorizontalLinearStepper;

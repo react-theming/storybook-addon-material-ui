@@ -20,6 +20,8 @@ import pumOrigTheme from '../LoremMaterial/pumOrigTheme.json';
 import pumFullTheme from '../LoremMaterial/pumFullTheme.json';
 import pumAltTheme from '../LoremMaterial/pumAltTheme.json';
 
+import fifteen from 'fifteen-kilos';
+
 const SHOW_SUPPORT = true;
 
 /** note: decorators
@@ -70,17 +72,47 @@ storiesOf('Material App', module)
     .add('Contact List', () => (
       <MaterialContactList />
     ))
-    .add('blank page', () => (
-      <MaterialAppExampleProgress />
-    ))
     .add('Airline booking', () => (
       <MaterialAirlineBooking />
     ))
     .add('Stepper', () => (
       <HorizontalLinearStepper />
+    ))
+    .add('blank page', () => (
+      <MaterialAppExampleProgress />
+    ));
+
+storiesOf('Compatible Projects', module)
+    .add('description', () => (
+      <ReactTemesProvider>
+        <h2>Here is a list of compatible projects:</h2>
+        <ul>
+          <li>fifteen-kilos <a href="https://github.com/mxstbr/fifteen-kilos">github</a></li>
+        </ul>
+      </ReactTemesProvider>
+    ))
+    .add('fifteen-kilos', () => (
+        <ReactTemesProvider>
+          {fifteen}
+        </ReactTemesProvider>
     ));
 
 storiesOf('Without addon', module)
     .add('Text', () => (
       <p>Lorem ipsum</p>
     ));
+
+function ReactTemesProvider(props, context) {
+    const { palette } = context.muiTheme;
+    const themeProps = {
+        style: { color: palette.textColor }
+    }
+    return(
+        <div {...themeProps} >
+          {props.children}
+        </div>
+    )
+}
+ReactTemesProvider.contextTypes = {
+    muiTheme: React.PropTypes.object.isRequired,
+};
