@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
+import Toggle from 'material-ui/Toggle';
 
 const paperStyle = {
     width: 400,
@@ -13,9 +14,21 @@ const paperStyle = {
 const signInButton = {
   width: 256,
   margin: 15
-}
-
+};
+const toggle = {
+  textAlign: 'left',
+  width: 256,
+  margin: 15
+};
 export default class MyTest extends React.Component {
+    state = {
+      logged: true,
+    };
+
+    handleChange = (event, logged) => {
+      this.setState({logged: logged});
+    };
+
     render() {
         return (
         <div
@@ -29,7 +42,7 @@ export default class MyTest extends React.Component {
           <Paper style={paperStyle} zDepth={1} >
           <AppBar
             title="Welcome"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
+            showMenuIconButton={false}
           />
           <div>
             <TextField
@@ -39,7 +52,15 @@ export default class MyTest extends React.Component {
             <TextField
               floatingLabelText="Password"
             />
-            <br />
+
+            <Toggle
+              label="Remember me"
+              defaultToggled={true}
+              onToggle={this.handleChange}
+              labelPosition="right"
+              style={toggle}
+            />
+
             <RaisedButton label="Sign in" style={signInButton} primary={true}/>
             <br />
             <a href="#">Forgot password?</a>
