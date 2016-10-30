@@ -47,10 +47,12 @@ export default class MyTest extends React.Component {
           <div>
             <TextField
               floatingLabelText="Email"
+              type="text"
             />
             <br/>
             <TextField
               floatingLabelText="Password"
+              type="password"
             />
 
             <Toggle
@@ -63,10 +65,16 @@ export default class MyTest extends React.Component {
 
             <RaisedButton label="Sign in" style={signInButton} primary={true}/>
             <br />
-            <a href="#">Forgot password?</a>
+            <p><a style={{
+                color: this.context.muiTheme.palette.secondaryTextColor,
+            }}
+             href="#">Forgot password?</a></p>
             </div>
           </Paper>
         </div>
     );
-    }
+  }
 }
+MyTest.contextTypes = {
+    muiTheme: React.PropTypes.object.isRequired,
+};
