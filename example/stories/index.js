@@ -12,7 +12,7 @@ import SupportProject from '../SupportProject.jsx';
 import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard.jsx';
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
-import HorizontalLinearStepper from '../LoremMaterial/Stepper.jsx';
+import MaterialStepper from '../LoremMaterial/MaterialStepper.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
 import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
 
@@ -73,17 +73,14 @@ storiesOf('Material App', module)
     .add('Contact List', () => (
       <MaterialContactList />
     ))
-    .add('Airline booking', () => (
-      <MaterialAirlineBooking />
-    ))
     .add('Stepper', () => (
-      <HorizontalLinearStepper />
-    ))
-    .add('blank page', () => (
-      <MaterialAppExampleProgress />
+      <MaterialStepper />
     ))
     .add('Login page', () => (
       <MaterialLoginPage />
+    ))
+    .add('blank page', () => (
+      <MaterialAppExampleProgress />
     ));
 
 storiesOf('Compatible Projects', module)
