@@ -14,6 +14,11 @@ import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExample
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
 
+import PumpkinHead from '../LoremMaterial/pumpkinHead.jsx';
+import pumOrigTheme from '../LoremMaterial/pumOrigTheme.json';
+import pumFullTheme from '../LoremMaterial/pumFullTheme.json';
+import pumAltTheme from '../LoremMaterial/pumAltTheme.json';
+
 const SHOW_SUPPORT = true;
 
 /** note: decorators
@@ -21,6 +26,19 @@ const SHOW_SUPPORT = true;
  *  addDecorator(muiTheme(greyTheme));
  *  You can pass a single object or an array of themes
  */
+addDecorator(muiTheme([pumOrigTheme, pumFullTheme, pumAltTheme,  'Light Theme', 'Dark Theme', greyTheme]));
+
+storiesOf('Helloween', module)
+    .addDecorator((story) => (
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
+          {story()}
+        </div>
+      </div>
+    ))
+    .add('Pumpkin Head', () => (
+      <PumpkinHead />
+    ));
 
 storiesOf('Material-UI', module)
     .addDecorator((story) => (
@@ -31,7 +49,6 @@ storiesOf('Material-UI', module)
         </div>
       </div>
     ))
-    .addDecorator(muiTheme(['Light Theme', 'Dark Theme', greyTheme]))
     .add('Card Example Controlled', () => (
       <CardExampleControlled />
     ))
@@ -43,7 +60,6 @@ storiesOf('Material-UI', module)
     ));
 
 storiesOf('Material App', module)
-    .addDecorator(muiTheme(['Light Theme', 'Dark Theme', greyTheme]))
     .add('Hactoberfest issues:', () => (
       <MaterialAppExampleCard />
     ))
