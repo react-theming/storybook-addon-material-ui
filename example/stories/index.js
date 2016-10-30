@@ -14,6 +14,7 @@ import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExample
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
 import HorizontalLinearStepper from '../LoremMaterial/Stepper.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
+import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
 
 import PumpkinHead from '../LoremMaterial/pumpkinHead.jsx';
 import pumOrigTheme from '../LoremMaterial/pumOrigTheme.json';
@@ -80,6 +81,9 @@ storiesOf('Material App', module)
     ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />
+    ))
+    .add('Login page', () => (
+      <MaterialLoginPage />
     ));
 
 storiesOf('Compatible Projects', module)
