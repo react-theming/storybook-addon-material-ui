@@ -15,6 +15,7 @@ import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx'
 import MaterialStepper from '../LoremMaterial/MaterialStepper.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
 import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
+import LoginPage from '../LoremMaterial/LoginPage.jsx';
 
 import PumpkinHead from '../LoremMaterial/pumpkinHead.jsx';
 import pumOrigTheme from '../LoremMaterial/pumOrigTheme.json';
@@ -87,6 +88,9 @@ storiesOf('Material App', module)
     ))
     .add('Contact List', () => (
       <MaterialContactList />
+    ))
+    .add('Sign In page', () => (
+      <LoginPage />
     ))
     .add('Stepper', () => (
       <MaterialStepper />

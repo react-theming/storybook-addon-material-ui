@@ -9,34 +9,34 @@ import RaisedButton from 'material-ui/RaisedButton';
 import AutoComplete from 'material-ui/AutoComplete';
 
 const styles = {
-  radioButton: {
-    width: '40%',
-  },
-  datePicker: {
-    width: '90%',
-  },
-  label: {
+    radioButton: {
+        width: '40%',
+    },
+    datePicker: {
+        width: '90%',
+    },
+    label: {
 /** note: need to use context.palette.secondaryTextColor
  *    color: 'black'
 */
-  },
-  textField: {
-    width: '160%',
-  },
-  selectField: {
-    width: '30%',
-    marginRight: '20px'
-  }
-}
+    },
+    textField: {
+        width: '160%',
+    },
+    selectField: {
+        width: '30%',
+        marginRight: '20px',
+    },
+};
 
 const adultNum = [];
-for (let i = 1; i < 7; i++ ) {
-  adultNum.push(<MenuItem value={i} key={i} primaryText={i} />);
+for (let i = 1; i < 7; i++) {
+    adultNum.push(<MenuItem value={i} key={i} primaryText={i} />);
 }
 
 const childNum = [];
-for (let i = 0; i < 7; i++ ) {
-  childNum.push(<MenuItem value={i} key={i} primaryText={i} />);
+for (let i = 0; i < 7; i++) {
+    childNum.push(<MenuItem value={i} key={i} primaryText={i} />);
 }
 
 export default class MaterialAirlineBooking extends React.Component {
@@ -47,128 +47,128 @@ export default class MaterialAirlineBooking extends React.Component {
             adultNum: 1,
             childNum: 0,
             infantNum: 0,
-            dataSource: ["Ahmedabad",
-                         "Ankara",
-                         "Atlanta",
-                         "Bangalore",
-                         "Bangkok",
-                         "Barcelona",
-                         "Beijing",
-                         "Belo Horizonte",
-                         "Berlin",
-                         "Bogotá",
-                         "Boston",
-                         "Buenos Aires",
-                         "Changzhou",
-                         "Chengdu",
-                         "Chennai",
-                         "Chicago",
-                         "Chongqing",
-			 "Colombo",
-                         "Dallas–FortWorth",
-                         "Delhi",
-                         "Detroit",
-                         "Dhaka",
-                         "Guadalajara",
-                         "Guangzhou",
-                         "Hamburg",
-                         "Hangzhou",
-                         "Harbin",
-                         "Hong Kong",
-                         "Houston",
-                         "Hyderabad",
-                         "Inland Empire",
-                         "Istanbul",
-                         "Jakarta",
-                         "Jinan",
-                         "Karachi",
-                         "Kolkata",
-                         "Lagos",
-                         "Lima",
-                         "London",
-                         "Los Angeles",
-                         "Luanda",
-                         "Madrid",
-                         "Manila",
-                         "Melbourne",
-                         "Mexico City",
-                         "Miami",
-                         "Milan",
-                         "Monterrey",
-                         "Mumbai",
-                         "Munich",
-                         "Nagoya",
-                         "Nanchang",
-                         "Nanjing",
-                         "New York City",
-			 "Nice",
-                         "Osaka",
-                         "Paris",
-                         "Philadelphia",
-                         "Phoenix",
-                         "Pune",
-                         "Qingdao",
-                         "Rhine-Ruhr",
-                         "Rio de Janeiro",
-                         "Rome",
-                         "San Francisco",
-                         "Santiago",
-                         "Seoul",
-                         "Shanghai",
-                         "Shantou",
-                         "Shenyang",
-                         "Shenzhen",
-                         "Singapore",
-                         "Stuttgart",
-                         "Surat",
-                         "Sydney",
-                         "São Paulo",
-                         "Taipei",
-                         "Tehran",
-                         "Tianjin",
-                         "Tokyo",
-                         "Toronto",
-			 "Vancouver",
-                         "Washington D.C.",
-                         "Wenzhou",
-                         "Wuhan",
+            dataSource: ['Ahmedabad',
+                         'Ankara',
+                         'Atlanta',
+                         'Bangalore',
+                         'Bangkok',
+                         'Barcelona',
+                         'Beijing',
+                         'Belo Horizonte',
+                         'Berlin',
+                         'Bogotá',
+                         'Boston',
+                         'Buenos Aires',
+                         'Changzhou',
+                         'Chengdu',
+                         'Chennai',
+                         'Chicago',
+                         'Chongqing',
+                         'Colombo',
+                         'Dallas–FortWorth',
+                         'Delhi',
+                         'Detroit',
+                         'Dhaka',
+                         'Guadalajara',
+                         'Guangzhou',
+                         'Hamburg',
+                         'Hangzhou',
+                         'Harbin',
+                         'Hong Kong',
+                         'Houston',
+                         'Hyderabad',
+                         'Inland Empire',
+                         'Istanbul',
+                         'Jakarta',
+                         'Jinan',
+                         'Karachi',
+                         'Kolkata',
+                         'Lagos',
+                         'Lima',
+                         'London',
+                         'Los Angeles',
+                         'Luanda',
+                         'Madrid',
+                         'Manila',
+                         'Melbourne',
+                         'Mexico City',
+                         'Miami',
+                         'Milan',
+                         'Monterrey',
+                         'Mumbai',
+                         'Munich',
+                         'Nagoya',
+                         'Nanchang',
+                         'Nanjing',
+                         'New York City',
+                         'Nice',
+                         'Osaka',
+                         'Paris',
+                         'Philadelphia',
+                         'Phoenix',
+                         'Pune',
+                         'Qingdao',
+                         'Rhine-Ruhr',
+                         'Rio de Janeiro',
+                         'Rome',
+                         'San Francisco',
+                         'Santiago',
+                         'Seoul',
+                         'Shanghai',
+                         'Shantou',
+                         'Shenyang',
+                         'Shenzhen',
+                         'Singapore',
+                         'Stuttgart',
+                         'Surat',
+                         'Sydney',
+                         'São Paulo',
+                         'Taipei',
+                         'Tehran',
+                         'Tianjin',
+                         'Tokyo',
+                         'Toronto',
+                         'Vancouver',
+                         'Washington D.C.',
+                         'Wenzhou',
+                         'Wuhan',
                          "Xi'an",
-                         "Zhengzhou"
-                        ]
+                         'Zhengzhou',
+                        ],
         };
     }
 
     handleChildChange(event, index, value) {
-      this.setState({childNum: value});
+        this.setState({ childNum: value });
     }
 
     handleAdultChange(event, index, value) {
-      this.setState({adultNum: value});
+        this.setState({ adultNum: value });
     }
 
     handleInfantChange(event, index, value) {
-      this.setState({infantNum: value});
+        this.setState({ infantNum: value });
     }
 
     handleFlightType(event, value) {
-      this.setState({flightType: value});
+        this.setState({ flightType: value });
     }
 
 
     render() {
-      let returnDate;
-      if(this.state.flightType === 'return') {
-        returnDate = (<DatePicker hintText="Return" autoOk={true} container="inline" mode="landscape"
-            floatingLabelText="Return date:"
-            floatingLabelFixed={true}
-            floatingLabelStyle={styles.label}
-            textFieldStyle={styles.datePicker}
-          />);
+        let returnDate;
+        if (this.state.flightType === 'return') {
+            returnDate = (<DatePicker hintText="Return" autoOk container="inline" mode="landscape"
+              floatingLabelText="Return date:"
+              floatingLabelFixed
+              floatingLabelStyle={styles.label}
+              textFieldStyle={styles.datePicker}
+            />);
         } else {
-          returnDate = "";
+            returnDate = '';
         }
 
-      return (
+        return (
         <div
           style={{
               margin: '20px 100px',
@@ -182,7 +182,7 @@ export default class MaterialAirlineBooking extends React.Component {
               subtitle="#first but not least"
             />
             <CardText>
-              <RadioButtonGroup name="flightType" style={{display: 'flex', justifyContent:'space-between'}} defaultSelected="return" onChange={this.handleFlightType.bind(this)}>
+              <RadioButtonGroup name="flightType" style={{ display: 'flex', justifyContent: 'space-between' }} defaultSelected="return" onChange={this.handleFlightType.bind(this)}>
                 <RadioButton
                   value="return"
                   label="Return"
@@ -197,39 +197,39 @@ export default class MaterialAirlineBooking extends React.Component {
               <AutoComplete
                 hintText="E.g London"
                 floatingLabelText="From"
-                floatingLabelFixed={true}
+                floatingLabelFixed
                 floatingLabelStyle={styles.label}
                 textFieldStyle={styles.textField}
                 dataSource={this.state.dataSource}
                 filter={AutoComplete.caseInsensitiveFilter}
                 maxResults={6}
-              /><br/>
+              /><br />
               <AutoComplete
                 hintText="E.g Sydney"
                 dataSource={this.state.dataSource}
                 filter={AutoComplete.caseInsensitiveFilter}
                 floatingLabelText="To"
-                floatingLabelFixed={true}
+                floatingLabelFixed
                 floatingLabelStyle={styles.label}
                 textFieldStyle={styles.textField}
                 maxResults={6}
               />
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <DatePicker hintText="Departure" autoOk={true} container="inline" mode="landscape"
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <DatePicker hintText="Departure" autoOk container="inline" mode="landscape"
                   floatingLabelText="Departure date:"
-                  floatingLabelFixed={true}
+                  floatingLabelFixed
                   floatingLabelStyle={styles.label}
                   textFieldStyle={styles.datePicker}
                 />
-                { returnDate }
+                {returnDate}
               </div>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <SelectField
                   value={this.state.adultNum}
                   onChange={this.handleAdultChange.bind(this)}
                   style={styles.selectField}
                   floatingLabelText="Adult"
-                  floatingLabelFixed={true}
+                  floatingLabelFixed
                   floatingLabelStyle={styles.label}
                 >
                   {adultNum}
@@ -239,7 +239,7 @@ export default class MaterialAirlineBooking extends React.Component {
                   onChange={this.handleChildChange.bind(this)}
                   style={styles.selectField}
                   floatingLabelText="Child"
-                  floatingLabelFixed={true}
+                  floatingLabelFixed
                   floatingLabelStyle={styles.label}
                 >
                   {childNum}
@@ -249,15 +249,15 @@ export default class MaterialAirlineBooking extends React.Component {
                   onChange={this.handleInfantChange.bind(this)}
                   style={styles.selectField}
                   floatingLabelText="Infant"
-                  floatingLabelFixed={true}
+                  floatingLabelFixed
                   floatingLabelStyle={styles.label}
                 >
                   <MenuItem value={0} primaryText="0" />
                   <MenuItem value={1} primaryText="1" />
                 </SelectField>
               </div>
-              <div style={{justifyContent: 'center', display: 'flex'}}>
-                <RaisedButton label="Search.." primary={true} style={{margin: '20px'}} />
+              <div style={{ justifyContent: 'center', display: 'flex' }}>
+                <RaisedButton label="Search.." primary style={{ margin: '20px' }} />
               </div>
             </CardText>
           </Card>
