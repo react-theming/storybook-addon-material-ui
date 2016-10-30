@@ -13,6 +13,7 @@ import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
+import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
 
 const SHOW_SUPPORT = true;
 
@@ -55,6 +56,9 @@ storiesOf('Material App', module)
     ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />
+    ))
+    .add('Login page', () => (
+      <MaterialLoginPage />
     ));
 
 storiesOf('Without addon', module)
