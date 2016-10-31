@@ -26,9 +26,10 @@ import pumAltTheme from '../LoremMaterial/pumAltTheme.json';
 import halloweentheme from '../LoremMaterial/halloweentheme.json';
 import pumAlt2Theme from '../LoremMaterial/pumAlt2Theme.json';
 import IrishPumpkin from '../LoremMaterial/IrishPumpkin.json';
+import pumRick from '../LoremMaterial/pumRick.json';
 import pumFullThemeLee from '../LoremMaterial/pumFullThemeLee.json';
 import pumHead from '../LoremMaterial/pumHead.json';
-const userTemes = [pumHead, pumAlt2Theme, IrishPumpkin, pumFullThemeLee, halloweentheme];
+const userTemes = [pumHead, pumAlt2Theme, IrishPumpkin, pumRick, pumFullThemeLee, halloweentheme];
 
 import fifteen from 'fifteen-kilos';
 
