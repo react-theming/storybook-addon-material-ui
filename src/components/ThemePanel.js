@@ -131,7 +131,6 @@ export default class ThemePanel extends React.Component {
                 onToggle={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
               />
             </div>
-
           </div>
         );
     }

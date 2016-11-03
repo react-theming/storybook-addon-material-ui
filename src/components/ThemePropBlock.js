@@ -9,6 +9,7 @@ import SclAvatar from '../material-desktop/SclAvatar';
 
 import { CSS_CLASS } from '../';
 import ThemePropItem from './ThemePropItem';
+import ThemePropItemInput from './ThemePropItemInput';
 
 
 const propTypes = {
@@ -27,6 +28,9 @@ export default class ThemePropBlock extends React.Component {
         super(props, ...args);
         this.state = {
             toolCollapsedList: {},
+            newPropNameVal: '',
+            newPropItemVal: '',
+            value: ''
         };
         this.needComponentUpdate = false;
         this.valueHandler = this.valueHandler.bind(this);
@@ -34,6 +38,10 @@ export default class ThemePropBlock extends React.Component {
         this.onSelect = this.onSelect.bind(this);
         this.renderProp = this.renderProp.bind(this);
         this.renderColl = this.renderColl.bind(this);
+
+
+        this.renderPropItemInput = this.renderPropItemInput.bind(this);
+        this.valueUserInputHandler = this.valueUserInputHandler.bind(this);
     }
 
     shouldComponentUpdate() {
@@ -68,6 +76,14 @@ export default class ThemePropBlock extends React.Component {
         };
     }
 
+
+    valueUserInputHandler(event) {
+
+        // this.setState({
+        //   // value: event.target.value  [Error]: get cannot read target of undefined
+        // })
+    }
+
     renderProp(val, ind, isOpen, isHeader) {
         return (
           <div
@@ -91,6 +107,23 @@ export default class ThemePropBlock extends React.Component {
 
           </div>
         );
+    }
+
+    renderPropItemInput() {
+      return (
+        <div
+          style={{
+            minHeight: 32,
+            transition: 'all 200ms linear 0ms'}} >
+          <ThemePropItemInput
+          // val={val}
+          // ind={ind}
+          settingsObj={this.props.settingsObj}
+          valueUserInputHandler={this.valueUserInputHandler}
+          // onCollapsed={this.onToolCollapse(val)}
+            />
+        </div>
+      )
     }
 
     renderColl() {
@@ -127,7 +160,7 @@ export default class ThemePropBlock extends React.Component {
             <div style={{ /*height: 16*/ }} />
 
             {this.renderColl()}
-
+            {this.renderPropItemInput()}
           </Paper>
         );
     }
@@ -161,7 +194,6 @@ function BlockHeader(props, context) {
             <Avatar size={18}>{props.settingsName[0]}</Avatar>
             {props.settingsName}
           </Chip>*/}
-
         <div>
           <SclToggle
             label=""
@@ -171,7 +203,6 @@ function BlockHeader(props, context) {
             onToggle={toggleOpen}
           />
         </div>
-
       </div>
     );
 }

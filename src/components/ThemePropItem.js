@@ -142,6 +142,7 @@ function PropItem(props, context) {
             settingsObj={settingsObj[val] || ''}
             isNotHeader={isNotHeader}
           />
+
           <PropTool
             color={color}
             onTool={props.onToolTogle}
@@ -176,6 +177,7 @@ function PropHeader(props, context) {
             flexShrink: 2,
             flexGrow: 10,
             width: 90,
+            // background: 'black' // to be deleted
         }}
       >
         <div style={{ color: context.muiTheme.palette.secondaryTextColor }} >
@@ -388,3 +390,45 @@ PropToolPickerFull.propTypes = {
     onToolTogle: React.PropTypes.func.isRequired,
 };
 PropToolPickerFull.contextTypes = contextTypes;
+
+
+function PropUserInput(props, context) {
+  const { valueHandler, settingsObj, isNotHeader } = props;
+  const isInt = (settingsObj === parseInt(settingsObj, 10));
+  const strStyle = {
+      width: isInt ? 40 : 'auto',
+      textAlign: isInt ? 'right' : 'left'
+  };
+  const inputStyle = {
+    border: 'none',
+    fontStyle: 'italic',
+    placeholder: 'italic',
+    padding: 2,
+    // backgroundColor: palette.canvasColor,
+    // color: palette.primary2Color,
+    ...strStyle
+  }
+
+  return (
+    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
+      <input  
+        type="text"
+        onChange={valueHandler}
+        title={settingsObj}
+        placeholder="New Prop Name"
+        style={{inputStyle}}
+        />
+      <input  
+        type="text"
+        onChange={valueHandler}
+        title={settingsObj}
+        placeholder="New Prop Value"
+        style={{inputStyle}}
+        />
+      <input  
+        type="submit"
+        style={{inputStyle}}
+        />              
+    </div>
+  )
+}
