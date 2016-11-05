@@ -1,17 +1,9 @@
 import React from 'react';
-import { Card, CardActions, CardMedia, CardHeader } from 'material-ui/Card';
-import LinearProgress from 'material-ui/LinearProgress';
-import RaisedButton from 'material-ui/RaisedButton';
-import TwitterButton from '../react-twitter-button';
-import GithubButton from '../react-github-button';
+import { Card, CardHeader } from 'material-ui/Card';
 
 import Message from './ConversationMessage.jsx';
 
 import Paper from 'material-ui/Paper';
-import Avatar from 'material-ui/Avatar';
-import { List, ListItem } from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
-import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import JamesAndersonAvatar from './images/jsa-128.jpg';
 import ChelseaOtakanAvatar from './images/chexee-128.jpg';
@@ -50,20 +42,18 @@ export default class MaterialAppExampleProgress extends React.Component {
                 subtitle="Online"
                 avatar={JamesAndersonAvatar}
               />
-              <Message text='Hi' authorType="receiver" authorImage={JamesAndersonAvatar} 
+              <Message text="Hi" authorType="receiver" authorImage={JamesAndersonAvatar}
               messageTime="08:40" /><br/>
               
-              <Message text='How are you' authorType="receiver" authorImage={JamesAndersonAvatar} 
+              <Message text="How are you" authorType="receiver" authorImage={JamesAndersonAvatar}
               messageTime="08:41" /><br/>
               
-              <Message text='I am doing good' authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:42" /><br/>
+              <Message text="I am doing good" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:42" /><br/>
               
-              <Message text='How about you ?' authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:43" /><br/>
+              <Message text="How about you ?" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:43" /><br/>
 
             </Card>
-            <TextField
-              hintText="Type a Message" fullWidth={true}
-            />
+            <TextField hintText="Type a Message" fullWidth={true} />
           </Paper>
           </div>
         );
