@@ -38,25 +38,44 @@ export default class MaterialAppExampleProgress extends React.Component {
     }
 
     render() {
-        var messageComponent, authorTypeStyle;
+        var messageComponent, authorTypeStyle, messageStyle;
         if(this.state.authorType === authorTypes.sender ) {
           authorTypeStyle = {
             float : 'right'
           }
+          messageStyle = {
+            float : 'right',
+            margin : 10
+          }
+          return (
+            <CardText>
+              <span style={messageStyle}>{this.state.messageTime}</span>
+              <Chip style={authorTypeStyle} >
+                <Avatar src={this.state.authorImage} />
+                <div>{this.state.text}</div>
+              </Chip>              
+            </CardText> 
+          );
         } else {
           authorTypeStyle = {
             float : 'left'
           }
+          messageStyle = {
+            float : 'left',
+            margin : 10
+          }
+          return (
+            <CardText>
+              <Chip style={authorTypeStyle} >
+                <Avatar src={this.state.authorImage} />
+                <div>{this.state.text}</div>
+              </Chip>            
+              <span style={messageStyle}>{this.state.messageTime}</span>
+            </CardText>
+            
+          );
         }
-        return (
-          <CardText>
-            <Chip style={authorTypeStyle} >
-              <Avatar src={this.state.authorImage} />
-              <div>{this.state.text} <sub>{this.state.messageTime}</sub> </div>
-            </Chip>            
-          </CardText>
-          
-        );
+        
     }
 }
 
