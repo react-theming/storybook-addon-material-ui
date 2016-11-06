@@ -16,6 +16,11 @@ const paperStyle = {
     display: 'inline-block',
 };
 
+const textFieldStyle = {
+  paddingLeft: 16, 
+  paddingRight: 16
+};
+
 export default class MaterialAppExampleProgress extends React.Component {
     constructor(props) {
         super(props);
@@ -53,7 +58,9 @@ export default class MaterialAppExampleProgress extends React.Component {
               <Message text="How about you ?" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:43" /><br/>
 
             </Card>
-            <TextField hintText="Type a Message" fullWidth={true} />
+            <TextField hintText="Type a Message" fullWidth={true} inputStyle={textFieldStyle} 
+            hintStyle={textFieldStyle} />
+
           </Paper>
           </div>
         );
