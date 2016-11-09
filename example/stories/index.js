@@ -12,6 +12,7 @@ import SupportProject from '../SupportProject.jsx';
 import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard.jsx';
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
 import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
+import MaterialConversationChat from '../LoremMaterial/MaterialConversationChat.jsx';
 import MaterialStepper from '../LoremMaterial/MaterialStepper.jsx';
 import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
 import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
@@ -67,6 +68,9 @@ storiesOf('Material App', module)
     ))
     .add('Login page', () => (
       <MaterialLoginPage />
+    ))
+    .add('Material Conversation Chat', () => (
+      <MaterialConversationChat />
     ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />
