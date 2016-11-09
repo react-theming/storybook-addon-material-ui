@@ -8,6 +8,8 @@ Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [ma
 
 __You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
 
+**To apply your created themes for your app outside `storybook` use this [react-theme-provider](https://github.com/sm-react/react-theme-provider)
+
 [![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
 ## Features
