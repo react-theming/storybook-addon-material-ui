@@ -4,8 +4,6 @@
 #  Storybook-Addon-Material-UI 
 https://github.com/sm-react/storybook-addon-material-ui
 
->## :jack_o_lantern: Check out our [Halloween Surprise](https://sm-react.github.io/storybook-addon-material-ui/?theme-ind=0&theme-sidebar=true&selectedKind=Helloween&selectedStory=Pumpkin%20Head&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
-
 ### Visual theme editor
 __You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
 
@@ -158,8 +156,13 @@ to help contribute to the project feel free to make an issue, PR or get in touch
 ### Designers:
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
-#### smARTLight
+#### Credits
 [![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro)
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
 [![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
 
+#### Past Events
+
+>## :jack_o_lantern: Check out our [Halloween Surprise](https://usulpro.github.io/SVG-theming/)
+
+(now it's new [SVG-theming](https://github.com/UsulPro/SVG-theming) project)
