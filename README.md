@@ -162,6 +162,6 @@ We would really welcome the involvement of designers in this project. We are ver
 
 #### Past Events
 
->## :jack_o_lantern: Check out our [Halloween Surprise](https://usulpro.github.io/SVG-theming/)
+>#### :jack_o_lantern: Check out our [Halloween Surprise](https://usulpro.github.io/SVG-theming/)
 
-(now it's new [SVG-theming](https://github.com/UsulPro/SVG-theming) project)
+(now this is a new [SVG-theming](https://github.com/UsulPro/SVG-theming) project)
