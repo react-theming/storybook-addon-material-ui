@@ -4,10 +4,9 @@
 #  Storybook-Addon-Material-UI 
 https://github.com/sm-react/storybook-addon-material-ui
 
-### Visual theme editor
-__You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
-
 Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies [development](#getting-started) of material-ui based components.
+
+__You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
 
 [![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
