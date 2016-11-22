@@ -1,7 +1,7 @@
 [![GitHub version](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui.svg)](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui)
 [![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
 
-#  Storybook-Addon-Material-UI 
+#  Storybook Addon Material-UI 
 https://github.com/sm-react/storybook-addon-material-ui
 
 Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies [development](#getting-started) of material-ui based components.
