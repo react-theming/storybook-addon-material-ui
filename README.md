@@ -83,15 +83,15 @@ Since we are now at the starting point, we mark with [<img src="doc/msm.png" alt
 
 [<img src="doc/msm.png" alt="Milestone" width="22">](#roadmap) Short tutorial for using this tools
 
-[<img src="doc/msm.png" alt="Milestone" width="22">](#roadmap) Suggest your [feature](/../../issues) wich you'd like to see here!
+[<img src="doc/msm.png" alt="Milestone" width="22">](#roadmap) Suggest your [feature](/../../issues) which you'd like to see here!
 
 --
 
 ### Quick start
 
-###### Instal the project
+###### Install the project
 
-tip: you can skip this step if you only want to look at this project. Just open [live demo](https://sm-react.github.io/react-theming) page and jump to [here](#you-will-see-the-demo-page-provided-by-react-storybook)
+>tip: you can skip this step if you only want to look at this project. Just open [live demo](https://sm-react.github.io/react-theming) page and continue from [here](#you-will-see-the-demo-page-provided-by-react-storybook)
 
 ```shell
 git clone https://github.com/sm-react/react-theming.git
@@ -110,7 +110,7 @@ Press `Ctrl-Shft-F` to exit from `Full screen` mode.
 
 Two panel will appear. You will see the list of `stories` at the left panel and the bottom panel for working with themes.
 
-Let's select another theme for this page. Do it via dropdown list at the bottom panel. Out of the box there are three themes: 'Light', 'Dark' and 'Gray'. Check out them.
+Let's select another theme for this page. Do it via drop-down list at the bottom panel. Out of the box there are three themes: 'Light', 'Dark' and 'Gray'. Check out them.
 
 [<img src="doc/left-pane.png" align="left" width="180" title="Left Storybook panel"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/left-pane.png) 
 
@@ -129,28 +129,27 @@ Okay, now let's look at the panel on the left. In fact, our application consists
 ### FAQ
 
 --
-##### I'm not going to create a themable app. Will I find something usefull in this boilerplate project?
+>**[1]** I'm not going to create a themable app. Will I find something useful in this boilerplate project?
 
-Yes! You still have a powerfull dev environment with React Storybook addons, testing and workflow features.
-
---
-##### I'm not going to use Material-UI (any other tool) in my app. Will I find something usefull in this boilerplate project?
-
-Yes! You still have a powerfull dev environment with React Storybook addons, testing and workflow features.
+<sub>Yes! You still have a powerful dev environment with React Storybook addons, testing and workflow features.</sub>
 
 --
-##### I'd like to see my [favorite tool](https://github.com/facebook/react/wiki/Complementary-Tools) in this project.
+>**[2]** I'm not going to use Material-UI (any other tool) in my app. Will I find something usefull in this boilerplate project?
 
-Create an [issue](/../../issues) with your suggestion. We'll be glad to discuss it and we love adding new features!
+<sub>Yes! You still have a powerful dev environment with React Storybook addons, testing and workflow features.</sub>
 
 --
-##### What if I need some other package in my project?
+>**[3]** I'd like to see my [favorite tool](https://github.com/facebook/react/wiki/Complementary-Tools) in this project.
 
-Just install it via `npm` or `yarn`. Since this project does not have any hidden configurations, you are free to continue to work with it as you normally would.
+<sub>Create an [issue](/../../issues) with your suggestion. We'll be glad to discuss it and we love adding new features!</sub>
+
+--
+>**[4]** What if I need some other package in my project?
+
+<sub>Just install it via `npm` or `yarn`. Since this project does not have any hidden configurations, you are free to continue to work with it as you normally would.</sub>
 
 ---
 
 ### Contribute
 
 We'll appreciate any help, ideas, issues and feedback!
-

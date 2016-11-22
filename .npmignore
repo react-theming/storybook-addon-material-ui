@@ -1,8 +1,8 @@
 node_modules
-develop
+.#develop
 example
 src
-docs
+doc
 .babelrc
 .eslintrc
 .scripts
