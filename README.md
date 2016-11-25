@@ -144,7 +144,7 @@ You can list all scripts by `npm run`
   
   This project uses [ESLint](https://github.com/eslint/eslint) with the [Airbnb style guide](https://github.com/airbnb/javascript). It has some minor overrides as well. I'll [find](https://github.com/sm-react/react-theming/blob/master/.eslintrc) all ESLint settings in `.eslintrc` file located in the root of your project. 
   
-  [<img src="doc/npm-lint.png" align="right" class="logo" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-lint.png)
+  [<img src="doc/npm-lint.png" align="right" class="logo" width="486" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-lint.png)
   
   This linting scripts will check your code in `*.js` and `*.jsx` files within the `src` folder.
     
@@ -156,7 +156,7 @@ You can list all scripts by `npm run`
 
 <details>
   <summary>
-  <b>Publich to NPM</b>
+  <b>Publish to NPM</b>
   
     `npm publish` - publish your code to NPM
 
@@ -164,7 +164,7 @@ You can list all scripts by `npm run`
   
   The publish script first transpille your code to ES5 and put it to `dist` folder, which is cleared before each transpillation.
   
-  [<img src="doc/npm-publish.png" align="right" class="logo" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-publish.png)
+  [<img src="doc/npm-publish.png" align="right" class="logo" width="560" title="publish to NPM"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-publish.png)
   
   This project uses [Babel](https://github.com/babel/babel) for transpilling your code with following presets:
   
