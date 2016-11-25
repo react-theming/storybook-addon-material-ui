@@ -1,6 +1,5 @@
-var path = require('path');
 var shell = require('shelljs');
 var chalk = require('chalk');
-var babel = ['node_modules', '.bin', 'babel'].join(path.sep);
+const packageJson = require('../package.json');
 
-shell.echo(chalk.blue('Package was published'))
+shell.echo(chalk.grey(`${packageJson.name}@${packageJson.version} was successfully published.`));

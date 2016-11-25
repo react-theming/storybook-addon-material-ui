@@ -4,9 +4,9 @@ import { setOptions } from '@kadira/storybook-addon-options';
 setOptions({
     name: 'React Theming',
     url: 'https://github.com/sm-react/react-theming',
-    goFullScreen: true,
+    goFullScreen: false,
     showLeftPanel: true,
-    showDownPanel: true,
+    showDownPanel: false,
     showSearchBox: false,
     downPanelInRight: false,
 });

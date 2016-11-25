@@ -126,6 +126,67 @@ Okay, now let's look at the panel on the left. In fact, our application consists
 
 ---
 
+### Scripts
+
+All scripts are avalible via `npm run <script_name>`. Mostly executable scripts are located in the '.scripts' folder of your project. In oder to keep it "transparent and friendly" we display a full CLI command which will be executed.
+
+You can list all scripts by `npm run`
+
+<details>
+  <summary>
+  <b>Linting</b>
+  
+    `npm run lint` - lints your code within 'src' folder
+    
+    `npm run lintfix` - tries to fix common linting errors
+
+  </summary>
+  
+  This project uses [ESLint](https://github.com/eslint/eslint) with the [Airbnb style guide](https://github.com/airbnb/javascript). It has some minor overrides as well. I'll [find](https://github.com/sm-react/react-theming/blob/master/.eslintrc) all ESLint settings in `.eslintrc` file located in the root of your project. 
+  
+  [<img src="doc/npm-lint.png" align="right" class="logo" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-lint.png)
+  
+  This linting scripts will check your code in `*.js` and `*.jsx` files within the `src` folder.
+    
+  If your IDE supports the linting settings from `.eslintrc` you'll be able to see same issues bouth from IDE and CLI.
+  
+  **Note**: Some [files](https://github.com/sm-react/react-theming/blob/master/src/Intro.jsx#L1-L2) in `src` use the comments to suppress linting errors. It's up to you to continue using them or remove and change code style appropriately.
+
+</details>
+
+<details>
+  <summary>
+  <b>Publich to NPM</b>
+  
+    `npm publish` - publish your code to NPM
+
+  </summary>
+  
+  The publish script first transpille your code to ES5 and put it to `dist` folder, which is cleared before each transpillation.
+  
+  [<img src="doc/npm-publish.png" align="right" class="logo" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-publish.png)
+  
+  This project uses [Babel](https://github.com/babel/babel) for transpilling your code with following presets:
+  
+  - [es2015](http://babeljs.io/docs/plugins/preset-es2015/)
+  
+  - [stage-0](http://babeljs.io/docs/plugins/preset-stage-0/)
+  
+  - [react](http://babeljs.io/docs/plugins/preset-react/)
+  
+  >be careful with stage-0 features because they are far from the final stage!
+  
+  It's setted up to transpille all `*.js` and `*.jsx` files in your `src` folder, exept `test` and `stories` folders and `*.story.jsx` files.
+  
+  You'll [find](https://github.com/sm-react/react-theming/blob/master/.babelrc) your transpillation settings in the `.babelrc` file located in the root of your project.
+  
+  In some cases you need only transpille your code, not publish. So use `npm run prepublish` and get you ES5 code in the `dist` folder.
+  
+  >Transplling your code to ES5 helps to use it in any other projects without warring about babel settings of these projects.
+  
+  
+</details>
+
 ### FAQ
 
 --

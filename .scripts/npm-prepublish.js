@@ -3,12 +3,16 @@ var shell = require('shelljs');
 var chalk = require('chalk');
 var babel = ['node_modules', '.bin', 'babel'].join(path.sep);
 
-shell.echo(chalk.blue('Transpiling \'src\' into ES5 ...'));
-shell.echo('');
+require('./ver');
 
+
+const args = '--ignore tests,stories,story.jsx,story.js src --out-dir dist';
+const cmd = `${babel} ${args}`;
+shell.echo(chalk.gray(cmd));
 shell.rm('-rf', 'dist');
-shell.exec(babel + ' --ignore tests,stories,story.jsx src --out-dir dist');
 
 shell.echo('');
-shell.echo(chalk.blue('Transpiling completed.'));
+shell.echo(chalk.gray('Transpiling \'src\' into ES5 ...'));
+shell.exec(cmd);
+shell.echo(chalk.gray('Transpiling completed.'));
 shell.echo('');

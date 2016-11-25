@@ -1,6 +1,6 @@
 {
   "name": "react-theming-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2-1",
   "description": "Themable React App based on Storybook",
   "main": "dist/App.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "prepublish": "node .scripts/npm-prepublish.js",
     "postpublish": "node .scripts/npm-postpublish.js",
     "lint": "node .scripts/lint.js",
-    "lintfix": "node .scripts/lintfix.js",
+    "lintfix": "node .scripts/lint.js --fix",
     "testonly": ".scripts\\test.cmd",
     "test": "npm run lint && npm run testonly",
     "test-watch": "bash .scripts\\test-watch.sh",
