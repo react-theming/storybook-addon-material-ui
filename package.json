@@ -4,7 +4,7 @@
   "description": "Themable React App based on Storybook",
   "main": "dist/App.js",
   "scripts": {
-    "publish-storybook": ".scripts\\publish_storybook.cmd",
+    "deploy": "node .scripts/deployer",
     "prepublish": "node .scripts/npm-prepublish.js",
     "postpublish": "node .scripts/npm-postpublish.js",
     "lint": "node .scripts/lint.js",

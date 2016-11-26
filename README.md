@@ -100,7 +100,7 @@ npm i
 npm start
 ```
 
-[<img src="doc/npm-start.png" align="right" class="logo" width="500" title="launching the Storybook"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-start.png) 
+[<img src="doc/npm-start.png" align="right" class="logo" width="500" title="launching the Storybook"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/doc/npm-start.png) 
 
 Open http://localhost:9001/ in your browser.
 
@@ -112,7 +112,7 @@ Two panel will appear. You will see the list of `stories` at the left panel and 
 
 Let's select another theme for this page. Do it via drop-down list at the bottom panel. Out of the box there are three themes: 'Light', 'Dark' and 'Gray'. Check out them.
 
-[<img src="doc/left-pane.png" align="left" width="180" title="Left Storybook panel"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/left-pane.png) 
+[<img src="doc/left-pane.png" align="left" width="180" title="Left Storybook panel"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/doc/left-pane.png) 
 
 Note the text field with the full theme data. You can change any property and instantly see how the result will affect the appearance of the page. But the best way to edit theme is to use `Theme Editor`. 
 
@@ -120,7 +120,7 @@ Click to `Show Theme Editor`. It'll open a panel with a list of all theme props 
 
 When you feel enough to edit your theme, you can save it for future use. Press [<img src="doc/save-btn.png" width="20"/>](#you-will-see-the-demo-page-provided-by-react-storybook) to create a JSON file with your theme. Put it to `src/themes/` folder in your project to include it to your theme list automatically. **Note**: you don't need to restart your app after adding a new theme-file to this folder, just refresh your browser. **Roadmap**: we are working to eliminate even this need to refresh the page after adding a file.
 
-[<img src="doc/bottom-pane.png" align="right" width="500" title="Bottom theming panel"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/bottom-pane.png)
+[<img src="doc/bottom-pane.png" align="right" width="500" title="Bottom theming panel"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/doc/bottom-pane.png)
 
 Okay, now let's look at the panel on the left. In fact, our application consists of two components: `src/Header.jsx` and `src/Intro.jsx`. Selecting the appropriate items in the left-side list you switch to an isolated view of the component. It's how `React Storybook` works - allows you 'step-by-step' to create and works with React components. You can improve the quality of development by applying different addons to Storybook. Most of them is already pre-installed in this project. You will find excellent [documentation and examples](https://getstorybook.io/docs/) on the React Storybook website.
 
@@ -134,17 +134,12 @@ You can list all scripts by `npm run`
 
 <details>
   <summary>
-  <b>Linting</b>
-  
-    `npm run lint` - lints your code within 'src' folder
-    
-    `npm run lintfix` - tries to fix common linting errors
-
+    <b>Linting</b> <br> `npm lint` - lints your code within `src` folder <br> `npm lintfix` - tries to fix linting errors <br>
   </summary>
   
   This project uses [ESLint](https://github.com/eslint/eslint) with the [Airbnb style guide](https://github.com/airbnb/javascript). It has some minor overrides as well. I'll [find](https://github.com/sm-react/react-theming/blob/master/.eslintrc) all ESLint settings in `.eslintrc` file located in the root of your project. 
   
-  [<img src="doc/npm-lint.png" align="right" class="logo" width="486" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-lint.png)
+  [<img src="doc/npm-lint.png" align="right" class="logo" width="486" title="linting"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/doc/npm-lint.png)
   
   This linting scripts will check your code in `*.js` and `*.jsx` files within the `src` folder.
     
@@ -154,37 +149,62 @@ You can list all scripts by `npm run`
 
 </details>
 
+--
+
 <details>
   <summary>
-  <b>Publish to NPM</b>
-  
-    `npm publish` - publish your code to NPM
-
+    <b>Publish to NPM</b> <br> `npm publish` - publish your code to NPM<br>
   </summary>
   
-  The publish script first transpille your code to ES5 and put it to `dist` folder, which is cleared before each transpillation.
+The publish script first transpille your code to ES5 and put it to `dist` folder, which is cleared before each transpillation.
+
+[<img src="doc/npm-publish.png" align="right" class="logo" width="560" title="publish to NPM"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/doc/npm-publish.png)
+
+This project uses [Babel](https://github.com/babel/babel) for transpilling your code with following presets:
+
+- [es2015](http://babeljs.io/docs/plugins/preset-es2015/)
+
+- [stage-0](http://babeljs.io/docs/plugins/preset-stage-0/)
+
+- [react](http://babeljs.io/docs/plugins/preset-react/)
+
+>be careful with stage-0 features because they are far from the final stage!
+
+It's setted up to transpille all `*.js` and `*.jsx` files in your `src` folder, exept `test` and `stories` folders and `*.story.jsx` files.
+
+You'll [find](https://github.com/sm-react/react-theming/blob/master/.babelrc) your transpillation settings in the `.babelrc` file located in the root of your project.
+
+In some cases you need only transpille your code, not publish. So use `npm run prepublish` and get you ES5 code in the `dist` folder.
+
+>Transplling your code to ES5 helps to use it in any other projects without warring about babel settings of these projects.
+ 
+**Note**: you need to set at least your own [name](https://github.com/sm-react/react-theming/blob/master/package.json#L2) and [version](https://github.com/sm-react/react-theming/blob/master/package.json#L3) in `package.json` before publishing. You might want to set other [fields](https://docs.npmjs.com/files/package.json) as well. 
   
-  [<img src="doc/npm-publish.png" align="right" class="logo" width="560" title="publish to NPM"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/docs/doc/npm-publish.png)
   
-  This project uses [Babel](https://github.com/babel/babel) for transpilling your code with following presets:
-  
-  - [es2015](http://babeljs.io/docs/plugins/preset-es2015/)
-  
-  - [stage-0](http://babeljs.io/docs/plugins/preset-stage-0/)
-  
-  - [react](http://babeljs.io/docs/plugins/preset-react/)
-  
-  >be careful with stage-0 features because they are far from the final stage!
-  
-  It's setted up to transpille all `*.js` and `*.jsx` files in your `src` folder, exept `test` and `stories` folders and `*.story.jsx` files.
-  
-  You'll [find](https://github.com/sm-react/react-theming/blob/master/.babelrc) your transpillation settings in the `.babelrc` file located in the root of your project.
-  
-  In some cases you need only transpille your code, not publish. So use `npm run prepublish` and get you ES5 code in the `dist` folder.
-  
-  >Transplling your code to ES5 helps to use it in any other projects without warring about babel settings of these projects.
-  
-  
+</details>
+
+--
+
+<details>
+  <summary>
+    <b>Deploy Storybook</b> <br> `npm run deploy` - deploys your storybook to Github Pages<br>
+  </summary>
+
+Now it supports only Github Pages.
+
+[<img src="doc/npm-deploy.png" align="right" class="logo" width="646" title="deploy to Github"/>](https://raw.githubusercontent.com/UsulPro/myjunkstaff/master/doc/npm-deploy.png)
+ 
+This script uses your `git` remote `origin` url to get your repo. You can check it out by `git remote get-url origin`.
+ 
+**Note** if you get this project by `git clone` command, you need to remove current git settings and add your own repo. If you've already created your Github repo you could setup git this way:
+
+```
+git init
+git remote add origin https://github.com/UserName/RepoName.git
+```
+
+You'll find your repo's adress pressing `Clone or download` button at your github repo page.
+
 </details>
 
 ### FAQ
