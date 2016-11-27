@@ -208,6 +208,8 @@ You'll find your repo's adress pressing `Clone or download` button at your githu
 
 </details>
 
+---
+
 ### FAQ
 
 --
