@@ -208,6 +208,21 @@ You'll find your repo's adress pressing `Clone or download` button at your githu
 
 </details>
 
+--
+
+<details>
+  <summary>
+    <b>Test</b> <br> `npm run testonly` - runs mocha tests<br>
+  </summary>
+
+It will find `tests` folder within `src` and run them once.
+
+[<img src="doc/npm-testonly.png" align="right" class="logo" width="760" title="run tests"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/npm-testonly.png)
+ 
+**Note**: we have a `svg` file imported in `<Header />` component. This script is [setted up](.scripts/run_tests/mocha_runner.js) to ignore images with such extensions.
+
+</details>
+
 ---
 
 ### FAQ

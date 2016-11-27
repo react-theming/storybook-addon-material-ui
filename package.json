@@ -9,7 +9,7 @@
     "postpublish": "node .scripts/npm-postpublish.js",
     "lint": "node .scripts/lint.js",
     "lintfix": "node .scripts/lint.js --fix",
-    "testonly": ".scripts\\test.cmd",
+    "testonly": "node .scripts/run_tests",
     "test": "npm run lint && npm run testonly",
     "test-watch": "bash .scripts\\test-watch.sh",
     "storybook": "start-storybook -p 9010",

@@ -1,11 +1,16 @@
-// IMPORTANT
-// ---------
 // This is an auto generated file with React CDK.
-// Do not modify this file.
-// Use `.scripts/user/pretest.js instead`.
 
 require('babel-core/register');
 require('babel-polyfill');
+
+// pass images
+require.extensions['.svg'] = function(){ return null; }
+require.extensions['.png'] = function(){ return null; }
+require.extensions['.gif'] = function(){ return null; }
+require.extensions['.jpg'] = function(){ return null; }
+
+
+var packageJson = require('../../package.json');
 
 // Add jsdom support, which is required for enzyme.
 var jsdom = require('jsdom').jsdom;
@@ -25,9 +30,11 @@ global.navigator = {
   userAgent: 'node.js'
 };
 
+// Add packageJson to have it accessible from any folder
+global.packageJson = packageJson;
+
 process.on('unhandledRejection', function (error) {
   console.error('Unhandled Promise Rejection:');
   console.error(error && error.stack || error);
 });
 
-// require('./user/pretest.js');
