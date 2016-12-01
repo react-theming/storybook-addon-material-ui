@@ -232,7 +232,7 @@ It will find `tests` folder within `src` and run them once.
     <b>Info</b> <br> `npm run status` - displays summary information about NPM package, linting errors and mocha tests
   </summary>
 
-[<img src="doc/npm-status.png" align="right" class="logo" width="613" title="run tests"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/npm-status.png)
+#### [<img src="doc/npm-status.png" align="right" class="logo" width="764" title="run status"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/npm-status.png)
 
 </details>
 
