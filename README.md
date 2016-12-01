@@ -212,14 +212,27 @@ You'll find your repo's adress pressing `Clone or download` button at your githu
 
 <details>
   <summary>
-    <b>Test</b> <br> `npm run testonly` - runs mocha tests<br>
+    <b>Test</b> <br> `npm run testonly` - runs mocha tests<br> `npm run test-watch` - runs tests continuously<br>
   </summary>
 
 It will find `tests` folder within `src` and run them once.
 
-[<img src="doc/npm-testonly.png" align="right" class="logo" width="760" title="run tests"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/npm-testonly.png)
+[<img src="doc/npm-testonly.png" align="right" class="logo" width="613" title="run tests"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/npm-testonly.png)
  
 **Note**: we have a `svg` file imported in `<Header />` component. This script is [setted up](.scripts/run_tests/mocha_runner.js) to ignore images with such extensions.
+
+`npm run test-watch` - starts to monitor changes in your `js`, `jsx` and `json` files
+
+</details>
+
+--
+
+<details>
+  <summary>
+    <b>Info</b> <br> `npm run status` - displays summary information about NPM package, linting errors and mocha tests
+  </summary>
+
+[<img src="doc/npm-status.png" align="right" class="logo" width="613" title="run tests"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/npm-status.png)
 
 </details>
 

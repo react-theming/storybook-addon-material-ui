@@ -1,6 +1,6 @@
 {
   "name": "react-theming-boilerplate",
-  "version": "0.0.2-1",
+  "version": "0.1.0",
   "description": "Themable React App based on Storybook",
   "main": "dist/App.js",
   "scripts": {
@@ -11,8 +11,9 @@
     "lintfix": "node .scripts/lint.js --fix",
     "testonly": "node .scripts/run_tests",
     "test": "npm run lint && npm run testonly",
-    "test-watch": "bash .scripts\\test-watch.sh",
-    "storybook": "start-storybook -p 9010",
+    "test-watch": "node .scripts/run_tests --watch --watch-extensions jsx,json",
+    "status": "node .scripts/npm-status.js && node .scripts/lint.js -f json && node .scripts/run_tests -R min",
+    "storybook": "start-storybook -p 9010 && npm run test-watch",
     "start": "start-storybook -p 9001"
   },
   "repository": {
@@ -57,6 +58,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
+    "dateformat": "^2.0.0",
     "enzyme": "^2.2.0",
     "eslint": "^3.10.0",
     "eslint-config-airbnb": "^13.0.0",
@@ -69,11 +71,13 @@
     "material-ui": "^0.16.0",
     "mocha": "^3.0.2",
     "node-sass": "^3.10.0",
+    "nodemon": "^1.11.0",
     "raw-loader": "^0.5.1",
     "react": "^15.3.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.3.0",
     "sass-loader": "^4.0.2",
+    "semver": "^5.3.0",
     "shelljs": "^0.7.3",
     "sinon": "^1.17.3",
     "storybook-addon-material-ui": "^0.7.4",
