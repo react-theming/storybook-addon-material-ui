@@ -40,7 +40,7 @@ npm start
 
 ## Roadmap
 
-We have many plans and ideas for further development. See [projects](https://github.com/sm-react/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [hear](https://github.com/sm-react/storybook-addon-material-ui/issues/new) your ideas and wishes.
+We have many plans and ideas for further development. See [**projects**](https://github.com/sm-react/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [**hear**](https://github.com/sm-react/storybook-addon-material-ui/issues/new) your ideas and wishes.
 
 ## Getting Started
 
