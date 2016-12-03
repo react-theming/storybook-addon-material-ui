@@ -12,6 +12,7 @@
     "testonly": "node .scripts/run_tests",
     "test": "npm run lint && npm run testonly",
     "test-watch": "node .scripts/run_tests --watch --watch-extensions jsx,json",
+    "test-storybook": "storyshots",
     "status": "node .scripts/npm-status.js && node .scripts/lint.js -f json && node .scripts/run_tests -R min",
     "storybook": "start-storybook -p 9010 && npm run test-watch",
     "start": "start-storybook -p 9001"
@@ -45,9 +46,12 @@
   },
   "homepage": "https://github.com/sm-react/react-theming",
   "devDependencies": {
-    "@kadira/react-storybook-addon-info": "^3.2.1",
-    "@kadira/storybook": "^2.32.0",
+    "@kadira/react-storybook-addon-info": "^3.3.0",
+    "@kadira/storybook": "^2.33.1",
+    "@kadira/storybook-addon-knobs": "^1.7.1",
+    "@kadira/storybook-addon-notes": "^1.0.1",
     "@kadira/storybook-addon-options": "^1.0.1",
+    "@kadira/storyshots": "^2.1.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.5.0",
     "babel-eslint": "^7.1.0",
@@ -60,21 +64,21 @@
     "chai": "^3.5.0",
     "dateformat": "^2.0.0",
     "enzyme": "^2.2.0",
-    "eslint": "^3.10.0",
+    "eslint": "^3.11.1",
     "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.6.0",
     "git-url-parse": "^6.0.1",
     "jsdom": "^9.5.0",
     "material-ui": "^0.16.0",
-    "mocha": "^3.0.2",
+    "mocha": "^3.2.0",
     "node-sass": "^3.10.0",
     "nodemon": "^1.11.0",
     "raw-loader": "^0.5.1",
     "react": "^15.3.0",
-    "react-addons-test-utils": "^15.0.0",
+    "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.3.0",
     "sass-loader": "^4.0.2",
     "semver": "^5.3.0",
@@ -84,13 +88,13 @@
     "style-loader": "^0.13.1"
   },
   "peerDependencies": {
-    "react": "^0.14.7 || ^15.0.0",
-    "react-dom": "^0.14.7 || ^15.0.0"
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "dependencies": {
     "material-ui": "^0.16.4",
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-theme-provider": "^0.1.2"
   }
 }

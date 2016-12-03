@@ -7,6 +7,15 @@ import ThemeSwitcher from './ThemeSwitcher';
 import App from './App';
 
 storiesOf('Theme Switcher', module)
+    .addDecorator((story) => {
+        const storyKind = story();
+        return (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ width: '100%', /* maxWidth: 500,*/ minWidth: 200 }}>
+              {storyKind}
+            </div>
+          </div>);
+    })
     .add('Component', () => (
       <ThemeSwitcher>
         <div>

@@ -9,7 +9,7 @@ reqThemes.keys().forEach((filename) => {
 });
 
 const propTypes = {
-    themes: React.PropTypes.array.requied,
+    themes: React.PropTypes.array.isRequired,
     children: React.PropTypes.element,
 };
 

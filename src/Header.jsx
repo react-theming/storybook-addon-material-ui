@@ -8,7 +8,7 @@ const propTypes = {
 
 const defaultProps = {
     title: 'Welcome to React-Theming',
-    subtitle: 'Boilerplate Project',
+    subtitle: 'Storybook Boilerplate Project',
 };
 
 const contextTypes = {
