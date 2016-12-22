@@ -26,8 +26,8 @@
 [<img src="doc/logos/eslint.png" alt="ESLint" title="ESLint" height="80">](http://eslint.org)
 [<img src="doc/logos/mocha.png" alt="Mocha" title="MochaJS" height="80">](http://mochajs.org)
 [<img src="doc/logos/chai.png" alt="Chai" title="ChaiJS" height="80">](http://chaijs.com)
-[<img src="doc/logos/Jest.png" alt="Jest" title="Snapshot Testing" height="80">](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
 [<img src="doc/logos/Material-UI.png" alt="Material-UI" title="Material-UI" height="80">](http://material-ui.com)
+[<img src="doc/logos/Jest.png" alt="Jest" title="Snapshot Testing" height="80">](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html)
 
 At the heart of this project the desire to collect the best practices of application development via [React-Storybook](https://github.com/storybooks/react-storybook) environment. This project is transparent and friendly for developers. You do not need to eject anything. Therefore you can easily add your own configuration and extend it using any packages.
 
