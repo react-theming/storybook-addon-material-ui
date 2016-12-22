@@ -19,14 +19,14 @@
 [![GitHub version](https://badge.fury.io/gh/sm-react%2Freact-theming.svg)](https://badge.fury.io/gh/sm-react%2Freact-theming)
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming)
 
-[<img src="doc/logos/Storybook.png" alt="Storybook" title="Storybook" height="80">](getstorybook.io)
-[<img src="doc/logos/NodeJS.png" alt="NodeJS" title="NodeJS" height="80">](nodejs.org)
-[<img src="doc/logos/webpack.png" alt="Webpack" title="Webpack" height="80">](webpack.js.org)
-[<img src="doc/logos/react.png" alt="React" title="React" height="80">](facebook.github.io/react)
-[<img src="doc/logos/eslint.png" alt="ESLint" title="ESLint" height="80">](eslint.org)
-[<img src="doc/logos/mocha.png" alt="Mocha" title="MochaJS" height="80">](mochajs.org)
-[<img src="doc/logos/chai.png" alt="Mocha" title="ChaiJS" height="80">](chaijs.com)
-[<img src="doc/logos/Material-UI.png" alt="Material-UI" title="" height="80">](material-ui.com)
+[<img src="doc/logos/Storybook.png" alt="Storybook" title="Storybook" height="80">](http://getstorybook.io)
+[<img src="doc/logos/NodeJS.png" alt="NodeJS" title="NodeJS" height="80">](http://nodejs.org)
+[<img src="doc/logos/webpack.png" alt="Webpack" title="Webpack" height="80">](http://webpack.js.org)
+[<img src="doc/logos/react.png" alt="React" title="React" height="80">](http://facebook.github.io/react)
+[<img src="doc/logos/eslint.png" alt="ESLint" title="ESLint" height="80">](http://eslint.org)
+[<img src="doc/logos/mocha.png" alt="Mocha" title="MochaJS" height="80">](http://mochajs.org)
+[<img src="doc/logos/chai.png" alt="Mocha" title="ChaiJS" height="80">](http://chaijs.com)
+[<img src="doc/logos/Material-UI.png" alt="Material-UI" title="Material-UI" height="80">](http://material-ui.com)
 
 At the heart of this project the desire to collect the best practices of application development via [React-Storybook](https://github.com/storybooks/react-storybook) environment. This project is transparent and friendly for developers. You do not need to eject anything. Therefore you can easily add your own configuration and extend it using any packages.
 
