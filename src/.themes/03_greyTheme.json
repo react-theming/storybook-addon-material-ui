@@ -4,10 +4,10 @@
   "palette": {
     "primary1Color": "#03a9f4",
     "primary2Color": "#90caf9",
-    "alternateTextColor": "#bdbdbd",
+    "alternateTextColor": "#424242",
     "canvasColor": "#616161",
     "textColor": "#bdbdbd",
-    "secondaryTextColor": "rgba(255,255,255,0.54)",
+    "secondaryTextColor": "#bdbdbd",
     "alternateСanvasColor": "#222",
     "alternate1Color": "#616161",
     "alternate2Color": "#424242",

@@ -18,6 +18,7 @@ storybook.configure(
     () => {
       require('../src/stories');
       require('../src/ThemeSwitcher.story');
+      require('../src/MaterialUI/index.story');
     },
     module
 );

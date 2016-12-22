@@ -19,7 +19,7 @@ class Header extends React.Component {
     render() {
         const { palette } = this.context.muiTheme;
         const styleTitle = {
-            color: palette.alternateTextColor,
+            color: palette.secondaryTextColor,
         };
         const styleSubtitle = {
             color: palette.alternate1Color,
