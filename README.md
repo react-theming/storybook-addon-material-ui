@@ -19,6 +19,14 @@
 [![GitHub version](https://badge.fury.io/gh/sm-react%2Freact-theming.svg)](https://badge.fury.io/gh/sm-react%2Freact-theming)
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming)
 
+[<img src="doc/logos/NodeJS.png" alt="NodeJS" height="80">](nodejs.org)
+[<img src="doc/logos/Storybook.png" alt="Storybook" height="80">](getstorybook.io)
+[<img src="doc/logos/webpack.png" alt="Webpack" height="80">](webpack.js.org)
+[<img src="doc/logos/react.png" alt="React" height="80">](facebook.github.io/react)
+[<img src="doc/logos/eslint.png" alt="ESLint" height="80">](eslint.org)
+[<img src="doc/logos/mocha.png" alt="Mocha" height="80">](mochajs.org)
+[<img src="doc/logos/Material-UI.png" alt="Material-UI" height="80">](material-ui.com)
+
 At the heart of this project the desire to collect the best practices of application development via [React-Storybook](https://github.com/storybooks/react-storybook) environment. This project is transparent and friendly for developers. You do not need to eject anything. Therefore you can easily add your own configuration and extend it using any packages.
 
 It contains the *fully-charged* setup of the Storybook with **pre-installed plugins**, configuration, quick examples, and tips. Inspired by [Create React App](https://github.com/facebookincubator/create-react-app) and [React CDK](https://github.com/kadirahq/react-cdk).
