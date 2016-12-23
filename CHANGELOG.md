@@ -1,5 +1,17 @@
 ## Changelog
 
+### v0.2.0
+
+* Storybook addons:
+
+- Info
+
+- Notes
+
+- Knobs
+
+* Material-UI example
+
 ### v0.1.0
 
 * Initial project with:
