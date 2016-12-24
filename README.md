@@ -6,13 +6,15 @@
 The core of [**React Theming**](https://github.com/sm-react/react-theming) project
 
 [<img src="docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://getstorybook.io/docs/react-storybook/addons/addon-gallery) 
-Provides development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/kadirahq/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started) process for Material-UI based applications.
+Provides development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
 
-You can use this [project's demo page](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=true&theme-full=true&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features) of this project [run it locally](#quick-start) in your work environment.
+You can use this [project's demo page](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=true&theme-full=true&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features-dizzy) of this project [run it locally](#quick-start) in your work environment.
 
 [![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
 ## Features :dizzy:
+
+[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=false&theme-full=false&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
 - Wrapped in the theme provider. Just start to develop with base light theme.
 - Injected TapEvent Plugin. Test on mobile devices.
@@ -21,7 +23,7 @@ You can use this [project's demo page](https://sm-react.github.io/react-theming/
 - Dynamic visual themes editing. Discover the all avalibale theme properties.
 - Google [material color](https://material.google.com/style/color.html#color-color-palette) palette [picker](https://github.com/sm-react/react-material-color-picker)
 - Save made changes and download in JSON file
-
+- Part of [React Theming](https://github.com/sm-react/react-theming). Create themable React Components.
 
 ## Quick Start
 
@@ -59,7 +61,7 @@ You can edit the theme settings in `Theme.json` files manually, but the **power*
 
 :triangular_flag_on_post: The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
-If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
+If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
 
 ## Roadmap :mountain_cableway:
 
