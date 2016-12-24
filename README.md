@@ -1,14 +1,14 @@
 [![GitHub version](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui.svg)](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui)
 [![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
+[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=false&theme-full=false&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
 #  Storybook Addon Material-UI 
-https://github.com/sm-react/storybook-addon-material-ui
+The core of [**React Theming**](https://github.com/sm-react/react-theming) project
 
-Addon for [storybook](https://github.com/kadirahq/react-storybook) wich wrap [material-ui components](http://www.material-ui.com/) into MuiThemeProvider. This helps and simplifies [development](#getting-started) of material-ui based components.
+[<img src="docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://getstorybook.io/docs/react-storybook/addons/addon-gallery) 
+Provide development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/kadirahq/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started) process for Material-UI based applications.
 
-__You can use this project as [online](https://sm-react.github.io/storybook-addon-material-ui) theme editor to create new Material-UI themes__
-
-**To apply your created themes for your app outside `storybook` use this [react-theme-provider](https://github.com/sm-react/react-theme-provider)**
+You can use this [project's demo page](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=true&theme-full=true&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features) of this project [run it locally](#quick-start) in your work environment.
 
 [![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
@@ -23,20 +23,39 @@ __You can use this project as [online](https://sm-react.github.io/storybook-addo
 - Save made changes and download in JSON file
 
 
-## Demo
-Explore this live demo project:
+## Quick Start
 
-[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-addon-material-ui)
+The fastest and easiest way to start hacking Material-UI from scratch is to clone [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project). *You need to have `NodeJS` and `Git` installed in your machine*.
 
-#### Example project
-You can start with an example project:
+<details>
+  <summary>
+    ```shell
+    git clone https://github.com/sm-react/react-theming.git
+    cd react-theming
+    npm i
+    npm start
+    ```
+  </summary>
 
-```shell 
-git clone -b example_project --single-branch https://github.com/sm-react/storybook-addon-material-ui.git
-cd storybook-addon-material-ui\
-npm i
-npm start
-```
+Open [http://localhost:9001/](http://localhost:9001/) in your browser.
+
+Press `Ctrl-Shft-F` to exit from `Full screen` mode.
+
+Select `Material-UI` at the left panel. You'll see two stories with Material-UI Components: `Components` and `Card`.
+
+Select `Material-UI` at the bottom panel. You can switch themes from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_, 
+
+Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/react-theming/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to create your own components.
+
+In oder to see your components in storybook add them to `src/MaterialUI/index.story.jsx`. You can do it [this way](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L30-L32).
+
+Your themes files are located in the `src/.themes` folder as a JSON files. Please note that all JSON files from this folder are [imported automatically](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L10-L14). So you can change them or add the new ones and you'll see this themes in your Storybook.
+
+You can edit the theme settings in `Theme.json` files manually, but the power of this project is that you can do it in your browser and see all changes immediately on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
+
+The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
+
+</details>
 
 ## Roadmap
 
@@ -56,7 +75,7 @@ Add this line to your addons.js file (create this file inside your storybook con
 import 'storybook-addon-material-ui';
 ```
 
-Now, write your stories with material-ui addon. By default your stories will be provided with [`Light Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/lightBaseTheme.js) and [`Dark Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/darkBaseTheme.js)
+Now, write your stories with Material-UI Addon. By default your stories will be provided with [`Light Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/lightBaseTheme.js) and [`Dark Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/darkBaseTheme.js)
 
 ```js
 import React from 'react';
@@ -128,7 +147,7 @@ storiesOf('Material-UI', module)
 
 ```
 
-## Usage
+## Usage details
 
 Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
 ![screen3](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen3.png)
