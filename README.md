@@ -12,7 +12,7 @@ You can use this [project's demo page](https://sm-react.github.io/react-theming/
 
 [![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
-## Features
+## Features :point_up:
 
 - Wrapped in the theme provider. Just start to develop with base light theme.
 - Injected TapEvent Plugin. Test on mobile devices.
@@ -29,7 +29,7 @@ The fastest and easiest way to start hacking Material-UI from scratch is to clon
 
 <details>
   <summary>
-    `git clone https://github.com/sm-react/react-theming.git`<br>`cd react-theming`<br>`npm i`<br>`npm start`
+    :arrow_heading_down:<br>`git clone https://github.com/sm-react/react-theming.git`<br>`cd react-theming`<br>`npm i`<br>`npm start`
   </summary>
 
 Open [http://localhost:9001/](http://localhost:9001/) in your browser.
@@ -48,15 +48,15 @@ Your themes files are located in the [`src/.themes`](https://github.com/sm-react
 
 You can edit the theme settings in `Theme.json` files manually, but the **power** of this project is that you can _do it in your browser and see all changes immediately_ on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
 
-The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
+:cool: The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
 </details>
 
-## Roadmap
+## Roadmap :mountain_cableway:
 
 We have many plans and ideas for further development. See [**projects**](https://github.com/sm-react/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [**hear**](https://github.com/sm-react/storybook-addon-material-ui/issues/new) your ideas and wishes.
 
-## Getting Started
+## Getting Started :page_facing_up:
 
 First, install the addon
 
