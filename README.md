@@ -27,9 +27,16 @@ You can use this [project's demo page](https://sm-react.github.io/react-theming/
 
 The fastest and easiest way to start hacking Material-UI from scratch is to clone [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project). *You need to have `NodeJS` and `Git` installed in your machine*.
 
+```shell
+git clone https://github.com/sm-react/react-theming.git
+cd react-theming
+npm i
+npm start
+```
+
 <details>
   <summary>
-    :point_up_2:<br>`git clone https://github.com/sm-react/react-theming.git`<br>`cd react-theming`<br>`npm i`<br>`npm start`
+    Few short steps to create your themable `Material-UI` Components :point_up_2:
   </summary>
 
 Open [http://localhost:9001/](http://localhost:9001/) in your browser.
@@ -146,15 +153,15 @@ storiesOf('Material-UI', module)
 
 ## Usage details
 
-Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
+Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can toggle `Theme editor` with all theme settings in a editable table. It'll appear as a right sidebar.
+
+You can edit the value manually as a text string or via picker tool (click the icon to the right of the input)
 
 ![screen3](docs/screen3.png)
 
-By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in `Theme setting`.
+By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in the `Theme setting` mode and in the bottom panel JSON area.
 
 ![screen6](docs/screen6.png)
-
-> See details in [sreenshorts](./docs/screenshorts.md)
 
 After you have made changes in the theme, you can save it and download as *.JSON file.
 
