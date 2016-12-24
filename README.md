@@ -29,12 +29,7 @@ The fastest and easiest way to start hacking Material-UI from scratch is to clon
 
 <details>
   <summary>
-    ```shell
-    git clone https://github.com/sm-react/react-theming.git
-    cd react-theming
-    npm i
-    npm start
-    ```
+    `git clone https://github.com/sm-react/react-theming.git`<br>`cd react-theming`<br>`npm i`<br>`npm start`
   </summary>
 
 Open [http://localhost:9001/](http://localhost:9001/) in your browser.
@@ -47,11 +42,11 @@ Select `Material-UI` at the bottom panel. You can switch themes from drop-down m
 
 Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/react-theming/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to create your own components.
 
-In oder to see your components in storybook add them to `src/MaterialUI/index.story.jsx`. You can do it [this way](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L30-L32).
+In oder to see your components in storybook add them to `src/MaterialUI/index.story.jsx`. You can do it [this way](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L30-L32). You can read more about writing stories in their [documentation](https://getstorybook.io/docs/react-storybook/basics/writing-stories).
 
-Your themes files are located in the `src/.themes` folder as a JSON files. Please note that all JSON files from this folder are [imported automatically](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L10-L14). So you can change them or add the new ones and you'll see this themes in your Storybook.
+Your themes files are located in the [`src/.themes`](https://github.com/sm-react/react-theming/tree/master/src/.themes) folder as a JSON files. Please note that all JSON files from this folder are [imported automatically](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L10-L14). So you can change them or add the new ones and you'll see this themes in your Storybook.
 
-You can edit the theme settings in `Theme.json` files manually, but the power of this project is that you can do it in your browser and see all changes immediately on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
+You can edit the theme settings in `Theme.json` files manually, but the **power** of this project is that you can _do it in your browser and see all changes immediately_ on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
 
 The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
