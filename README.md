@@ -6,7 +6,7 @@
 The core of [**React Theming**](https://github.com/sm-react/react-theming) project
 
 [<img src="docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://getstorybook.io/docs/react-storybook/addons/addon-gallery) 
-Provide development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/kadirahq/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started) process for Material-UI based applications.
+Provides development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/kadirahq/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started) process for Material-UI based applications.
 
 You can use this [project's demo page](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=true&theme-full=true&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features) of this project [run it locally](#quick-start) in your work environment.
 
@@ -48,11 +48,11 @@ Your **themes files** are located in the [`src/.themes`](https://github.com/sm-r
 
 You can edit the theme settings in `Theme.json` files manually, but the **power** of this project is that you can _do it in your browser and see all changes immediately_ on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
 
+</details>
+
 :triangular_flag_on_post: The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
 If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
-
-</details>
 
 ## Roadmap :mountain_cableway:
 
@@ -147,10 +147,10 @@ storiesOf('Material-UI', module)
 ## Usage details
 
 Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
-![screen3](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen3.png)
+![screen3](docs/screen3.png)
 
 By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in `Theme setting`.
-![screen6](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/screen6.png)
+![screen6](docs/screen6.png)
 
 > See details in [sreenshorts](./docs/screenshorts.md)
 
