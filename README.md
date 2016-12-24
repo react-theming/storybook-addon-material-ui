@@ -147,14 +147,17 @@ storiesOf('Material-UI', module)
 ## Usage details
 
 Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can edit it manually or via picker tool (click the icon to the right of the input)
+
 ![screen3](docs/screen3.png)
 
 By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in `Theme setting`.
+
 ![screen6](docs/screen6.png)
 
 > See details in [sreenshorts](./docs/screenshorts.md)
 
 After you have made changes in the theme, you can save it and download as *.JSON file.
+
 >You can continue to work with this file:
 ```
 import greyTheme from './greyTheme.json';
@@ -162,19 +165,21 @@ addDecorator(greyTheme);
 ```
 
 ## Query string parameters
+
 As you select themes and other options it stores in adress bar line. So this state is retained when you refresh the page and you can use direct links to the desired states.
+
 ```
 http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ```
 
-## CONTRIBUTING 
+## CONTRIBUTING :raising_hand:
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
 [![Code Triagers Badge](https://www.codetriage.com/sm-react/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/sm-react/storybook-addon-material-ui)
-### Developers:
+### :wrench: Developers: 
 Our team welcom all contributing, testing, bug fixing. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
 
-### Designers:
+### :ribbon: Designers:
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### Credits
