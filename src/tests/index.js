@@ -33,12 +33,12 @@ describe(chalk.bold(`${packageJson.name}@${packageJson.version}:\n`), () => {
             expect(wrapper.find('h3').text()).to.be.equal(subtitle);
         });
 
-        it('Title color should be palette.alternateTextColor' +
-           `= ${greyTheme.palette.alternateTextColor}`, () => {
+        it('Title color should be palette.secondaryTextColor' +
+           `= ${greyTheme.palette.secondaryTextColor}`, () => {
             expect(wrapper.find('h2').prop('style'))
               .to.include.keys('color');
             expect(wrapper.find('h2').prop('style').color)
-              .to.be.equal(greyTheme.palette.alternateTextColor);
+              .to.be.equal(greyTheme.palette.secondaryTextColor);
         });
 
         it('Subtitle color should be palette.alternate1Color' +
