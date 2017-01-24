@@ -30,48 +30,47 @@ export default class SvgButton extends React.Component {
                 transform: `scale(${props.iconScale})`,
                 width: 24,
                 margin: '0 auto',
-            }
-        }
+            },
+        };
         this.butnProp = {
             style: {
-                        marginLeft: (24 - props.width) / 2,
-                        width: props.width,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        overflow: 'hidden',
-                    },
+                marginLeft: (24 - props.width) / 2,
+                width: props.width,
+                display: 'flex',
+                justifyContent: 'center',
+                overflow: 'hidden',
+            },
             title: props.tooltip,
             onTouchTap: props.onTouchTap,
-        }
+        };
     }
 
     render() {
         const icon = React.cloneElement(this.props.icon, {
-            color: this.context.muiTheme.palette.secondaryTextColor
-        })
-        return(
-            <div
-               style={{
-                        width: 24,
-                    }}
-            >
-                <div {...this.butnProp} >
-                    <div style={{width: 48}}>
-                        <IconButton
-                          tooltip={null}
-                          style={{padding: 0,}}
-
-                        >
-                          <div>
-                            <div {...this.scaleProp} >
-                                {icon}
-                            </div>
-                          </div>
-                        </IconButton>
+            color: this.context.muiTheme.palette.secondaryTextColor,
+        });
+        return (
+          <div
+            style={{
+                width: 24,
+            }}
+          >
+            <div {...this.butnProp} >
+              <div style={{ width: 48 }}>
+                <IconButton
+                  tooltip={null}
+                  style={{ padding: 0 }}
+                >
+                  <div>
+                    <div {...this.scaleProp} >
+                      {icon}
                     </div>
-                </div>
+                  </div>
+                </IconButton>
+              </div>
             </div>
-        )
+          </div>
+        );
     }
 }
 

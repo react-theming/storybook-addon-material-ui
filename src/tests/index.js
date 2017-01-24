@@ -24,7 +24,7 @@ describe('### storybook-addon-material-ui ###\n\n', () => {
                 'initState',
                 'onChangeState',
                 'themeListRender',
-                'channel'
+                'channel',
             );
             expect(props.themesAppliedListInit).to.have.length(2);
             expect(props.themesRenderedList).to.have.length(2);
@@ -33,7 +33,7 @@ describe('### storybook-addon-material-ui ###\n\n', () => {
                 'isSideBarOpen',
                 'isFullTheme',
                 'collapseList',
-                'currentThemeOverride'
+                'currentThemeOverride',
             );
         });
     });

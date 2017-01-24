@@ -24,7 +24,7 @@ export function muiTheme(themes) {
         if (Array.isArray(themes)) {
             themesInitList = themes;
             themesInitList.forEach((val, ind) => {
-                if (typeof(val) === 'string') {
+                if (typeof (val) === 'string') {
                     /* note: unsupported names goes as lightBaseTheme
                     if (val === lightBaseTheme.themeName) {
                         themesInitList[ind] = lightBaseTheme;
@@ -88,7 +88,7 @@ export function muiTheme(themes) {
         return (overTheme) => {
             themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
             themesAppliedList[themeInd] = themeApply(
-              themesInitList[themeInd], themesOverrideList[themeInd]
+              themesInitList[themeInd], themesOverrideList[themeInd],
             );
             return themesAppliedList;
         };

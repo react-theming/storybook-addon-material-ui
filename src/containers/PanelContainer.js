@@ -18,15 +18,15 @@ const PROGRESS_STATUS = {
 const progressInfo = () => {
     const keys = Object.keys(PROGRESS_STATUS);
     console.group('PROGRESS_STATUS:');
-    keys.forEach(val => {
+    keys.forEach((val) => {
         if (PROGRESS_STATUS[val] === 'done') {
             console.info(`${val}: ${PROGRESS_STATUS[val]}`);
             return;
         }
         console.warn(`${val}: ${PROGRESS_STATUS[val]}`);
-    })
+    });
     console.groupEnd('PROGRESS_STATUS:');
-}
+};
 
 
 const propTypes = {
@@ -138,7 +138,6 @@ ${JSON.stringify(this.state.themesAppliedList[this.state.themeInd])}`;
         const themesNameList = this.genNameList(newAppliedList);
         console.log(themesNameList);
         this.setState({ themesAppliedList: newAppliedList, themesNameList });
-
     }
 
     onCleanTheme() {
@@ -152,7 +151,6 @@ ${JSON.stringify(this.state.themesAppliedList[this.state.themeInd])}`;
         themesAppliedList[this.state.themeInd] = newTheme;
         const themesNameList = this.genNameList(themesAppliedList);
         this.setState({ themesAppliedList, themesNameList });
-
     }
 
     dataChannelSend(data) {
@@ -167,7 +165,7 @@ ${JSON.stringify(this.state.themesAppliedList[this.state.themeInd])}`;
         const isFullTheme = this.props.api.getQueryParam('theme-full');
         const data = JSON.parse(JSON.stringify({ themeInd, isSideBarOpen, isFullTheme }));
         const keys = Object.keys(data);
-        keys.forEach(val => {
+        keys.forEach((val) => {
             data[val] = JSON.parse(data[val]);
         });
         return (data);

@@ -22,24 +22,23 @@ export default class SvgIcon extends React.Component {
         require.ensure([], (require) => {
             const Icon = require('material-ui/svg-icons/action/home');
             this.ActionHome = Icon.default;
-        })
+        });
 
         this.scaleProp = {
-            style: {transform: `scale(${props.scale})`}
-        }
-
+            style: { transform: `scale(${props.scale})` },
+        };
     }
 
     render() {
-        return(
+        return (
           <div>
             <div {...this.scaleProp} >
-               {<this.ActionHome
-                color={this.context.muiTheme.palette.secondaryTextColor }
+              {<this.ActionHome
+                color={this.context.muiTheme.palette.secondaryTextColor}
               />}
             </div>
           </div>
-        )
+        );
     }
 }
 

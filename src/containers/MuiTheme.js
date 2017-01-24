@@ -142,7 +142,7 @@ export default class MuiTheme extends React.Component {
         const ThemesNameList = this.state.themesAppliedList
             .map((val, ind) => (val.themeName || `Theme ${ind + 1}`));
         const muiTheme = getMuiTheme(
-            this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd])
+            this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]),
         );
         return (<MuiThemeProvider muiTheme={muiTheme}>
           <div
@@ -161,12 +161,12 @@ export default class MuiTheme extends React.Component {
               minSize={this.state.isSideBarOpen ? 200 : 0}
               defaultSize={this.state.isSideBarOpen ? 400 : 0}
               primary="second"
-              pane1Style={{overflowX: 'auto', overflowY: 'auto'}}
-              pane2Style={{width: this.state.isSideBarOpen ? 'auto' : 0}}
-              resizerStyle={{display: this.state.isSideBarOpen ? 'auto' : 'none'}}
+              pane1Style={{ overflowX: 'auto', overflowY: 'auto' }}
+              pane2Style={{ width: this.state.isSideBarOpen ? 'auto' : 0 }}
+              resizerStyle={{ display: this.state.isSideBarOpen ? 'auto' : 'none' }}
             >
               <div>
-                  {this.props.story}
+                {this.props.story}
               </div>
               <ThemeSideBar
                 shouldComponentUpdate

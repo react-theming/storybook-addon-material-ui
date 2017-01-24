@@ -84,7 +84,7 @@ export default class ThemePropItem extends React.Component {
     render() {
         return (
           <div>
-              {this.renderProp(!this.props.isHeader)}
+            {this.renderProp(!this.props.isHeader)}
 
           </div>
         );
@@ -98,14 +98,14 @@ ThemePropItem.contextTypes = contextTypes;
 function PropItem(props, context) {
     const { palette } = context.muiTheme;
     const { settingsObj, val, ind, valueHandler, isOpen, isNotHeader } = props;
-    const color = typeof(settingsObj[val]) === 'string' ? settingsObj[val] : '';
+    const color = typeof (settingsObj[val]) === 'string' ? settingsObj[val] : '';
     const onSelect = () => {
         const select = {
             selectedProp: val,
             selectedVal: `'${settingsObj[val]}'`,
-        }
+        };
         props.onSelect(select);
-    }
+    };
     return (
       <div
         className={`${CSS_CLASS}-prop-item`}

@@ -42,7 +42,7 @@ export default class ThemePanel extends React.Component {
         super(props);
 
         this.menuItems = props.themesNameList.map(
-            (val, ind) => (<MenuItem value={ind} key={ind} primaryText={val} />)
+            (val, ind) => (<MenuItem value={ind} key={ind} primaryText={val} />),
         );
         this.state = {
             value: props.defautThemeInd,
@@ -80,7 +80,7 @@ export default class ThemePanel extends React.Component {
                 iconStyle={{ fill: this.context.muiTheme.palette.textColor }}
                 style={{ width: '100%' }}
               >
-                  {this.menuItems}
+                {this.menuItems}
               </DropDownMenu>
               <div
                 style={{

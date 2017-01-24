@@ -187,10 +187,10 @@ export default class ThemeSideBar extends React.Component {
                 </div>
               </Paper>
             </div>
-              {this.props.shouldShowData ?
+            {this.props.shouldShowData ?
                   themesList(
                     this.props.fullTheme() ? this.props.muiTheme : this.props.theme,
-                    this.props, this.onSelect
+                    this.props, this.onSelect,
                   )
                : null}
           </div>
@@ -205,7 +205,7 @@ export default class ThemeSideBar extends React.Component {
             className={`${CSS_CLASS}-theme_sidebar`}
             style={{ width: '100%', height: '100%' }}
           >
-             {this.props.open ? this.renderContent() : null}
+            {this.props.open ? this.renderContent() : null}
           </div>
         );
     }

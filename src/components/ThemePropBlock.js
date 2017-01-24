@@ -77,17 +77,17 @@ export default class ThemePropBlock extends React.Component {
                 transition: 'all 200ms linear 0ms',
             }}
           >
-             {isOpen ? <ThemePropItem
-               val={val}
-               ind={ind}
-               settingsObj={this.props.settingsObj}
-               valueHandler={this.valueHandler}
-               isCollapsed={this.state.toolCollapsedList[val]}
-               onCollapsed={this.onToolCollapse(val)}
-               isOpen={isOpen || false}
-               isHeader={isHeader || false}
-               onSelect={this.onSelect}
-             /> : null}
+            {isOpen ? <ThemePropItem
+              val={val}
+              ind={ind}
+              settingsObj={this.props.settingsObj}
+              valueHandler={this.valueHandler}
+              isCollapsed={this.state.toolCollapsedList[val]}
+              onCollapsed={this.onToolCollapse(val)}
+              isOpen={isOpen || false}
+              isHeader={isHeader || false}
+              onSelect={this.onSelect}
+            /> : null}
 
           </div>
         );
@@ -99,8 +99,8 @@ export default class ThemePropBlock extends React.Component {
         const rowList = keyList.map((val, ind) => (this.renderProp(val, ind, this.props.open())));
         return (
           <div>
-              {this.renderProp(`${this.props.settingsName}-header`, 0, this.props.open(), true)}
-              {rowList}
+            {this.renderProp(`${this.props.settingsName}-header`, 0, this.props.open(), true)}
+            {rowList}
           </div>);
     }
 
@@ -124,7 +124,7 @@ export default class ThemePropBlock extends React.Component {
             }}
           >
             <BlockHeader {...{ settingsName, openThis, onSelect }} />
-            <div style={{ /*height: 16*/ }} />
+            <div style={{ /* height: 16*/}} />
 
             {this.renderColl()}
 
@@ -152,11 +152,11 @@ function BlockHeader(props, context) {
             alignItems: 'center',
         }}
       >
-          <SclAvatar
-            onTouchTap={props.onSelect}
-            text={props.settingsName}
-          />
-          {/*<Chip onTouchTap={copyToClipboard(props.settingsName)} >
+        <SclAvatar
+          onTouchTap={props.onSelect}
+          text={props.settingsName}
+        />
+        {/* <Chip onTouchTap={copyToClipboard(props.settingsName)} >
 
             <Avatar size={18}>{props.settingsName[0]}</Avatar>
             {props.settingsName}
