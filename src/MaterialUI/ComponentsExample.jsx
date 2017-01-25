@@ -314,9 +314,9 @@ class ThemesPage extends React.Component {
 
         return (
           <div>
-            <Paper style={{ padding: 16, marginTop: 16, marginBottom: 8 }}>
-              Material-UI Components
-            </Paper>
+            {/* <Paper style={{ padding: 16, marginTop: 16, marginBottom: 8 }}>
+              Material-UI Components. Press <b>Ctrl-Shft-F</b> to exit from fullscreen mode.
+            </Paper>*/}
             <Paper style={styles.liveExamplePaper}>
               <ClearFix style={styles.liveExampleBlock}>{this.getThemeExamples()}</ClearFix>
             </Paper>

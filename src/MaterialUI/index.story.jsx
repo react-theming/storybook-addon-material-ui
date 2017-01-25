@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
+import { setOptions } from '@kadira/storybook-addon-options';
 import { muiTheme } from 'storybook-addon-material-ui';
 
 import Components from './ComponentsExample';
@@ -24,9 +25,15 @@ storiesOf('Material-UI', module)
           </div>);
     })
     .addDecorator(muiTheme(themesList))
-    .add('Components', () => (
-      <Components />
-    ))
+    .add('Components', () => {
+        setOptions({
+            name: 'storybook-addon material-ui',
+            url: 'https://github.com/sm-react/storybook-addon-material-ui',
+            goFullScreen: false,
+            downPanelInRight: false,
+        });
+        return <Components />;
+    })
     .add('Card', () => (
       <Card />
     ));

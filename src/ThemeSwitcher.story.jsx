@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
+import { setOptions } from '@kadira/storybook-addon-options';
 
 import ThemeSwitcher from './ThemeSwitcher';
 import App from './App';
@@ -16,13 +17,13 @@ storiesOf('Theme Switcher', module)
             </div>
           </div>);
     })
-    .add('Component', () => (
-      <ThemeSwitcher>
-        <div>
-          <PlainHTML />
-        </div>
-      </ThemeSwitcher>
-    ))
+    .add('Component', () => {
+        setOptions({
+            name: 'React Theme Provider',
+            url: 'https://github.com/sm-react/react-theme-provider',
+        });
+        return (<ThemeSwitcher><div><PlainHTML /></div></ThemeSwitcher>);
+    })
     .add('Themed App', () => (
       <ThemeSwitcher>
         <div>

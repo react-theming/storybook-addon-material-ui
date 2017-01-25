@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { storiesOf, action, addDecorator } from '@kadira/storybook';
+import { setOptions } from '@kadira/storybook-addon-options';
 import { muiTheme } from 'storybook-addon-material-ui';
 import { WithNotes } from '@kadira/storybook-addon-notes';
 import { withKnobs, text, boolean, number } from '@kadira/storybook-addon-knobs';
@@ -36,9 +37,13 @@ storiesOf('React App', module)
       </div>
     ))
     .addDecorator(withKnobs)
-    .add('App', () => (
-      <App />
-    ))
+    .add('App', () => {
+        setOptions({
+            name: 'React Theming',
+            url: 'https://github.com/sm-react/react-theming',
+        });
+        return (<App />);
+    })
     .addWithInfo('App-header', '<Header />', () => withNote(
       `
         Header Component
