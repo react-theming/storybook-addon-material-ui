@@ -1,11 +1,11 @@
 import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
-import SvgButton from '../material-desktop/SvgButton';
 import IconNew from 'material-ui/svg-icons/file/create-new-folder';
 import IconDnLoad from 'material-ui/svg-icons/file/file-download';
 import IconClean from 'material-ui/svg-icons/action/delete-forever';
 
+import SvgButton from '../material-desktop/SvgButton';
 import SclToggle from '../material-desktop/SclToggle';
 
 const propTypes = {
@@ -14,8 +14,10 @@ const propTypes = {
     onThemeSelect: React.PropTypes.func.isRequired,
     onToggleSideBar: React.PropTypes.func.isRequired,
     isSideBarOpen: React.PropTypes.bool.isRequired,
-    themeJSON: React.PropTypes.string,
+    isThemeInvalid: React.PropTypes.bool.isRequired,
+    themeJSON: React.PropTypes.string.isRequired,
     onChangeTheme: React.PropTypes.func.isRequired,
+    onThemeEditing: React.PropTypes.func.isRequired,
     onCloneTheme: React.PropTypes.func.isRequired,
     onDnLoadTheme: React.PropTypes.func.isRequired,
     onCleanTheme: React.PropTypes.func.isRequired,
@@ -42,10 +44,12 @@ export default class ThemePanel extends React.Component {
         super(props);
 
         this.menuItems = props.themesNameList.map(
-            (val, ind) => (<MenuItem value={ind} key={ind} primaryText={val} />),
+            (val, ind) => (<MenuItem value={ind} key={val} primaryText={val} />),
         );
         this.state = {
             value: props.defautThemeInd,
+            isThemeEditing: false,
+            isThemeValid: true,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -56,6 +60,11 @@ export default class ThemePanel extends React.Component {
     }
 
     render() {
+        const styleArea = {
+            width: '100%',
+            height: '100%',
+            outlineColor: this.props.isThemeInvalid ? '#cc5858' : '#26acd8',
+        };
         return (
           <div
             style={{
@@ -117,9 +126,11 @@ export default class ThemePanel extends React.Component {
             </div>
             <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }} >
               <textarea
-                style={{ width: '100%', height: '100%' }}
+                style={styleArea}
                 value={this.props.themeJSON}
                 onChange={this.props.onChangeTheme}
+                onFocus={this.props.onThemeEditing(true)}
+                onBlur={this.props.onThemeEditing(false)}
               />
 
             </div>
