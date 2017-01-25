@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Paper from 'material-ui/Paper';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-import Toggle from 'material-ui/Toggle';
+// import Avatar from 'material-ui/Avatar';
+// import Chip from 'material-ui/Chip';
+// import Toggle from 'material-ui/Toggle';
 import SclToggle from '../material-desktop/SclToggle';
 import SclAvatar from '../material-desktop/SclAvatar';
 
@@ -16,6 +16,7 @@ const propTypes = {
     settingsName: React.PropTypes.string.isRequired,
     open: React.PropTypes.func.isRequired,
     onThemeTableOverride: React.PropTypes.func.isRequired,
+    onSelect: React.PropTypes.func.isRequired,
 };
 
 const contextTypes = {
@@ -73,8 +74,8 @@ export default class ThemePropBlock extends React.Component {
           <div
             key={val}
             style={{
-                minHeight: isOpen ? 32 + (isHeader ? 12 : 0) : 0,
-                transition: 'all 200ms linear 0ms',
+//                minHeight: isOpen ? 32 + (isHeader ? 12 : 0) : 0,
+//                transition: 'all 200ms linear 0ms',
             }}
           >
             {isOpen ? <ThemePropItem
@@ -179,5 +180,6 @@ function BlockHeader(props, context) {
 BlockHeader.contextTypes = contextTypes;
 BlockHeader.propTypes = {
     openThis: React.PropTypes.func.isRequired,
+    onSelect: React.PropTypes.func.isRequired,
     settingsName: React.PropTypes.string.isRequired,
 };

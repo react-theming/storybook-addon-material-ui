@@ -1,9 +1,9 @@
 import React from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
+import MaterialColorPicker from 'react-material-color-picker';
 
 import { CSS_CLASS } from '../';
-import MaterialColorPicker from 'react-material-color-picker';
 
 const propTypes = {
     val: React.PropTypes.string.isRequired,
@@ -12,6 +12,7 @@ const propTypes = {
     valueHandler: React.PropTypes.func.isRequired,
     isCollapsed: React.PropTypes.bool.isRequired,
     onCollapsed: React.PropTypes.func.isRequired,
+    onSelect: React.PropTypes.func.isRequired,
     isOpen: React.PropTypes.bool.isRequired,
     isHeader: React.PropTypes.bool.isRequired,
 };
@@ -67,7 +68,9 @@ export default class ThemePropItem extends React.Component {
         return (
           <div>
             <PropItem
-              {...{ ind, val, settingsObj, valueHandler, isNotHeader, onToolTogle, isOpen, onSelect }}
+              {...{
+                  ind, val, settingsObj, valueHandler, isNotHeader, onToolTogle, isOpen, onSelect,
+              }}
             />
             <PropToolPicker
               {...{ isCollapsed, onToolTogle }}
@@ -97,7 +100,7 @@ ThemePropItem.contextTypes = contextTypes;
 
 function PropItem(props, context) {
     const { palette } = context.muiTheme;
-    const { settingsObj, val, ind, valueHandler, isOpen, isNotHeader } = props;
+    const { settingsObj, val, ind, valueHandler, /* isOpen,*/ isNotHeader } = props;
     const color = typeof (settingsObj[val]) === 'string' ? settingsObj[val] : '';
     const onSelect = () => {
         const select = {
@@ -117,7 +120,7 @@ function PropItem(props, context) {
             paddingRight: 4,
             paddingTop: isNotHeader ? 4 : 16,
             fontSize: 12,
-            height: isOpen ? 24 : 0,
+//            height: isOpen ? 24 : 0,
             transition: 'all 100ms ease 0ms',
             overflow: 'hidden',
             color: isNotHeader ? '' : palette.secondaryTextColor,
@@ -153,12 +156,13 @@ function PropItem(props, context) {
 }
 
 PropItem.propTypes = {
-    settingsObj: React.PropTypes.object.isRequired,
+    settingsObj: React.PropTypes.shape().isRequired,
     val: React.PropTypes.string.isRequired,
     ind: React.PropTypes.number.isRequired,
     onToolTogle: React.PropTypes.func.isRequired,
+    onSelect: React.PropTypes.func.isRequired,
     valueHandler: React.PropTypes.func.isRequired,
-    isOpen: React.PropTypes.bool.isRequired,
+//    isOpen: React.PropTypes.bool.isRequired,
     isNotHeader: React.PropTypes.bool.isRequired,
 };
 PropItem.contextTypes = contextTypes;
@@ -238,8 +242,11 @@ function PropInput(props, context) {
     );
 }
 PropInput.propTypes = {
-    settingsObj: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-    valueHandler: React.PropTypes.func,
+    settingsObj: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number,
+    ]).isRequired,
+    valueHandler: React.PropTypes.func.isRequired,
     isNotHeader: React.PropTypes.bool.isRequired,
 };
 PropInput.contextTypes = contextTypes;
@@ -298,7 +305,10 @@ function PropToolPicker(props, context) {
     );
 }
 PropToolPicker.propTypes = {
-    settingsObj: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+    settingsObj: React.PropTypes.oneOfType([
+        React.PropTypes.string,
+        React.PropTypes.number,
+    ]).isRequired,
     isCollapsed: React.PropTypes.bool.isRequired,
     valueHandler: React.PropTypes.func.isRequired,
     onToolTogle: React.PropTypes.func.isRequired,
@@ -382,7 +392,7 @@ function PropToolPickerFull(props, context) {
     );
 }
 PropToolPickerFull.propTypes = {
-    settingsObj: React.PropTypes.object.isRequired,
+    settingsObj: React.PropTypes.shape().isRequired,
     isCollapsed: React.PropTypes.bool.isRequired,
     valueHandler: React.PropTypes.func.isRequired,
     onToolTogle: React.PropTypes.func.isRequired,

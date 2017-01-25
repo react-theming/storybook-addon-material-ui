@@ -2,23 +2,23 @@ import React from 'react';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import SplitPane from 'react-split-pane';
 
 import { EVENT_ID_DATA, CSS_CLASS } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
 import ThemeSideBar from '../components/ThemeSideBar';
-import SplitPane from 'react-split-pane';
 // const stringify = require('json-stringify-safe');
 
 const propTypes = {
-    themesAppliedListInit: React.PropTypes.arrayOf(React.PropTypes.object),
-    themeName: React.PropTypes.string,
-    themeNameArr: React.PropTypes.arrayOf(React.PropTypes.string),
+    themesAppliedListInit: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    themeName: React.PropTypes.string.isRequired,
+    themeNameArr: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     story: React.PropTypes.object.isRequired,
     onChangeState: React.PropTypes.func.isRequired,
     onThemeOverride: React.PropTypes.func.isRequired,
     themeListRender: React.PropTypes.func.isRequired,
-    initState: React.PropTypes.object,
-    channel: React.PropTypes.object,
+    initState: React.PropTypes.object.isRequired,
+    channel: React.PropTypes.object.isRequired,
 };
 
 export default class MuiTheme extends React.Component {
@@ -163,8 +163,14 @@ export default class MuiTheme extends React.Component {
               primary="second"
               pane1Style={{ overflowX: 'auto', overflowY: 'auto' }}
               pane2Style={{ width: this.state.isSideBarOpen ? 'auto' : 0 }}
-              resizerStyle={{ display: this.state.isSideBarOpen ? 'auto' : 'none' }}
+              resizerStyle={{
+                  cursor: 'col-resize',
+                  width: 10,
+                  marginRight: -6,
+                  zIndex: 1,
+              }}
             >
+              {/**/}
               <div>
                 {this.props.story}
               </div>

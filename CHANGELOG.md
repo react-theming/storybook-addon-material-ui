@@ -1,5 +1,10 @@
 ## Changelog
 
+### v0.7.5
+* Beautify JSON output to addon panel and file download
+* bug fixed with side panel size ajustment
+* update dependencies
+
 ### v0.7.0
 * appearance
 * save theme as JSON file
