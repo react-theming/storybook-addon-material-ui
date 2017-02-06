@@ -11,8 +11,9 @@ import ThemeSideBar from '../components/ThemeSideBar';
 
 const propTypes = {
     themesAppliedListInit: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    themeName: React.PropTypes.string.isRequired,
-    themeNameArr: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    //themeName: React.PropTypes.string.isRequired,
+    //themeNameArr: React.PropTypes.arrayOf(React.PropTypes.string).isRequired, 
+    //These two props should not be required, they aren't being passed through and it is throwing a console error 
     story: React.PropTypes.object.isRequired,
     onChangeState: React.PropTypes.func.isRequired,
     onThemeOverride: React.PropTypes.func.isRequired,
