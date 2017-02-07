@@ -1,5 +1,4 @@
 node_modules
 develop
 dist
-*.lock
 *.log

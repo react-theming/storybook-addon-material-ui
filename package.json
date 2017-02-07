@@ -1,11 +1,11 @@
 {
   "name": "storybook-addon-material-ui",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Storybook Addon for Material Ui Library",
   "main": "dist/index.js",
   "scripts": {
     "publish-storybook": ".scripts\\publish_storybook.cmd",
-    "prepublish-omitted": ".scripts\\prepublish.cmd",
+    "prepublish": ".scripts\\prepublish.cmd",
     "lint": ".scripts\\lint.cmd src",
     "lintfix": ".scripts\\lint.cmd src --fix",
     "testonly": ".scripts\\test.cmd",
