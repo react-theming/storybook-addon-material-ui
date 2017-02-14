@@ -65,7 +65,7 @@
     "fifteen-kilos": "^2.0.0",
     "git-url-parse": "^6.0.1",
     "jsdom": "^9.5.0",
-    "material-ui": "^0.16.4",
+    "material-ui": "^0.17.0",
     "mocha": "^3.0.2",
     "node-sass": "^4.3.0",
     "raw-loader": "^0.5.1",
@@ -79,7 +79,7 @@
   },
   "peerDependencies": {
     "@kadira/storybook": "^2.32.1",
-    "material-ui": "^0.15.0 || ^0.16.4",
+    "material-ui": "^0.15.0 || ^0.16.4 || ^0.17.0",
     "react": "^0.14.7 || ^15.4.0",
     "react-dom": "^0.14.7 || ^15.4.0"
   },
