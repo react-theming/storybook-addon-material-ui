@@ -1,5 +1,13 @@
 ## Changelog
 
+### v0.7.7
+
+* update dependencies (material-ui@0.17.0)
+
+### v0.7.6
+
+* console output bug fixed
+
 ### v0.7.5
 * Beautify JSON output to addon panel and file download
 * bug fixed with side panel size ajustment

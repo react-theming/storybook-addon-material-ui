@@ -182,14 +182,17 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ```
 
 ## CONTRIBUTING :raising_hand:
+
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
 [![Code Triagers Badge](https://www.codetriage.com/sm-react/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/sm-react/storybook-addon-material-ui)
 
 ### :wrench: Developers: 
+
 Our team welcom all contributing, testing, bug fixing. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
 
 ### :ribbon: Designers:
+
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### Credits
@@ -197,8 +200,3 @@ We would really welcome the involvement of designers in this project. We are ver
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
 [![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
 
-#### Past Events
-
->#### :jack_o_lantern: Check out our [Halloween Surprise](https://usulpro.github.io/SVG-theming/)
-
-(now this is a new [SVG-theming](https://github.com/UsulPro/SVG-theming) project)
