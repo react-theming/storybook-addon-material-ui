@@ -188,7 +188,7 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 
 ### :wrench: Developers: 
 
-Our team welcom all contributing, testing, bug fixing. If you would like
+Our team welcome all contributing, testing, bug fixing. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
 
 ### :ribbon: Designers:
