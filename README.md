@@ -1,5 +1,5 @@
 
-[<img src="doc/logo-small.png" align="left" class="logo" width="280" title="❤︎❤︎❤︎"/>](https://github.com/sm-react/react-theming/stargazers) 
+[<img src="doc/reactThemingLogo.png" align="left" class="logo" width="280" title="❤︎❤︎❤︎"/>](https://github.com/sm-react/react-theming/stargazers) 
 
 <div align="center" style="height: 16px;"><sub>Created with ❤︎ to <b>React</b> and <b>React Storybook</b> by <a href="https://twitter.com/UsulPro">UsulPro</a>.</sub></div>
 <img src="doc/margin.png" align="center" class="logo"/>
