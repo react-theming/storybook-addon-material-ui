@@ -1,5 +1,10 @@
 ## Changelog
 
+### v0.7.8
+
+* update dependencies (material-ui@0.18.0)
+* update dependencies (react@15.5.4)
+
 ### v0.7.7
 
 * update dependencies (material-ui@0.17.0)

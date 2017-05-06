@@ -36,7 +36,7 @@ addDecorator(muiTheme([
 
 
 storiesOf('Material-UI', module)
-    .addDecorator((story) => (
+    .addDecorator(story => (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%', maxWidth: 500, minWidth: 200 }}>
           {story()}

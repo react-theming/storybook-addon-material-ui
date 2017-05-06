@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-// import Avatar from 'material-ui/Avatar';
-// import Chip from 'material-ui/Chip';
-// import Toggle from 'material-ui/Toggle';
 import SclToggle from '../material-desktop/SclToggle';
 import SclAvatar from '../material-desktop/SclAvatar';
 
