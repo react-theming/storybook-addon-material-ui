@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf, addDecorator } from '@kadira/storybook';
 
 import { muiTheme } from './../../src/';
@@ -80,26 +81,6 @@ storiesOf('Material App', module)
     ));
 
 
-//  storiesOf('Compatible Projects', module)
-//      .add('description', () => (
-//        <ReactTemesProvider>
-//          <h2>Here is a list of compatible projects:</h2>
-//          <ul>
-//            <li>fifteen-kilos <a href="https://github.com/mxstbr/fifteen-kilos">github</a></li>
-//          </ul>
-//        </ReactTemesProvider>
-//      ))
-//      .add('fifteen-kilos', () => (
-//        <ReactTemesProvider>
-//          {fifteen}
-//        </ReactTemesProvider>
-//      ));
-
-//  storiesOf('Without addon', module)
-//      .add('Text', () => (
-//        <p>Lorem ipsum</p>
-//      ));
-
 function ReactTemesProvider(props, context) {
     const { palette } = context.muiTheme;
     const themeProps = {
@@ -112,9 +93,9 @@ function ReactTemesProvider(props, context) {
     );
 }
 ReactTemesProvider.propTypes = {
-    children: React.PropTypes.element,
+    children: PropTypes.element,
 };
 ReactTemesProvider.contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 

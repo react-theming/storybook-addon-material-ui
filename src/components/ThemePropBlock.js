@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 // import Avatar from 'material-ui/Avatar';
 // import Chip from 'material-ui/Chip';
@@ -12,15 +12,15 @@ import ThemePropItem from './ThemePropItem';
 
 
 const propTypes = {
-    settingsObj: React.PropTypes.object.isRequired,
-    settingsName: React.PropTypes.string.isRequired,
-    open: React.PropTypes.func.isRequired,
-    onThemeTableOverride: React.PropTypes.func.isRequired,
-    onSelect: React.PropTypes.func.isRequired,
+    settingsObj: PropTypes.object.isRequired,
+    settingsName: PropTypes.string.isRequired,
+    open: PropTypes.func.isRequired,
+    onThemeTableOverride: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 };
 
 const contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 
 export default class ThemePropBlock extends React.Component {
@@ -71,13 +71,7 @@ export default class ThemePropBlock extends React.Component {
 
     renderProp(val, ind, isOpen, isHeader) {
         return (
-          <div
-            key={val}
-            style={{
-//                minHeight: isOpen ? 32 + (isHeader ? 12 : 0) : 0,
-//                transition: 'all 200ms linear 0ms',
-            }}
-          >
+          <div key={val}>
             {isOpen ? <ThemePropItem
               val={val}
               ind={ind}
@@ -179,7 +173,7 @@ function BlockHeader(props, context) {
 
 BlockHeader.contextTypes = contextTypes;
 BlockHeader.propTypes = {
-    openThis: React.PropTypes.func.isRequired,
-    onSelect: React.PropTypes.func.isRequired,
-    settingsName: React.PropTypes.string.isRequired,
+    openThis: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    settingsName: PropTypes.string.isRequired,
 };

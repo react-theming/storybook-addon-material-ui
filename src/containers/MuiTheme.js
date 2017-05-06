@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,16 +11,13 @@ import ThemeSideBar from '../components/ThemeSideBar';
 // const stringify = require('json-stringify-safe');
 
 const propTypes = {
-    themesAppliedListInit: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    //themeName: React.PropTypes.string.isRequired,
-    //themeNameArr: React.PropTypes.arrayOf(React.PropTypes.string).isRequired, 
-    //These two props should not be required, they aren't being passed through and it is throwing a console error 
-    story: React.PropTypes.object.isRequired,
-    onChangeState: React.PropTypes.func.isRequired,
-    onThemeOverride: React.PropTypes.func.isRequired,
-    themeListRender: React.PropTypes.func.isRequired,
-    initState: React.PropTypes.object.isRequired,
-    channel: React.PropTypes.object.isRequired,
+    themesAppliedListInit: PropTypes.arrayOf(PropTypes.object).isRequired,
+    story: PropTypes.object.isRequired,
+    onChangeState: PropTypes.func.isRequired,
+    onThemeOverride: PropTypes.func.isRequired,
+    themeListRender: PropTypes.func.isRequired,
+    initState: PropTypes.object.isRequired,
+    channel: PropTypes.object.isRequired,
 };
 
 export default class MuiTheme extends React.Component {

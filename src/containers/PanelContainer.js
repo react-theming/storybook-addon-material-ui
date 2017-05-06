@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -34,8 +35,8 @@ const progressInfo = () => {
 
 
 const propTypes = {
-    channel: React.PropTypes.object.isRequired,
-    api: React.PropTypes.object.isRequired,
+    channel: PropTypes.object.isRequired,
+    api: PropTypes.object.isRequired,
 };
 
 
@@ -121,8 +122,7 @@ export default class PanelContainer extends React.Component {
                 isThemeInvalid: false,
                 themeString: str,
             });
-        }
-        catch (e) {
+        } catch (e) {
             this.setState({
                 isThemeInvalid: true,
                 themeString: str,

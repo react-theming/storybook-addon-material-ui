@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Toggle from 'material-ui/Toggle';
 
 const defaultProps = {
@@ -6,7 +7,7 @@ const defaultProps = {
 };
 
 const propTypes = {
-    scale: React.PropTypes.number,
+    scale: PropTypes.number,
 };
 
 export default function SclToggle(props) {

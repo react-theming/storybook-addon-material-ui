@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
@@ -8,8 +9,8 @@ const defaultProps = {
 };
 
 const propTypes = {
-    scale: React.PropTypes.number,
-    text: React.PropTypes.string,
+    scale: PropTypes.number,
+    text: PropTypes.string,
 };
 
 export default function SclAvatar(props) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
 import MaterialColorPicker from 'react-material-color-picker';
@@ -6,15 +7,15 @@ import MaterialColorPicker from 'react-material-color-picker';
 import { CSS_CLASS } from '../';
 
 const propTypes = {
-    val: React.PropTypes.string.isRequired,
-    ind: React.PropTypes.number.isRequired,
-    settingsObj: React.PropTypes.object.isRequired,
-    valueHandler: React.PropTypes.func.isRequired,
-    isCollapsed: React.PropTypes.bool.isRequired,
-    onCollapsed: React.PropTypes.func.isRequired,
-    onSelect: React.PropTypes.func.isRequired,
-    isOpen: React.PropTypes.bool.isRequired,
-    isHeader: React.PropTypes.bool.isRequired,
+    val: PropTypes.string.isRequired,
+    ind: PropTypes.number.isRequired,
+    settingsObj: PropTypes.object.isRequired,
+    valueHandler: PropTypes.func.isRequired,
+    isCollapsed: PropTypes.bool.isRequired,
+    onCollapsed: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    isHeader: PropTypes.bool.isRequired,
 };
 
 const defaultProps = {
@@ -28,7 +29,7 @@ const defaultProps = {
 };
 
 const contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 
 export default class ThemePropItem extends React.Component {
@@ -156,14 +157,14 @@ function PropItem(props, context) {
 }
 
 PropItem.propTypes = {
-    settingsObj: React.PropTypes.shape().isRequired,
-    val: React.PropTypes.string.isRequired,
-    ind: React.PropTypes.number.isRequired,
-    onToolTogle: React.PropTypes.func.isRequired,
-    onSelect: React.PropTypes.func.isRequired,
-    valueHandler: React.PropTypes.func.isRequired,
-//    isOpen: React.PropTypes.bool.isRequired,
-    isNotHeader: React.PropTypes.bool.isRequired,
+    settingsObj: PropTypes.shape().isRequired,
+    val: PropTypes.string.isRequired,
+    ind: PropTypes.number.isRequired,
+    onToolTogle: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    valueHandler: PropTypes.func.isRequired,
+//    isOpen: PropTypes.bool.isRequired,
+    isNotHeader: PropTypes.bool.isRequired,
 };
 PropItem.contextTypes = contextTypes;
 
@@ -200,9 +201,9 @@ function PropHeader(props, context) {
     );
 }
 PropHeader.propTypes = {
-    val: React.PropTypes.string.isRequired,
-    ind: React.PropTypes.number.isRequired,
-    isNotHeader: React.PropTypes.bool.isRequired,
+    val: PropTypes.string.isRequired,
+    ind: PropTypes.number.isRequired,
+    isNotHeader: PropTypes.bool.isRequired,
 };
 PropHeader.contextTypes = contextTypes;
 
@@ -242,12 +243,12 @@ function PropInput(props, context) {
     );
 }
 PropInput.propTypes = {
-    settingsObj: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number,
+    settingsObj: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
     ]).isRequired,
-    valueHandler: React.PropTypes.func.isRequired,
-    isNotHeader: React.PropTypes.bool.isRequired,
+    valueHandler: PropTypes.func.isRequired,
+    isNotHeader: PropTypes.bool.isRequired,
 };
 PropInput.contextTypes = contextTypes;
 
@@ -270,9 +271,9 @@ function PropTool(props, context) {
     return <div {...toolProps} />;
 }
 PropTool.propTypes = {
-    isNotHeader: React.PropTypes.bool.isRequired,
-    color: React.PropTypes.string.isRequired,
-    onTool: React.PropTypes.func.isRequired,
+    isNotHeader: PropTypes.bool.isRequired,
+    color: PropTypes.string.isRequired,
+    onTool: PropTypes.func.isRequired,
 };
 PropTool.contextTypes = contextTypes;
 
@@ -305,13 +306,13 @@ function PropToolPicker(props, context) {
     );
 }
 PropToolPicker.propTypes = {
-    settingsObj: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number,
+    settingsObj: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
     ]).isRequired,
-    isCollapsed: React.PropTypes.bool.isRequired,
-    valueHandler: React.PropTypes.func.isRequired,
-    onToolTogle: React.PropTypes.func.isRequired,
+    isCollapsed: PropTypes.bool.isRequired,
+    valueHandler: PropTypes.func.isRequired,
+    onToolTogle: PropTypes.func.isRequired,
 };
 PropToolPicker.contextTypes = contextTypes;
 
@@ -392,9 +393,9 @@ function PropToolPickerFull(props, context) {
     );
 }
 PropToolPickerFull.propTypes = {
-    settingsObj: React.PropTypes.shape().isRequired,
-    isCollapsed: React.PropTypes.bool.isRequired,
-    valueHandler: React.PropTypes.func.isRequired,
-    onToolTogle: React.PropTypes.func.isRequired,
+    settingsObj: PropTypes.shape().isRequired,
+    isCollapsed: PropTypes.bool.isRequired,
+    valueHandler: PropTypes.func.isRequired,
+    onToolTogle: PropTypes.func.isRequired,
 };
 PropToolPickerFull.contextTypes = contextTypes;

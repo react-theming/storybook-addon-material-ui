@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import IconNew from 'material-ui/svg-icons/file/create-new-folder';
@@ -9,18 +10,18 @@ import SvgButton from '../material-desktop/SvgButton';
 import SclToggle from '../material-desktop/SclToggle';
 
 const propTypes = {
-    themesNameList: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    defautThemeInd: React.PropTypes.number.isRequired,
-    onThemeSelect: React.PropTypes.func.isRequired,
-    onToggleSideBar: React.PropTypes.func.isRequired,
-    isSideBarOpen: React.PropTypes.bool.isRequired,
-    isThemeInvalid: React.PropTypes.bool.isRequired,
-    themeJSON: React.PropTypes.string.isRequired,
-    onChangeTheme: React.PropTypes.func.isRequired,
-    onThemeEditing: React.PropTypes.func.isRequired,
-    onCloneTheme: React.PropTypes.func.isRequired,
-    onDnLoadTheme: React.PropTypes.func.isRequired,
-    onCleanTheme: React.PropTypes.func.isRequired,
+    themesNameList: PropTypes.arrayOf(PropTypes.string).isRequired,
+    defautThemeInd: PropTypes.number.isRequired,
+    onThemeSelect: PropTypes.func.isRequired,
+    onToggleSideBar: PropTypes.func.isRequired,
+    isSideBarOpen: PropTypes.bool.isRequired,
+    isThemeInvalid: PropTypes.bool.isRequired,
+    themeJSON: PropTypes.string.isRequired,
+    onChangeTheme: PropTypes.func.isRequired,
+    onThemeEditing: PropTypes.func.isRequired,
+    onCloneTheme: PropTypes.func.isRequired,
+    onDnLoadTheme: PropTypes.func.isRequired,
+    onCleanTheme: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -35,7 +36,7 @@ const defaultProps = {
 };
 
 const contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 
 export default class ThemePanel extends React.Component {

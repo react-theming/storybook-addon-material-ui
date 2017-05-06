@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 
 import SclToggle from '../material-desktop/SclToggle';
@@ -14,14 +15,14 @@ import { copyToClipboardThis } from '../Utils';
 const BAR_WIDTH = 400;
 
 const propTypes = {
-    open: React.PropTypes.bool.isRequired,
-    themeName: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.object.isRequired,
-    muiTheme: React.PropTypes.object.isRequired,
-    fullTheme: React.PropTypes.func.isRequired,
-    collapseList: React.PropTypes.func.isRequired,
-    shouldComponentUpdate: React.PropTypes.bool.isRequired,
-    shouldShowData: React.PropTypes.bool.isRequired,
+    open: PropTypes.bool.isRequired,
+    themeName: PropTypes.string.isRequired,
+    theme: PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
+    fullTheme: PropTypes.func.isRequired,
+    collapseList: PropTypes.func.isRequired,
+    shouldComponentUpdate: PropTypes.bool.isRequired,
+    shouldShowData: PropTypes.bool.isRequired,
 };
 
 export default class ThemeSideBar extends React.Component {
@@ -215,7 +216,7 @@ export default class ThemeSideBar extends React.Component {
 ThemeSideBar.propTypes = propTypes;
 
 ThemeSideBar.contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 
 function forTable(tableTame, objListFunc) {
