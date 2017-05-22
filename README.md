@@ -19,7 +19,7 @@
 [![GitHub version](https://badge.fury.io/gh/sm-react%2Freact-theming.svg)](https://badge.fury.io/gh/sm-react%2Freact-theming)
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming)
 
-[<img src="doc/logos/Storybook.png" alt="Storybook" title="Storybook" height="60">](http://getstorybook.io)
+[<img src="doc/logos/Storybook.png" alt="Storybook" title="Storybook" height="60">](http://storybooks.js.org)
 [<img src="doc/logos/NodeJS.png" alt="NodeJS" title="NodeJS" height="60">](http://nodejs.org)
 [<img src="doc/logos/webpack.png" alt="Webpack" title="Webpack" height="60">](http://webpack.js.org)
 [<img src="doc/logos/react.png" alt="React" title="React" height="60">](http://facebook.github.io/react)
@@ -29,7 +29,7 @@
 [<img src="doc/logos/chai.png" alt="Chai" title="ChaiJS" height="60">](http://chaijs.com)
 [<img src="doc/logos/Material-UI.png" alt="Material-UI" title="Material-UI" height="60">](http://material-ui.com)
 
-At the heart of this project the desire to collect the best practices of application development via [React-Storybook](https://github.com/storybooks/react-storybook) environment. This project is transparent and friendly for developers. You do not need to eject anything. Therefore you can easily add your own configuration and extend it using any packages.
+At the heart of this project the desire to collect the best practices of application development via [React-Storybook](https://github.com/storybooks/storybook) environment. This project is transparent and friendly for developers. You do not need to eject anything. Therefore you can easily add your own configuration and extend it using any packages.
 
 It contains the *fully-charged* setup of the Storybook with **pre-installed plugins**, configuration, quick examples, and tips. Inspired by [Create React App](https://github.com/facebookincubator/create-react-app) and [React CDK](https://github.com/kadirahq/react-cdk).
 
@@ -132,7 +132,7 @@ When you feel enough to edit your theme, you can save it for future use. Press [
 
 [<img src="doc/bottom-pane.png" align="right" width="500" title="Bottom theming panel"/>](https://raw.githubusercontent.com/sm-react/react-theming/master/doc/bottom-pane.png)
 
-Okay, now let's look at the panel on the left. In fact, our application consists of two components: `src/Header.jsx` and `src/Intro.jsx`. Selecting the appropriate items in the left-side list you switch to an isolated view of the component. It's how `React Storybook` works - allows you 'step-by-step' to create and works with React components. You can improve the quality of development by applying different addons to Storybook. Most of them is already pre-installed in this project. You will find excellent [documentation and examples](https://getstorybook.io/docs/) on the React Storybook website.
+Okay, now let's look at the panel on the left. In fact, our application consists of two components: `src/Header.jsx` and `src/Intro.jsx`. Selecting the appropriate items in the left-side list you switch to an isolated view of the component. It's how `React Storybook` works - allows you 'step-by-step' to create and works with React components. You can improve the quality of development by applying different addons to Storybook. Most of them is already pre-installed in this project. You will find excellent [documentation and examples](https://storybooks.js.org/) on the React Storybook website.
 
 ---
 
