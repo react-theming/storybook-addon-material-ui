@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { storiesOf, addDecorator } from '@kadira/storybook';
+import { storiesOf, addDecorator } from '@storybook/react';
 
 import { muiTheme } from './../../src/';
 

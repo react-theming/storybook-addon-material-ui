@@ -40,11 +40,11 @@
   },
   "homepage": "https://github.com/sm-react/storybook-addon-material-ui",
   "devDependencies": {
-    "@kadira/react-storybook-addon-info": "^3.2.1",
-    "@kadira/storybook": "^2.32.1",
-    "@kadira/storybook-addon-options": "^1.0.1",
-    "@kadira/storybook-addons": "^1.6.1",
-    "@kadira/storybook-ui": "^3.8.0",
+    "@storybook/addons": "^3.0.0",
+    "@storybook/addon-info": "^3.0.0",
+    "@storybook/addon-options": "^3.0.0",
+    "@storybook/react": "^3.0.0",
+    "@storybook/ui": "^3.0.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
@@ -79,7 +79,6 @@
     "style-loader": "^0.13.1"
   },
   "peerDependencies": {
-    "@kadira/storybook": "^2.32.1",
     "material-ui": ">=0.15.0",
     "prop-types": "^15.5.8",
     "react": "^15.0.0",
