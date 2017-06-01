@@ -85,7 +85,7 @@ Now, write your stories with Material-UI Addon. By default your stories will be 
 
 ```js
 import React from 'react';
-import { storiesOf, addDecorator } from '@kadira/storybook';
+import { storiesOf, addDecorator } from '@storybook/react';
 import {muiTheme} from 'storybook-addon-material-ui';
 
 // Import some examples from material-ui
@@ -112,7 +112,7 @@ storiesOf('Material-UI', module)
 
 ```js
 import React from 'react';
-import { storiesOf, addDecorator } from '@kadira/storybook';
+import { storiesOf, addDecorator } from '@storybook/react';
 
 import {muiTheme} from 'storybook-addon-material-ui';
 

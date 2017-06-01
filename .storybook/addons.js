@@ -1,3 +1,3 @@
 import '../src/';
-import '@kadira/storybook/addons';
-import '@kadira/storybook-addon-options/register';
+import '@storybook/addons';
+import '@storybook/addon-options/register';
