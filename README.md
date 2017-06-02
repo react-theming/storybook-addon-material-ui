@@ -24,6 +24,7 @@ You can use this [project's demo page](https://sm-react.github.io/react-theming/
 - Google [material color](https://material.google.com/style/color.html#color-color-palette) palette [picker](https://github.com/sm-react/react-material-color-picker)
 - Save made changes and download in JSON file
 - Part of [React Theming](https://github.com/sm-react/react-theming). Create themable React Components.
+- Works with Storybook 3.0
 
 ## Quick Start
 

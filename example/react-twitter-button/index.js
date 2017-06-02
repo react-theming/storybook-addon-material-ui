@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /** note: Tweet Button Parameter Reference **
  * all props mirrow this param list:
@@ -6,16 +7,16 @@ import React from 'react';
  */
 
 const propTypes = {
-    text: React.PropTypes.string,
-    url: React.PropTypes.string,
-    hashtags: React.PropTypes.arrayOf(React.PropTypes.string),
-    screen_name: React.PropTypes.string,
-    via: React.PropTypes.string,
-    related: React.PropTypes.arrayOf(React.PropTypes.string),
-    large: React.PropTypes.bool,
-    lang: React.PropTypes.string,
-    dnt: React.PropTypes.bool,
-    src: React.PropTypes.func,
+    text: PropTypes.string,
+    url: PropTypes.string,
+    hashtags: PropTypes.arrayOf(PropTypes.string),
+    screen_name: PropTypes.string,
+    via: PropTypes.string,
+    related: PropTypes.arrayOf(PropTypes.string),
+    large: PropTypes.bool,
+    lang: PropTypes.string,
+    dnt: PropTypes.bool,
+    src: PropTypes.func,
 };
 
 const defaultProps = {

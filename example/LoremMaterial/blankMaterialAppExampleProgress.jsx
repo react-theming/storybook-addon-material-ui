@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardActions, CardMedia } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -72,5 +73,5 @@ export default class MaterialAppExampleProgress extends React.Component {
 }
 
 MaterialAppExampleProgress.contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };

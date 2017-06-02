@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import DatePicker from 'material-ui/DatePicker';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
@@ -202,7 +203,7 @@ export default class MaterialAirlineBooking extends React.Component {
                 textFieldStyle={styles.textField}
                 dataSource={this.state.dataSource}
                 filter={AutoComplete.caseInsensitiveFilter}
-                maxResults={6}
+                maxSearchResults={6}
               /><br />
               <AutoComplete
                 hintText="E.g Sydney"
@@ -212,7 +213,7 @@ export default class MaterialAirlineBooking extends React.Component {
                 floatingLabelFixed
                 floatingLabelStyle={styles.label}
                 textFieldStyle={styles.textField}
-                maxResults={6}
+                maxSearchResults={6}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <DatePicker hintText="Departure" autoOk container="inline" mode="landscape"
@@ -267,5 +268,5 @@ export default class MaterialAirlineBooking extends React.Component {
 }
 
 MaterialAirlineBooking.contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };

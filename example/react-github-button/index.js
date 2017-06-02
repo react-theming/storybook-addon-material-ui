@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /** note: Tweet Button Parameter Reference **
  * all props mirrow this param list:
@@ -6,9 +7,9 @@ import React from 'react';
  */
 
 const propTypes = {
-    user: React.PropTypes.string,
-    repo: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['star',
+    user: PropTypes.string,
+    repo: PropTypes.string,
+    type: PropTypes.oneOf(['star',
                                  'fork',
                                  'watch',
                                  'issue',
@@ -16,7 +17,7 @@ const propTypes = {
                                  'download',
                                  'follow',
                                 ]),
-    src: React.PropTypes.func,
+    src: PropTypes.func,
 };
 
 const defaultProps = {

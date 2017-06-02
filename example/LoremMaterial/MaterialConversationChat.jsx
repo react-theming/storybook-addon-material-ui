@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardHeader } from 'material-ui/Card';
 
 import Message from './ConversationMessage.jsx';
@@ -68,5 +69,5 @@ export default class MaterialAppExampleProgress extends React.Component {
 }
 
 MaterialAppExampleProgress.contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { action } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 const style = {
   margin: 12,

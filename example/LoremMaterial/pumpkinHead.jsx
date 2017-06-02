@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const themeDefault = {
     bodyFill: '#FF931E',
@@ -29,7 +30,7 @@ const pumpkinDefault = {
 };
 
 const propTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
 };
 
 const defaultProps = {
@@ -221,7 +222,7 @@ PumpkinHead.propTypes = propTypes;
 PumpkinHead.defaultProps = defaultProps;
 
 const contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 
 export default function ThemeProviderUni(props, context) {

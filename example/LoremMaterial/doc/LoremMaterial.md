@@ -31,7 +31,7 @@ We support [Material-UI Themes](http://www.material-ui.com/#/customization/theme
 It's possible to create theme related components in two ways. Firstly, you can combine ready-made `Material-UI` elements into your component. They themselves support themes, so you don't need to do anything more. The second case occurs when you want to add own non `Material-UI` element and set its appearance based on the theme settings. You can do it manually by fetching theme data from the content and applying it to your elements. Look at this brief example:
 ```
 const contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
 };
 
 function HelloLabel(props, context) {
@@ -46,7 +46,7 @@ function HelloLabel(props, context) {
       );
 }
 HelloLabel.propTypes = {
-    name: React.PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 };
 HelloLabel.contextTypes = contextTypes;
 

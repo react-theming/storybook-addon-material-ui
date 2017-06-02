@@ -243,7 +243,7 @@ a {
                    interesting applications,
                    but you can try your hand at creating something simple.
                 </p>
-                <p style={{ textAlign: 'justify', fontSize: 16 }} >
+                <div style={{ textAlign: 'justify', fontSize: 16 }} >
                   We do not impose special restrictions to create pages, but please keep the following:
                   <ul>
                     <li>
@@ -276,7 +276,7 @@ a {
                       Each story in a separate file (or a folder)
                     </li>
                   </ul>
-                </p>
+                </div>
                 <h3 style={{ textAlign: 'justify', fontSize: 16 }}>
                   to initiate the participation
                   <a href="https://github.com/sm-react/storybook-addon-material-ui/fork" target="blank">
