@@ -1,6 +1,6 @@
 {
-  "name": "react-theming-boilerplate",
-  "version": "0.2.5",
+  "name": "react-theming",
+  "version": "3.0.0-alpha.1",
   "description": "Themable React App based on Storybook",
   "main": "dist/App.js",
   "scripts": {
