@@ -1,9 +1,0 @@
-node_modules
-.#develop
-example
-src
-doc
-.babelrc
-.eslintrc
-.scripts
-.storybook
