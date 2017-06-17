@@ -30,4 +30,6 @@ Details about [storybook-boilerplate](https://github.com/sm-react/storybook-boil
 
 ## Credits
 
+Twitter: https://twitter.com/react_theming
+
 React-theming 2016
