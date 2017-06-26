@@ -8,19 +8,19 @@ import smBackground from './smLogoBW.png'
 const Buttons = (
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                       <GithubButton
-                          user="sm-react"
+                          user="react-theming"
                           repo="storybook-addon-material-ui"
                           type="star"
                       />
                       <GithubButton
-                          user="sm-react"
+                          user="react-theming"
                           repo="storybook-addon-material-ui"
                           type="fork"
                       />
                       {/* */}
                       <TwitterButton
                           text="Material-UI Visual Theme Editor"
-                          url="https://sm-react.github.io/storybook-addon-material-ui"
+                          url="https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel"
                           via="UsulPro"
                           related={["UsulPro"]}
                           hashtags={['reactjs', 'materialui', 'reactstorybook']}

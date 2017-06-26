@@ -59,10 +59,10 @@ export default class MaterialAppExampleProgress extends React.Component {
                     margin: '16px 0px',
                 }}
               >
-                <a href="https://github.com/sm-react/storybook-addon-material-ui/fork" target="blank">
+                <a href="https://github.com/react-theming/storybook-addon-material-ui/fork" target="blank">
                   <RaisedButton label="I'm in" primary />
                 </a>
-                <a href="https://github.com/sm-react/storybook-addon-material-ui/subscription" target="blank">
+                <a href="https://github.com/react-theming/storybook-addon-material-ui/subscription" target="blank">
                   <RaisedButton label="for tomorrow" secondary />
                 </a>
               </CardActions>

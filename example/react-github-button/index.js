@@ -156,11 +156,11 @@ href=https://github.com/waud/waud
 
 <!-- Place this tag where you want the button to render. -->
 <a class="github-button"
-href="https://github.com/sm-react/storybook-addon-material-ui/fork"
-data-icon="octicon-repo-forked" data-count-href="/sm-react/storybook-addon-material-ui/network"
-data-count-api="/repos/sm-react/storybook-addon-material-ui#forks_count"
+href="https://github.com/react-theming/storybook-addon-material-ui/fork"
+data-icon="octicon-repo-forked" data-count-href="/react-theming/storybook-addon-material-ui/network"
+data-count-api="/repos/react-theming/storybook-addon-material-ui#forks_count"
 data-count-aria-label="# forks on GitHub"
-aria-label="Fork sm-react/storybook-addon-material-ui on GitHub">
+aria-label="Fork react-theming/storybook-addon-material-ui on GitHub">
 Fork</a>
 
 */

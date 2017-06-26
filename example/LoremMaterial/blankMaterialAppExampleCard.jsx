@@ -13,19 +13,19 @@ import ic_account_balance from './doc/ic_account_balance_black.png';
 const Buttons = (
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <GithubButton
-                        user="sm-react"
+                        user="react-theming"
                         repo="storybook-addon-material-ui"
                         type="star"
                       />
                       <GithubButton
-                        user="sm-react"
+                        user="react-theming"
                         repo="storybook-addon-material-ui"
                         type="fork"
                       />
                       {/* */}
                       <TwitterButton
                         text="Material-UI Visual Theme Editor"
-                        url="https://sm-react.github.io/storybook-addon-material-ui"
+                        url="https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel"
                         via="UsulPro"
                         related={['UsulPro']}
                         hashtags={['reactjs', 'materialui', 'reactstorybook']}
@@ -234,7 +234,7 @@ a {
                   We propose to fill this library by adding small pages
                    or applications - each in a separate
                   <a
-                    href="https://sm-react.github.io/storybook-addon-material-ui/?theme-ind=0&theme-sidebar=false&theme-full=false&selectedKind=Material%20App&selectedStory=Hactoberfest%20issues%3A&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel"
+                    href="https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel"
                   >
                     <span> story</span>
                   </a>
@@ -268,7 +268,7 @@ a {
                     </li>
                     <li>
                       Should not copy an already existing
-                      <a href="https://sm-react.github.io/storybook-addon-material-ui" target="blank">
+                      <a href="https://react-theming.github.io/storybook-addon-material-ui" target="blank">
                         <span> story </span>
                       </a>
                     </li>
@@ -279,14 +279,14 @@ a {
                 </div>
                 <h3 style={{ textAlign: 'justify', fontSize: 16 }}>
                   to initiate the participation
-                  <a href="https://github.com/sm-react/storybook-addon-material-ui/fork" target="blank">
+                  <a href="https://github.com/react-theming/storybook-addon-material-ui/fork" target="blank">
                     <span> fork this project </span>
                   </a>
                   .
                 </h3>
                 <p style={{ textAlign: 'justify', fontSize: 16 }} >
                   See details
-                  <a href="https://github.com/sm-react/storybook-addon-material-ui/issues/19" target="blank">
+                  <a href="https://github.com/react-theming/storybook-addon-material-ui/issues/19" target="blank">
                     <span> here</span>
                   </a>
                 </p>

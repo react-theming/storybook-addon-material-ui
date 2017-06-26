@@ -1,20 +1,20 @@
-[![GitHub version](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui.svg)](https://badge.fury.io/gh/sm-react%2Fstorybook-addon-material-ui)
+[![GitHub version](https://badge.fury.io/gh/react-theming%2Fstorybook-addon-material-ui.svg)](https://badge.fury.io/gh/react-theming%2Fstorybook-addon-material-ui)
 [![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
-[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=false&theme-full=false&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
+[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
 #  Storybook Addon Material-UI 
-The core of [**React Theming**](https://github.com/sm-react/react-theming) project [<img src="https://nodei.co/npm/storybook-addon-material-ui.png?downloads=true&downloadRank=true" align="right">](https://nodei.co/npm/storybook-addon-material-ui/)
+The core of [**React Theming**](https://github.com/react-theming/react-theming) project [<img src="https://nodei.co/npm/storybook-addon-material-ui.png?downloads=true&downloadRank=true" align="right">](https://nodei.co/npm/storybook-addon-material-ui/)
 
-[<img src="https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
+[<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
 Provides development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
 
-You can use this [project's demo page](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=true&theme-full=true&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features-dizzy) of this project [run it locally](#quick-start) in your work environment.
+You can use this [project's demo page](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features-dizzy) of this project [run it locally](#quick-start) in your work environment.
 
-[![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/sm-react/storybook-addon-material-ui/master/docs/WatchMe.gif)
+[![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
 ## Features :dizzy:
 
-[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/react-theming/?theme-ind=0&theme-sidebar=false&theme-full=false&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
+[![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
 - Wrapped in the theme provider. Just start to develop with base light theme.
 - Injected TapEvent Plugin. Test on mobile devices.
@@ -23,16 +23,16 @@ You can use this [project's demo page](https://sm-react.github.io/react-theming/
 - Dynamic visual themes editing. Discover the all avalibale theme properties.
 - Google [material color](https://material.google.com/style/color.html#color-color-palette) palette [picker](https://github.com/sm-react/react-material-color-picker)
 - Save made changes and download in JSON file
-- Part of [React Theming](https://github.com/sm-react/react-theming). Create themable React Components.
+- Part of [React Theming](https://github.com/react-theming/react-theming). Create themable React Components.
 - Works with Storybook 3.0
 
 ## Quick Start
 
-The fastest and easiest way to start hacking Material-UI from scratch is to clone [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project). *You need to have `NodeJS` and `Git` installed in your machine*.
+The fastest and easiest way to start hacking Material-UI from scratch is to clone [Storybook Boilerplate Project](https://github.com/sm-react/storybook-boilerplate). *You need to have `NodeJS` and `Git` installed in your machine*.
 
 ```shell
-git clone https://github.com/sm-react/react-theming.git
-cd react-theming
+git clone https://github.com/sm-react/storybook-boilerplate.git
+cd storybook-boilerplate
 npm i
 npm start
 ```
@@ -50,23 +50,23 @@ Select `Material-UI` at the left panel. You'll see two stories with Material-UI 
 
 Select `Material-UI` at the bottom panel. You can **switch themes** from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_, 
 
-Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/react-theming/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to **create your own components**.
+Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/storybook-boilerplate/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to **create your own components**.
 
-In oder to see your components in storybook add them to `src/MaterialUI/index.story.jsx`. You can do it [this way](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L30-L32). You can read more about writing stories in their [documentation](https://getstorybook.io/docs/react-storybook/basics/writing-stories).
+In oder to see your components in storybook add them to `src/MaterialUI/index.story.jsx`. You can do it [this way](https://github.com/sm-react/storybook-boilerplate/blob/master/src/MaterialUI/index.story.jsx#L30-L32). You can read more about writing stories in their [documentation](https://getstorybook.io/docs/react-storybook/basics/writing-stories).
 
-Your **themes files** are located in the [`src/.themes`](https://github.com/sm-react/react-theming/tree/master/src/.themes) folder as a JSON files. Please note that all JSON files from this folder are [imported automatically](https://github.com/sm-react/react-theming/blob/master/src/MaterialUI/index.story.jsx#L10-L14). So you can change them or add the new ones and you'll see this themes in your Storybook.
+Your **themes files** are located in the [`src/.themes`](https://github.com/sm-react/storybook-boilerplate/tree/master/src/.themes) folder as a JSON files. Please note that all JSON files from this folder are [imported automatically](https://github.com/sm-react/storybook-boilerplate/blob/master/src/MaterialUI/index.story.jsx#L10-L14). So you can change them or add the new ones and you'll see this themes in your Storybook.
 
 You can edit the theme settings in `Theme.json` files manually, but the **power** of this project is that you can _do it in your browser and see all changes immediately_ on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
 
 </details>
 
-:triangular_flag_on_post: The [Storybook Boilerplate Project](https://github.com/sm-react/react-theming#storybook-boilerplate-project) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
+:triangular_flag_on_post: The [Storybook Boilerplate](https://github.com/sm-react/storybook-boilerplate) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
 If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
 
 ## Roadmap :mountain_cableway:
 
-We have many plans and ideas for further development. See [**projects**](https://github.com/sm-react/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [**hear**](https://github.com/sm-react/storybook-addon-material-ui/issues/new) your ideas and wishes.
+We have many plans and ideas for further development. See [**projects**](https://github.com/react-theming/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [**hear**](https://github.com/react-theming/storybook-addon-material-ui/issues/new) your ideas and wishes.
 
 ## Getting Started :bookmark_tabs:
 
@@ -185,7 +185,7 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ## CONTRIBUTING :raising_hand:
 
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
-[![Code Triagers Badge](https://www.codetriage.com/sm-react/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/sm-react/storybook-addon-material-ui)
+[![Code Triagers Badge](https://www.codetriage.com/react-theming/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/react-theming/storybook-addon-material-ui)
 
 ### :wrench: Developers: 
 
@@ -199,5 +199,5 @@ We would really welcome the involvement of designers in this project. We are ver
 #### Credits
 [![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro)
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
-[![@sm-react](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/sm-react)
+[![@react-theming](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/react-theming)
 
