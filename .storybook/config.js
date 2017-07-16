@@ -1,14 +1,9 @@
-import * as storybook from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 
-setOptions({
-  name: 'react-theming',
-  url: 'https://github.com/react-theming/storybook-addon-material-ui',
-//  goFullScreen: false,
-//  showLeftPanel: true,
-//  showDownPanel: true,
-//  showSearchBox: false,
-//  downPanelInRight: false,
-});
+import { configure } from '@storybook/react';
 
-storybook.configure(() => require('./../example/stories/'), module);
+function loadStories() {
+  require('../stories');
+}
+
+configure(loadStories, module);

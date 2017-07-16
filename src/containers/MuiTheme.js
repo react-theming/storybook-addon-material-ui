@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import createPalette from 'material-ui/styles/palette';
+import purple from 'material-ui/colors/purple';
+import green from 'material-ui/colors/green';
+import red from 'material-ui/colors/red';
+
 import SplitPane from 'react-split-pane';
 
 import { EVENT_ID_DATA, CSS_CLASS } from '../'; // future: add CSS_CLASS
@@ -26,7 +32,7 @@ export default class MuiTheme extends React.Component {
 
         this.state = props.initState;
         this.state.themesAppliedList = props.themesAppliedListInit;
-        this.state.muiTheme = getMuiTheme(props.themesAppliedListInit[props.initState.themeInd]);
+        this.state.muiTheme = createMuiTheme(props.themesAppliedListInit[props.initState.themeInd]);
         this.state.isMount = false;
         this.isChannelData = false;
         this.UpdateList = {};
@@ -99,7 +105,7 @@ export default class MuiTheme extends React.Component {
     changeTheme(ind) {
         this.needComponentUpdate('ThemeSideBar');
         this.setState({
-            muiTheme: getMuiTheme(this.state.themesAppliedList[ind]),
+            muiTheme: createMuiTheme(this.state.themesAppliedList[ind]),
             themeInd: ind,
         });
     }
@@ -140,10 +146,22 @@ export default class MuiTheme extends React.Component {
     render() {
         const ThemesNameList = this.state.themesAppliedList
             .map((val, ind) => (val.themeName || `Theme ${ind + 1}`));
-        const muiTheme = getMuiTheme(
+        const muiTheme = createMuiTheme(
             this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]),
         );
-        return (<MuiThemeProvider muiTheme={muiTheme}>
+        // return (<MuiThemeProvider theme={muiTheme}>
+
+        const theme = createMuiTheme({
+            palette: createPalette({
+                primary: purple, // Purple and green play nicely together.
+                accent: {
+                ...green,
+                A400: '#00e677',
+                },
+                error: red,
+            }),
+        });
+        return (<MuiThemeProvider theme={theme}>
           <div
             style={{
                 position: 'absolute',

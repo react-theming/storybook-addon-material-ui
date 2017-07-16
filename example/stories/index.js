@@ -4,20 +4,20 @@ import { storiesOf, addDecorator } from '@storybook/react';
 
 import { muiTheme } from './../../src/';
 
-import CardExampleControlled from '../CardExampleControlled.jsx';
+// import CardExampleControlled from '../CardExampleControlled.jsx';
 import RaisedButtonExampleSimple from '../RaisedButtonExampleSimple.jsx';
-import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
+// import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
 import greyTheme from './greyTheme.json';
 import SupportProject from '../SupportProject.jsx';
 import MaterialAppExampleCard from '../LoremMaterial/blankMaterialAppExampleCard.jsx';
 import MaterialAppExampleProgress from '../LoremMaterial/blankMaterialAppExampleProgress.jsx';
-import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
-import MaterialConversationChat from '../LoremMaterial/MaterialConversationChat.jsx';
-import MaterialStepper from '../LoremMaterial/MaterialStepper.jsx';
-import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
-import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
-import LoginPage from '../LoremMaterial/LoginPage.jsx';
+// import MaterialAirlineBooking from '../LoremMaterial/MaterialAirlineBooking.jsx';
+// import MaterialConversationChat from '../LoremMaterial/MaterialConversationChat.jsx';
+// import MaterialStepper from '../LoremMaterial/MaterialStepper.jsx';
+// import MaterialContactList from '../LoremMaterial/MaterialContactList.jsx';
+// import MaterialLoginPage from '../LoremMaterial/MaterialLoginPage.jsx';
+// import LoginPage from '../LoremMaterial/LoginPage.jsx';
 
 
 const SHOW_SUPPORT = true;
@@ -44,35 +44,35 @@ storiesOf('Material-UI', module)
         </div>
       </div>
     ))
-    .add('Card Example Controlled', () => (
-      <CardExampleControlled />
-    ))
+    // .add('Card Example Controlled', () => (
+    //   <CardExampleControlled />
+    // ))
     .add('Raised Button Example Simple', () => (
       <RaisedButtonExampleSimple />
-    ))
-    .add('Date Picker Example Simple', () => (
-      <DatePickerExampleSimple />
     ));
+    // .add('Date Picker Example Simple', () => (
+    //   <DatePickerExampleSimple />
+    // ));
 
 storiesOf('Material App', module)
-    .add('Airline Booking', () => (
-      <MaterialAirlineBooking />
-    ))
-    .add('Contact List', () => (
-      <MaterialContactList />
-    ))
-    .add('Sign In page', () => (
-      <LoginPage />
-    ))
-    .add('Stepper', () => (
-      <MaterialStepper />
-    ))
-    .add('Login page', () => (
-      <MaterialLoginPage />
-    ))
-    .add('Material Conversation Chat', () => (
-      <MaterialConversationChat />
-    ))
+    // .add('Airline Booking', () => (
+    //   <MaterialAirlineBooking />
+    // ))
+    // .add('Contact List', () => (
+    //   <MaterialContactList />
+    // ))
+    // .add('Sign In page', () => (
+    //   <LoginPage />
+    // ))
+    // .add('Stepper', () => (
+    //   <MaterialStepper />
+    // ))
+    // .add('Login page', () => (
+    //   <MaterialLoginPage />
+    // ))
+    // .add('Material Conversation Chat', () => (
+    //   <MaterialConversationChat />
+    // ))
     .add('blank page', () => (
       <MaterialAppExampleProgress />
     ))

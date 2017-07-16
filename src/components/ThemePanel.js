@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import IconNew from 'material-ui/svg-icons/file/create-new-folder';
-import IconDnLoad from 'material-ui/svg-icons/file/file-download';
-import IconClean from 'material-ui/svg-icons/action/delete-forever';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import IconNew from 'material-ui-icons/CreateNewFolder';
+import IconDnLoad from 'material-ui-icons/FileDownload';
+import IconClean from 'material-ui-icons/DeleteForever';
 
 import SvgButton from '../material-desktop/SvgButton';
 import SclToggle from '../material-desktop/SclToggle';
@@ -73,7 +72,7 @@ export default class ThemePanel extends React.Component {
                 display: 'flex',
                 justifyContent: 'space-between',
                 flexWrap: 'wrap',
-                backgroundColor: this.context.muiTheme.palette.canvasColor,
+                backgroundColor: 'white' /* this.context.muiTheme.palette.canvasColor*/,
             }}
           >
             <div
@@ -84,14 +83,13 @@ export default class ThemePanel extends React.Component {
                   justifyContent: 'space-between',
               }}
             >
-              <DropDownMenu
+              <Menu
                 value={this.state.value}
                 onChange={this.handleChange}
-                iconStyle={{ fill: this.context.muiTheme.palette.textColor }}
                 style={{ width: '100%' }}
               >
                 {this.menuItems}
-              </DropDownMenu>
+              </Menu>
               <div
                 style={{
 //                    width: '100%',

@@ -4,8 +4,8 @@ import Paper from 'material-ui/Paper';
 
 import SclToggle from '../material-desktop/SclToggle';
 import SvgButton from '../material-desktop/SvgButton';
-import IconCopy from 'material-ui/svg-icons/content/content-copy';
-import IconSwch from 'material-ui/svg-icons/image/switch-camera';
+import IconCopy from 'material-ui-icons/ContentCopy';
+import IconSwch from 'material-ui-icons/SwitchCamera';
 
 
 import { CSS_CLASS } from '../';

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardActions, CardMedia } from 'material-ui/Card';
-import LinearProgress from 'material-ui/LinearProgress';
-import RaisedButton from 'material-ui/RaisedButton';
+import LinearProgress from 'material-ui/Progress/LinearProgress';
+import RaisedButton from 'material-ui/Button';
 import TwitterButton from '../react-twitter-button';
 import GithubButton from '../react-github-button';
 

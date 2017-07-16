@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import Toggle from 'material-ui/Toggle';
+import FlatButton from 'material-ui/Button';
+import Toggle from 'material-ui/Switch';
 import TwitterButton from '../react-twitter-button';
 import GithubButton from '../react-github-button';
 import hacktoberfestLogo from './hacktoberfest_logo.svg';

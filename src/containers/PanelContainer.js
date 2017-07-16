@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import createPalette from 'material-ui/styles/palette';
+// import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
 import * as beauti from 'js-beautify';
 
 import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
@@ -11,6 +13,13 @@ import ThemePanel from '../components/ThemePanel';
 
 const { document, window } = global;
 const logger = console;
+
+const lightBaseTheme = createMuiTheme();
+const darkBaseTheme = createMuiTheme({
+    palette: createPalette({
+        type: 'dark',
+    }),
+});
 
 const PROGRESS_STATUS = {
     'button-clone': 'soon', // todo: [] button_clone
@@ -53,7 +62,7 @@ export default class PanelContainer extends React.Component {
         this.isChannelData = false;
 
         // future: get from state with own theme ind
-        this.muiTheme = getMuiTheme(lightBaseTheme);
+        this.muiTheme = lightBaseTheme;
 
         this.onInitChannel = this.onInitChannel.bind(this);
         this.onDataChannel = this.onDataChannel.bind(this);

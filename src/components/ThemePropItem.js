@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import Slider from 'material-ui/Slider';
+// import Slider from 'material-ui/Slider';
 import MaterialColorPicker from 'react-material-color-picker';
 
 import { CSS_CLASS } from '../';
@@ -354,7 +354,7 @@ function PropToolPickerFull(props, context) {
               <p>
                 This is another example tab.
               </p>
-              <Slider name="slider0" defaultValue={0.5} />
+              {/*<Slider name="slider0" defaultValue={0.5} />*/}
             </div>
           </Tab>
           <Tab
