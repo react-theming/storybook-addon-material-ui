@@ -126,7 +126,7 @@ function PropItem(props, context) {
             overflow: 'hidden',
             color: isNotHeader ? '' : palette.secondaryTextColor,
         }}
-        onTouchTap={onSelect}
+        onClick={onSelect}
       >
         <PropHeader
           {...{ val, ind, isNotHeader }}
@@ -309,10 +309,13 @@ PropToolPicker.propTypes = {
     settingsObj: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
-    ]).isRequired,
+    ]),
     isCollapsed: PropTypes.bool.isRequired,
     valueHandler: PropTypes.func.isRequired,
     onToolTogle: PropTypes.func.isRequired,
+};
+PropToolPicker.defaultProps = {
+    settingsObj: '',
 };
 PropToolPicker.contextTypes = contextTypes;
 

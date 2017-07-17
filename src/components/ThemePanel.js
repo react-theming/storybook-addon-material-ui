@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
+import Paper from 'material-ui/Paper';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import IconNew from 'material-ui/svg-icons/file/create-new-folder';
 import IconDnLoad from 'material-ui/svg-icons/file/file-download';
@@ -40,13 +41,12 @@ const contextTypes = {
 };
 
 export default class ThemePanel extends React.Component {
-
     constructor(props) {
         super(props);
 
-        this.menuItems = props.themesNameList.map(
-            (val, ind) => (<MenuItem value={ind} key={val} primaryText={val} />),
-        );
+        this.menuItems = props.themesNameList.map((val, ind) => (
+          <MenuItem value={ind} key={val} primaryText={val} />
+        ));
         this.state = {
             value: props.defautThemeInd,
             isThemeEditing: false,
@@ -94,38 +94,36 @@ export default class ThemePanel extends React.Component {
               </DropDownMenu>
               <div
                 style={{
-//                    width: '100%',
+                            //                    width: '100%',
                     display: 'flex',
                     justifyContent: 'space-between',
                     margin: '0 16px',
                 }}
               >
-
                 <SvgButton
                   icon={<IconDnLoad />}
                   tooltip="Download Theme"
                   tooltipPosition="top-right"
                   width={48}
-                  onTouchTap={this.props.onDnLoadTheme}
+                  onClick={this.props.onDnLoadTheme}
                 />
                 <SvgButton
                   icon={<IconNew />}
                   tooltip="this option is in development..."
                   tooltipPosition="top-right"
                   width={48}
-                  onTouchTap={this.props.onCloneTheme}
+                  onClick={this.props.onCloneTheme}
                 />
                 <SvgButton
                   icon={<IconClean />}
                   tooltip="this option is in development..."
                   tooltipPosition="top-right"
                   width={48}
-                  onTouchTap={this.props.onCleanTheme}
+                  onClick={this.props.onCleanTheme}
                 />
-
               </div>
             </div>
-            <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }} >
+            <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }}>
               <textarea
                 style={styleArea}
                 value={this.props.themeJSON}
@@ -133,17 +131,25 @@ export default class ThemePanel extends React.Component {
                 onFocus={this.props.onThemeEditing(true)}
                 onBlur={this.props.onThemeEditing(false)}
               />
-
             </div>
-            <div style={{ width: 200, paddingTop: 16 }} >
+            <div style={{ width: 200, paddingTop: 16 }}>
               <SclToggle
                 label="Show Theme Editor"
                 labelPosition="left"
                 toggled={this.props.isSideBarOpen}
                 onToggle={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
               />
+              <div style={{ height: '100%', maxHeight: 80 }}>
+                <Paper style={{ margin: 8, height: '100%', padding: 16, maxHeight: 70, textAlign: 'center' }}>
+                  <a
+                    href="https://github.com/react-theming/storybook-addon-material-ui#announcement-material-ui-v1-support"
+                    target="blank"
+                  >
+                                Material-UI v1 support
+                            </a>
+                </Paper>
+              </div>
             </div>
-
           </div>
         );
     }

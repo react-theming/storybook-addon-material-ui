@@ -2,11 +2,31 @@
 [![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
-#  Storybook Addon Material-UI 
-The core of [**React Theming**](https://github.com/react-theming/react-theming) project [<img src="https://nodei.co/npm/storybook-addon-material-ui.png?downloads=true&downloadRank=true" align="right">](https://nodei.co/npm/storybook-addon-material-ui/)
+#  Storybook Addon Material-UI
+The core of [**React Theming**](https://github.com/react-theming/react-theming) project
+
+
+## Announcement Material-UI v1 support
+
+`storybook-addon-material-ui@0.9.0-alpha.2` now supports Material-UI v1 themes. It has only basic functionality since v.1 themes are very different from the previous version. We would appreciate if you give us your feedback about the most needed features which we will reimplement.
+
+**You can do it with this anonymous [survey](https://app.qpointsurvey.com/s.aspx?c=F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~).**
+
+It contains only 10 questions and helps us to provide you with the best DX. You are always welcome to submit an [issue](https://github.com/react-theming/storybook-addon-material-ui/issues) as well :smile:
+
+In order to quick start with the latest `storybook-addon-material-ui` you can check out [create-material-ui-app](https://github.com/react-theming/create-material-ui-app)
+
+It contains the working setup with:
+
+- create-react-app
+- Storybook
+- Material-UI
+- storybook-addon-material-ui
+
+---
 
 [<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
-Provides development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
+Provides development environment which helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
 
 You can use this [project's demo page](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features-dizzy) of this project [run it locally](#quick-start) in your work environment.
 
@@ -48,7 +68,7 @@ Press `Ctrl-Shft-F` to exit from `Full screen` mode.
 
 Select `Material-UI` at the left panel. You'll see two stories with Material-UI Components: `Components` and `Card`.
 
-Select `Material-UI` at the bottom panel. You can **switch themes** from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_, 
+Select `Material-UI` at the bottom panel. You can **switch themes** from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_,
 
 Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/storybook-boilerplate/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to **create your own components**.
 
@@ -62,7 +82,7 @@ You can edit the theme settings in `Theme.json` files manually, but the **power*
 
 :triangular_flag_on_post: The [Storybook Boilerplate](https://github.com/sm-react/storybook-boilerplate) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
-If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
+If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://storybook.js.org/basics/quick-start-guide/) for that.
 
 ## Roadmap :mountain_cableway:
 
@@ -79,10 +99,10 @@ npm i storybook-addon-material-ui --save-dev
 Add this line to your addons.js file (create this file inside your storybook config directory if needed).
 
 ```js
-import 'storybook-addon-material-ui';
+import 'storybook-addon-material-ui/register';
 ```
 
-Now, write your stories with Material-UI Addon. By default your stories will be provided with [`Light Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/lightBaseTheme.js) and [`Dark Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/darkBaseTheme.js)
+Now, write your stories with Material-UI Addon. By default your stories will be provided with `Light` and `Dark` [`Themes`](https://v0.material-ui.com/#/customization/themes)
 
 ```js
 import React from 'react';
@@ -121,7 +141,7 @@ import CardExampleControlled from '../CardExampleControlled.jsx';
 import RaisedButtonExampleSimple from '../RaisedButtonExampleSimple.jsx';
 import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
-// Create your own theme like this. 
+// Create your own theme like this.
 // Note: you can specify theme name in `themeName` field. Otherwise it will be displayed by the number.
 // you can specify only required fields overriding the `Light Base Theme`
 const newTheme = {
@@ -185,11 +205,12 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ## CONTRIBUTING :raising_hand:
 
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
-[![Code Triagers Badge](https://www.codetriage.com/react-theming/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/react-theming/storybook-addon-material-ui)
 
-### :wrench: Developers: 
+[![Open Source Helpers](https://www.codetriage.com/sm-react/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/sm-react/storybook-addon-material-ui)
 
-Our team welcome all contributing, testing, bug fixing. If you would like
+### :wrench: Developers:
+
+Our team welcomes all contributions, tests, and bug fixes. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
 
 ### :ribbon: Designers:
@@ -197,7 +218,11 @@ to help contribute to the project feel free to make an issue, PR or get in touch
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### Credits
+[telegram:@usulpro](https://t.me/usulpro) <small>(The quickest way to contact me :zap:)</small>
+
 [![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro)
+
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
-[![@react-theming](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/react-theming)
+
+[![@react-theming](https://img.shields.io/badge/github-React%20Theming-red.svg)](https://github.com/react-theming)
 
