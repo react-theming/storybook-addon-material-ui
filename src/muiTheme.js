@@ -14,14 +14,12 @@ const darkBaseTheme = createMuiTheme({
 lightBaseTheme.themeName = 'Light Theme';
 darkBaseTheme.themeName = 'Dark Theme';
 
-const previewStyle = (color) => ({
+const previewStyle = color => ({
     backgroundColor: color,
     width: '100%',
     height: '100%',
     minHeight: 600,
-})
-
-
+});
 
 export function muiTheme(...themes) {
     const theme = themes[0];
@@ -34,11 +32,10 @@ export function muiTheme(...themes) {
     }
 
     const backgroundColor = currentTheme.palette.type === 'dark' ? 'rgb(50,50,50)' : 'white';
-    console.log(currentTheme);
-    return (storyFn, context) => 
-        <div style={previewStyle(backgroundColor)}>
-            <MuiThemeProvider theme={lightBaseTheme}>
-            {storyFn(context)}
+    return (storyFn, context) =>
+      <div style={previewStyle(backgroundColor)}>
+          <MuiThemeProvider theme={currentTheme}>
+              {storyFn(context)}
             </MuiThemeProvider>
-        </div>
+        </div>;
 }
