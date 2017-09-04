@@ -62,7 +62,7 @@ You can edit the theme settings in `Theme.json` files manually, but the **power*
 
 :triangular_flag_on_post: The [Storybook Boilerplate](https://github.com/sm-react/storybook-boilerplate) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
 
-If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
+If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://storybook.js.org/basics/quick-start-guide/) for that.
 
 ## Roadmap :mountain_cableway:
 
