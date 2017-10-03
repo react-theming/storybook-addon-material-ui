@@ -7,7 +7,6 @@
     "deploy": "node .scripts/deployer",
     "prepublish": "node .scripts/npm-prepublish.js",
     "postpublish": "node .scripts/npm-postpublish.js",
-    "publish": "npm publish --tag next",
     "lint": "node .scripts/lint.js",
     "lintfix": "node .scripts/lint.js --fix",
     "testonly": "node .scripts/run_tests",
