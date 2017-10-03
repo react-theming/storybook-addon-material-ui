@@ -309,10 +309,13 @@ PropToolPicker.propTypes = {
     settingsObj: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number,
-    ]).isRequired,
+    ]),
     isCollapsed: PropTypes.bool.isRequired,
     valueHandler: PropTypes.func.isRequired,
     onToolTogle: PropTypes.func.isRequired,
+};
+PropToolPicker.defaultProps = {
+    settingsObj: '',
 };
 PropToolPicker.contextTypes = contextTypes;
 
