@@ -106,21 +106,21 @@ export default class ThemePanel extends React.Component {
                   tooltip="Download Theme"
                   tooltipPosition="top-right"
                   width={48}
-                  onTouchTap={this.props.onDnLoadTheme}
+                  onClick={this.props.onDnLoadTheme}
                 />
                 <SvgButton
                   icon={<IconNew />}
                   tooltip="this option is in development..."
                   tooltipPosition="top-right"
                   width={48}
-                  onTouchTap={this.props.onCloneTheme}
+                  onClick={this.props.onCloneTheme}
                 />
                 <SvgButton
                   icon={<IconClean />}
                   tooltip="this option is in development..."
                   tooltipPosition="top-right"
                   width={48}
-                  onTouchTap={this.props.onCleanTheme}
+                  onClick={this.props.onCleanTheme}
                 />
 
               </div>

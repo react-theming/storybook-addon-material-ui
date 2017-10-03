@@ -175,14 +175,14 @@ export default class ThemeSideBar extends React.Component {
                       icon={<IconCopy />}
                       tooltip="Copy to clipboard"
                       width={48}
-                      onTouchTap={this.onCopy}
+                      onClick={this.onCopy}
                     />
                     <div style={{ width: 4 }} />
                     <SvgButton
                       icon={<IconSwch />}
                       tooltip="switch style"
                       width={48}
-                      onTouchTap={this.onSwitchStyleObj}
+                      onClick={this.onSwitchStyleObj}
                     />
                   </div>
                 </div>

@@ -8,13 +8,13 @@ const style = {
 
 const RaisedButtonExampleSimple = () => (
   <div>
-    <RaisedButton label="Default" style={style} onTouchTap={action('onTouchTap')} />
-    <RaisedButton label="Primary" primary={true} style={style} onTouchTap={action('onTouchTap')} />
-    <RaisedButton label="Secondary" secondary={true} style={style} onTouchTap={action('onTouchTap')} />
-    <RaisedButton label="Disabled" disabled={true} style={style} onTouchTap={action('onTouchTap')} />
+    <RaisedButton label="Default" style={style} onClick={action('onClick')} />
+    <RaisedButton label="Primary" primary={true} style={style} onClick={action('onClick')} />
+    <RaisedButton label="Secondary" secondary={true} style={style} onClick={action('onClick')} />
+    <RaisedButton label="Disabled" disabled={true} style={style} onClick={action('onClick')} />
     <br />
     <br />
-    <RaisedButton label="Full width" fullWidth={true} onTouchTap={action('onTouchTap')} />
+    <RaisedButton label="Full width" fullWidth={true} onClick={action('onClick')} />
   </div>
 );
 

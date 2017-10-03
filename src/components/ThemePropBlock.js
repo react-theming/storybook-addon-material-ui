@@ -145,10 +145,10 @@ function BlockHeader(props, context) {
         }}
       >
         <SclAvatar
-          onTouchTap={props.onSelect}
+          onClick={props.onSelect}
           text={props.settingsName}
         />
-        {/* <Chip onTouchTap={copyToClipboard(props.settingsName)} >
+        {/* <Chip onClick={copyToClipboard(props.settingsName)} >
 
             <Avatar size={18}>{props.settingsName[0]}</Avatar>
             {props.settingsName}

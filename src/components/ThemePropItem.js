@@ -126,7 +126,7 @@ function PropItem(props, context) {
             overflow: 'hidden',
             color: isNotHeader ? '' : palette.secondaryTextColor,
         }}
-        onTouchTap={onSelect}
+        onClick={onSelect}
       >
         <PropHeader
           {...{ val, ind, isNotHeader }}

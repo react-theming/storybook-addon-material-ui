@@ -296,8 +296,8 @@ a {
 
               </CardText>
               <CardActions>
-                <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-                <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+                <FlatButton label="Expand" onClick={this.handleExpand} />
+                <FlatButton label="Reduce" onClick={this.handleReduce} />
               </CardActions>
             </Card>
           </div>

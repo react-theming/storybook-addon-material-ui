@@ -8,7 +8,7 @@ const propTypes = {
     tooltip: PropTypes.string,
     tooltipPosition: PropTypes.string,
     width: PropTypes.number,
-    onTouchTap: PropTypes.func,
+    onClick: PropTypes.func,
 };
 
 const defaultProps = {
@@ -42,7 +42,7 @@ export default class SvgButton extends React.Component {
                 overflow: 'hidden',
             },
             title: props.tooltip,
-            onTouchTap: props.onTouchTap,
+            onClick: props.onClick,
         };
     }
 
