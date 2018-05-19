@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Paper from 'material-ui/Paper';
+import Paper from '@material-ui/core/Paper';
+import IconCopy from '@material-ui/icons/ContentCopy';
+import IconSwch from '@material-ui/icons/SwitchCamera';
 
 import SclToggle from '../material-desktop/SclToggle';
 import SvgButton from '../material-desktop/SvgButton';
-import IconCopy from 'material-ui-icons/ContentCopy';
-import IconSwch from 'material-ui-icons/SwitchCamera';
 
 
 import { CSS_CLASS } from '../';
@@ -20,7 +20,6 @@ const propTypes = {
     theme: PropTypes.object.isRequired,
     muiTheme: PropTypes.object.isRequired,
     fullTheme: PropTypes.func.isRequired,
-    collapseList: PropTypes.func.isRequired,
     shouldComponentUpdate: PropTypes.bool.isRequired,
     shouldShowData: PropTypes.bool.isRequired,
 };

@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
-// import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
+// import getMuiTheme from '@material-ui/core/styles/getMuiTheme';
+// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+// import lightBaseTheme from '@material-ui/core/styles/baseThemes/lightBaseTheme';
+// import darkBaseTheme from '@material-ui/core/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
 import * as beauti from 'js-beautify';
 
 import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
@@ -15,11 +14,6 @@ const { document, window } = global;
 const logger = console;
 
 const lightBaseTheme = createMuiTheme();
-const darkBaseTheme = createMuiTheme({
-    palette: createPalette({
-        type: 'dark',
-    }),
-});
 
 const PROGRESS_STATUS = {
     'button-clone': 'soon', // todo: [] button_clone
@@ -42,12 +36,14 @@ const progressInfo = () => {
     logger.groupEnd('PROGRESS_STATUS:');
 };
 
+const genNameList = themesAppliedList => (
+    themesAppliedList.map((val, ind) => (val.themeName || `Theme ${ind + 1}`))
+);
 
 const propTypes = {
     channel: PropTypes.object.isRequired,
     api: PropTypes.object.isRequired,
 };
-
 
 export default class PanelContainer extends React.Component {
     constructor(props, ...args) {
@@ -98,7 +94,7 @@ export default class PanelContainer extends React.Component {
     }
 
     onInitChannel(initData) {
-        const themesNameList = this.genNameList(initData.themesAppliedList);
+        const themesNameList = genNameList(initData.themesAppliedList);
         const queryData = this.queryFetch();
         this.setState(
             { ...initData, ...queryData, themesNameList, isReady: true },
@@ -107,7 +103,7 @@ export default class PanelContainer extends React.Component {
 
     onDataChannel(stateData) {
 //        const stateData = JSON.parse(strData);
-        const themesNameList = this.genNameList(stateData.themesAppliedList);
+        const themesNameList = genNameList(stateData.themesAppliedList);
         this.isChannelData = true; // note: this state received by channel, don't need to send back
         this.setState(
             { ...stateData, themesNameList },
@@ -176,7 +172,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
 //        newTheme.themeFile = `${themesAppliedList[this.state.themeInd].themeFile}.clone`;
 //        const newAppliedList = themesAppliedList.slice(0, this.state.themeInd + 1)
 //            .concat(newTheme, themesAppliedList.slice(this.state.themeInd + 1));
-//        const themesNameList = this.genNameList(newAppliedList);
+//        const themesNameList = genNameList(newAppliedList);
 //        logger.log(themesNameList);
 //        this.setState({ themesAppliedList: newAppliedList, themesNameList });
     }
@@ -190,8 +186,21 @@ ${window.btoa(this.getCurrentTheme(4))}`;
 //        newTheme.themeName = themesAppliedList[this.state.themeInd].themeName;
 //        newTheme.themeFile = themesAppliedList[this.state.themeInd].themeFile;
 //        themesAppliedList[this.state.themeInd] = newTheme;
-//        const themesNameList = this.genNameList(themesAppliedList);
+//        const themesNameList = genNameList(themesAppliedList);
 //        this.setState({ themesAppliedList, themesNameList });
+    }
+
+
+    getCurrentTheme(indent = 2) {
+        return beauti.js_beautify(
+            JSON.stringify(this.state.themesAppliedList[this.state.themeInd]),
+            {
+                indent_size: indent,
+                indent_char: ' ',
+                eol: '\n',
+                end_with_newline: true,
+            },
+        );
     }
 
     dataChannelSend(data) {
@@ -222,23 +231,6 @@ ${window.btoa(this.getCurrentTheme(4))}`;
             };
             this.props.api.setQueryParams(queryParams);
         }
-    }
-
-
-    genNameList(themesAppliedList) {
-        return themesAppliedList.map((val, ind) => (val.themeName || `Theme ${ind + 1}`));
-    }
-
-    getCurrentTheme(indent = 2) {
-        return beauti.js_beautify(
-            JSON.stringify(this.state.themesAppliedList[this.state.themeInd]),
-            {
-                indent_size: indent,
-                indent_char: ' ',
-                eol: '\n',
-                end_with_newline: true,
-            },
-        );
     }
 
     render() {

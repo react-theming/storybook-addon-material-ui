@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
-import purple from 'material-ui/colors/purple';
-import green from 'material-ui/colors/green';
-import red from 'material-ui/colors/red';
+// import getMuiTheme from '@material-ui/core/styles/getMuiTheme';
+// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import createPalette from '@material-ui/core/styles/createPalette';
+import purple from '@material-ui/core/colors/purple';
+import green from '@material-ui/core/colors/green';
+import red from '@material-ui/core/colors/red';
 
 import SplitPane from 'react-split-pane';
 
-import { EVENT_ID_DATA, CSS_CLASS } from '../'; // future: add CSS_CLASS
+import { EVENT_ID_DATA } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
 import ThemeSideBar from '../components/ThemeSideBar';
 // const stringify = require('json-stringify-safe');
@@ -21,7 +21,7 @@ const propTypes = {
     story: PropTypes.object.isRequired,
     onChangeState: PropTypes.func.isRequired,
     onThemeOverride: PropTypes.func.isRequired,
-    themeListRender: PropTypes.func.isRequired,
+    // themeListRender: PropTypes.func.isRequired,
     initState: PropTypes.object.isRequired,
     channel: PropTypes.object.isRequired,
 };
@@ -32,7 +32,8 @@ export default class MuiTheme extends React.Component {
 
         this.state = props.initState;
         this.state.themesAppliedList = props.themesAppliedListInit;
-        this.state.muiTheme = createMuiTheme(props.themesAppliedListInit[props.initState.themeInd]);
+        // this.state.muiTheme = createMuiTheme(props.themesAppliedListInit[props.initState.themeInd]); // Not working yet
+        this.state.muiTheme = createMuiTheme();
         this.state.isMount = false;
         this.isChannelData = false;
         this.UpdateList = {};
@@ -105,7 +106,8 @@ export default class MuiTheme extends React.Component {
     changeTheme(ind) {
         this.needComponentUpdate('ThemeSideBar');
         this.setState({
-            muiTheme: createMuiTheme(this.state.themesAppliedList[ind]),
+            // muiTheme: createMuiTheme(this.state.themesAppliedList[ind]),
+            muiTheme: createMuiTheme(),
             themeInd: ind,
         });
     }
@@ -147,19 +149,21 @@ export default class MuiTheme extends React.Component {
         const ThemesNameList = this.state.themesAppliedList
             .map((val, ind) => (val.themeName || `Theme ${ind + 1}`));
         const muiTheme = createMuiTheme(
-            this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]),
+            // this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]), // Not working yet
         );
         // return (<MuiThemeProvider theme={muiTheme}>
 
         const theme = createMuiTheme({
             palette: createPalette({
                 primary: purple, // Purple and green play nicely together.
-                accent: {
-                ...green,
-                A400: '#00e677',
+                secondary: {
+                    ...green,
+                    A400: '#00e677',
                 },
                 error: red,
             }),
+            typography: {},
+            shadows: {},
         });
         return (<MuiThemeProvider theme={theme}>
           <div

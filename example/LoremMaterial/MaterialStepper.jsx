@@ -1,9 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Step, Stepper, StepLabel } from 'material-ui/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import FlatButton from 'material-ui/FlatButton';
-import { Card, CardActions } from 'material-ui/Card';
+import { Card, CardActions } from '@material-ui/core/Card';
+
+const getStepContent = (stepIndex) => {
+    switch (stepIndex) {
+    case 0:
+        return 'Select campaign settings...';
+    case 1:
+        return 'What is an ad group anyways?';
+    case 2:
+        return 'This is the bit I really care about!';
+    default:
+        return 'You\'re a long way from home sonny jim!';
+    }
+};
+
 
 class HorizontalLinearStepper extends React.Component {
     constructor(props) {
@@ -12,19 +26,6 @@ class HorizontalLinearStepper extends React.Component {
             finished: false,
             stepIndex: 0,
         };
-    }
-
-    getStepContent(stepIndex) {
-        switch (stepIndex) {
-        case 0:
-            return 'Select campaign settings...';
-        case 1:
-            return 'What is an ad group anyways?';
-        case 2:
-            return 'This is the bit I really care about!';
-        default:
-            return 'You\'re a long way from home sonny jim!';
-        }
     }
 
     handleNext = () => {
@@ -76,7 +77,8 @@ class HorizontalLinearStepper extends React.Component {
                   <div style={contentStyle}>
                     {finished ? (
                       <p>
-                        <RaisedButton
+                        <Button
+                          variant="raised"
                           label={'Click to Reset'}
                           default
                           onTouchTap={(event) => {
@@ -87,7 +89,7 @@ class HorizontalLinearStepper extends React.Component {
                       </p>
                     ) : (
                       <div>
-                        <p>{this.getStepContent(stepIndex)}</p>
+                        <p>{getStepContent(stepIndex)}</p>
                         <div style={{ margin: '12px 0' }}>
                           <FlatButton
                             label="Back"
@@ -95,7 +97,8 @@ class HorizontalLinearStepper extends React.Component {
                             onTouchTap={this.handlePrev}
                             style={{ marginRight: 12 }}
                           />
-                          <RaisedButton
+                          <Button
+                            variant="raised"
                             label={stepIndex === 2 ? 'Finish' : 'Next'}
                             primary
                             onTouchTap={this.handleNext}

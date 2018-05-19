@@ -1,7 +1,10 @@
 import React from 'react';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/Button';
-import Toggle from 'material-ui/Switch';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import FlatButton from '@material-ui/core/Button';
+import Toggle from '@material-ui/core/Switch';
 
 export default class CardExampleControlled extends React.Component {
 
@@ -31,39 +34,39 @@ export default class CardExampleControlled extends React.Component {
     render() {
         return (
           <Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
-          <CardHeader
-          title="URL Avatar"
-          subtitle="Subtitle"
-          avatar="http://www.material-ui.com/images/ok-128.jpg"
-          actAsExpander
-          showExpandableButton
-        />
-          <CardText>
-          <Toggle
-            toggled={this.state.expanded}
-            onToggle={this.handleToggle}
-            labelPosition="right"
-            label="This toggle controls the expanded state of the component."
-          />
-        </CardText>
-          <CardMedia
-          expandable
-          overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-        >
-          <img src="http://www.material-ui.com/images/nature-600-337.jpg" />
-        </CardMedia>
-          <CardTitle title="Card title" subtitle="Card subtitle" expandable />
-          <CardText expandable>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-          Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-          Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-        </CardText>
-          <CardActions>
-          <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-          <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
-        </CardActions>
-        </Card>
+            <CardHeader
+              title="URL Avatar"
+              subtitle="Subtitle"
+              avatar="http://www.material-ui.com/images/ok-128.jpg"
+              actAsExpander
+              showExpandableButton
+            />
+            <Card>
+              <Toggle
+                toggled={this.state.expanded}
+                onToggle={this.handleToggle}
+                labelPosition="right"
+                label="This toggle controls the expanded state of the component."
+              />
+            </Card>
+            <CardMedia
+              expandable
+              overlay={<Card title="Overlay title" subtitle="Overlay subtitle" />}
+            >
+              <img alt="Nature" src="http://www.material-ui.com/images/nature-600-337.jpg" />
+            </CardMedia>
+            <Card title="Card title" subtitle="Card subtitle" expandable />
+            <Card expandable>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+                Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+                Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            </Card>
+            <CardActions>
+              <FlatButton label="Expand" onTouchTap={this.handleExpand} />
+              <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+            </CardActions>
+          </Card>
         );
     }
 }

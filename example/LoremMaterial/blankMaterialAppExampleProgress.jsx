@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardActions, CardMedia } from 'material-ui/Card';
-import LinearProgress from 'material-ui/Progress/LinearProgress';
-import RaisedButton from 'material-ui/Button';
-import TwitterButton from '../react-twitter-button';
-import GithubButton from '../react-github-button';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActions from '@material-ui/core/CardActions';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Button from '@material-ui/core/Button';
 
 
 export default class MaterialAppExampleProgress extends React.Component {
@@ -37,7 +37,6 @@ export default class MaterialAppExampleProgress extends React.Component {
   //                    height: 100,
                       borderTop: '1px red solid',
                       borderBottom: '1px red solid',
-                      borderColor: this.context.muiTheme.palette.borderColor,
                       padding: '16px 0px',
                   }}
                 >
@@ -45,7 +44,6 @@ export default class MaterialAppExampleProgress extends React.Component {
                     style={{
                         fontVariant: 'small-caps',
                         fontWeight: 'bold',
-                        color: this.context.muiTheme.palette.secondaryTextColor,
                     }}
                   >
                     waiting for contributors
@@ -60,10 +58,10 @@ export default class MaterialAppExampleProgress extends React.Component {
                 }}
               >
                 <a href="https://github.com/react-theming/storybook-addon-material-ui/fork" target="blank">
-                  <RaisedButton label="I'm in" primary />
+                  <Button variant="raised" label="I'm in" color="primary" />
                 </a>
                 <a href="https://github.com/react-theming/storybook-addon-material-ui/subscription" target="blank">
-                  <RaisedButton label="for tomorrow" secondary />
+                  <Button variant="raised" label="for tomorrow" color="secondary" />
                 </a>
               </CardActions>
             </Card>

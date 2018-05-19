@@ -1,5 +1,5 @@
 import React from 'react';
-import DatePicker from 'material-ui/DatePicker';
+import DatePicker from '@material-ui/core/DatePicker';
 
 /**
  * The Date Picker defaults to a portrait dialog. The `mode` property can be set to `landscape`.

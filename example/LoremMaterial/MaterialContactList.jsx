@@ -15,7 +15,7 @@ import RaquelParrado from './images/raquelromanp-128.jpg';
 import ChelseaOtakan from './images/chexee-128.jpg';
 import JamesAnderson from './images/jsa-128.jpg';
 
-import { pinkA200, transparent } from 'material-ui/styles/colors';
+import { pinkA200, transparent } from '@material-ui/core/styles/colors';
 import Paper from 'material-ui/Paper';
 
 const paperStyle = {

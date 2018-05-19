@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardActions, CardMedia } from 'material-ui/Card';
+import { Card, CardActions, CardMedia } from '@material-ui/core/Card';
 import LinearProgress from 'material-ui/LinearProgress';
-import RaisedButton from 'material-ui/RaisedButton';
 import TwitterButton from '../react-twitter-button';
 import GithubButton from '../react-github-button';
-import {CardText} from 'material-ui/Card';
+import {CardText} from '@material-ui/core/Card';
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 

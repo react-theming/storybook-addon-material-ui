@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import AppBar from 'material-ui/AppBar';
 import Toggle from 'material-ui/Toggle';
 
@@ -64,7 +64,7 @@ export default class MyTest extends React.Component {
               style={toggle}
             />
 
-            <RaisedButton label="Sign in" style={signInButton} primary={true}/>
+            <Button variant="raised" label="Sign in" style={signInButton} primary={true}/>
             <br />
             <p><a style={{
                 color: this.context.muiTheme.palette.secondaryTextColor,

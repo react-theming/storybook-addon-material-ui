@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardHeader } from 'material-ui/Card';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 
 import Message from './ConversationMessage.jsx';
 
@@ -18,8 +19,8 @@ const paperStyle = {
 };
 
 const textFieldStyle = {
-  paddingLeft: 16, 
-  paddingRight: 16
+    paddingLeft: 16, 
+    paddingRight: 16,
 };
 
 export default class MaterialAppExampleProgress extends React.Component {
@@ -41,28 +42,44 @@ export default class MaterialAppExampleProgress extends React.Component {
                 justifyContent: 'center',
             }}
           >
-          <Paper style={paperStyle} zDepth={1} >
-            <Card>
-              <CardHeader
-                title="James Anderson"
-                subtitle="Online"
-                avatar={JamesAndersonAvatar}
+            <Paper style={paperStyle} zDepth={1} >
+              <Card>
+                <CardHeader
+                  title="James Anderson"
+                  subtitle="Online"
+                  avatar={JamesAndersonAvatar}
+                />
+                <Message
+                  text="Hi"
+                  authorType="receiver"
+                  authorImage={JamesAndersonAvatar}
+                  messageTime="08:40"
+                />
+                <br />
+              
+                <Message
+                    text="How are you"
+                    authorType="receiver"
+                    authorImage={JamesAndersonAvatar}
+                    messageTime="08:41"
+                />
+                <br />
+
+                <Message text="I am doing good" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:42" />
+                <br />
+
+                <Message text="How about you ?" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:43" />
+                <br />
+
+              </Card>
+              <TextField
+                hintText="Type a Message"
+                fullWidth
+                inputStyle={textFieldStyle}
+                hintStyle={textFieldStyle}
               />
-              <Message text="Hi" authorType="receiver" authorImage={JamesAndersonAvatar}
-              messageTime="08:40" /><br/>
-              
-              <Message text="How are you" authorType="receiver" authorImage={JamesAndersonAvatar}
-              messageTime="08:41" /><br/>
-              
-              <Message text="I am doing good" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:42" /><br/>
-              
-              <Message text="How about you ?" authorType="sender" authorImage={ChelseaOtakanAvatar} messageTime="08:43" /><br/>
 
-            </Card>
-            <TextField hintText="Type a Message" fullWidth={true} inputStyle={textFieldStyle} 
-            hintStyle={textFieldStyle} />
-
-          </Paper>
+            </Paper>
           </div>
         );
     }
