@@ -1,5 +1,5 @@
 import React from 'react';
-import RaisedButton from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import { action } from '@storybook/addon-actions';
 
 const style = {
@@ -8,13 +8,13 @@ const style = {
 
 const RaisedButtonExampleSimple = () => (
   <div>
-    <RaisedButton label="Default" style={style} onTouchTap={action('onTouchTap')} />
-    <RaisedButton label="Primary" primary={true} style={style} onTouchTap={action('onTouchTap')} />
-    <RaisedButton label="Secondary" secondary={true} style={style} onTouchTap={action('onTouchTap')} />
-    <RaisedButton label="Disabled" disabled={true} style={style} onTouchTap={action('onTouchTap')} />
+    <Button variant="raised" label="Default" style={style} onTouchTap={action('onTouchTap')} />
+    <Button variant="raised" label="Primary" primary={true} style={style} onTouchTap={action('onTouchTap')} />
+    <Button variant="raised" label="Secondary" secondary={true} style={style} onTouchTap={action('onTouchTap')} />
+    <Button variant="raised" label="Disabled" disabled={true} style={style} onTouchTap={action('onTouchTap')} />
     <br />
     <br />
-    <RaisedButton label="Full width" fullWidth={true} onTouchTap={action('onTouchTap')} />
+    <Button variant="raised" label="Full width" fullWidth={true} onTouchTap={action('onTouchTap')} />
   </div>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Toggle from 'material-ui/Switch';
+import Toggle from '@material-ui/core/Switch';
 
 const defaultProps = {
     scale: 0.7,

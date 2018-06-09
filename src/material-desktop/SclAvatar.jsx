@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Chip from 'material-ui/Chip';
-import Avatar from 'material-ui/Avatar';
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
 
 const defaultProps = {
     scale: 0.8,
+    text: 'dummy text',
 };
 
 const propTypes = {

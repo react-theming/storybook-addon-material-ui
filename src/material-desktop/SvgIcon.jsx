@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     scale: PropTypes.number.isRequired,
-    path: PropTypes.string,
 };
 
 const defaultProps = {
     scale: 0.8,
-    path: 'material-ui/svg-icons/action/home',
 };
 
 const contextTypes = {
@@ -21,7 +19,7 @@ export default class SvgIcon extends React.Component {
         super(props, context);
 
         require.ensure([], (require) => {
-            const Icon = require('material-ui/svg-icons/action/home');
+            const Icon = require('@material-ui/core/SvgIcon');
             this.ActionHome = Icon.default;
         });
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import IconNew from 'material-ui-icons/CreateNewFolder';
-import IconDnLoad from 'material-ui-icons/FileDownload';
-import IconClean from 'material-ui-icons/DeleteForever';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import IconNew from '@material-ui/icons/CreateNewFolder';
+import IconDnLoad from '@material-ui/icons/FileDownload';
+import IconClean from '@material-ui/icons/DeleteForever';
 
 import SvgButton from '../material-desktop/SvgButton';
 import SclToggle from '../material-desktop/SclToggle';

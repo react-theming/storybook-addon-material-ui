@@ -5,6 +5,4 @@ export const EVENT_ID_INIT = `${ADDON_ID}/material-event/init`;
 export const EVENT_ID_DATA = `${ADDON_ID}/material-event/data`;
 export const CSS_CLASS = 'sb-addon-material-ui';
 
-
-export { register } from './register';
 export { muiTheme } from './muiTheme';

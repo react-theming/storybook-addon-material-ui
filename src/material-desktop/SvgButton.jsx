@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 
 const propTypes = {
     iconScale: PropTypes.number.isRequired,
     icon: PropTypes.element.isRequired,
     tooltip: PropTypes.string,
-    tooltipPosition: PropTypes.string,
     width: PropTypes.number,
     onTouchTap: PropTypes.func,
 };
@@ -15,6 +14,8 @@ const defaultProps = {
     iconScale: 0.8,
     tooltipPosition: 'top-center',
     width: 32,
+    tooltip: '',
+    onTouchTap: () => {},
 };
 
 const contextTypes = {

@@ -1,14 +1,13 @@
 import React from 'react';
 import addons from '@storybook/addons';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import createPalette from 'material-ui/styles/palette';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { EVENT_ID_INIT } from './';
 
 const lightBaseTheme = createMuiTheme();
 const darkBaseTheme = createMuiTheme({
-    palette: createPalette({
+    palette: {
         type: 'dark',
-    }),
+    },
 });
 
 lightBaseTheme.themeName = 'Light Theme';
@@ -31,11 +30,10 @@ export function muiTheme(...themes) {
         currentTheme = theme;
     }
 
-    const backgroundColor = currentTheme.palette.type === 'dark' ? 'rgb(50,50,50)' : 'white';
     return (storyFn, context) =>
-      <div style={previewStyle(backgroundColor)}>
-          <MuiThemeProvider theme={currentTheme}>
-              {storyFn(context)}
-            </MuiThemeProvider>
-        </div>;
+      <div style={previewStyle()}>
+        <MuiThemeProvider theme={currentTheme}>
+          {storyFn(context)}
+        </MuiThemeProvider>
+      </div>;
 }

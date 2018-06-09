@@ -1,37 +1,40 @@
 import React from 'react';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/Button';
-import Toggle from 'material-ui/Switch';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Toggle from '@material-ui/core/Switch';
 import TwitterButton from '../react-twitter-button';
 import GithubButton from '../react-github-button';
 import hacktoberfestLogo from './hacktoberfest_logo.svg';
 import sectionDivider from './section-divider-center.svg';
 import octoAvatar from './octo_avatar.png';
 
-import ic_account_balance from './doc/ic_account_balance_black.png';
+import icAccountBalance from './doc/ic_account_balance_black.png';
 
 const Buttons = (
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <GithubButton
-                        user="react-theming"
-                        repo="storybook-addon-material-ui"
-                        type="star"
-                      />
-                      <GithubButton
-                        user="react-theming"
-                        repo="storybook-addon-material-ui"
-                        type="fork"
-                      />
-                      {/* */}
-                      <TwitterButton
-                        text="Material-UI Visual Theme Editor"
-                        url="https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel"
-                        via="UsulPro"
-                        related={['UsulPro']}
-                        hashtags={['reactjs', 'materialui', 'reactstorybook']}
-                      />
-                  </div>
-                );
+  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <GithubButton
+      user="react-theming"
+      repo="storybook-addon-material-ui"
+      type="star"
+    />
+    <GithubButton
+      user="react-theming"
+      repo="storybook-addon-material-ui"
+      type="fork"
+    />
+    {/* */}
+    <TwitterButton
+      text="Material-UI Visual Theme Editor"
+      url="https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel"
+      via="UsulPro"
+      related={['UsulPro']}
+      hashtags={['reactjs', 'materialui', 'reactstorybook']}
+    />
+  </div>
+);
 
 
 export default class MaterialAppExampleCard extends React.Component {
@@ -71,14 +74,14 @@ export default class MaterialAppExampleCard extends React.Component {
           >
             <style scoped>
               {`
-li {
-    margin-bottom: 10px;
-}
-a {
-  text-decoration: none;
-  color: #ce873d;
-  font-weight: bold;
-}
+                li {
+                    margin-bottom: 10px;
+                }
+                a {
+                  text-decoration: none;
+                  color: #ce873d;
+                  font-weight: bold;
+                }
 
               `}
             </style>
@@ -94,14 +97,14 @@ a {
                 actAsExpander
                 showExpandableButton
               />
-              <CardText>
+              <Card>
                 <Toggle
                   toggled={this.state.expanded}
                   onToggle={this.handleToggle}
                   labelPosition="right"
                   label="Start Hacking"
                 />
-              </CardText>
+              </Card>
               <CardMedia
                 expandable
               >
@@ -141,8 +144,8 @@ a {
                   </div>
                 </div>
               </CardMedia>
-              <CardTitle title="Hacktoberfest" subtitle="What you need to know" expandable />
-              <CardText expandable >
+              <Card title="Hacktoberfest" subtitle="What you need to know" expandable />
+              <Card expandable >
                 <div>
 
                   <h3>Getting Started</h3>
@@ -170,7 +173,7 @@ a {
                         <a
                           href="http://www.erikaheidi.com/blog/a-beginners-guide-to-open-source-making-your-first-contribution"
                         >
-                          A Beginner's Guide to Open Source: The Best Advice for Making your
+                          A Beginner&apos;s Guide to Open Source: The Best Advice for Making your
                           First Contribution
                         </a>
                         <br />by Erika Heidi
@@ -214,12 +217,12 @@ a {
                     </li>
                   </ul>
                 </div>
-              </CardText>
+              </Card>
 
-              <CardText>
+              <Card>
                 <h2>Material content filling</h2>
                 <p style={{ textAlign: 'justify', fontSize: 16 }} >
-                  <img src={ic_account_balance} alt="Material" />
+                  <img src={icAccountBalance} alt="Material" />
                   For easy themes design we required a realistic-looking content.
                   It will be possible to try out different themes and immediately
                   see how they look. For this we feel the need of help by
@@ -294,10 +297,10 @@ a {
                   {Buttons}
                 </p>
 
-              </CardText>
+              </Card>
               <CardActions>
-                <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-                <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+                <Button variant="flat" label="Expand" onTouchTap={this.handleExpand} />
+                <Button variant="flat" label="Reduce" onTouchTap={this.handleReduce} />
               </CardActions>
             </Card>
           </div>
