@@ -41,7 +41,7 @@ const primaryGreen = green[500];
 const accentGreen = green.A200;
 const darkGreen = green[900];
 
-const customTheme = createMuiTheme({
+const customTheme1 = createMuiTheme({
     palette: {
         primary: {
             light: accentGreen,
@@ -56,10 +56,30 @@ const customTheme = createMuiTheme({
             contrastText: '#fff',
         },
     },
+    themeName: 'Custom Light Theme',
+});
+
+const customTheme2 = createMuiTheme({
+    palette: {
+        secondary: {
+            light: accentGreen,
+            main: primaryGreen,
+            dark: darkGreen,
+            contrastText: '#fff',
+        },
+        primary: {
+            light: accentPurple,
+            main: primaryPurple,
+            dark: darkPurple,
+            contrastText: '#fff',
+        },
+        type: 'dark',
+      },
+    themeName: 'Custom Dark Theme',
 });
 
 storiesOf('Material Custom theme', module)
-  .addDecorator(muiTheme(customTheme))
+  .addDecorator(muiTheme([customTheme1, customTheme2]))
   .add(' Raised buttons', () => (
     <div>
       <Button variant="raised" color="primary">Raised primary</Button>

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import getMuiTheme from '@material-ui/core/styles/getMuiTheme';
-// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import createPalette from '@material-ui/core/styles/createPalette';
 import purple from '@material-ui/core/colors/purple';
@@ -13,7 +11,7 @@ import SplitPane from 'react-split-pane';
 
 import { EVENT_ID_DATA } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
-import ThemeSideBar from '../components/ThemeSideBar';
+// import ThemeSideBar from '../components/ThemeSideBar';
 // const stringify = require('json-stringify-safe');
 
 const propTypes = {
@@ -49,7 +47,6 @@ export default class MuiTheme extends React.Component {
         this.dataChannelSend = this.dataChannelSend.bind(this);
     }
 
-
     componentDidMount() {
         this.props.channel.on(EVENT_ID_DATA, this.onChannel);
         if (!this.state.isMount) {
@@ -78,12 +75,14 @@ export default class MuiTheme extends React.Component {
         this.needComponentUpdate('ThemeSideBar');
         this.isChannelData = true;
         // fixme: onThemeOverride - to store theme
-        this.setState({ ...state, isMount: false }, () => setTimeout(() => {
-            const override = this.onThemeOverride();
-            override(this.state.themesAppliedList[this.state.themeInd]);
-            this.isChannelData = true;
-            this.setState({ isMount: true });
-        }, 10));
+        this.setState({ ...state, isMount: false }, () =>
+            setTimeout(() => {
+                const override = this.onThemeOverride();
+                override(this.state.themesAppliedList[this.state.themeInd]);
+                this.isChannelData = true;
+                this.setState({ isMount: true });
+            }, 10),
+        );
     }
 
     onThemeOverride() {
@@ -95,10 +94,9 @@ export default class MuiTheme extends React.Component {
         };
     }
 
-
     dataChannelSend(data) {
         if (this.isChannelData || !this.state.isMount) return false;
-//        const dataStr = stringify(data);
+        //        const dataStr = stringify(data);
         this.props.channel.emit(EVENT_ID_DATA, data);
         return true;
     }
@@ -146,70 +144,36 @@ export default class MuiTheme extends React.Component {
     }
 
     render() {
-        const ThemesNameList = this.state.themesAppliedList
-            .map((val, ind) => (val.themeName || `Theme ${ind + 1}`));
-        const muiTheme = createMuiTheme(
-            // this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]), // Not working yet
+        const ThemesNameList = this.state.themesAppliedList.map(
+            (val, ind) => val.themeName || `Theme ${ind + 1}`,
         );
+        const muiTheme = createMuiTheme();
+        // this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]), // Not working yet
         // return (<MuiThemeProvider theme={muiTheme}>
 
-        const theme = createMuiTheme({
-            palette: createPalette({
-                primary: purple, // Purple and green play nicely together.
-                secondary: {
-                    ...green,
-                    A400: '#00e677',
-                },
-                error: red,
-            }),
-            typography: {},
-            shadows: {},
-        });
-        return (<MuiThemeProvider theme={theme}>
-          <div
-            style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: muiTheme.palette.canvasColor,
-            }}
+        // const theme = createMuiTheme({
+        //     palette: createPalette({
+        //         primary: purple, // Purple and green play nicely together.
+        //         secondary: {
+        //             ...green,
+        //             A400: '#00e677',
+        //         },
+        //         error: red,
+        //     }),
+        //     typography: {},
+        //     shadows: {},
+        // });
 
-          >
-            <SplitPane
-              split="vertical"
-              minSize={this.state.isSideBarOpen ? 200 : 0}
-              defaultSize={this.state.isSideBarOpen ? 400 : 0}
-              primary="second"
-              pane1Style={{ overflowX: 'auto', overflowY: 'auto' }}
-              pane2Style={{ width: this.state.isSideBarOpen ? 'auto' : 0 }}
-              resizerStyle={{
-                  cursor: 'col-resize',
-                  width: 10,
-                  marginRight: -6,
-                  zIndex: 1,
-              }}
-            >
-              {/**/}
-              <div>
-                {this.props.story}
-              </div>
-              <ThemeSideBar
-                shouldComponentUpdate
-                shouldShowData={this.state.isMount}
-                open={this.state.isSideBarOpen}
-                theme={this.state.themesAppliedList[this.state.themeInd]}
-                muiTheme={muiTheme}
-                themeName={ThemesNameList[this.state.themeInd]}
-                fullTheme={this.subState('ThemeSideBar', 'isFullTheme')}
-                collapseList={this.subState('ThemeSideBar', 'collapseList')}
-                themesOverrideList={this.subState('ThemeSideBar', 'currentThemeOverride')}
-                onThemeOverride={this.onThemeOverride()}
-              />
-            </SplitPane>
-          </div>
-        </MuiThemeProvider>);
+        const theme = (this.props.themesInitList[this.state.themeInd]);
+
+        console.log('​render -> createMuiTheme', theme);
+        return (
+          <MuiThemeProvider theme={theme}>
+            <div >
+              {this.props.story}
+            </div>
+          </MuiThemeProvider>
+        );
     }
 }
 

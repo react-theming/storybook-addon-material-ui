@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Menu from '@material-ui/core/Menu';
+import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import IconNew from '@material-ui/icons/CreateNewFolder';
 import IconDnLoad from '@material-ui/icons/FileDownload';
@@ -35,18 +36,17 @@ const defaultProps = {
     onCleanTheme: () => {},
 };
 
-const contextTypes = {
-    muiTheme: PropTypes.object.isRequired,
-};
+// const contextTypes = {
+//     muiTheme: PropTypes.object.isRequired,
+// };
 
 export default class ThemePanel extends React.Component {
-
     constructor(props) {
         super(props);
 
-        this.menuItems = props.themesNameList.map(
-            (val, ind) => (<MenuItem value={ind} key={val} primaryText={val} />),
-        );
+        this.menuItems = props.themesNameList.map((val, ind) => (
+          <MenuItem value={ind} key={val} primaryText={val} />
+        ));
         this.state = {
             value: props.defautThemeInd,
             isThemeEditing: false,
@@ -66,6 +66,9 @@ export default class ThemePanel extends React.Component {
             height: '100%',
             outlineColor: this.props.isThemeInvalid ? '#cc5858' : '#26acd8',
         };
+
+        const theme = JSON.parse(this.props.themeJSON);
+        const palette = { theme };
         return (
           <div
             style={{
@@ -81,50 +84,22 @@ export default class ThemePanel extends React.Component {
                   minWidth: 160,
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between',
+                  // justifyContent: 'space-between',
+                  padding: 16,
               }}
             >
-              <Menu
-                value={this.state.value}
-                onChange={this.handleChange}
-                style={{ width: '100%' }}
-              >
-                {this.menuItems}
-              </Menu>
-              <div
-                style={{
-//                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    margin: '0 16px',
-                }}
-              >
-
-                <SvgButton
-                  icon={<IconDnLoad />}
-                  tooltip="Download Theme"
-                  tooltipPosition="top-right"
-                  width={48}
-                  onTouchTap={this.props.onDnLoadTheme}
-                />
-                <SvgButton
-                  icon={<IconNew />}
-                  tooltip="this option is in development..."
-                  tooltipPosition="top-right"
-                  width={48}
-                  onTouchTap={this.props.onCloneTheme}
-                />
-                <SvgButton
-                  icon={<IconClean />}
-                  tooltip="this option is in development..."
-                  tooltipPosition="top-right"
-                  width={48}
-                  onTouchTap={this.props.onCleanTheme}
-                />
-
-              </div>
+              {this.props.themesNameList.map((name, ind) => (
+                <Button
+                  variant="outlined"
+                  key={name}
+                  onClick={() => this.props.onThemeSelect(ind)}
+                  color="primary"
+                >
+                  {`${name}`}
+                </Button>
+                    ))}
             </div>
-            <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }} >
+            {/* <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }} >
               <textarea
                 style={styleArea}
                 value={this.props.themeJSON}
@@ -133,16 +108,15 @@ export default class ThemePanel extends React.Component {
                 onBlur={this.props.onThemeEditing(false)}
               />
 
-            </div>
-            <div style={{ width: 200, paddingTop: 16 }} >
+            </div> */}
+            {/* <div style={{ width: 200, paddingTop: 16 }} >
               <SclToggle
                 label="Show Theme Editor"
-                labelPosition="left"
-                toggled={this.props.isSideBarOpen}
+                // labelPosition="left"
+                toggled={this.props.isSideBarOpen.toString()}
                 onToggle={() => this.props.onToggleSideBar(!this.props.isSideBarOpen)}
               />
-            </div>
-
+            </div> */}
           </div>
         );
     }
@@ -150,4 +124,4 @@ export default class ThemePanel extends React.Component {
 
 ThemePanel.propTypes = propTypes;
 ThemePanel.defaultProps = defaultProps;
-ThemePanel.contextTypes = contextTypes;
+// ThemePanel.contextTypes = contextTypes;

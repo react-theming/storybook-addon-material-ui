@@ -145,7 +145,7 @@ function BlockHeader(props, context) {
         }}
       >
         <SclAvatar
-          onTouchTap={props.onSelect}
+          onClick={props.onSelect}
           text={props.settingsName}
         />
         {/* <Chip onTouchTap={copyToClipboard(props.settingsName)} >
@@ -157,7 +157,7 @@ function BlockHeader(props, context) {
         <div>
           <SclToggle
             label=""
-            labelPosition="right"
+            // labelPosition="right"
             labelStyle={toggleHeadStyle}
             toggled={props.openThis() || false}
             onToggle={toggleOpen}

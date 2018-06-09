@@ -1,35 +1,22 @@
 import React from 'react';
 import addons from '@storybook/addons';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 import { EVENT_ID_INIT } from './';
 import MuiTheme from './containers/MuiTheme';
-
-const lightBaseTheme = createMuiTheme();
-const darkBaseTheme = createMuiTheme({
-    palette: {
-        type: 'dark',
-    },
-});
 
 lightBaseTheme.themeName = 'Light Theme';
 darkBaseTheme.themeName = 'Dark Theme';
 
-const previewStyle = color => ({
-    backgroundColor: color,
-    width: '100%',
-    height: '100%',
-    minHeight: 600,
-});
-
 export function muiTheme(themes) {
-    /** note: muiTheme arguments
-     *
-     *  the agrument 'themes' should be:
-     *     - muiThemes (array): array with muiThemes;
-     *     - muiTheme (object): single muiTheme;
-     *  muiTheme is a two nesting level object with new or overriding props
-     *
-     */
+/** note: muiTheme arguments
+ *
+ *  the agrument 'themes' should be:
+ *     - muiThemes (array): array with muiThemes;
+ *     - muiTheme (object): single muiTheme;
+ *  muiTheme is a two nesting level object with new or overriding props
+ *
+ */
 
     const channel = addons.getChannel();
     let themesInitList = [lightBaseTheme, darkBaseTheme];
@@ -37,12 +24,12 @@ export function muiTheme(themes) {
         if (Array.isArray(themes)) {
             themesInitList = themes;
             themesInitList.forEach((val, ind) => {
-                if (typeof val === 'string') {
+                if (typeof (val) === 'string') {
                     /* note: unsupported names goes as lightBaseTheme
-                        if (val === lightBaseTheme.themeName) {
-                            themesInitList[ind] = lightBaseTheme;
-                        }
-                        */
+                    if (val === lightBaseTheme.themeName) {
+                        themesInitList[ind] = lightBaseTheme;
+                    }
+                    */
                     if (val === darkBaseTheme.themeName) {
                         themesInitList[ind] = darkBaseTheme;
                     } else {
@@ -63,14 +50,14 @@ export function muiTheme(themes) {
     themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
     const themesRenderedList = themeListRender(themesAppliedList);
 
-    /** note: theme arrays description
-     *
-     *    themesInitList - initial list of base and user themes
-     *    themesOverrideList - list of overwritings made by user
-     *    themesAppliedList - overrided list (union InitList and OverrideList) - will be shown to user
-     *    themesRenderedList - overrided list - will be used in ThemeProvider (resolved all links)
-     *
-     */
+/** note: theme arrays description
+ *
+ *    themesInitList - initial list of base and user themes
+ *    themesOverrideList - list of overwritings made by user
+ *    themesAppliedList - overrided list (union InitList and OverrideList) - will be shown to user
+ *    themesRenderedList - overrided list - will be used in ThemeProvider (resolved all links)
+ *
+ */
 
     let storedState = {
         themeInd: 0,
@@ -101,8 +88,7 @@ export function muiTheme(themes) {
         return (overTheme) => {
             themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
             themesAppliedList[themeInd] = themeApply(
-                themesInitList[themeInd],
-                themesOverrideList[themeInd],
+              themesInitList[themeInd], themesOverrideList[themeInd],
             );
             return themesAppliedList;
         };
@@ -116,7 +102,6 @@ export function muiTheme(themes) {
         return (
           <MuiTheme
             story={storyItem}
-            themesInitList={themesInitList}
             themesAppliedListInit={themesAppliedList}
             themesRenderedList={themesRenderedList}
             onThemeOverride={onThemeOverride}
@@ -124,8 +109,7 @@ export function muiTheme(themes) {
             onChangeState={storeState}
             themeListRender={themeListRender}
             channel={channel}
-          />
-        );
+          />);
     };
 }
 
@@ -133,16 +117,14 @@ function themeApply(prevTheme, overTheme) {
     const newTheme = makeClone(prevTheme);
     const keys = Object.keys(overTheme);
     keys.forEach((val) => {
-        if (typeof overTheme[val] === 'object') {
-            if (typeof newTheme[val] === 'undefined') {
+        if (typeof (overTheme[val]) === 'object') {
+            if (typeof (newTheme[val]) === 'undefined') {
                 newTheme[val] = {};
             }
 
             const subKeys = Object.keys(overTheme[val]);
             // note: find out a number or a string
-            subKeys.forEach((prop) => {
-                newTheme[val][prop] = tryParse(overTheme[val][prop]);
-            });
+            subKeys.forEach((prop) => { newTheme[val][prop] = tryParse(overTheme[val][prop]); });
         } else {
             newTheme[val] = overTheme[val];
         }

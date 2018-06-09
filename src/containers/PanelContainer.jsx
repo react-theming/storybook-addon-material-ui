@@ -236,7 +236,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     render() {
         return this.state.isReady ?
         (
-          <MuiThemeProvider muiTheme={this.muiTheme}>
+          <MuiThemeProvider theme={this.muiTheme}>
             <ThemePanel
               themesNameList={this.state.themesNameList}
               defautThemeInd={this.state.themeInd}

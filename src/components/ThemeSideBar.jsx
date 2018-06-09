@@ -123,7 +123,7 @@ export default class ThemeSideBar extends React.Component {
                   </div>
                   <SclToggle
                     label=""
-                    labelPosition="right"
+                    // labelPosition="right"
                     labelStyle={this.toggleHeadStyle}
                     toggled={this.props.fullTheme()}
                     onToggle={() => this.props.fullTheme(!this.props.fullTheme())}

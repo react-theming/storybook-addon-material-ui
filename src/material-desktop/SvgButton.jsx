@@ -18,9 +18,9 @@ const defaultProps = {
     onTouchTap: () => {},
 };
 
-const contextTypes = {
-    muiTheme: PropTypes.object.isRequired,
-};
+// const contextTypes = {
+//     muiTheme: PropTypes.object.isRequired,
+// };
 
 
 export default class SvgButton extends React.Component {
@@ -43,13 +43,13 @@ export default class SvgButton extends React.Component {
                 overflow: 'hidden',
             },
             title: props.tooltip,
-            onTouchTap: props.onTouchTap,
+            onClick: props.onClick,
         };
     }
 
     render() {
         const icon = React.cloneElement(this.props.icon, {
-            color: this.context.muiTheme.palette.secondaryTextColor,
+            // color: this.context.muiTheme.palette.secondaryTextColor,
         });
         return (
           <div
@@ -79,4 +79,4 @@ export default class SvgButton extends React.Component {
 
 SvgButton.propTypes = propTypes;
 SvgButton.defaultProps = defaultProps;
-SvgButton.contextTypes = contextTypes;
+// SvgButton.contextTypes = contextTypes;
