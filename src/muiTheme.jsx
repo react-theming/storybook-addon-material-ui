@@ -20,7 +20,7 @@ const previewStyle = color => ({
     minHeight: 600,
 });
 
-export default function muiTheme(...themes) {
+export function muiTheme(...themes) {
     const theme = themes[0];
     let currentTheme = lightBaseTheme;
     if (theme === 'dark') {
