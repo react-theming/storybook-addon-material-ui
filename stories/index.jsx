@@ -18,6 +18,7 @@ import Card from './CardExampleControlled';
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Material Default theme', module)
+  .addDecorator(muiTheme())
   .add('Flat buttons', () => (
     <div>
       <Button color="primary">Flat primary</Button>
