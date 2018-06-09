@@ -84,8 +84,9 @@ export default class ThemePanel extends React.Component {
                   minWidth: 160,
                   display: 'flex',
                   flexDirection: 'column',
-                  // justifyContent: 'space-between',
+                        // justifyContent: 'space-between',
                   padding: 16,
+                  flexWrap: 'wrap',
               }}
             >
               {this.props.themesNameList.map((name, ind) => (
@@ -94,6 +95,7 @@ export default class ThemePanel extends React.Component {
                   key={name}
                   onClick={() => this.props.onThemeSelect(ind)}
                   color="primary"
+                  style={{ margin: 4 }}
                 >
                   {`${name}`}
                 </Button>

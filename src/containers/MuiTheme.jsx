@@ -166,7 +166,6 @@ export default class MuiTheme extends React.Component {
 
         const theme = (this.props.themesInitList[this.state.themeInd]);
 
-        console.log('​render -> createMuiTheme', theme);
         return (
           <MuiThemeProvider theme={theme}>
             <div >

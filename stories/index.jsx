@@ -18,21 +18,25 @@ import Card from './CardExampleControlled';
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
 storiesOf('Material Default theme', module)
-  .addDecorator(muiTheme())
-  .add('Flat buttons', () => (
-    <div>
-      <Button color="primary">Flat primary</Button>
-      <Button color="secondary">Flat secondary</Button>
-      <Button>Flat default</Button>
-    </div>
-  ))
-  .add('Raised buttons', () => (
-    <div>
-      <Button variant="raised" color="primary">Raised primary</Button>
-      <Button variant="raised" color="secondary">Raised secondary</Button>
-      <Button variant="raised">Raised default</Button>
-    </div>
-  ));
+    .addDecorator(muiTheme())
+    .add('Flat buttons', () => (
+      <div>
+        <Button color="primary">Flat primary</Button>
+        <Button color="secondary">Flat secondary</Button>
+        <Button>Flat default</Button>
+      </div>
+    ))
+    .add('Raised buttons', () => (
+      <div>
+        <Button variant="raised" color="primary">
+                Raised primary
+            </Button>
+        <Button variant="raised" color="secondary">
+                Raised secondary
+            </Button>
+        <Button variant="raised">Raised default</Button>
+      </div>
+    ));
 
 const primaryPurple = purple[500]; // #F44336
 const accentPurple = purple.A200; // #E040FB
@@ -40,6 +44,10 @@ const darkPurple = purple[900]; // #F44336
 const primaryGreen = green[500];
 const accentGreen = green.A200;
 const darkGreen = green[900];
+
+const buttonStyle = {
+    margin: 16,
+};
 
 const customTheme1 = createMuiTheme({
     palette: {
@@ -74,17 +82,50 @@ const customTheme2 = createMuiTheme({
             contrastText: '#fff',
         },
         type: 'dark',
-      },
+    },
     themeName: 'Custom Dark Theme',
 });
 
+const customTheme3 = createMuiTheme({
+    palette: {
+        secondary: {
+            light: accentGreen,
+            main: blue[400],
+            dark: darkGreen,
+            contrastText: '#fff',
+        },
+        primary: {
+            light: accentPurple,
+            main: blue[200],
+            dark: darkPurple,
+            contrastText: '#fff',
+        },
+        type: 'dark',
+    },
+});
+
 storiesOf('Material Custom theme', module)
-  .addDecorator(muiTheme([customTheme1, customTheme2]))
-  .add(' Raised buttons', () => (
-    <div>
-      <Button variant="raised" color="primary">Raised primary</Button>
-      <Button variant="raised" color="secondary">Raised secondary</Button>
-      <Button variant="raised">Raised default</Button>
-    </div>
-  ))
-  ;
+    .addDecorator(
+        muiTheme([
+            customTheme1,
+            customTheme2,
+            customTheme3,
+            customTheme3,
+            customTheme3,
+            customTheme3,
+            customTheme3,
+        ]),
+    )
+    .add(' Raised buttons', () => (
+      <div>
+        <Button variant="raised" color="primary" style={buttonStyle}>
+                Raised primary
+            </Button>
+        <Button variant="raised" color="secondary" style={buttonStyle}>
+                Raised secondary
+            </Button>
+        <Button variant="raised" style={buttonStyle}>
+                Raised default
+            </Button>
+      </div>
+    ));

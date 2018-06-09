@@ -180,7 +180,6 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     onCleanTheme() {
         progressInfo(this);
         return null;
-
 //        const themesAppliedList = this.state.themesAppliedList;
 //        const newTheme = {};
 //        newTheme.themeName = themesAppliedList[this.state.themeInd].themeName;
@@ -192,6 +191,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
 
 
     getCurrentTheme(indent = 2) {
+        // console.log(this.state.themesAppliedList[this.state.themeInd]);
         return beauti.js_beautify(
             JSON.stringify(this.state.themesAppliedList[this.state.themeInd]),
             {
