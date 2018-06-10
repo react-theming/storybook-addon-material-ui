@@ -10,11 +10,11 @@ The core of [**React Theming**](https://github.com/react-theming/react-theming) 
 
 `storybook-addon-material-ui@0.9.0-alpha.2` now supports Material-UI v1 themes. It has only basic functionality since v.1 themes are very different from the previous version. We would appreciate if you give us your feedback about the most needed features which we will reimplement.
 
-**You can do it with this anonymous [survey](https://app.qpointsurvey.com/s.aspx?c=**F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~**).**
+**You can do it with this anonymous [survey](https://app.qpointsurvey.com/s.aspx?c=F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~).**
 
 It contains only 10 questions and helps us to provide you with the best DX. You are always welcome to submit an [issue](https://github.com/react-theming/storybook-addon-material-ui/issues) as well :smile:
 
-to install alpha version type:
+To install alpha version type:
 
 ```sh
 npm i storybook-addon-material-ui@next --save-dev
