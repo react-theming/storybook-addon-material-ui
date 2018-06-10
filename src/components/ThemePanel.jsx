@@ -67,14 +67,16 @@ export default class ThemePanel extends React.Component {
     }
 
     render() {
+      /*
         const styleArea = {
             width: '100%',
             height: '100%',
             outlineColor: this.props.isThemeInvalid ? '#cc5858' : '#26acd8',
         };
+        */
 
         const theme = JSON.parse(this.props.themeJSON);
-        const palette = { theme };
+        /* const palette = { theme };*/
         return (
           <div
             style={{
@@ -124,7 +126,8 @@ export default class ThemePanel extends React.Component {
               <Card style={{ height: '100%' }}>
                 <a
                   href="https://app.qpointsurvey.com/s.aspx?c=F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~"
-                  target="blank"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ textDecoration: 'none' }}
                 >
                   <CardContent>
@@ -140,7 +143,7 @@ export default class ThemePanel extends React.Component {
                     <Typography color="textSecondary" style={{ fontSize: 12 }}>
                                     We would appreciate if you give us your <b>feedback</b> via this
                                     survey. It is completely anonymous and contains only 10
-                                    questions. It'll help us to provide you with the best DX.
+                                    questions. It&apos;ll help us to provide you with the best DX.
                                 </Typography>
                     <Typography style={{ marginTop: 16 }} align="center">
                       <Button
