@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "deploy": "node .scripts/deployer",
-    "prepublish": "node .scripts/npm-prepublish.js",
+    "prepare": "node .scripts/npm-prepare.js",
     "postpublish": "node .scripts/npm-postpublish.js",
     "lint": "node .scripts/lint.js",
     "lintfix": "node .scripts/lint.js --fix",
