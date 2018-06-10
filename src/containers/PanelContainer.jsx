@@ -81,10 +81,10 @@ export default class PanelContainer extends React.Component {
         this.props.channel.on(EVENT_ID_DATA, this.onDataChannel);
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    componentDidUpdate() {
 //        if (!this.isChannelData) this.props.channel.emit(EVENT_ID_DATA, nextState);
-        this.querySet(nextState);
-        this.dataChannelSend(nextState);
+        this.querySet(this.state);
+        this.dataChannelSend(this.state);
         this.isChannelData = false;
     }
 

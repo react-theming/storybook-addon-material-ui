@@ -61,9 +61,9 @@ export default class MuiTheme extends React.Component {
         return true; // fixme: shouldComponentUpdate
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        this.props.onChangeState(nextState);
-        this.dataChannelSend(nextState);
+    componentDidUpdate() {
+        this.props.onChangeState(this.state);
+        this.dataChannelSend(this.state);
         this.isChannelData = false;
     }
 
