@@ -2,8 +2,64 @@
 [![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
-#  Storybook Addon Material-UI 
+#  Storybook Addon Material-UI
 The core of [**React Theming**](https://github.com/react-theming/react-theming) project
+
+
+## Announcement Material-UI v1 support
+
+`storybook-addon-material-ui@0.9.0-alpha.2` now supports Material-UI v1 themes. It has only basic functionality since v.1 themes are very different from the previous version. We would appreciate if you give us your feedback about the most needed features which we will reimplement.
+
+**You can do it with this anonymous [survey](https://app.qpointsurvey.com/s.aspx?c=**F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~**).**
+
+It contains only 10 questions and helps us to provide you with the best DX. You are always welcome to submit an [issue](https://github.com/react-theming/storybook-addon-material-ui/issues) as well :smile:
+
+to install alpha version type:
+
+```sh
+npm i storybook-addon-material-ui@next --save-dev
+```
+
+then you can create themes and add them to the panel this way:
+
+```js
+// addons.js
+
+import 'storybook-addon-material-ui/register';
+```
+
+```js
+// stories.js
+
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const customTheme1 = createMuiTheme({
+    palette: {
+        primary: {
+            light: accentGreen,
+            main: primaryGreen,
+            dark: darkGreen,
+            contrastText: '#fff',
+        },
+        secondary: {
+            light: accentPurple,
+            main: primaryPurple,
+            dark: darkPurple,
+            contrastText: '#fff',
+        },
+    },
+    themeName: 'Custom Light Theme',
+});
+
+storiesOf('Material Custom theme', module)
+    .addDecorator(
+        muiTheme([customTheme1]),
+    )
+    /* your stories */
+```
+> thanks [@laruiss](https://github.com/laruiss) for helping to make this release happen
+
+---
 
 [<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
 Provides development environment which helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
@@ -48,7 +104,7 @@ Press `Ctrl-Shft-F` to exit from `Full screen` mode.
 
 Select `Material-UI` at the left panel. You'll see two stories with Material-UI Components: `Components` and `Card`.
 
-Select `Material-UI` at the bottom panel. You can **switch themes** from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_, 
+Select `Material-UI` at the bottom panel. You can **switch themes** from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_,
 
 Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/storybook-boilerplate/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to **create your own components**.
 
@@ -121,7 +177,7 @@ import CardExampleControlled from '../CardExampleControlled.jsx';
 import RaisedButtonExampleSimple from '../RaisedButtonExampleSimple.jsx';
 import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
 
-// Create your own theme like this. 
+// Create your own theme like this.
 // Note: you can specify theme name in `themeName` field. Otherwise it will be displayed by the number.
 // you can specify only required fields overriding the `Light Base Theme`
 const newTheme = {
@@ -187,7 +243,7 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
 [![Code Triagers Badge](https://www.codetriage.com/react-theming/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/react-theming/storybook-addon-material-ui)
 
-### :wrench: Developers: 
+### :wrench: Developers:
 
 Our team welcomes all contributions, tests, and bug fixes. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
