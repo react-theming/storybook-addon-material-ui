@@ -52,7 +52,7 @@
     "babel-loader": "^6.2.8",
     "babel-plugin-transform-runtime": "^6.5.0",
     "babel-polyfill": "^6.5.0",
-    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
@@ -87,9 +87,9 @@
   },
   "dependencies": {
     "@material-ui/icons": "^1.0.0",
-    "@storybook/addons": "^3.0.0",
     "@storybook/addon-actions": "^3.0.0",
     "@storybook/addon-links": "^3.4.5",
+    "@storybook/addons": "^3.0.0",
     "js-beautify": "^1.6.8",
     "react-material-color-picker": "^1.1.0",
     "react-split-pane": "^0.1.50"
