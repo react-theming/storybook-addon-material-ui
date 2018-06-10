@@ -9,11 +9,11 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
+import yellow from '@material-ui/core/colors/yellow';
 import Button from '@material-ui/core/Button';
 
 import { muiTheme } from '../src';
-
-import Card from './CardExampleControlled';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -69,12 +69,6 @@ const customTheme1 = createMuiTheme({
 
 const customTheme2 = createMuiTheme({
     palette: {
-        secondary: {
-            light: accentGreen,
-            main: primaryGreen,
-            dark: darkGreen,
-            contrastText: '#fff',
-        },
         primary: {
             light: accentPurple,
             main: primaryPurple,
@@ -83,25 +77,62 @@ const customTheme2 = createMuiTheme({
         },
         type: 'dark',
     },
+    secondary: {
+        light: accentGreen,
+        main: primaryGreen,
+        dark: darkGreen,
+        contrastText: '#fff',
+    },
     themeName: 'Custom Dark Theme',
 });
 
 const customTheme3 = createMuiTheme({
     palette: {
-        secondary: {
-            light: accentGreen,
-            main: blue[400],
-            dark: darkGreen,
-            contrastText: '#fff',
-        },
         primary: {
             light: accentPurple,
             main: blue[200],
             dark: darkPurple,
             contrastText: '#fff',
         },
+        secondary: {
+            light: accentGreen,
+            main: blue[400],
+            dark: darkGreen,
+            contrastText: '#fff',
+        },
         type: 'dark',
     },
+    themeName: 'Pale Blue Theme',
+});
+
+const yellowRedTheme = createMuiTheme({
+    palette: {
+        primary: {
+            main: yellow[500],
+            contrastText: '#000',
+        },
+        secondary: {
+            main: red[500],
+            contrastText: '#fff',
+        },
+        type: 'dark',
+    },
+    themeName: 'Yellow and Red Theme',
+});
+
+const yellowBlueTheme = createMuiTheme({
+    palette: {
+        primary: {
+            main: yellow[500],
+            contrastText: '#000',
+        },
+        secondary: {
+            main: blue[500],
+            contrastText: '#fff',
+        },
+        type: 'dark',
+    },
+    themeName: 'Yellow and Blue Theme',
 });
 
 storiesOf('Material Custom theme', module)
@@ -110,22 +141,20 @@ storiesOf('Material Custom theme', module)
             customTheme1,
             customTheme2,
             customTheme3,
-            customTheme3,
-            customTheme3,
-            customTheme3,
-            customTheme3,
+            yellowBlueTheme,
+            yellowRedTheme,
         ]),
     )
     .add(' Raised buttons', () => (
       <div>
         <Button variant="raised" color="primary" style={buttonStyle}>
-                Raised primary
-            </Button>
+            Raised primary
+        </Button>
         <Button variant="raised" color="secondary" style={buttonStyle}>
-                Raised secondary
-            </Button>
+            Raised secondary
+        </Button>
         <Button variant="raised" style={buttonStyle}>
-                Raised default
-            </Button>
+            Raised default
+        </Button>
       </div>
     ));
