@@ -19,6 +19,7 @@ const propTypes = {
     story: PropTypes.object.isRequired,
     onChangeState: PropTypes.func.isRequired,
     onThemeOverride: PropTypes.func.isRequired,
+    themesInitList: PropTypes.func.isRequired,
     // themeListRender: PropTypes.func.isRequired,
     initState: PropTypes.object.isRequired,
     channel: PropTypes.object.isRequired,
@@ -61,9 +62,9 @@ export default class MuiTheme extends React.Component {
         return true; // fixme: shouldComponentUpdate
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        this.props.onChangeState(nextState);
-        this.dataChannelSend(nextState);
+    componentDidUpdate() {
+        this.props.onChangeState(this.state);
+        this.dataChannelSend(this.state);
         this.isChannelData = false;
     }
 

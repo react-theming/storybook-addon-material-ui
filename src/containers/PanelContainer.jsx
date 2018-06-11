@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import getMuiTheme from '@material-ui/core/styles/getMuiTheme';
-// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import autobind from 'autobind-decorator';
+
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 // import lightBaseTheme from '@material-ui/core/styles/baseThemes/lightBaseTheme';
 // import darkBaseTheme from '@material-ui/core/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
@@ -59,21 +59,6 @@ export default class PanelContainer extends React.Component {
 
         // future: get from state with own theme ind
         this.muiTheme = lightBaseTheme;
-
-        this.onInitChannel = this.onInitChannel.bind(this);
-        this.onDataChannel = this.onDataChannel.bind(this);
-        this.onThemeSelect = this.onThemeSelect.bind(this);
-        this.onChangeTheme = this.onChangeTheme.bind(this);
-        this.onThemeEditing = this.onThemeEditing.bind(this);
-        this.onToggleSideBar = this.onToggleSideBar.bind(this);
-        this.onDnLoadTheme = this.onDnLoadTheme.bind(this);
-        this.onCloneTheme = this.onCloneTheme.bind(this);
-        this.onCleanTheme = this.onCleanTheme.bind(this);
-
-        this.dataChannelSend = this.dataChannelSend.bind(this);
-        this.queryFetch = this.queryFetch.bind(this);
-        this.querySet = this.querySet.bind(this);
-        this.getCurrentTheme = this.getCurrentTheme.bind(this);
     }
 
     componentDidMount() {
@@ -81,10 +66,10 @@ export default class PanelContainer extends React.Component {
         this.props.channel.on(EVENT_ID_DATA, this.onDataChannel);
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    componentDidUpdate() {
 //        if (!this.isChannelData) this.props.channel.emit(EVENT_ID_DATA, nextState);
-        this.querySet(nextState);
-        this.dataChannelSend(nextState);
+        this.querySet(this.state);
+        this.dataChannelSend(this.state);
         this.isChannelData = false;
     }
 
@@ -93,6 +78,7 @@ export default class PanelContainer extends React.Component {
         this.props.channel.removeListener(EVENT_ID_DATA, this.onDataChannel);
     }
 
+    @autobind
     onInitChannel(initData) {
         const themesNameList = genNameList(initData.themesAppliedList);
         const queryData = this.queryFetch();
@@ -101,6 +87,7 @@ export default class PanelContainer extends React.Component {
         );
     }
 
+    @autobind
     onDataChannel(stateData) {
 //        const stateData = JSON.parse(strData);
         const themesNameList = genNameList(stateData.themesAppliedList);
@@ -110,12 +97,14 @@ export default class PanelContainer extends React.Component {
         );
     }
 
+    @autobind
     onThemeSelect(ind) {
         this.setState({
             themeInd: ind,
         });
     }
 
+    @autobind
     onChangeTheme(event) {
         const str = event.target.value;
         try {
@@ -135,6 +124,7 @@ export default class PanelContainer extends React.Component {
         }
     }
 
+    @autobind
     onThemeEditing(isFocus) {
         return () => this.setState({
             isThemeEditing: isFocus,
@@ -142,12 +132,14 @@ export default class PanelContainer extends React.Component {
         });
     }
 
+    @autobind
     onToggleSideBar(f) {
         this.setState({
             isSideBarOpen: f,
         });
     }
 
+    @autobind
     onDnLoadTheme() {
         const uri = `data:application/json;charset=utf-8;base64,
 ${window.btoa(this.getCurrentTheme(4))}`;
@@ -162,6 +154,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
         document.body.removeChild(downloadTheme);
     }
 
+    @autobind
     onCloneTheme() {
         progressInfo(this);
         return null;
@@ -177,6 +170,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
 //        this.setState({ themesAppliedList: newAppliedList, themesNameList });
     }
 
+    @autobind
     onCleanTheme() {
         progressInfo(this);
         return null;
@@ -190,6 +184,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     }
 
 
+    @autobind
     getCurrentTheme(indent = 2) {
         // console.log(this.state.themesAppliedList[this.state.themeInd]);
         return beauti.js_beautify(
@@ -203,12 +198,14 @@ ${window.btoa(this.getCurrentTheme(4))}`;
         );
     }
 
+    @autobind
     dataChannelSend(data) {
         if (this.isChannelData) return false;
         this.props.channel.emit(EVENT_ID_DATA, data);
         return true;
     }
 
+    @autobind
     queryFetch() {
         const themeInd = this.props.api.getQueryParam('theme-ind');
         const isSideBarOpen = this.props.api.getQueryParam('theme-sidebar');
@@ -221,6 +218,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
         return (data);
     }
 
+    @autobind
     querySet(state) {
         if (state.isReady) {
             const { themeInd, isSideBarOpen, isFullTheme } = state;
@@ -244,8 +242,9 @@ ${window.btoa(this.getCurrentTheme(4))}`;
               onThemeSelect={this.onThemeSelect}
               onToggleSideBar={this.onToggleSideBar}
               themeJSON={
-                (this.state.isThemeInvalid || this.state.isThemeEditing) ?
-                    this.state.themeString : this.getCurrentTheme(1)
+                (this.state.isThemeInvalid || this.state.isThemeEditing)
+                    ? this.state.themeString
+                    : this.getCurrentTheme(1)
               }
               isThemeInvalid={this.state.isThemeInvalid}
               onThemeEditing={this.onThemeEditing}
