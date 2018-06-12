@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CheckBox, Toggle, Link, Button, Dropdown } from '../Utils/ui_package';
+import { Toggle, Link, Button, Dropdown, Paper } from '../Utils/ui_package';
 
 const propTypes = {
     themesNameList: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -35,13 +35,12 @@ const contextTypes = {
 };
 
 export default class AddonPanel extends React.Component {
-
     constructor(props) {
         super(props);
 
-//        this.menuItems = props.themesNameList.map(
-//            (val, ind) => (<MenuItem value={ind} key={val} primaryText={val} />),
-//        );
+        //        this.menuItems = props.themesNameList.map(
+        //            (val, ind) => (<MenuItem value={ind} key={val} primaryText={val} />),
+        //        );
         this.state = {
             value: props.defautThemeInd,
             isThemeEditing: false,
@@ -68,7 +67,7 @@ export default class AddonPanel extends React.Component {
                 display: 'flex',
                 justifyContent: 'space-between',
                 flexWrap: 'wrap',
-                // backgroundColor: 'brown', // this.context.muiTheme.palette.canvasColor,
+                    // backgroundColor: 'brown', // this.context.muiTheme.palette.canvasColor,
             }}
           >
             <div
@@ -90,7 +89,7 @@ export default class AddonPanel extends React.Component {
               </div>
               <div
                 style={{
-//                    width: '100%',
+                            //                    width: '100%',
                     minHeight: 60,
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -99,7 +98,6 @@ export default class AddonPanel extends React.Component {
                     flexDirection: 'column',
                 }}
               >
-
                 <Button
                   icon="library_add"
                   title="Clone Theme"
@@ -118,10 +116,9 @@ export default class AddonPanel extends React.Component {
                   label="Download Theme"
                   onClick={this.props.onDnLoadTheme}
                 />
-
               </div>
             </div>
-            <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }} >
+            <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }}>
               <textarea
                 style={styleArea}
                 value={this.props.themeJSON}
@@ -129,12 +126,11 @@ export default class AddonPanel extends React.Component {
                 onFocus={this.props.onThemeEditing(true)}
                 onBlur={this.props.onThemeEditing(false)}
               />
-
             </div>
             <div
               style={{
                   width: 130,
-                  padding: '16px 0px',
+                  padding: '16px 8px 16px 0px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
@@ -146,6 +142,37 @@ export default class AddonPanel extends React.Component {
                 label="Theme Editor"
                 onToggle={this.props.onToggleSideBar}
               />
+              <Paper
+                style={{
+                    backgroundColor: 'lightgoldenrodyellow',
+                }}
+              >
+                <Link
+                  icon="announcement"
+                  title="Material-UI V1 support announcement"
+                  label="Material-UI V1 support announcement"
+                  href="https://app.qpointsurvey.com/s.aspx?c=F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~"
+                />
+                <p
+                  style={{
+                      margin: 4,
+                      textAlign: 'center',
+                      fontStyle: 'italic',
+                      fontSize: 11,
+                  }}
+                >
+                            Vote for the most useful features
+                        </p>
+                <p style={{ textDecoration: 'none', margin: 'auto' }}>
+                  <a
+                    href="https://app.qpointsurvey.com/s.aspx?c=F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                                HERE
+                            </a>
+                </p>
+              </Paper>
               <div style={{ display: 'flex', flexDirection: 'column', marginBottom: -8 }}>
                 <Link
                   icon="pageview"
@@ -160,7 +187,6 @@ export default class AddonPanel extends React.Component {
                   href={this.props.issuesLink}
                 />
               </div>
-
             </div>
           </div>
         );

@@ -16,7 +16,8 @@ const buttonStyle = {
     margin: 4,
     display: 'flex',
     alignItems: 'center',
-    fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif', // eslint-disable-line
+    fontFamily:
+        '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif', // eslint-disable-line
     cursor: 'pointer',
     fontSize: 12,
     textDecoration: 'none',
@@ -37,7 +38,7 @@ const selectStyle = {
 const optionsStyle = {
     backgroundColor: '#fcfcfc',
     height: 50,
-//    border: '#2e63ac 4px solid',
+    //    border: '#2e63ac 4px solid',
 };
 
 export function Button({ icon, label, title, onClick }) {
@@ -45,16 +46,8 @@ export function Button({ icon, label, title, onClick }) {
     if (!label) iconStyleAply.margin = 0;
 
     return (
-      <button
-        style={buttonStyle}
-        title={title}
-        onClick={onClick}
-      >
-        <img
-          src={images[icon]}
-          alt={images[icon]}
-          style={iconStyleAply}
-        />
+      <button style={buttonStyle} title={title} onClick={onClick}>
+        <img src={images[icon]} alt={images[icon]} style={iconStyleAply} />
         {label}
       </button>
     );
@@ -70,11 +63,7 @@ Button.propTypes = {
 export function Link({ icon, label, title, href }) {
     return (
       <a href={href} style={buttonStyle} title={title} target="_blank" rel="noopener noreferrer">
-        <img
-          src={images[icon]}
-          alt={images[icon]}
-          style={iconStyle}
-        />
+        <img src={images[icon]} alt={images[icon]} style={iconStyle} />
         {label}
       </a>
     );
@@ -93,18 +82,13 @@ Button.propTypes = {
     title: PropTypes.string,
 };
 
-
 export function CheckBox({ checked, label, title, onToggle }) {
     const toggle = () => onToggle(!checked);
     const selectTitle = is => (is ? title[1] : title[0]);
-    const titleString = typeof (title) === 'string' ? title : selectTitle(checked);
+    const titleString = typeof title === 'string' ? title : selectTitle(checked);
 
     return (
-      <button
-        style={buttonStyle}
-        title={titleString}
-        onClick={toggle}
-      >
+      <button style={buttonStyle} title={titleString} onClick={toggle}>
         <img
           src={checked ? images.check_box : images.check_box_outline_blank}
           alt="check"
@@ -118,24 +102,17 @@ export function CheckBox({ checked, label, title, onToggle }) {
 CheckBox.propTypes = {
     checked: PropTypes.bool,
     label: PropTypes.string,
-    title: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array,
-    ]),
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     onToggle: PropTypes.func,
 };
 
 export function Toggle({ checked, label, title, onToggle }) {
     const toggle = () => onToggle(!checked);
     const selectTitle = is => (is ? title[1] : title[0]);
-    const titleString = typeof (title) === 'string' ? title : selectTitle(checked);
+    const titleString = typeof title === 'string' ? title : selectTitle(checked);
 
     return (
-      <button
-        style={{ ...buttonStyle, margin: 0 }}
-        title={titleString}
-        onClick={toggle}
-      >
+      <button style={{ ...buttonStyle, margin: 0 }} title={titleString} onClick={toggle}>
         <img
           src={checked ? images.toggle_on : images.toggle_off}
           alt="check"
@@ -149,10 +126,7 @@ export function Toggle({ checked, label, title, onToggle }) {
 Toggle.propTypes = {
     checked: PropTypes.bool,
     label: PropTypes.string,
-    title: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array,
-    ]),
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     onToggle: PropTypes.func,
 };
 
@@ -162,7 +136,7 @@ export function Dropdown({ selected, list, title, onSelect }) {
         {val}
       </option>
     ));
-    const select = event => (onSelect(parseInt(event.target.value, 10)));
+    const select = event => onSelect(parseInt(event.target.value, 10));
 
     return (
       <select value={selected} onChange={select} style={selectStyle} title={title}>
@@ -179,25 +153,23 @@ Dropdown.propTypes = {
 };
 
 const paperStyle = {
-    boxShadow: 'rgba(0, 0, 0, 0.117647) 0px 1px 6px',
-    padding: '8px 8px 8px 16px',
+    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 6px',
+    // padding: '8px 8px 8px 16px',
     borderRadius: 2,
     boxSizing: 'border-box',
-    fontFamily: '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif', // eslint-disable-line
+    fontFamily:
+        '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif', // eslint-disable-line
     fontSize: 12,
     marginBottom: 10,
 };
 
-export function Paper({ children }) {
-    return (
-      <div style={paperStyle}>
-        {children}
-      </div>
-    );
+export function Paper({ children, style }) {
+    return <div style={{ ...paperStyle, ...style }}>{children}</div>;
 }
 
 Paper.propTypes = {
     children: PropTypes.node,
+    style: PropTypes.shape(),
 };
 
 const tagStyle = {
@@ -222,15 +194,15 @@ const avaStyle = {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-}
+};
 
 export function Tag({ label, onClick }) {
     return (
       <div style={tagStyle} onClick={onClick}>
         <div style={avaStyle}>
-            <span>{label[0] || '!'}</span>
+          <span>{label[0] || '!'}</span>
         </div>
-        <span style={{margin: '0px 12px 0px 6px', height: 17}}>{label}</span>
+        <span style={{ margin: '0px 12px 0px 6px', height: 17 }}>{label}</span>
       </div>
     );
 }
@@ -239,5 +211,3 @@ Paper.propTypes = {
     label: PropTypes.string,
     onClick: PropTypes.func,
 };
-
-
