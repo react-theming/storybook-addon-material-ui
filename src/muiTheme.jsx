@@ -6,19 +6,19 @@ import MuiTheme from './containers/MuiTheme';
 
 const lightBaseTheme = createMuiTheme();
 const darkBaseTheme = createMuiTheme({
-    palette: {
-        type: 'dark',
-    },
+  palette: {
+    type: 'dark',
+  },
 });
 
 lightBaseTheme.themeName = 'Light Theme';
 darkBaseTheme.themeName = 'Dark Theme';
 
 const previewStyle = color => ({
-    backgroundColor: color,
-    width: '100%',
-    height: '100%',
-    minHeight: 600,
+  backgroundColor: color,
+  width: '100%',
+  height: '100%',
+  minHeight: 600,
 });
 
 export function muiTheme(themes) {
@@ -31,37 +31,37 @@ export function muiTheme(themes) {
      *
      */
 
-    const channel = addons.getChannel();
-    let themesInitList = [lightBaseTheme, darkBaseTheme];
-    if (themes) {
-        if (Array.isArray(themes)) {
-            themesInitList = themes;
-            themesInitList.forEach((val, ind) => {
-                if (typeof val === 'string') {
+  const channel = addons.getChannel();
+  let themesInitList = [lightBaseTheme, darkBaseTheme];
+  if (themes) {
+    if (Array.isArray(themes)) {
+      themesInitList = themes;
+      themesInitList.forEach((val, ind) => {
+        if (typeof val === 'string') {
                     /* note: unsupported names goes as lightBaseTheme
                         if (val === lightBaseTheme.themeName) {
                             themesInitList[ind] = lightBaseTheme;
                         }
                         */
-                    if (val === darkBaseTheme.themeName) {
-                        themesInitList[ind] = darkBaseTheme;
-                    } else {
-                        themesInitList[ind] = lightBaseTheme;
-                    }
-                }
-            });
-        } else {
-            themesInitList = [themes];
+          if (val === darkBaseTheme.themeName) {
+            themesInitList[ind] = darkBaseTheme;
+          } else {
+            themesInitList[ind] = lightBaseTheme;
+          }
         }
+      });
+    } else {
+      themesInitList = [themes];
     }
+  }
 
-    const themesOverrideList = themesInitList.map(val => ({
-        themeName: val.themeName,
-        palette: {},
-    }));
-    const themesAppliedList = makeClone(themesInitList);
-    themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
-    const themesRenderedList = themeListRender(themesAppliedList);
+  const themesOverrideList = themesInitList.map(val => ({
+    themeName: val.themeName,
+    palette: {},
+  }));
+  const themesAppliedList = makeClone(themesInitList);
+  themesAppliedList[0] = themeApply(themesInitList[0], themesOverrideList[0]);
+  const themesRenderedList = themeListRender(themesAppliedList);
 
     /** note: theme arrays description
      *
@@ -72,95 +72,95 @@ export function muiTheme(themes) {
      *
      */
 
-    let storedState = {
-        themeInd: 0,
-        isSideBarOpen: false,
-        isFullTheme: false,
-        collapseList: {
-            palette: true,
-        },
-        currentThemeOverride: {},
-    };
+  let storedState = {
+    themeInd: 0,
+    isSideBarOpen: false,
+    isFullTheme: false,
+    collapseList: {
+      palette: true,
+    },
+    currentThemeOverride: {},
+  };
 
-    const panelState = (state) => {
-        const { themeInd, isSideBarOpen, currentThemeOverride } = state;
-        return {
-            themeInd,
-            isSideBarOpen,
-            currentThemeOverride,
-            themesAppliedList,
-            themesRenderedList,
-        };
+  const panelState = (state) => {
+    const { themeInd, isSideBarOpen, currentThemeOverride } = state;
+    return {
+      themeInd,
+      isSideBarOpen,
+      currentThemeOverride,
+      themesAppliedList,
+      themesRenderedList,
     };
+  };
 
-    const storeState = (state) => {
-        storedState = state;
-    };
+  const storeState = (state) => {
+    storedState = state;
+  };
 
-    const onThemeOverride = (themeInd) => {
-        return (overTheme) => {
-            themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
-            themesAppliedList[themeInd] = themeApply(
+  const onThemeOverride = (themeInd) => {
+    return (overTheme) => {
+      themesOverrideList[themeInd] = themeApply(themesOverrideList[themeInd], overTheme);
+      themesAppliedList[themeInd] = themeApply(
                 themesInitList[themeInd],
                 themesOverrideList[themeInd],
             );
-            return themesAppliedList;
-        };
+      return themesAppliedList;
     };
+  };
 
     // fixme: EVENT_ID_INIT (local gecorators?)
-    channel.emit(EVENT_ID_INIT, panelState(storedState));
+  channel.emit(EVENT_ID_INIT, panelState(storedState));
 
-    return (story) => {
-        const storyItem = story();
-        return (
-          <MuiTheme
-            story={storyItem}
-            themesInitList={themesInitList}
-            themesAppliedListInit={themesAppliedList}
-            themesRenderedList={themesRenderedList}
-            onThemeOverride={onThemeOverride}
-            initState={storedState}
-            onChangeState={storeState}
-            themeListRender={themeListRender}
-            channel={channel}
-          />
-        );
-    };
+  return (story) => {
+    const storyItem = story();
+    return (
+      <MuiTheme
+        story={storyItem}
+        themesInitList={themesInitList}
+        themesAppliedListInit={themesAppliedList}
+        themesRenderedList={themesRenderedList}
+        onThemeOverride={onThemeOverride}
+        initState={storedState}
+        onChangeState={storeState}
+        themeListRender={themeListRender}
+        channel={channel}
+      />
+    );
+  };
 }
 
 function themeApply(prevTheme, overTheme) {
-    const newTheme = makeClone(prevTheme);
-    const keys = Object.keys(overTheme);
-    keys.forEach((val) => {
-        if (typeof overTheme[val] === 'object') {
-            if (typeof newTheme[val] === 'undefined') {
-                newTheme[val] = {};
-            }
+  const newTheme = makeClone(prevTheme);
+  const keys = Object.keys(overTheme);
+  keys.forEach((val) => {
+    if (typeof overTheme[val] === 'object') {
+      if (typeof newTheme[val] === 'undefined') {
+        newTheme[val] = {};
+      }
 
-            const subKeys = Object.keys(overTheme[val]);
+      const subKeys = Object.keys(overTheme[val]);
             // note: find out a number or a string
-            subKeys.forEach((prop) => {
-                newTheme[val][prop] = tryParse(overTheme[val][prop]);
-            });
-        } else {
-            newTheme[val] = overTheme[val];
-        }
-    });
+      subKeys.forEach((prop) => {
+        newTheme[val][prop] = tryParse(overTheme[val][prop]);
+      });
+    } else {
+      newTheme[val] = overTheme[val];
+    }
+  });
 
-    return newTheme;
+  return newTheme;
 }
 
 function themeListRender(themesAppliedList) {
-    const themesRenderedList = makeClone(themesAppliedList);
-    return themesRenderedList;
+  const themesRenderedList = makeClone(themesAppliedList);
+  return themesRenderedList;
 }
 
 function makeClone(obj) {
     // future: use immutable
-    return JSON.parse(JSON.stringify(obj));
+  return JSON.parse(JSON.stringify(obj));
 }
 
 function tryParse(val) {
-    return parseInt(val, 10) || val;
+  return parseInt(val, 10) || val;
 }

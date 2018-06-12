@@ -14,7 +14,7 @@
     "react/jsx-uses-react": 1,
     "react/prefer-stateless-function": 0,
     "react/no-unused-prop-types": 1,
-    "indent": [ 2, 4 ],
+    "indent": [ 2, 2 ],
     "max-len": [1, 100],
 	  "spaced-comment": ["warn", "always", {
       "exceptions": ["-", "+","todo"],
