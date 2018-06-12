@@ -9,6 +9,7 @@ import * as beauti from 'js-beautify';
 
 import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
 import ThemePanel from '../components/ThemePanel';
+import AddonPanel from '../components/AddonPanel';
 
 const { document, window } = global;
 const logger = console;
@@ -235,7 +236,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
         return this.state.isReady ?
         (
           <MuiThemeProvider theme={this.muiTheme}>
-            <ThemePanel
+            <AddonPanel
               themesNameList={this.state.themesNameList}
               defautThemeInd={this.state.themeInd}
               isSideBarOpen={this.state.isSideBarOpen}
