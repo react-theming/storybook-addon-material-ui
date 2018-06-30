@@ -44,7 +44,6 @@
     "@storybook/addon-actions": "^3.4.6",
     "@storybook/addon-info": "^3.4.6",
     "@storybook/addon-options": "^3.4.6",
-    "@storybook/addons": "^3.4.6",
     "@storybook/react": "^3.4.6",
     "@storybook/ui": "^3.4.6",
     "babel-cli": "^6.11.4",
@@ -80,6 +79,7 @@
   },
   "peerDependencies": {
     "@storybook/react": "^3.0.0",
+    "@storybook/addons": "^3.0.0",
     "material-ui": ">=0.15.0",
     "prop-types": "^15.5.8",
     "react": "^15.0.0 || ^16.0.0",
@@ -87,7 +87,6 @@
     "webpack": ">=2.0.0"
   },
   "dependencies": {
-    "@storybook/addons": "^3.4.6",
     "js-beautify": "^1.7.3",
     "react-material-color-picker": "^1.1.2",
     "react-split-pane": "^0.1.66"
