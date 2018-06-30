@@ -138,7 +138,7 @@ Add this line to your addons.js file (create this file inside your storybook con
 import 'storybook-addon-material-ui';
 ```
 
-Now, write your stories with Material-UI Addon. By default your stories will be provided with [`Light Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/lightBaseTheme.js) and [`Dark Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/darkBaseTheme.js)
+Now, write your stories with Material-UI Addon. By default your stories will be provided with `Light` and `Dark` [`Themes`](https://v0.material-ui.com/#/customization/themes)
 
 ```js
 import React from 'react';
@@ -241,7 +241,8 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ## CONTRIBUTING :raising_hand:
 
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
-[![Code Triagers Badge](https://www.codetriage.com/react-theming/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/react-theming/storybook-addon-material-ui)
+
+[![Open Source Helpers](https://www.codetriage.com/sm-react/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/sm-react/storybook-addon-material-ui)
 
 ### :wrench: Developers:
 
@@ -253,7 +254,11 @@ to help contribute to the project feel free to make an issue, PR or get in touch
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### Credits
+[telegram:@usulpro](https://t.me/usulpro) <small>(The quickest way to contact me :zap:)</small>
+
 [![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro)
+
 [![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
-[![@react-theming](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/react-theming)
+
+[![@react-theming](https://img.shields.io/badge/github-React%20Theming-red.svg)](https://github.com/react-theming)
 
