@@ -6,7 +6,7 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
 import * as beauti from 'js-beautify';
 
-import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
+import { EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK } from '../';
 import ThemePanel from '../components/ThemePanel';
 
 const { document, window } = global;
@@ -187,7 +187,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
 
     dataChannelSend(data) {
         if (this.isChannelData) return false;
-        this.props.channel.emit(EVENT_ID_DATA, data);
+        this.props.channel.emit(EVENT_ID_BACK, data);
         return true;
     }
 

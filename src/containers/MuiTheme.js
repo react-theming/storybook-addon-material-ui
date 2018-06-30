@@ -5,7 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SplitPane from 'react-split-pane';
 
-import { EVENT_ID_DATA, CSS_CLASS } from '../'; // future: add CSS_CLASS
+import { EVENT_ID_DATA, EVENT_ID_BACK, CSS_CLASS } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar
 import ThemeSideBar from '../components/ThemeSideBar';
 // const stringify = require('json-stringify-safe');
@@ -44,7 +44,7 @@ export default class MuiTheme extends React.Component {
 
 
     componentDidMount() {
-        this.props.channel.on(EVENT_ID_DATA, this.onChannel);
+        this.props.channel.on(EVENT_ID_BACK, this.onChannel);
         if (!this.state.isMount) {
             setTimeout(() => {
                 this.needComponentUpdate('ThemeSideBar');
@@ -64,7 +64,7 @@ export default class MuiTheme extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.channel.removeListener(EVENT_ID_DATA, this.onChannel);
+        this.props.channel.removeListener(EVENT_ID_BACK, this.onChannel);
     }
 
     onChannel(state) {
