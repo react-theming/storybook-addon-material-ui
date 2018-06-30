@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-material-ui",
-  "version": "0.8.5",
+  "version": "0.8.7",
   "description": "Storybook Addon for Material Ui Library",
   "main": "dist/index.js",
   "scripts": {
