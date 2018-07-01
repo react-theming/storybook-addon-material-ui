@@ -44,7 +44,7 @@ export default class MuiTheme extends React.Component {
     this.wouldComponentUpdate = this.wouldComponentUpdate.bind(this);
     this.needComponentUpdate = this.needComponentUpdate.bind(this);
 
-    this.dataChannelSend = this.dataChannelSend.bind(this);
+    // this.dataChannelSend = this.dataChannelSend.bind(this);
   }
 
   componentDidMount() {
@@ -63,7 +63,7 @@ export default class MuiTheme extends React.Component {
 
   componentDidUpdate() {
     this.props.onChangeState(this.state);
-    this.dataChannelSend(this.state);
+    // this.dataChannelSend(this.state);
     this.isChannelData = false;
   }
 
@@ -94,12 +94,12 @@ export default class MuiTheme extends React.Component {
     };
   }
 
-  dataChannelSend(data) {
-    if (this.isChannelData || !this.state.isMount) return false;
-        //        const dataStr = stringify(data);
-    this.props.channel.emit(EVENT_ID_DATA, data);
-    return true;
-  }
+  // dataChannelSend(data) {
+  //   if (this.isChannelData || !this.state.isMount) return false;
+  //       //        const dataStr = stringify(data);
+  //   this.props.channel.emit(EVENT_ID_DATA, data);
+  //   return true;
+  // }
 
   changeTheme(ind) {
     this.needComponentUpdate('ThemeSideBar');
@@ -164,7 +164,8 @@ export default class MuiTheme extends React.Component {
         //     shadows: {},
         // });
 
-    const theme = (this.props.themesInitList[this.state.themeInd]);
+    // const theme = (this.props.themesInitList[this.state.themeInd]);
+    const theme = createMuiTheme(this.state.themesAppliedList[this.state.themeInd]);
 
     return (
       <MuiThemeProvider theme={theme}>

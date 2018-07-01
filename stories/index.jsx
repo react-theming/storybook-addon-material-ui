@@ -126,3 +126,21 @@ storiesOf('Material Custom theme', module)
       </Button>
     </div>
   ));
+
+storiesOf('Clone Custom theme', module)
+  .addDecorator(
+    muiTheme([customTheme1, customTheme2, customTheme3, yellowBlueTheme, yellowRedTheme]),
+  )
+  .add(' Raised buttons', () => (
+    <div>
+      <Button variant="raised" color="primary" style={buttonStyle}>
+        Raised primary
+      </Button>
+      <Button variant="raised" color="secondary" style={buttonStyle}>
+        Raised secondary
+      </Button>
+      <Button variant="raised" style={buttonStyle}>
+        Raised default
+      </Button>
+    </div>
+  ));

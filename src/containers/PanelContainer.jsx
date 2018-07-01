@@ -98,8 +98,8 @@ export default class PanelContainer extends React.Component {
   }
 
   @autobind
-  onChangeTheme(event) {
-    const str = event.target.value;
+  onChangeTheme(str) {
+    // const str = event.target.value;
     try {
       const newTheme = JSON.parse(str);
       const themesAppliedList = this.state.themesAppliedList;
@@ -119,12 +119,13 @@ export default class PanelContainer extends React.Component {
 
   @autobind
   onThemeEditing(isFocus) {
-    return () =>
-      console.log('onThemeEditing') ||
+    return () => {
+      const themeString = this.getCurrentTheme(1);
       this.setState({
         isThemeEditing: isFocus,
-        themeString: this.getCurrentTheme(1),
+        themeString,
       });
+    };
   }
 
   @autobind

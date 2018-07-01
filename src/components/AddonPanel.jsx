@@ -45,6 +45,7 @@ export default class AddonPanel extends React.Component {
       value: props.defautThemeInd,
       isThemeEditing: false,
       isThemeValid: true,
+      theme: props.themeJSON,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -54,11 +55,14 @@ export default class AddonPanel extends React.Component {
     this.setState({ value }, this.props.onThemeSelect(value));
   }
 
+  handleThemeChange = ev => this.setState({ theme: ev.target.value });
+
   render() {
     const styleArea = {
       width: '100%',
-      height: '100%',
+      // height: '100%',
       outlineColor: this.props.isThemeInvalid ? '#cc5858' : '#26acd8',
+      flexGrow: 1,
     };
     return (
       <div
@@ -118,14 +122,24 @@ export default class AddonPanel extends React.Component {
             />
           </div>
         </div>
-        <div style={{ width: 200, minWidth: 150, flexGrow: 1, padding: 16 }}>
+        <div
+          style={{
+            width: 200,
+            minWidth: 150,
+            flexGrow: 1,
+            padding: 16,
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <textarea
             style={styleArea}
-            value={this.props.themeJSON}
-            onChange={this.props.onChangeTheme}
+            value={this.state.theme}
+            onChange={this.handleThemeChange}
             onFocus={this.props.onThemeEditing(true)}
             onBlur={this.props.onThemeEditing(false)}
           />
+          <button onClick={() => this.props.onChangeTheme(this.state.theme)}>Apply</button>
         </div>
         <div
           style={{
