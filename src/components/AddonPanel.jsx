@@ -136,12 +136,6 @@ export default class AddonPanel extends React.Component {
             justifyContent: 'space-between',
           }}
         >
-          <Toggle
-            checked={this.props.isSideBarOpen}
-            title={['Show Theme Editor', 'Hide Theme Editor']}
-            label="Theme Editor"
-            onToggle={this.props.onToggleSideBar}
-          />
           <Paper
             style={{
               backgroundColor: 'lightgoldenrodyellow',
@@ -163,7 +157,7 @@ export default class AddonPanel extends React.Component {
             >
               Vote for the most useful features
             </p>
-            <p style={{ textDecoration: 'none', margin: 'auto' }}>
+            <p style={{ textDecoration: 'none', margin: 'auto', textAlign: 'center' }}>
               <a
                 href="https://app.qpointsurvey.com/s.aspx?c=F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~"
                 target="_blank"

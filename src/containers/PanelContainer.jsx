@@ -3,12 +3,9 @@ import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-// import lightBaseTheme from '@material-ui/core/styles/baseThemes/lightBaseTheme';
-// import darkBaseTheme from '@material-ui/core/styles/baseThemes/darkBaseTheme'; // eslint-disable-line
 import * as beauti from 'js-beautify';
 
 import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
-import ThemePanel from '../components/ThemePanel';
 import AddonPanel from '../components/AddonPanel';
 
 const { document, window } = global;
@@ -123,6 +120,7 @@ export default class PanelContainer extends React.Component {
   @autobind
   onThemeEditing(isFocus) {
     return () =>
+      console.log('onThemeEditing') ||
       this.setState({
         isThemeEditing: isFocus,
         themeString: this.getCurrentTheme(1),

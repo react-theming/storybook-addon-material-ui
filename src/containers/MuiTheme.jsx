@@ -7,7 +7,6 @@ import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
 
-import SplitPane from 'react-split-pane';
 
 import { EVENT_ID_DATA } from '../'; // future: add CSS_CLASS
 // future: [x] remove ThemeToolbar

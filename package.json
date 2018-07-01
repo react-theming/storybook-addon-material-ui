@@ -45,7 +45,6 @@
     "@storybook/addon-info": "^3.0.0",
     "@storybook/addon-options": "^3.0.0",
     "@storybook/react": "^3.1.9",
-    "@storybook/ui": "^3.0.0",
     "autobind-decorator": "^2.1.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.18.2",
@@ -70,7 +69,6 @@
     "git-url-parse": "^6.0.1",
     "jsdom": "^9.5.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.3.0",
     "prop-types": "^15.5.8",
     "raw-loader": "^0.5.1",
     "react": "^16.3.2",
@@ -82,18 +80,14 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^1.0.0",
-    "@storybook/react": "^3.0.0",
+    "@storybook/react": "^3.0.0 || ^4.0.0",
+    "@storybook/addons": "^3.0.0 || ^4.0.0",
     "prop-types": "^15.5.8",
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
   },
   "dependencies": {
-    "@material-ui/icons": "^1.0.0",
-    "@storybook/addon-actions": "^3.0.0",
-    "@storybook/addon-links": "^3.4.5",
-    "@storybook/addons": "^3.0.0",
     "js-beautify": "^1.6.8",
-    "react-material-color-picker": "^1.1.0",
-    "react-split-pane": "^0.1.50"
+    "react-material-color-picker": "^1.1.0"
   }
 }
