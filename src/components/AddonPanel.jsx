@@ -64,6 +64,14 @@ export default class AddonPanel extends React.Component {
       outlineColor: this.props.isThemeInvalid ? '#cc5858' : '#26acd8',
       flexGrow: 1,
     };
+    const buttonStyle = {
+      height: 34,
+      width: 34,
+      fontSize: 10,
+      fontFamily:
+        '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif',
+      marginBottom: 4,
+    };
     return (
       <div
         style={{
@@ -127,20 +135,45 @@ export default class AddonPanel extends React.Component {
             width: 200,
             minWidth: 150,
             flexGrow: 1,
-            padding: 16,
+            paddingLeft: 16,
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'row',
           }}
         >
-          <textarea
-            style={styleArea}
-            value={this.state.theme}
-            onChange={this.handleThemeChange}
-            onFocus={this.props.onThemeEditing(true)}
-            onBlur={this.props.onThemeEditing(false)}
-          />
-          <button onClick={() => this.props.onChangeTheme(this.state.theme)}>Apply</button>
+          <div
+            style={{
+              paddingTop: 16,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Button icon="bookmark_border" title="Palette" label="Pal" compact disabled />
+            <Button icon="bookmark_border" title="Typography" label="Typ" compact disabled />
+            <Button icon="bookmark_border" title="Spacing" label="Spc" compact disabled />
+            <Button icon="bookmark_border" title="Theme overrides" label="Ove" compact disabled />
+            <Button icon="bookmark_border" title="Full Theme" label="Thm" compact />
+          </div>
+          <div
+            style={{
+              width: '100%',
+              // flexGrow: 1,
+              padding: 16,
+              paddingLeft: 4,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <textarea
+              style={styleArea}
+              value={this.state.theme}
+              onChange={this.handleThemeChange}
+              onFocus={this.props.onThemeEditing(true)}
+              onBlur={this.props.onThemeEditing(false)}
+            />
+            <button onClick={() => this.props.onChangeTheme(this.state.theme)}>Apply</button>
+          </div>
         </div>
+
         <div
           style={{
             width: 130,
@@ -153,6 +186,8 @@ export default class AddonPanel extends React.Component {
           <Paper
             style={{
               backgroundColor: 'lightgoldenrodyellow',
+              paddingTop: 16,
+              paddingBottom: 16,
             }}
           >
             <Link
@@ -177,7 +212,7 @@ export default class AddonPanel extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                HERE
+                {'> HERE <'}
               </a>
             </p>
           </Paper>

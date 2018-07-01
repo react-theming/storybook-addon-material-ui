@@ -41,14 +41,19 @@ const optionsStyle = {
   //    border: '#2e63ac 4px solid',
 };
 
-export function Button({ icon, label, title, onClick }) {
-  const iconStyleAply = iconStyle;
-  if (!label) iconStyleAply.margin = 0;
+export function Button({ icon, label, title, onClick, compact, disabled }) {
+  // const iconStyleAply = iconStyle;
+  const iconOverride = !label || compact ? { margin: 0 } : {};
+  // if (!label || compact) iconStyleAply.margin = 0;
 
   return (
-    <button style={buttonStyle} title={title} onClick={onClick}>
-      <img src={images[icon]} alt={images[icon]} style={iconStyleAply} />
-      {label}
+    <button
+      style={{ ...buttonStyle, ...(disabled && { opacity: 0.5 }) }}
+      title={title}
+      onClick={onClick}
+    >
+      <img src={images[icon]} alt={images[icon]} style={{ ...iconStyle, ...iconOverride }} />
+      {(!compact && label) || ''}
     </button>
   );
 }
