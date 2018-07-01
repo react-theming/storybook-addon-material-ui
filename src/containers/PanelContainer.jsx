@@ -5,7 +5,7 @@ import autobind from 'autobind-decorator';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import * as beauti from 'js-beautify';
 
-import { EVENT_ID_INIT, EVENT_ID_DATA } from '../';
+import { EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK } from '../';
 import AddonPanel from '../components/AddonPanel';
 
 const { document, window } = global;
@@ -192,7 +192,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
   @autobind
   dataChannelSend(data) {
     if (this.isChannelData) return false;
-    this.props.channel.emit(EVENT_ID_DATA, data);
+    this.props.channel.emit(EVENT_ID_BACK, data);
     return true;
   }
 
