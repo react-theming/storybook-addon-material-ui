@@ -78,8 +78,8 @@
     "style-loader": "^0.13.1"
   },
   "peerDependencies": {
-    "@storybook/react": "^3.0.0 || ^4.0.0",
-    "@storybook/addons": "^3.0.0 || ^4.0.0",
+    "@storybook/react": "^3.0.0 || ^4.0.0--",
+    "@storybook/addons": "^3.0.0 || ^4.0.0--",
     "material-ui": ">=0.15.0",
     "prop-types": "^15.5.8",
     "react": "^15.0.0 || ^16.0.0",
