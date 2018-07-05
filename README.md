@@ -21,10 +21,10 @@
 You can start using `react-theming` with `storybook-boilerplate`.
 
 ```
-git clone https://github.com/sm-react/storybook-boilerplate.git
-cd storybook-boilerplate
-npm i
-npm start
+git clone https://github.com/react-theming/create-material-ui-app.git
+cd create-material-ui-app
+yarn # select @storybook/react version when prompted
+yarn storybook
 ```
 
 Details about [storybook-boilerplate](https://github.com/sm-react/storybook-boilerplate)
