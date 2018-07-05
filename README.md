@@ -27,7 +27,7 @@ yarn # select @storybook/react version when prompted
 yarn storybook
 ```
 
-Details about [storybook-boilerplate](https://github.com/sm-react/storybook-boilerplate)
+Details about [create-material-ui-app](https://github.com/react-theming/create-material-ui-app)
 
 ## Credits
 
