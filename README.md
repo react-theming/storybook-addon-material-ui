@@ -135,7 +135,7 @@ npm i storybook-addon-material-ui --save-dev
 Add this line to your addons.js file (create this file inside your storybook config directory if needed).
 
 ```js
-import 'storybook-addon-material-ui';
+import 'storybook-addon-material-ui/register';
 ```
 
 Now, write your stories with Material-UI Addon. By default your stories will be provided with `Light` and `Dark` [`Themes`](https://v0.material-ui.com/#/customization/themes)
