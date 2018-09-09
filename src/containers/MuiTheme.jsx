@@ -18,7 +18,7 @@ const propTypes = {
   story: PropTypes.object.isRequired,
   onChangeState: PropTypes.func.isRequired,
   onThemeOverride: PropTypes.func.isRequired,
-  themesInitList: PropTypes.func.isRequired,
+  themesInitList: PropTypes.array.isRequired,
     // themeListRender: PropTypes.func.isRequired,
   initState: PropTypes.object.isRequired,
   channel: PropTypes.object.isRequired,
