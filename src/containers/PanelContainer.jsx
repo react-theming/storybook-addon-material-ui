@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autobind from 'autobind-decorator';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import * as beauti from 'js-beautify';
@@ -75,30 +74,26 @@ export default class PanelContainer extends React.Component {
     this.props.channel.removeListener(EVENT_ID_DATA, this.onDataChannel);
   }
 
-  @autobind
-  onInitChannel(initData) {
+  onInitChannel = (initData) => {
     const themesNameList = genNameList(initData.themesAppliedList);
     const queryData = this.queryFetch();
     this.setState({ ...initData, ...queryData, themesNameList, isReady: true });
   }
 
-  @autobind
-  onDataChannel(stateData) {
+  onDataChannel = (stateData) => {
     //        const stateData = JSON.parse(strData);
     const themesNameList = genNameList(stateData.themesAppliedList);
     this.isChannelData = true; // note: this state received by channel, don't need to send back
     this.setState({ ...stateData, themesNameList });
   }
 
-  @autobind
-  onThemeSelect(ind) {
+  onThemeSelect = (ind) =>  {
     this.setState({
       themeInd: ind,
     });
   }
 
-  @autobind
-  onChangeTheme(str) {
+  onChangeTheme = (str) => {
     // const str = event.target.value;
     try {
       const newTheme = JSON.parse(str);
@@ -117,8 +112,7 @@ export default class PanelContainer extends React.Component {
     }
   }
 
-  @autobind
-  onThemeEditing(isFocus) {
+  onThemeEditing = (isFocus) => {
     return () => {
       const themeString = this.getCurrentTheme(1);
       this.setState({
@@ -128,15 +122,13 @@ export default class PanelContainer extends React.Component {
     };
   }
 
-  @autobind
-  onToggleSideBar(f) {
+  onToggleSideBar = (f) => {
     this.setState({
       isSideBarOpen: f,
     });
   }
 
-  @autobind
-  onDnLoadTheme() {
+  onDnLoadTheme = () => {
     const uri = `data:application/json;charset=utf-8;base64,
 ${window.btoa(this.getCurrentTheme(4))}`;
     const fileName = this.state.themesAppliedList[this.state.themeInd].themeFile || 'theme.json';
@@ -149,8 +141,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     document.body.removeChild(downloadTheme);
   }
 
-  @autobind
-  onCloneTheme() {
+  onCloneTheme = () => {
     progressInfo(this);
     return null;
 
@@ -165,8 +156,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     //        this.setState({ themesAppliedList: newAppliedList, themesNameList });
   }
 
-  @autobind
-  onCleanTheme() {
+  onCleanTheme = () => {
     progressInfo(this);
     return null;
     //        const themesAppliedList = this.state.themesAppliedList;
@@ -178,8 +168,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     //        this.setState({ themesAppliedList, themesNameList });
   }
 
-  @autobind
-  getCurrentTheme(indent = 2) {
+  getCurrentTheme = (indent = 2) => {
     // console.log(this.state.themesAppliedList[this.state.themeInd]);
     return beauti.js_beautify(JSON.stringify(this.state.themesAppliedList[this.state.themeInd]), {
       indent_size: indent,
@@ -189,15 +178,13 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     });
   }
 
-  @autobind
-  dataChannelSend(data) {
+  dataChannelSend = (data) => {
     if (this.isChannelData) return false;
     this.props.channel.emit(EVENT_ID_BACK, data);
     return true;
   }
 
-  @autobind
-  queryFetch() {
+  queryFetch = () => {
     const themeInd = this.props.api.getQueryParam('theme-ind');
     const isSideBarOpen = this.props.api.getQueryParam('theme-sidebar');
     const isFullTheme = this.props.api.getQueryParam('theme-full');
@@ -209,8 +196,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     return data;
   }
 
-  @autobind
-  querySet(state) {
+  querySet = (state) => {
     if (state.isReady) {
       const { themeInd, isSideBarOpen, isFullTheme } = state;
       const queryParams = {
