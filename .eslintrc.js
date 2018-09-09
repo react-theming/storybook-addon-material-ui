@@ -17,5 +17,7 @@ module.exports = {
   },
   rules: {
     'no-console': ignore,
+    'react/jsx-filename-extension': ignore,
+    'react/destructuring-assignment': ignore,
   }
 };

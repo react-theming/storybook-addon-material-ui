@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import * as beauti from 'js-beautify';
 
-import { EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK } from '../';
 import AddonPanel from '../components/AddonPanel';
 
 const { document, window } = global;
@@ -17,13 +16,13 @@ const PROGRESS_STATUS = {
   'button-download': 'done', // todo: [x] button_download
   'button-clean': 'soon', // todo: [] button_clean
   'textarea-edit': 'done', // todo: [x] textarea-edit
-  'textarea-update': 'done', // todo: [x] textarea-update
+  'textarea-update': 'done' // todo: [x] textarea-update
 };
 
 const progressInfo = () => {
   const keys = Object.keys(PROGRESS_STATUS);
   logger.group('PROGRESS_STATUS:');
-  keys.forEach((val) => {
+  keys.forEach(val => {
     if (PROGRESS_STATUS[val] === 'done') {
       logger.info(`${val}: ${PROGRESS_STATUS[val]}`);
       return;
@@ -36,12 +35,12 @@ const progressInfo = () => {
 const genNameList = themesAppliedList =>
   themesAppliedList.map((val, ind) => val.themeName || `Theme ${ind + 1}`);
 
-const propTypes = {
-  channel: PropTypes.object.isRequired,
-  api: PropTypes.object.isRequired,
-};
-
 export default class PanelContainer extends React.Component {
+  static propTypes = {
+    store: PropTypes.shape().isRequired,
+    api: PropTypes.shape().isRequired
+  };
+
   constructor(props, ...args) {
     super(props, ...args);
 
@@ -49,7 +48,7 @@ export default class PanelContainer extends React.Component {
       isReady: false,
       isThemeInvalid: false,
       isThemeEditing: false,
-      themeString: '',
+      themeString: ''
     };
     this.isChannelData = false;
 
@@ -58,8 +57,10 @@ export default class PanelContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.channel.on(EVENT_ID_INIT, this.onInitChannel);
-    this.props.channel.on(EVENT_ID_DATA, this.onDataChannel);
+    // this.props.channel.on(EVENT_ID_INIT, this.onInitChannel);
+    // this.props.channel.on(EVENT_ID_DATA, this.onDataChannel);
+    this.props.store.connect();
+    this.props.store.onData(this.onInitChannel);
   }
 
   componentDidUpdate() {
@@ -70,30 +71,31 @@ export default class PanelContainer extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.channel.removeListener(EVENT_ID_INIT, this.onInitChannel);
-    this.props.channel.removeListener(EVENT_ID_DATA, this.onDataChannel);
+    this.props.store.disconnect();
+    // this.props.channel.removeListener(EVENT_ID_INIT, this.onInitChannel);
+    // this.props.channel.removeListener(EVENT_ID_DATA, this.onDataChannel);
   }
 
-  onInitChannel = (initData) => {
+  onInitChannel = initData => {
     const themesNameList = genNameList(initData.themesAppliedList);
     const queryData = this.queryFetch();
     this.setState({ ...initData, ...queryData, themesNameList, isReady: true });
-  }
+  };
 
-  onDataChannel = (stateData) => {
+  onDataChannel = stateData => {
     //        const stateData = JSON.parse(strData);
     const themesNameList = genNameList(stateData.themesAppliedList);
     this.isChannelData = true; // note: this state received by channel, don't need to send back
     this.setState({ ...stateData, themesNameList });
-  }
+  };
 
-  onThemeSelect = (ind) =>  {
+  onThemeSelect = ind => {
     this.setState({
-      themeInd: ind,
+      themeInd: ind
     });
-  }
+  };
 
-  onChangeTheme = (str) => {
+  onChangeTheme = str => {
     // const str = event.target.value;
     try {
       const newTheme = JSON.parse(str);
@@ -102,36 +104,36 @@ export default class PanelContainer extends React.Component {
       this.setState({
         themesAppliedList,
         isThemeInvalid: false,
-        themeString: str,
+        themeString: str
       });
     } catch (e) {
       this.setState({
         isThemeInvalid: true,
-        themeString: str,
+        themeString: str
       });
     }
-  }
+  };
 
-  onThemeEditing = (isFocus) => {
-    return () => {
-      const themeString = this.getCurrentTheme(1);
-      this.setState({
-        isThemeEditing: isFocus,
-        themeString,
-      });
-    };
-  }
-
-  onToggleSideBar = (f) => {
+  onThemeEditing = isFocus => () => {
+    const themeString = this.getCurrentTheme(1);
     this.setState({
-      isSideBarOpen: f,
+      isThemeEditing: isFocus,
+      themeString
     });
-  }
+  };
+
+  onToggleSideBar = f => {
+    this.setState({
+      isSideBarOpen: f
+    });
+  };
 
   onDnLoadTheme = () => {
     const uri = `data:application/json;charset=utf-8;base64,
 ${window.btoa(this.getCurrentTheme(4))}`;
-    const fileName = this.state.themesAppliedList[this.state.themeInd].themeFile || 'theme.json';
+    const fileName =
+      this.state.themesAppliedList[this.state.themeInd].themeFile ||
+      'theme.json';
     const downloadTheme = document.createElement('a');
     downloadTheme.href = uri;
     downloadTheme.download = fileName;
@@ -139,7 +141,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     document.body.appendChild(downloadTheme);
     downloadTheme.click();
     document.body.removeChild(downloadTheme);
-  }
+  };
 
   onCloneTheme = () => {
     progressInfo(this);
@@ -154,7 +156,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     //        const themesNameList = genNameList(newAppliedList);
     //        logger.log(themesNameList);
     //        this.setState({ themesAppliedList: newAppliedList, themesNameList });
-  }
+  };
 
   onCleanTheme = () => {
     progressInfo(this);
@@ -166,47 +168,53 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     //        themesAppliedList[this.state.themeInd] = newTheme;
     //        const themesNameList = genNameList(themesAppliedList);
     //        this.setState({ themesAppliedList, themesNameList });
-  }
+  };
 
-  getCurrentTheme = (indent = 2) => {
+  getCurrentTheme = (indent = 2) =>
     // console.log(this.state.themesAppliedList[this.state.themeInd]);
-    return beauti.js_beautify(JSON.stringify(this.state.themesAppliedList[this.state.themeInd]), {
-      indent_size: indent,
-      indent_char: ' ',
-      eol: '\n',
-      end_with_newline: true,
-    });
-  }
+    beauti.js_beautify(
+      JSON.stringify(this.state.themesAppliedList[this.state.themeInd]),
+      {
+        indent_size: indent,
+        indent_char: ' ',
+        eol: '\n',
+        end_with_newline: true
+      }
+    );
 
-  dataChannelSend = (data) => {
+  dataChannelSend = data => {
     if (this.isChannelData) return false;
-    this.props.channel.emit(EVENT_ID_BACK, data);
+    // this.props.channel.emit(EVENT_ID_BACK, data);
+    const theme = this.state.themesRenderedList[this.state.themeInd];
+    this.props.store.send(theme);
     return true;
-  }
+  };
 
   queryFetch = () => {
     const themeInd = this.props.api.getQueryParam('theme-ind');
     const isSideBarOpen = this.props.api.getQueryParam('theme-sidebar');
     const isFullTheme = this.props.api.getQueryParam('theme-full');
-    const data = JSON.parse(JSON.stringify({ themeInd, isSideBarOpen, isFullTheme }));
+    const data = JSON.parse(
+      JSON.stringify({ themeInd, isSideBarOpen, isFullTheme })
+    );
     const keys = Object.keys(data);
-    keys.forEach((val) => {
+    keys.forEach(val => {
       data[val] = JSON.parse(data[val]);
     });
     return data;
-  }
+  };
 
-  querySet = (state) => {
+  querySet = state => {
     if (state.isReady) {
       const { themeInd, isSideBarOpen, isFullTheme } = state;
       const queryParams = {
         'theme-ind': themeInd,
         'theme-sidebar': isSideBarOpen,
-        'theme-full': isFullTheme,
+        'theme-full': isFullTheme
       };
       this.props.api.setQueryParams(queryParams);
     }
-  }
+  };
 
   render() {
     return this.state.isReady ? (
@@ -236,7 +244,7 @@ ${window.btoa(this.getCurrentTheme(4))}`;
           padding: 16,
           fontFamily:
             '"San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif',
-          color: 'rgb(68, 68, 68)',
+          color: 'rgb(68, 68, 68)'
         }}
       >
         waiting for muiTheme decorator...
@@ -244,5 +252,3 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     );
   }
 }
-
-PanelContainer.propTypes = propTypes;

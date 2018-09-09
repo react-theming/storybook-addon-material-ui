@@ -1,7 +1,7 @@
 import React from 'react';
 import addons from '@storybook/addons';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { EVENT_ID_INIT } from './';
+import { EVENT_ID_INIT } from './config';
 import MuiTheme from './containers/MuiTheme';
 
 const lightBaseTheme = createMuiTheme();
