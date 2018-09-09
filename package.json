@@ -41,14 +41,15 @@
   },
   "homepage": "https://github.com/react-themingstorybook-addon-material-ui",
   "devDependencies": {
-    "@material-ui/core": "^1.0.0",
-    "@storybook/addon-info": "^3.0.0",
-    "@storybook/addon-options": "^3.0.0",
-    "@storybook/react": "^3.1.9",
+    "@babel/core": "^7.0.0",
+    "@material-ui/core": "^3.0.3",
+    "@storybook/addon-info": "4.0.0-alpha.21",
+    "@storybook/addon-options": "4.0.0-alpha.21",
+    "@storybook/addons": "4.0.0-alpha.21",
+    "@storybook/react": "^4.0.0-alpha.21",
     "babel-cli": "^6.11.4",
-    "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.8",
+    "babel-loader": "^8.0.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-plugin-transform-runtime": "^6.5.0",
     "babel-polyfill": "^6.5.0",
@@ -79,15 +80,15 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^1.0.0",
-    "@storybook/react": "^3.0.0 || ^4.0.0",
     "@storybook/addons": "^3.0.0 || ^4.0.0",
+    "@storybook/react": "^3.0.0 || ^4.0.0",
     "prop-types": "^15.5.8",
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
   },
   "dependencies": {
-    "js-beautify": "^1.6.8",
     "autobind-decorator": "^2.1.0",
+    "js-beautify": "^1.6.8",
     "react-material-color-picker": "^1.1.0"
   }
 }
