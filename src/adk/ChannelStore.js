@@ -1,8 +1,15 @@
 import addons from '@storybook/addons';
 
 export default class ChannelStore {
-  constructor(EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK, name = 'store') {
-    this.store = {};
+  constructor({
+    EVENT_ID_INIT,
+    EVENT_ID_DATA,
+    EVENT_ID_BACK,
+    name = 'store',
+    initData = {},
+    isPanel = false,
+  }) {
+    this.store = initData;
     this.name = name;
     this.subscriber = () => {};
     this.onConnectedFn = () => {};
@@ -10,14 +17,11 @@ export default class ChannelStore {
 
     this.connect = () => {
       this.channel.on(EVENT_ID_INIT, this.onInitChannel);
-      this.channel.on(EVENT_ID_DATA, this.onDataChannel);
-      console.log(
-        'TCL: ChannelStore -> this.connect -> EVENT_ID_INIT',
-        this.name
-      );
+      this.channel.on(isPanel ? EVENT_ID_DATA : EVENT_ID_BACK, this.onDataChannel);
+      console.log(EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK, this.name);
       this.onConnectedFn();
     };
-    this.emit = data => this.channel.emit(EVENT_ID_BACK, data);
+    this.emit = data => this.channel.emit(isPanel ? EVENT_ID_BACK : EVENT_ID_DATA, data);
     this.init = data => this.channel.emit(EVENT_ID_INIT, data);
     this.removeInit = () =>
       this.channel.removeListener(EVENT_ID_INIT, this.onInitChannel);
@@ -32,7 +36,7 @@ export default class ChannelStore {
   };
 
   onDataChannel = updData => {
-    console.log('TCL: ChannelStore -> onDataChannel', this.name);
+    console.log('onDataChannel', this.name);
     this.store = {
       ...this.store,
       ...updData
@@ -49,8 +53,13 @@ export default class ChannelStore {
   };
 
   send = data => {
-    this.emit(data);
-    console.log('TCL: ChannelStore -> send', this.name);
+    this.store = {
+      ...this.store,
+      ...data
+    };
+    this.emit(this.store);
+    this.subscriber(this.store);
+    console.log('Send', this.name);
   };
 
   sendInit = data => {

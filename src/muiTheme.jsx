@@ -4,6 +4,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import { EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK } from './config';
 import MuiTheme from './containers/MuiTheme';
+import MuiDecorator from './UI/MuiDecorator';
 import { createStore } from './adk/decorator';
 
 const lightBaseTheme = createMuiTheme();
@@ -34,7 +35,12 @@ export function muiTheme(themes) {
    */
 
   const channel = addons.getChannel();
-  const store = createStore(EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK, 'iframe');
+  const store = createStore(
+    EVENT_ID_INIT,
+    EVENT_ID_DATA,
+    EVENT_ID_BACK,
+    'iframe'
+  );
 
   let themesInitList = [lightBaseTheme, darkBaseTheme];
   if (themes) {
@@ -114,25 +120,33 @@ export function muiTheme(themes) {
   };
 
   // fixme: EVENT_ID_INIT (local gecorators?)
-  store.onConnected(() => store.sendInit(themesInitList))
+  store.onConnected(() =>
+    store.sendInit({ themes: themesInitList, themeInd: 0 })
+  );
   // channel.emit(EVENT_ID_INIT, panelState(storedState));
 
   return story => {
     const storyItem = story();
     return (
-      <MuiTheme
+      <MuiDecorator
         story={storyItem}
-        themesInitList={themesInitList}
-        themesAppliedListInit={themesAppliedList}
-        themesRenderedList={themesRenderedList}
-        onThemeOverride={onThemeOverride}
-        initState={storedState}
-        onChangeState={storeState}
-        themeListRender={themeListRender}
-        // channel={channel}
-        store={store}
+        initData={{ themes: themesInitList, themeInd: 0 }}
       />
     );
+    // return (
+    //   <MuiTheme
+    //     story={storyItem}
+    //     themesInitList={themesInitList}
+    //     themesAppliedListInit={themesAppliedList}
+    //     themesRenderedList={themesRenderedList}
+    //     onThemeOverride={onThemeOverride}
+    //     initState={storedState}
+    //     onChangeState={storeState}
+    //     themeListRender={themeListRender}
+    //     // channel={channel}
+    //     store={store}
+    //   />
+    // );
   };
 }
 

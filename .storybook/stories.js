@@ -20,7 +20,7 @@ const accentGreen = green.A200;
 const darkGreen = green[900];
 
 const buttonStyle = {
-  margin: 16,
+  margin: 16
 };
 
 const customTheme1 = createMuiTheme({
@@ -29,16 +29,16 @@ const customTheme1 = createMuiTheme({
       light: accentGreen,
       main: primaryGreen,
       dark: darkGreen,
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
     secondary: {
       light: accentPurple,
       main: primaryPurple,
       dark: darkPurple,
-      contrastText: '#fff',
-    },
+      contrastText: '#fff'
+    }
   },
-  themeName: 'Custom Light Theme',
+  themeName: 'Custom Light Theme'
 });
 
 const customTheme2 = createMuiTheme({
@@ -47,17 +47,17 @@ const customTheme2 = createMuiTheme({
       light: accentPurple,
       main: primaryPurple,
       dark: darkPurple,
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
-    type: 'dark',
+    type: 'dark'
   },
   secondary: {
     light: accentGreen,
     main: primaryGreen,
     dark: darkGreen,
-    contrastText: '#fff',
+    contrastText: '#fff'
   },
-  themeName: 'Custom Dark Theme',
+  themeName: 'Custom Dark Theme'
 });
 
 const customTheme3 = createMuiTheme({
@@ -66,53 +66,51 @@ const customTheme3 = createMuiTheme({
       light: accentPurple,
       main: blue[200],
       dark: darkPurple,
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
     secondary: {
       light: accentGreen,
       main: blue[400],
       dark: darkGreen,
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
-    type: 'dark',
+    type: 'dark'
   },
-  themeName: 'Pale Blue Theme',
+  themeName: 'Pale Blue Theme'
 });
 
-const yellowRedTheme = createMuiTheme({
+const yellowRedTheme = {
   palette: {
     primary: {
       main: yellow[500],
-      contrastText: '#000',
+      contrastText: '#000'
     },
     secondary: {
       main: red[500],
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
-    type: 'dark',
+    type: 'dark'
   },
-  themeName: 'Yellow and Red Theme',
-});
+  themeName: 'Yellow and Red Theme'
+};
 
 const yellowBlueTheme = createMuiTheme({
   palette: {
     primary: {
       main: yellow[500],
-      contrastText: '#000',
+      contrastText: '#000'
     },
     secondary: {
       main: blue[500],
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
-    type: 'dark',
+    type: 'dark'
   },
-  themeName: 'Yellow and Blue Theme',
+  themeName: 'Yellow and Blue Theme'
 });
 
 storiesOf('Material Custom theme', module)
-  .addDecorator(
-    muiTheme([customTheme1, customTheme2, customTheme3, yellowBlueTheme, yellowRedTheme]),
-  )
+  .addDecorator(muiTheme([customTheme2, customTheme3, yellowBlueTheme]))
   .add(' Raised buttons', () => (
     <div>
       <Button variant="raised" color="primary" style={buttonStyle}>
@@ -128,9 +126,7 @@ storiesOf('Material Custom theme', module)
   ));
 
 storiesOf('Clone Custom theme', module)
-  .addDecorator(
-    muiTheme([customTheme1, customTheme2, customTheme3, yellowBlueTheme, yellowRedTheme]),
-  )
+  .addDecorator(muiTheme([customTheme1, yellowRedTheme]))
   .add(' Raised buttons', () => (
     <div>
       <Button variant="raised" color="primary" style={buttonStyle}>

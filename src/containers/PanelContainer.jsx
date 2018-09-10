@@ -5,6 +5,12 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import * as beauti from 'js-beautify';
 
 import AddonPanel from '../components/AddonPanel';
+import withChannel from '../adk/WithChannel';
+import {
+  EVENT_ID_INIT,
+  EVENT_ID_DATA,
+  EVENT_ID_BACK,
+} from '../config';
 
 const { document, window } = global;
 const logger = console;
@@ -35,7 +41,7 @@ const progressInfo = () => {
 const genNameList = themesAppliedList =>
   themesAppliedList.map((val, ind) => val.themeName || `Theme ${ind + 1}`);
 
-export default class PanelContainer extends React.Component {
+class PanelContainer extends React.Component {
   static propTypes = {
     store: PropTypes.shape().isRequired,
     api: PropTypes.shape().isRequired
@@ -263,3 +269,5 @@ ${window.btoa(this.getCurrentTheme(4))}`;
     );
   }
 }
+
+export default withChannel({EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK})(PanelContainer)
