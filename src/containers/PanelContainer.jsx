@@ -48,7 +48,8 @@ export default class PanelContainer extends React.Component {
       isReady: false,
       isThemeInvalid: false,
       isThemeEditing: false,
-      themeString: ''
+      themeString: '',
+      themeInd: 0,
     };
     this.isChannelData = false;
 
@@ -77,9 +78,16 @@ export default class PanelContainer extends React.Component {
   }
 
   onInitChannel = initData => {
-    const themesNameList = genNameList(initData.themesAppliedList);
+    // const _themesNameList = genNameList(initData.themesAppliedList);
+    const themesNameList = genNameList(initData);
     const queryData = this.queryFetch();
-    this.setState({ ...initData, ...queryData, themesNameList, isReady: true });
+    this.setState({
+      themesAppliedList: initData,
+      ...queryData,
+      themesNameList,
+      isReady: true
+    });
+    console.log('TCL: PanelContainer -> initData', initData);
   };
 
   onDataChannel = stateData => {
@@ -171,7 +179,6 @@ ${window.btoa(this.getCurrentTheme(4))}`;
   };
 
   getCurrentTheme = (indent = 2) =>
-    // console.log(this.state.themesAppliedList[this.state.themeInd]);
     beauti.js_beautify(
       JSON.stringify(this.state.themesAppliedList[this.state.themeInd]),
       {
@@ -185,9 +192,13 @@ ${window.btoa(this.getCurrentTheme(4))}`;
   dataChannelSend = data => {
     if (this.isChannelData) return false;
     // this.props.channel.emit(EVENT_ID_BACK, data);
-    const theme = this.state.themesRenderedList[this.state.themeInd];
-    this.props.store.send(theme);
-    return true;
+    try {
+      const theme = this.state.themesRenderedList[this.state.themeInd];
+      this.props.store.send(theme);
+      return true;
+    } catch (err) {
+      return false;
+    }
   };
 
   queryFetch = () => {

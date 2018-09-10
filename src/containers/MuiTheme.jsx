@@ -15,13 +15,14 @@ import { lightTheme } from '../.themes';
 
 const propTypes = {
   themesAppliedListInit: PropTypes.arrayOf(PropTypes.object).isRequired,
-  story: PropTypes.object.isRequired,
+  story: PropTypes.shape().isRequired,
   onChangeState: PropTypes.func.isRequired,
   onThemeOverride: PropTypes.func.isRequired,
   themesInitList: PropTypes.array.isRequired,
   // themeListRender: PropTypes.func.isRequired,
-  initState: PropTypes.object.isRequired,
-  channel: PropTypes.object.isRequired
+  initState: PropTypes.shape().isRequired,
+  // channel: PropTypes.object.isRequired
+  store: PropTypes.shape().isRequired
 };
 
 export default class MuiTheme extends React.Component {
@@ -49,13 +50,15 @@ export default class MuiTheme extends React.Component {
   }
 
   componentDidMount() {
-    this.props.channel.on(EVENT_ID_BACK, this.onChannel);
-    if (!this.state.isMount) {
-      setTimeout(() => {
-        this.needComponentUpdate('ThemeSideBar');
-        this.setState({ isMount: true });
-      }, 1);
-    }
+    // this.props.channel.on(EVENT_ID_BACK, this.onChannel);
+    // if (!this.state.isMount) {
+    //   setTimeout(() => {
+    //     this.needComponentUpdate('ThemeSideBar');
+    //     this.setState({ isMount: true });
+    //   }, 1);
+    // }
+    this.props.store.onData(this.onChannel);
+    this.props.store.connect();
   }
 
   shouldComponentUpdate() {
@@ -69,25 +72,13 @@ export default class MuiTheme extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.channel.removeListener(EVENT_ID_BACK, this.onChannel);
+    // this.props.channel.removeListener(EVENT_ID_BACK, this.onChannel);
+    this.store.disconnect();
   }
 
   onChannel = theme => {
     this.setState({ currentTheme: theme });
   };
-  // onChannel(theme) {
-  //   this.needComponentUpdate('ThemeSideBar');
-  //   this.isChannelData = true;
-  //       // fixme: onThemeOverride - to store theme
-  //   this.setState({ ...state, isMount: false }, () =>
-  //           setTimeout(() => {
-  //             const override = this.onThemeOverride();
-  //             override(this.state.themesAppliedList[this.state.themeInd]);
-  //             this.isChannelData = true;
-  //             this.setState({ isMount: true });
-  //           }, 10),
-  //       );
-  // }
 
   onThemeOverride() {
     const propsThemeOverFunc = this.props.onThemeOverride(this.state.themeInd);
@@ -97,13 +88,6 @@ export default class MuiTheme extends React.Component {
       this.setState({ themesAppliedList });
     };
   }
-
-  // dataChannelSend(data) {
-  //   if (this.isChannelData || !this.state.isMount) return false;
-  //       //        const dataStr = stringify(data);
-  //   this.props.channel.emit(EVENT_ID_DATA, data);
-  //   return true;
-  // }
 
   changeTheme(ind) {
     this.needComponentUpdate('ThemeSideBar');
@@ -148,28 +132,6 @@ export default class MuiTheme extends React.Component {
   }
 
   render() {
-    const ThemesNameList = this.state.themesAppliedList.map(
-      (val, ind) => val.themeName || `Theme ${ind + 1}`
-    );
-    const muiTheme = createMuiTheme();
-    // this.props.themeListRender(this.state.themesAppliedList[this.state.themeInd]), // Not working yet
-    // return (<MuiThemeProvider theme={muiTheme}>
-
-    // const theme = createMuiTheme({
-    //     palette: createPalette({
-    //         primary: purple, // Purple and green play nicely together.
-    //         secondary: {
-    //             ...green,
-    //             A400: '#00e677',
-    //         },
-    //         error: red,
-    //     }),
-    //     typography: {},
-    //     shadows: {},
-    // });
-
-    // const theme = (this.props.themesInitList[this.state.themeInd]);
-
     const theme = createMuiTheme(this.state.currentTheme);
 
     return (

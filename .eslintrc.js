@@ -19,5 +19,6 @@ module.exports = {
     'no-console': ignore,
     'react/jsx-filename-extension': ignore,
     'react/destructuring-assignment': ignore,
+    'import/prefer-default-export': ignore,
   }
 };
