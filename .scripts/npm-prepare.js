@@ -6,7 +6,7 @@ var babel = ['node_modules', '.bin', 'babel'].join(path.sep);
 require('./ver');
 
 
-const args = '--ignore tests,stories,story.jsx,story.js src --out-dir dist';
+const args = '--ignore tests,stories,story.jsx,story.js src --out-dir dist --verbose';
 const cmd = `${babel} ${args}`;
 shell.echo(chalk.gray(cmd));
 shell.rm('-rf', 'dist');

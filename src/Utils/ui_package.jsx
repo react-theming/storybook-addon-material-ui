@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import images from './svg_package';
-import FallbackIcon from '@material-ui/icons/Help';
 
 const images = {};
 
