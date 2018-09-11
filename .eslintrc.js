@@ -16,6 +16,7 @@ module.exports = {
     'jest/globals': true
   },
   rules: {
+    // "prettier/prettier": error,
     'no-console': ignore,
     'react/jsx-filename-extension': ignore,
     'react/destructuring-assignment': ignore,
