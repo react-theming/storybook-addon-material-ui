@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { cx, css } from 'react-emotion';
 import { ObjectInspector } from 'react-inspector';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import MaterialColorPicker from 'react-material-color-picker';
 
 const sortObjectKeys = (a, b) => {
   if (a === 'themeName') return -2;
@@ -22,6 +23,26 @@ const PaletteHolder = styled('div')`
   color: ${props => (props.dark ? 'hsl(0, 0%, 90%)' : 'hsl(0, 0%, 44%)')};
   label: PaletteHolder;
   padding: 8px;
+  position: relative;
+`;
+
+const PickerOverlap = styled('div')`
+  position: absolute;
+  background-color: hsl(0, 0%, 0%, 0.8);
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PickerHolder = styled('div')`
+  width: 70%;
+  max-width: 500px;
+  min-width: 250px;
+  background-color: hsl(0, 0%, 50%);
 `;
 
 export default class Palette extends React.Component {
@@ -42,19 +63,23 @@ export default class Palette extends React.Component {
     path: []
   };
 
+  prevColor = '';
+
   onChange = () => {
-    this.props.onChangePalette(this.state.palette)
+    this.props.onChangePalette(this.state.palette);
   };
 
-  setPath = path => () => {
+  setPath = (path, isPickerOpen) => () => {
     const { palette } = this.state;
+    this.prevColor = this.state.editColor;
     this.setState({
       path,
-      editColor: createMuiTheme({ palette }).palette[path[0]][path[1]]
+      editColor: createMuiTheme({ palette }).palette[path[0]][path[1]],
+      isPickerOpen
     });
   };
 
-  updPalette = ev => {
+  updPalette = (ev, cb) => {
     const { path, palette } = this.state;
     const editColor = ev.target.value;
     const newPalette = {
@@ -64,7 +89,31 @@ export default class Palette extends React.Component {
         [path[1]]: editColor
       }
     };
-    this.setState({ editColor, palette: newPalette });
+    this.setState({ editColor, palette: newPalette }, cb);
+  };
+
+  onSubmit = ev => {
+    console.log(ev.target.value);
+    this.updPalette(ev, () => {
+      this.onChange();
+      this.setState({ isPickerOpen: false });
+      this.prevColor = this.state.editColor;
+    });
+  };
+
+  onReset = ev => {
+    console.log(ev.target.value);
+    this.updPalette(ev, () => {
+      this.onChange();
+      this.setState({ isPickerOpen: false });
+    });
+  };
+
+  onHover = ev => {
+    console.log(ev.target.value);
+    this.updPalette(ev, () => {
+      this.onChange();
+    });
   };
 
   renderColorPicker = () => (
@@ -105,24 +154,37 @@ export default class Palette extends React.Component {
       <>
         <Plate up>
           <ColorName>{name}</ColorName>
-          <ColorBox color={light} onClick={this.setPath([name, 'light'])} />
-          <ColorBox color={main} onClick={this.setPath([name, 'main'])} />
-          <ColorBox color={dark} onClick={this.setPath([name, 'dark'])} />
+          <ColorBox
+            color={light}
+            onClick={this.setPath([name, 'light'], true)}
+          />
+          <ColorBox color={main} onClick={this.setPath([name, 'main'], true)} />
+          <ColorBox color={dark} onClick={this.setPath([name, 'dark'], true)} />
           <ColorBox
             color={contrastText}
-            onClick={this.setPath([name, 'contrastText'])}
+            onClick={this.setPath([name, 'contrastText'], true)}
           />
         </Plate>
         <Plate>
           <ColorName />
-          <ColorBox>{`light: ${light}`}</ColorBox>
-          <ColorBox>{`main: ${main}`}</ColorBox>
-          <ColorBox>{`dark: ${dark}`}</ColorBox>
-          <ColorBox>{`contrastText: ${contrastText}`}</ColorBox>
+          <ColorBox onClick={this.setPath([name, 'light'])}>
+            {`light: ${light}`}
+          </ColorBox>
+          <ColorBox onClick={this.setPath([name, 'main'])}>
+            {`main: ${main}`}
+          </ColorBox>
+          <ColorBox onClick={this.setPath([name, 'dark'])}>
+            {`dark: ${dark}`}
+          </ColorBox>
+          <ColorBox onClick={this.setPath([name, 'contrastText'])}>
+            {`contrastText: ${contrastText}`}
+          </ColorBox>
         </Plate>
       </>
     );
   };
+
+  onColorSelect = console.log;
 
   render() {
     const { palette } = createMuiTheme({ palette: this.state.palette });
@@ -139,6 +201,19 @@ export default class Palette extends React.Component {
         {colorSet('secondary')}
         {colorSet('error')}
         {this.renderColorPicker()}
+        {this.state.isPickerOpen && (
+          <PickerOverlap>
+            <PickerHolder>
+              <MaterialColorPicker
+                initColor={this.prevColor}
+                onSubmit={this.onSubmit}
+                onSelect={this.onHover}
+                onHover={this.onHover}
+                onReset={this.onReset}
+              />
+            </PickerHolder>
+          </PickerOverlap>
+        )}
       </PaletteHolder>
     );
   }
