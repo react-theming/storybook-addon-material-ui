@@ -68,6 +68,16 @@ const RadioButton = styled('button')(props => ({
   }
 }));
 
+const CMTButton = styled('div')`
+  cursor: pointer;
+  border: 1px solid #c5c5c5;
+  background-color: #f7f7f7;
+  border-radius: 2px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1)
+  }
+`;
+
 const MODS_LIST = [
   {
     title: 'Palette',
@@ -116,7 +126,6 @@ class AddonPanel extends React.Component {
   handleThemeChange = ev => this.setState({ theme: ev.target.value });
 
   onChangePalette = palette => {
-    console.log('onChangePalette', palette);
     const { themeInd, themes } = this.props.data;
     themes[themeInd].palette = palette;
     this.props.sendData({ themes });
@@ -190,26 +199,25 @@ class AddonPanel extends React.Component {
               flexDirection: 'column'
             }}
           >
-            <Button
-              icon="library_add"
-              title="Clone Theme"
-              label="Clone Theme"
-              onClick={this.props.onCloneTheme}
-            >
-              Clone Theme
-            </Button>
-            <Button
-              icon="highlight_off"
-              title="Clear Theme"
-              label="Clear Theme"
-              onClick={this.props.onCleanTheme}
-            />
-            <Button
-              icon="get_app"
-              title="Download Theme"
-              label="Download Theme"
-              onClick={this.props.onDnLoadTheme}
-            />
+            <CMTButton>
+              <Button
+                icon="library_add"
+                title="Clone Theme"
+                label="Clone Theme"
+              >
+                Clone Theme
+              </Button>
+              <Button
+                icon="highlight_off"
+                title="Clear Theme"
+                label="Clear Theme"
+              />
+              <Button
+                icon="get_app"
+                title="Download Theme"
+                label="Download Theme"
+              />
+            </CMTButton>
           </div>
         </FlexBlock>
         <FlexBlock direction="row" main>
@@ -231,7 +239,7 @@ class AddonPanel extends React.Component {
               <Palette
                 theme={theme}
                 onChangePalette={this.onChangePalette}
-                key={theme.themeName}
+                key={`#${data.themeInd}@${theme.themeName}`}
               />
             )}
             {currentMode === 'overridings' && <Overridings theme={theme} />}

@@ -12,11 +12,22 @@ const sortObjectKeys = (a, b) => {
   return a.charCodeAt(0) - b.charCodeAt(0);
 };
 
+const Holder = styled('div')`
+  height: 1px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  label: PaletteHolder;
+  padding: 8px;
+`;
+
 export default ({ theme }) => (
-  <ObjectInspector
-    expandLevel={1}
-    expandPaths="$.palette"
-    sortObjectKeys={sortObjectKeys}
-    data={createMuiTheme(theme)}
-  />
+  <Holder>
+    <ObjectInspector
+      expandLevel={1}
+      expandPaths="$.palette"
+      sortObjectKeys={sortObjectKeys}
+      data={createMuiTheme(theme)}
+    />
+  </Holder>
 );

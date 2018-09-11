@@ -18,7 +18,6 @@ export default class ChannelStore {
     this.connect = () => {
       this.channel.on(EVENT_ID_INIT, this.onInitChannel);
       this.channel.on(isPanel ? EVENT_ID_DATA : EVENT_ID_BACK, this.onDataChannel);
-      console.log(EVENT_ID_INIT, EVENT_ID_DATA, EVENT_ID_BACK, this.name);
       this.onConnectedFn();
     };
     this.emit = data => this.channel.emit(isPanel ? EVENT_ID_BACK : EVENT_ID_DATA, data);
@@ -30,13 +29,11 @@ export default class ChannelStore {
   }
 
   onInitChannel = initData => {
-    console.log('TCL: ChannelStore -> onInitChannel', this.name);
     this.store = initData;
     this.subscriber(this.store);
   };
 
   onDataChannel = updData => {
-    console.log('onDataChannel', this.name);
     this.store = {
       ...this.store,
       ...updData
@@ -59,12 +56,10 @@ export default class ChannelStore {
     };
     this.emit(this.store);
     this.subscriber(this.store);
-    console.log('Send', this.name);
   };
 
   sendInit = data => {
     this.init(data);
-    console.log('TCL: ChannelStore -> sendInit', this.name);
   };
 
   disconnect = () => {

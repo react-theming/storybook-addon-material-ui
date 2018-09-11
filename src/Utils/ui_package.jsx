@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import images from './svg_package';
-import FallbackIcon from '@material-ui/icons/Help'
+import FallbackIcon from '@material-ui/icons/Help';
 
-const images = {
-
-}
+const images = {};
 
 const iconStyle = {
   width: 18,
   opacity: 0.6,
-  marginRight: 8,
+  marginRight: 8
 };
 
 const buttonStyle = {
@@ -26,7 +24,7 @@ const buttonStyle = {
   cursor: 'pointer',
   fontSize: 12,
   textDecoration: 'none',
-  color: 'black',
+  color: 'black'
 };
 
 const selectStyle = {
@@ -37,12 +35,12 @@ const selectStyle = {
   padding: 2,
   boxShadow: '0px 0px 2px 0px rgba(0, 0, 0, 0.5)',
   fontSize: 14,
-  width: '100%',
+  width: '100%'
 };
 
 const optionsStyle = {
   backgroundColor: '#fcfcfc',
-  height: 50,
+  height: 50
   //    border: '#2e63ac 4px solid',
 };
 
@@ -57,7 +55,11 @@ export function Button({ icon, label, title, onClick, compact, disabled }) {
       title={title}
       onClick={onClick}
     >
-      <img src={images[icon]} alt={images[icon]} style={{ ...iconStyle, ...iconOverride }} />
+      <img
+        src={images[icon]}
+        alt={images[icon]}
+        style={{ ...iconStyle, ...iconOverride }}
+      />
       {(!compact && label) || ''}
     </button>
   );
@@ -67,12 +69,18 @@ Button.propTypes = {
   icon: PropTypes.string,
   label: PropTypes.string,
   title: PropTypes.string,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 export function Link({ icon, label, title, href }) {
   return (
-    <a href={href} style={buttonStyle} title={title} target="_blank" rel="noopener noreferrer">
+    <a
+      href={href}
+      style={buttonStyle}
+      title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <img src={images[icon]} alt={images[icon]} style={iconStyle} />
       {label}
     </a>
@@ -83,13 +91,13 @@ Link.propTypes = {
   icon: PropTypes.string,
   label: PropTypes.string,
   title: PropTypes.string,
-  href: PropTypes.string,
+  href: PropTypes.string
 };
 
 Button.propTypes = {
   icon: PropTypes.string,
   label: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string
 };
 
 export function CheckBox({ checked, label, title, onToggle }) {
@@ -113,7 +121,7 @@ CheckBox.propTypes = {
   checked: PropTypes.bool,
   label: PropTypes.string,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  onToggle: PropTypes.func,
+  onToggle: PropTypes.func
 };
 
 export function Toggle({ checked, label, title, onToggle }) {
@@ -122,11 +130,20 @@ export function Toggle({ checked, label, title, onToggle }) {
   const titleString = typeof title === 'string' ? title : selectTitle(checked);
 
   return (
-    <button style={{ ...buttonStyle, margin: 0 }} title={titleString} onClick={toggle}>
+    <button
+      style={{ ...buttonStyle, margin: 0 }}
+      title={titleString}
+      onClick={toggle}
+    >
       <img
         src={checked ? images.toggle_on : images.toggle_off}
         alt="check"
-        style={{ ...iconStyle, width: 26, marginRight: 4, opacity: checked ? 0.7 : 0.6 }}
+        style={{
+          ...iconStyle,
+          width: 26,
+          marginRight: 4,
+          opacity: checked ? 0.7 : 0.6
+        }}
       />
       <span style={{ height: 18 }}>{label}</span>
     </button>
@@ -137,19 +154,24 @@ Toggle.propTypes = {
   checked: PropTypes.bool,
   label: PropTypes.string,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  onToggle: PropTypes.func,
+  onToggle: PropTypes.func
 };
 
 export function Dropdown({ selected, list, title, onSelect }) {
   const options = list.map((val, ind) => (
-    <option value={ind} key={list[ind]} style={optionsStyle}>
+    <option value={ind} key={`${ind}@${list[ind]}`} style={optionsStyle}>
       {val}
     </option>
   ));
   const select = event => onSelect(parseInt(event.target.value, 10));
 
   return (
-    <select value={selected} onChange={select} style={selectStyle} title={title}>
+    <select
+      value={selected}
+      onChange={select}
+      style={selectStyle}
+      title={title}
+    >
       {options}
     </select>
   );
@@ -159,7 +181,7 @@ Dropdown.propTypes = {
   selected: PropTypes.number,
   title: PropTypes.string,
   list: PropTypes.arrayOf(PropTypes.string),
-  onSelect: PropTypes.func,
+  onSelect: PropTypes.func
 };
 
 const paperStyle = {
@@ -170,7 +192,7 @@ const paperStyle = {
   fontFamily:
     '-apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif', // eslint-disable-line
   fontSize: 12,
-  marginBottom: 10,
+  marginBottom: 10
 };
 
 export function Paper({ children, style }) {
@@ -179,7 +201,7 @@ export function Paper({ children, style }) {
 
 Paper.propTypes = {
   children: PropTypes.node,
-  style: PropTypes.shape(),
+  style: PropTypes.shape()
 };
 
 const tagStyle = {
@@ -189,7 +211,7 @@ const tagStyle = {
   display: 'flex',
   alignItems: 'center',
   fontSize: 11,
-  cursor: 'pointer',
+  cursor: 'pointer'
 };
 
 const avaStyle = {
@@ -203,7 +225,7 @@ const avaStyle = {
   textTransform: 'uppercase',
   display: 'inline-flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'center'
 };
 
 export function Tag({ label, onClick }) {
@@ -219,5 +241,5 @@ export function Tag({ label, onClick }) {
 
 Paper.propTypes = {
   label: PropTypes.string,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 };

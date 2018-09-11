@@ -3,7 +3,6 @@ import green from '@material-ui/core/colors/green';
 import purple from '@material-ui/core/colors/purple';
 import blue from '@material-ui/core/colors/blue';
 
-const accentGreen = green.A200;
 const darkGreen = green[900];
 const accentPurple = purple.A200;
 const darkPurple = purple[900];

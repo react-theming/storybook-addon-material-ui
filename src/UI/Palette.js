@@ -45,16 +45,20 @@ const PickerHolder = styled('div')`
   background-color: hsl(0, 0%, 50%);
 `;
 
+const ColorInput = styled('div')`
+  margin-left: 2px;
+  margin-top: 8px;
+  color: hsl(0, 0%, 30%);
+  & input {
+    margin-right: 4px;
+  }
+`;
+
 export default class Palette extends React.Component {
   static propTypes = {
     theme: PropTypes.shape()
   };
 
-  // static getDerivedStateFromProps(props, state) {
-  //   return {
-  //     palette: props.theme.palette
-  //   };
-  // }
 
   state = {
     isPickerOpen: false,
@@ -71,17 +75,21 @@ export default class Palette extends React.Component {
 
   setPath = (path, isPickerOpen) => () => {
     const { palette } = this.state;
-    this.prevColor = this.state.editColor;
-    this.setState({
-      path,
-      editColor: createMuiTheme({ palette }).palette[path[0]][path[1]],
-      isPickerOpen
-    });
+    this.setState(
+      {
+        path,
+        editColor: createMuiTheme({ palette }).palette[path[0]][path[1]],
+        isPickerOpen
+      },
+      () => {
+        this.prevColor = this.state.editColor;
+      }
+    );
   };
 
   updPalette = (ev, cb) => {
     const { path, palette } = this.state;
-    const editColor = ev.target.value;
+    const editColor = ev.target.value || this.prevColor;
     const newPalette = {
       ...palette,
       [path[0]]: {
@@ -93,7 +101,6 @@ export default class Palette extends React.Component {
   };
 
   onSubmit = ev => {
-    console.log(ev.target.value);
     this.updPalette(ev, () => {
       this.onChange();
       this.setState({ isPickerOpen: false });
@@ -102,7 +109,6 @@ export default class Palette extends React.Component {
   };
 
   onReset = ev => {
-    console.log(ev.target.value);
     this.updPalette(ev, () => {
       this.onChange();
       this.setState({ isPickerOpen: false });
@@ -110,21 +116,20 @@ export default class Palette extends React.Component {
   };
 
   onHover = ev => {
-    console.log(ev.target.value);
     this.updPalette(ev, () => {
       this.onChange();
     });
   };
 
-  renderColorPicker = () => (
-    <div>
+  renderColorInput = () => (
+    <ColorInput>
       <input
         type="text"
         onChange={this.updPalette}
         value={this.state.editColor}
       />
       <button onClick={this.onChange}>ok</button>
-    </div>
+    </ColorInput>
   );
 
   renderColorSet = (colorSet, name, isDark) => {
@@ -143,7 +148,7 @@ export default class Palette extends React.Component {
       flex-grow: 1;
       border: 1px solid ${isDark ? 'hsl(0, 0%, 80%)' : 'hsl(0, 0%, 44%)'};
       border: ${props => (props.color ? '' : 'none')};
-      cursor: pointer;
+      cursor: ${props => (props.color ? 'pointer' : 'text')};
     `;
     const ColorName = styled('div')`
       background-color: rgba(0, 0, 0, 0.1);
@@ -184,8 +189,6 @@ export default class Palette extends React.Component {
     );
   };
 
-  onColorSelect = console.log;
-
   render() {
     const { palette } = createMuiTheme({ palette: this.state.palette });
     const colorSet = name =>
@@ -200,7 +203,7 @@ export default class Palette extends React.Component {
         {colorSet('primary')}
         {colorSet('secondary')}
         {colorSet('error')}
-        {this.renderColorPicker()}
+        {this.renderColorInput()}
         {this.state.isPickerOpen && (
           <PickerOverlap>
             <PickerHolder>
