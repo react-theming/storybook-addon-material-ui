@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { storiesOf } from '@storybook/react';
-
-
-
+import { storiesOf, addDecorator } from '@storybook/react';
+import backgrounds from "@storybook/addon-backgrounds";
 
 import Button from '@material-ui/core/Button';
 
@@ -15,15 +13,17 @@ import themeF3, { overridings as theme3 } from './.themes/customTheme3';
 import { overridings as theme4 } from './.themes/customTheme4';
 import { overridings as theme5 } from './.themes/customTheme5';
 
-
-
-
 const buttonStyle = {
   margin: 16
 };
 
-
 storiesOf('Material Custom theme', module)
+  .addDecorator(
+    backgrounds([
+      { name: 'twitter', value: '#00aced' },
+      { name: 'facebook', value: '#3b5998' }
+    ])
+  )
   .addDecorator(muiTheme([theme1, theme2, theme3, themeF3]))
   .add(' Raised buttons', () => (
     <div>

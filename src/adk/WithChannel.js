@@ -43,7 +43,8 @@ const withChannel = ({
     onData = data => this.setState({ data });
 
     render() {
-      const { pointName, initData, ...props } = this.props;
+      const { pointName, initData, active, ...props } = this.props;
+      if (active === false) return null;
       return (
         <WrappedComponent
           data={this.state.data}
