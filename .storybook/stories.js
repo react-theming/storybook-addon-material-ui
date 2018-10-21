@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf, addDecorator } from '@storybook/react';
-import backgrounds from "@storybook/addon-backgrounds";
+import backgrounds from '@storybook/addon-backgrounds';
 
 import Button from '@material-ui/core/Button';
 
@@ -20,36 +20,63 @@ const buttonStyle = {
 storiesOf('Material Custom theme', module)
   .addDecorator(
     backgrounds([
+      { name: 'init', value: '#FFFFFF' },
       { name: 'twitter', value: '#00aced' },
       { name: 'facebook', value: '#3b5998' }
     ])
   )
-  .addDecorator(muiTheme([theme1, theme2, theme3, themeF3]))
-  .add(' Raised buttons', () => (
+  .addDecorator(muiTheme([theme1, theme2, theme3, theme4, theme5]))
+  .add('Raised buttons', () => (
     <div>
-      <Button variant="raised" color="primary" style={buttonStyle}>
+      <Button variant="contained" color="primary" style={buttonStyle}>
         Raised primary
       </Button>
-      <Button variant="raised" color="secondary" style={buttonStyle}>
+      <Button variant="contained" color="secondary" style={buttonStyle}>
         Raised secondary
       </Button>
-      <Button variant="raised" style={buttonStyle}>
+      <Button variant="contained" style={buttonStyle}>
         Raised default
+      </Button>
+    </div>
+  ))
+  .add('Outlined buttons', () => (
+    <div>
+      <Button variant="outlined" color="primary" style={buttonStyle}>
+        Outlined primary
+      </Button>
+      <Button variant="outlined" color="secondary" style={buttonStyle}>
+        Outlined secondary
+      </Button>
+      <Button variant="outlined" style={buttonStyle}>
+        Outlined default
+      </Button>
+    </div>
+  ))
+  .add('Flat buttons', () => (
+    <div>
+      <Button variant="flat" color="primary" style={buttonStyle}>
+        Flat primary
+      </Button>
+      <Button variant="flat" color="secondary" style={buttonStyle}>
+        Flat secondary
+      </Button>
+      <Button variant="flat" style={buttonStyle}>
+        Flat default
       </Button>
     </div>
   ));
 
 storiesOf('Clone Custom theme', module)
-  .addDecorator(muiTheme([theme4, theme5]))
+  // .addDecorator(muiTheme([theme4, theme5]))
   .add(' Raised buttons', () => (
     <div>
-      <Button variant="raised" color="primary" style={buttonStyle}>
+      <Button variant="contained" color="primary" style={buttonStyle}>
         Raised primary
       </Button>
-      <Button variant="raised" color="secondary" style={buttonStyle}>
+      <Button variant="contained" color="secondary" style={buttonStyle}>
         Raised secondary
       </Button>
-      <Button variant="raised" style={buttonStyle}>
+      <Button variant="contained" style={buttonStyle}>
         Raised default
       </Button>
     </div>

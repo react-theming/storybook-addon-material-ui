@@ -7,11 +7,18 @@ import MuiTheme from './containers/MuiTheme';
 import MuiDecorator from './UI/MuiDecorator';
 import { createStore } from './adk/decorator';
 
-const lightBaseTheme = createMuiTheme();
+const lightBaseTheme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+});
 const darkBaseTheme = createMuiTheme({
   palette: {
     type: 'dark'
-  }
+  },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 lightBaseTheme.themeName = 'Light Theme';
