@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { cx, css } from 'react-emotion';
+import { cx, css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { ObjectInspector } from 'react-inspector';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
