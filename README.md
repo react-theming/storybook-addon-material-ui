@@ -14,50 +14,14 @@ The core of [**React Theming**](https://github.com/react-theming/react-theming) 
 
 It contains only 10 questions and helps us to provide you with the best DX. You are always welcome to submit an [issue](https://github.com/react-theming/storybook-addon-material-ui/issues) as well :smile:
 
-To install alpha version type:
+In order to quick start with the latest `storybook-addon-material-ui` you can check out [create-material-ui-app](https://github.com/react-theming/create-material-ui-app)
 
-```sh
-npm i storybook-addon-material-ui@next --save-dev
-```
+It contains the working setup with:
 
-then you can create themes and add them to the panel this way:
-
-```js
-// addons.js
-
-import 'storybook-addon-material-ui/register';
-```
-
-```js
-// stories.js
-
-import { createMuiTheme } from '@material-ui/core/styles';
-
-const customTheme1 = createMuiTheme({
-    palette: {
-        primary: {
-            light: accentGreen,
-            main: primaryGreen,
-            dark: darkGreen,
-            contrastText: '#fff',
-        },
-        secondary: {
-            light: accentPurple,
-            main: primaryPurple,
-            dark: darkPurple,
-            contrastText: '#fff',
-        },
-    },
-    themeName: 'Custom Light Theme',
-});
-
-storiesOf('Material Custom theme', module)
-    .addDecorator(
-        muiTheme([customTheme1]),
-    )
-    /* your stories */
-```
-> thanks [@laruiss](https://github.com/laruiss) for helping to make this release happen
+- create-react-app
+- Storybook
+- Material-UI
+- storybook-addon-material-ui
 
 ---
 
