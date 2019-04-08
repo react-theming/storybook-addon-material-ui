@@ -5,24 +5,6 @@
 #  Storybook Addon Material-UI
 The core of [**React Theming**](https://github.com/react-theming/react-theming) project
 
-## Announcement Material-UI v1 support
-
-`storybook-addon-material-ui@0.9.0-alpha.2` now supports Material-UI v1 themes. It has only basic functionality since v.1 themes are very different from the previous version. We would appreciate if you give us your feedback about the most needed features which we will reimplement.
-
-**You can do it with this anonymous [survey](https://app.qpointsurvey.com/s.aspx?c=**F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~**).**
-
-It contains only 10 questions and helps us to provide you with the best DX. You are always welcome to submit an [issue](https://github.com/react-theming/storybook-addon-material-ui/issues) as well :smile:
-
-In order to quick start with the latest `storybook-addon-material-ui` you can check out [create-material-ui-app](https://github.com/react-theming/create-material-ui-app)
-
-It contains the working setup with:
-
-- create-react-app
-- Storybook
-- Material-UI
-- storybook-addon-material-ui
-
----
 
 [<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
 Provides development environment wich helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) wich wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
@@ -47,41 +29,16 @@ You can use this [project's demo page](https://sm-react.github.io/storybook-boil
 
 ## Quick Start
 
-The fastest and easiest way to start hacking Material-UI from scratch is to clone [Storybook Boilerplate Project](https://github.com/sm-react/storybook-boilerplate). *You need to have `NodeJS` and `Git` installed in your machine*.
+In order to quick start with the latest `storybook-addon-material-ui` you can check out [create-material-ui-app](https://github.com/react-theming/create-material-ui-app)
 
-```shell
-git clone https://github.com/sm-react/storybook-boilerplate.git
-cd storybook-boilerplate
-npm i
-npm start
-```
+It contains the working setup with:
 
-<details>
-  <summary>
-    Few short steps to create your themable `Material-UI` Components :point_up_2:
-  </summary>
+- create-react-app
+- Storybook
+- Material-UI
+- storybook-addon-material-ui
 
-Open [http://localhost:9001/](http://localhost:9001/) in your browser.
-
-Press `Ctrl-Shft-F` to exit from `Full screen` mode.
-
-Select `Material-UI` at the left panel. You'll see two stories with Material-UI Components: `Components` and `Card`.
-
-Select `Material-UI` at the bottom panel. You can **switch themes** from drop-down menu. Out of the box you have tree themes: `Light Theme` _(Material-UI default)_, `Dark Theme` _(Material-UI)_, `Grey Theme` _(React Theming Complimentary :gift:)_,
-
-Open you project folder. Find [`src/MaterialUI/`](https://github.com/sm-react/storybook-boilerplate/tree/master/src/MaterialUI) directory. You'll find `JSX` files with Material-UI based React Components. You can use them as a starting point to **create your own components**.
-
-In oder to see your components in storybook add them to `src/MaterialUI/index.story.jsx`. You can do it [this way](https://github.com/sm-react/storybook-boilerplate/blob/master/src/MaterialUI/index.story.jsx#L30-L32). You can read more about writing stories in their [documentation](https://getstorybook.io/docs/react-storybook/basics/writing-stories).
-
-Your **themes files** are located in the [`src/.themes`](https://github.com/sm-react/storybook-boilerplate/tree/master/src/.themes) folder as a JSON files. Please note that all JSON files from this folder are [imported automatically](https://github.com/sm-react/storybook-boilerplate/blob/master/src/MaterialUI/index.story.jsx#L10-L14). So you can change them or add the new ones and you'll see this themes in your Storybook.
-
-You can edit the theme settings in `Theme.json` files manually, but the **power** of this project is that you can _do it in your browser and see all changes immediately_ on your Material-UI Components. See **[Usage details](#usage-details)** to learn about working with themes.
-
-</details>
-
-:triangular_flag_on_post: The [Storybook Boilerplate](https://github.com/sm-react/storybook-boilerplate) contains many additional features for creating themable React Components, allows publishing your packages to `npm` and deploying your storybooks to `Github Pages`. It includes linting and testing scripts and other useful `Storybook Addons`.
-
-If you already using `React Storybook` and have it installed in your project you can add this addon manually. Follow [Getting Started](#getting-started-bookmark_tabs) section to install `storybook-addon-material-ui` and find detailes about using it. You can **add** `React Storybook` to your **existing project** as well, check the [documentation](https://getstorybook.io/docs/react-storybook/basics/quick-start-guide) for that.
+---
 
 ## Roadmap :mountain_cableway:
 
@@ -173,25 +130,10 @@ storiesOf('Material-UI', module)
 
 ```
 
-## Usage details
+## Feedback
 
-Select `MATERIAL-UI` panel. You can select the theme you need to see and you will have all theme settings in the right sidebar. You can toggle `Theme editor` with all theme settings in a editable table. It'll appear as a right sidebar.
+**You can left your opinion about this project via anonymous [survey](https://app.qpointsurvey.com/s.aspx?c=**F2VOSpTXOlnHHqMaZKSSV5a1ylaCDoRfhut3oNCox34~**).**
 
-You can edit the value manually as a text string or via picker tool (click the icon to the right of the input)
-
-![screen3](docs/screen3.png)
-
-By default you see only assigned fields of selected theme. You can switch to `Full settings` and all available settings will appear. As you override one of them it will appear in the `Theme setting` mode and in the bottom panel JSON area.
-
-![screen6](docs/screen6.png)
-
-After you have made changes in the theme, you can save it and download as *.JSON file.
-
->You can continue to work with this file:
-```
-import greyTheme from './greyTheme.json';
-addDecorator(greyTheme);
-```
 
 ## Query string parameters
 
