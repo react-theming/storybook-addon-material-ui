@@ -38,9 +38,6 @@ export default class AddonPanel extends React.Component {
   constructor(props) {
     super(props);
 
-    //        this.menuItems = props.themesNameList.map(
-    //            (val, ind) => (<MenuItem value={ind} key={val} primaryText={val} />),
-    //        );
     this.state = {
       value: props.defautThemeInd,
       isThemeEditing: false,

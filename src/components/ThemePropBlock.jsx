@@ -68,7 +68,7 @@ export default class ThemePropBlock extends React.Component {
 
   renderProp(val, ind, isOpen, isHeader) {
     return (
-      <div key={val}>
+      <div key={`${val}${ind}`}>
         {isOpen ? <ThemePropItem
           val={val}
           ind={ind}
