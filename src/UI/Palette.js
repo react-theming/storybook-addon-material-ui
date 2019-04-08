@@ -4,7 +4,7 @@ import { cx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ObjectInspector } from 'react-inspector';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import MaterialColorPicker from 'react-material-color-picker';
+import MaterialColorPicker from '@usulpro/color-picker';
 
 const sortObjectKeys = (a, b) => {
   if (a === 'themeName') return -2;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Slider from '@material-ui/core/Slide';
-import MaterialColorPicker from 'react-material-color-picker';
+import MaterialColorPicker from '@usulpro/color-picker';
 
 import { CSS_CLASS } from '../';
 
