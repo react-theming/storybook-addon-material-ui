@@ -1,0 +1,8 @@
+{
+  "watch": [
+    "./src/manager",
+    "./.storybook/register.js"
+  ],
+  "ext": "js"
+
+}
