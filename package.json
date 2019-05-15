@@ -11,8 +11,7 @@
   "scripts": {
     "start-storybook": "start-storybook -p 9001 -s public --ci",
     "prepare": "rm -rf dist && babel src --out-dir dist --verbose",
-    "dev": "yarn prepare && yarn start-storybook",
-    "start": "nodemon --exec yarn dev",
+    "start": "nodemon --exec yarn start-storybook",
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test"
   },
@@ -32,16 +31,17 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "@babel/cli": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-devkit": "^1.0.0",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
-    "babel-loader": "^8.0.2",
     "nodemon": "^1.18.9"
   }
 }

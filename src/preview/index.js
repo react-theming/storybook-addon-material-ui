@@ -5,7 +5,7 @@ import '../config';
 
 const DecoratorUI = ({ context, getStory, theme }) => (
   <div>
-    Theme: {theme} <br />
+    Theme: {theme.name} <br />
     {getStory(context)}
   </div>
 );

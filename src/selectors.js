@@ -19,3 +19,5 @@ export const getThemeNames = createSelector(
   getThemesList,
   list => list.map(theme => theme.name)
 );
+
+const exports = {}
