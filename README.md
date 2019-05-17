@@ -1,5 +1,5 @@
+# React-Theming / Storybook Addon
 
-# [<img src="https://raw.githubusercontent.com/react-theming/readme/master/docs/OrgLogo.png" align="left" class="logo" width="120" title="React Th︎eming"/>](https://github.com/sm-react/react-theming/stargazers) React Theming
 
 <div align="center" style="height: 16px;"><sub>Created with ❤︎ to <b>React</b> and <b>@Storybook</b> by <a href="https://twitter.com/UsulPro">UsulPro</a>.</sub></div>
 
