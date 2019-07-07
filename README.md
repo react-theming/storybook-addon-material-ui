@@ -65,7 +65,7 @@ import React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import {muiTheme} from 'storybook-addon-material-ui';
 
-// Import some examples from material-ui
+// Import some examples from react-theming https://github.com/react-theming/react-theme-provider/blob/master/example/
 import CardExampleControlled from '../CardExampleControlled.jsx';
 import RaisedButtonExampleSimple from '../RaisedButtonExampleSimple.jsx';
 import DatePickerExampleSimple from '../DatePickerExampleSimple.jsx';
