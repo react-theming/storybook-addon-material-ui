@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/react-theming/storybook-addon-material-ui/issues"
   },
-  "homepage": "https://github.com/react-themingstorybook-addon-material-ui",
+  "homepage": "https://github.com/react-theming/storybook-addon-material-ui",
   "dependencies": {
     "@emotion/core": "^10.0.4",
     "@emotion/styled": "^10.0.4",
