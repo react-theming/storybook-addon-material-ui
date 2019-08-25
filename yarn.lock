@@ -1738,6 +1738,19 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@react-theming/theme-name@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@react-theming/theme-name/-/theme-name-1.0.0.tgz#806ebaef45f57e2b4ff58e95894e0bc09d4a9fbe"
+  integrity sha512-+pDMHS7Kzs3NDUt7Dq81yAx4smk/4CNUvI7q5U6rC3CToDjWc1cBE+A/0FmVqHvET8MdmepueoLdB/da2jD6WQ==
+  dependencies:
+    color-name-list "^4.7.1"
+    nearest-color "^0.4.4"
+
+"@react-theming/theme-swatch@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@react-theming/theme-swatch/-/theme-swatch-0.1.0.tgz#7fb12bf84a6f91e621b925f5cb137f51cd857ae6"
+  integrity sha512-qWDvBHbgiLYoyXGG4+Rq+g6/jFTlCJfNxyDUw03pwbBZn4mwCVt4cnmdok//BSkSB3DiAG0vI3/FRQHeaXf+Qg==
+
 "@storybook/addon-actions@^5.0.11":
   version "5.0.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-5.0.11.tgz#7ca6d6ce9400b9b97f2699935edade88905767c3"
@@ -2391,6 +2404,14 @@
   dependencies:
     lodash.unescape "4.0.1"
     semver "5.5.0"
+
+"@usulpro/package-prepare@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@usulpro/package-prepare/-/package-prepare-1.1.4.tgz#d2f8187abb949e7643d477605b1ad5ee769a5153"
+  integrity sha512-lbOHHjbD5oe25SI/L16KJmSqyc26W7KWisktRgQ18x0b+/NIg4wCRvlWHQ/MdHIhKIpKaIrBmrKChfeh0idcCQ==
+  dependencies:
+    chalk "^2.4.2"
+    shelljs "^0.8.3"
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -4083,6 +4104,11 @@ color-convert@^1.9.0, color-convert@^1.9.1:
   integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
   dependencies:
     color-name "1.1.3"
+
+color-name-list@^4.7.1:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/color-name-list/-/color-name-list-4.10.0.tgz#e86f64bbbfd82af5bf6afb12a72f0dcfb4ebe4b2"
+  integrity sha512-6U3ej4nWpUryklMvqX+TJuHvoA+4u8NROxH6vM1DHkxFKbSb4BFURrkLucnH1BHoehAy2dbRJF3FDju1ohcv0g==
 
 color-name@1.1.3:
   version "1.1.3"
@@ -8492,6 +8518,11 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+nearest-color@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/nearest-color/-/nearest-color-0.4.4.tgz#fb812072b511f4f09a0a316903332e09fa5d7f1d"
+  integrity sha512-orhcaIORC10tf41Ld2wwlcC+FaAavHG87JHWB3eHH5p7v2k9Tzym2XNEZzLAm5YJwGv6Q38WWc7SOb+Qfu/4NQ==
+
 needle@^2.2.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/needle/-/needle-2.2.4.tgz#51931bff82533b1928b7d1d69e01f1b00ffd2a4e"
@@ -11350,7 +11381,7 @@ shell-quote@1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
-shelljs@^0.8.2:
+shelljs@^0.8.2, shelljs@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.3.tgz#a7f3319520ebf09ee81275b2368adb286659b097"
   integrity sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==
