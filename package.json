@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "dependencies": {
     "@react-theming/theme-name": "^1.0.1",
-    "@react-theming/theme-swatch": "^0.1.0"
+    "@react-theming/theme-swatch": "^0.1.0",
+    "react-json-view": "^1.19.1"
   },
   "scripts": {
     "start-storybook": "start-storybook -p 9001 -s public --ci",

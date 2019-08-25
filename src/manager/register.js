@@ -1,9 +1,9 @@
 import React from 'react';
 import { register, Layout, Block } from '@storybook/addon-devkit';
 
-
 import { getTheme, getThemeInfoList } from '../selectors';
 import SelectTheme from './components/SelectTheme';
+import ThemeBrowser from './components/ThemeBrowser';
 
 import '../config';
 
@@ -11,11 +11,7 @@ const AddonThemingPanel = ({ theme, themeInfoList, setCurrent, isFirstDataReceiv
   isFirstDataReceived ? (
     <Layout name="adk-tmp">
       <SelectTheme themeInfoList={themeInfoList} setCurrent={setCurrent} />
-      <Block>
-        <h1>Current Theme</h1>
-        <p>{JSON.stringify(theme)}</p>
-        <hr />
-      </Block>
+      <ThemeBrowser theme={theme} />
     </Layout>
   ) : (
     <p>Waiting for data</p>
