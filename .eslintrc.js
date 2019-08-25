@@ -51,6 +51,7 @@ module.exports = {
           '**/scripts/*.js',
           '**/stories/*.js',
           '**/__tests__/*.js',
+          'src/**'
         ],
         peerDependencies: true,
       },

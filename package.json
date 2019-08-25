@@ -4,7 +4,7 @@
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
-    "@react-theming/theme-name": "^1.0.0",
+    "@react-theming/theme-name": "^1.0.1",
     "@react-theming/theme-swatch": "^0.1.0"
   },
   "scripts": {
@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^5.0.11",
-    "@storybook/addon-devkit": "^1.0.0",
+    "@storybook/addon-devkit": "1.1.1",
     "@storybook/addon-links": "^5.0.11",
     "@storybook/addons": "^5.0.11",
     "@storybook/react": "^5.0.11",
@@ -60,6 +60,7 @@
   },
   "peerDependencies": {
     "@storybook/react": "^5.0.0",
+    "@storybook/theming": "^5.0.0",
     "react": "^16.8.6"
   }
 }

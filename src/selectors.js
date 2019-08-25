@@ -1,3 +1,8 @@
+import React from 'react';
+import { themeName } from '@react-theming/theme-name';
+
+import { styled } from '@storybook/theming';
+
 export const createSelector = (...args) => {
   const resultFn = args.pop();
   return store => {
@@ -15,9 +20,11 @@ export const getTheme = createSelector(
   (ind, themes) => themes[ind]
 );
 
-export const getThemeNames = createSelector(
+export const getThemeInfoList = createSelector(
   getThemesList,
-  list => list.map(theme => theme.name)
+  list =>
+    list.map(theme => ({
+      name: themeName(theme),
+      theme,
+    }))
 );
-
-const exports = {}

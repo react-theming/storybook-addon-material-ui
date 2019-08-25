@@ -6,9 +6,9 @@ import { useThemes, createTheme } from '../src/index.js';
 import { Button } from '@storybook/react/demo';
 
 const setThemes = useThemes([
-  createTheme({ name: 'AAA' }),
-  createTheme({ name: 'BBB' }),
-  createTheme({ name: 'CCC' }),
+  createTheme({ blue: 'rgb(40, 60, 250)' }),
+  createTheme({ blue: 'rgb(120, 40, 250)' }),
+  createTheme({ blue: 'rgb(30, 30, 250)' }),
 ]);
 
 storiesOf('Button', module)
