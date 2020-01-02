@@ -1,2 +1,2 @@
-export * from './preview'
-export * from './helpers/sampleTheme'
+export * from './preview';
+export * from './helpers/sampleTheme';

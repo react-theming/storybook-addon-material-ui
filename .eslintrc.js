@@ -20,10 +20,9 @@ module.exports = {
     'prettier/prettier': [
       warn,
       {
-        printWidth: 100,
         tabWidth: 2,
         bracketSpacing: true,
-        trailingComma: 'es5',
+        trailingComma: 'all',
         singleQuote: true,
       },
     ],
@@ -51,12 +50,13 @@ module.exports = {
           '**/scripts/*.js',
           '**/stories/*.js',
           '**/__tests__/*.js',
-          'src/**'
+          'src/**',
         ],
         peerDependencies: true,
       },
     ],
     'import/prefer-default-export': ignore,
+    'react/prop-types': ignore,
     'react/jsx-wrap-multilines': ignore,
     'react/jsx-indent': ignore,
     'react/jsx-indent-props': ignore,

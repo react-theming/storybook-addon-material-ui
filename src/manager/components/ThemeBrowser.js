@@ -1,12 +1,14 @@
 import React from 'react';
-import { Block } from '@storybook/addon-devkit';
+import ReactJson from '@usulpro/react-json-view';
 
-const ThemeBrowser = ({ theme }) => (
-  <Block>
+import * as styled from './ThemeBrowser.styled';
+
+const ThemeBrowser = ({ theme, selectValue }) => (
+  <styled.Container>
     <h1>Current Theme</h1>
-    <p>{JSON.stringify(theme)}</p>
+    <ReactJson src={theme} onSelect={selectValue} />
     <hr />
-  </Block>
+  </styled.Container>
 );
 
 export default ThemeBrowser;

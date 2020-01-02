@@ -1,29 +1,32 @@
 import React from 'react';
 
+import { ThemeProvider } from 'emotion-theming';
+
 import { storiesOf } from '@storybook/react';
 import { useThemes, createTheme } from '../src/index.js';
 
-import { Button } from '@storybook/react/demo';
+import { Button } from './ui';
+import { theme, themeAlt, darkTheme } from './theme';
 
-const setThemes = useThemes([
-  createTheme({ blue: 'rgb(40, 60, 250)' }),
-  createTheme({ blue: 'rgb(120, 40, 250)' }),
-  createTheme({ blue: 'rgb(30, 30, 250)' }),
+const setThemes = useThemes(ThemeProvider, [
+  theme,
+  themeAlt,
+  darkTheme,
 ]);
 
 storiesOf('Button', module)
   .add(
     'Buttons1',
     () => <Button>Hello Button</Button>,
-    setThemes({ currentTheme: 2 })
+    // setThemes({ currentTheme: 4 }),
   )
   .add(
     'Buttons2',
     () => <Button>Hello Button</Button>,
-    setThemes({ currentTheme: 1 })
+    // setThemes({ currentTheme: 3 }),
   )
   .add(
     'Buttons3',
     () => <Button>Hello Button</Button>,
-    setThemes({ currentTheme: 0 })
+    // setThemes({ currentTheme: 0 }),
   );

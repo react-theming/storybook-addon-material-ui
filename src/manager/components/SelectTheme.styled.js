@@ -12,7 +12,6 @@ export const Container = styled(Block)`
     padding: 0;
     margin: 0;
   }
-
 `;
 
 export const Theme = styled.button`

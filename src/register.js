@@ -1,1 +1,1 @@
-import './manager/register'
+import './manager/register';

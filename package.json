@@ -6,14 +6,20 @@
   "dependencies": {
     "@react-theming/theme-name": "^1.0.1",
     "@react-theming/theme-swatch": "^0.1.0",
-    "react-json-view": "^1.19.1"
+    "@usulpro/react-json-view": "^2.0.0",
+    "react-color": "^2.18.0"
   },
   "scripts": {
     "start-storybook": "start-storybook -p 9001 -s public --ci",
     "prepare": "package-prepare",
+    "prestart": "relative-deps",
     "start": "nodemon --exec yarn start-storybook",
     "build-storybook": "build-storybook -s public",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "lint:fix": "eslint src --fix"
+  },
+  "relativeDependencies": {
+    "@react-theming/theme-name": "../theme-name"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +42,8 @@
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-devkit": "1.1.1",
     "@storybook/addon-links": "^5.0.11",
@@ -44,6 +52,7 @@
     "@usulpro/package-prepare": "^1.1.4",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "emotion-theming": "^10.0.27",
     "eslint": "^4.3.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.3.0",
@@ -57,7 +66,8 @@
     "prettier": "^1.5.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "relative-deps": "^1.0.1"
   },
   "peerDependencies": {
     "@storybook/react": "^5.0.0",
