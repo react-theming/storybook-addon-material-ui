@@ -3,6 +3,7 @@
   "version": "0.9.0-alpha.20",
   "description": "Storybook Addon for Material UI Library",
   "main": "dist/index.js",
+  "types": "storybook-addon-material-ui.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/react-theming/storybook-addon-material-ui.git"
