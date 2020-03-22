@@ -1,17 +1,16 @@
 const colors = {
-  bgGrey: '#e5e7e6',
   white: '#ffffff',
   whiteTransparent: 'rgba(255, 255, 255, 0.5)',
   blackTransparent: 'hsla(0, 0%, 0%, 0.5)',
-  textRed: '#d2093b',
-  textBlack: '#252525',
-  textGray: '#c2c8cb',
-  textBlue: '#044e7c',
-  textGold: '#ac924d',
-  disabledRed: '#e0a8b4',
-  blueGrey: '#425550',
-  warmGrey: '#8b8b6b',
-  darkRed: '#9c0935',
+  accent1: '#d2093b',
+  accent2: '#252525',
+  accent3: '#c2c8cb',
+  accent4: '#044e7c',
+  accent5: '#ac924d',
+  accent6: '#e0a8b4',
+  accent7: '#425550',
+  accent8: '#8b8b6b',
+  accent9: '#9c0935',
 };
 
 const media = {

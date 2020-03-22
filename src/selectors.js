@@ -25,6 +25,12 @@ export const getThemeInfoList = createSelector(getThemesList, (list = []) =>
   })),
 );
 
+export const getThemeInfo = createSelector(
+  getCurrentInd,
+  getThemeInfoList,
+  (ind, themesInfo) => (themesInfo ? themesInfo[ind] : undefined),
+);
+
 export const getSelectedValue = createSelector(getTheme, (theme, store) => {
   const { selectedValue } = store;
   if (!selectedValue) return undefined;

@@ -5,13 +5,15 @@ import { createSwatch } from '@react-theming/theme-swatch';
 export const Swatch = createSwatch(styled);
 
 export const Container = styled(Block)`
-  padding: ${({ theme }) => theme.layoutMargin}px;
-
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
+`;
+
+export const ListHolder = styled.div`
+  padding: ${({ theme }) => theme.layoutMargin}px;
 `;
 
 export const Theme = styled.button`

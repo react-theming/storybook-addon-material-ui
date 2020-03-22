@@ -3,20 +3,16 @@ import { addDecorator } from '@storybook/react';
 import { createDecorator, setParameters } from '@storybook/addon-devkit';
 import '../config';
 
-const DecoratorUI = ThemeProvider => ({
+const DecoratorUI = (ThemeProvider) => ({
   context,
   getStory,
   theme,
   isFirstDataReceived,
 }) =>
   isFirstDataReceived ? (
-    <div>
-      Theme: {theme.name} <br />
-      Theme: {JSON.stringify(theme)} <br />
-      <ThemeProvider theme={theme}>{getStory(context)}</ThemeProvider>
-    </div>
+    <ThemeProvider theme={theme}>{getStory(context)}</ThemeProvider>
   ) : (
-    <p>no data</p>
+    <p>no theme</p>
   );
 
 const withData = (ThemeProvider, { providerFn }) => {
@@ -27,7 +23,7 @@ const withData = (ThemeProvider, { providerFn }) => {
     );
   }
   return createDecorator({
-    theme: store => store.themesList[store.currentTheme],
+    theme: (store) => store.themesList[store.currentTheme],
   })(DecoratorUI(CurrentThemeProvider), { isGlobal: true });
 };
 

@@ -4,6 +4,7 @@ import { register, Layout } from '@storybook/addon-devkit';
 import {
   getTheme,
   getThemeInfoList,
+  getThemeInfo,
   getSelectedValue,
   getCurrentInd,
 } from '../selectors';
@@ -18,6 +19,7 @@ const AddonThemingPanel = ({
   theme,
   themeInd,
   themeInfoList,
+  themeInfo,
   selectedValue,
   setCurrent,
   selectValue,
@@ -31,7 +33,11 @@ const AddonThemingPanel = ({
         themeInd={themeInd}
         setCurrent={setCurrent}
       />
-      <ThemeBrowser theme={theme} selectValue={selectValue} />
+      <ThemeBrowser
+        theme={theme}
+        themeInfo={themeInfo}
+        selectValue={selectValue}
+      />
       <ColorDetails
         selectedValue={selectedValue}
         onChange={changeSelectedColor}
@@ -45,6 +51,7 @@ register(
   {
     themeInfoList: getThemeInfoList,
     theme: getTheme,
+    themeInfo: getThemeInfo,
     themeInd: getCurrentInd,
     selectedValue: getSelectedValue,
   },
