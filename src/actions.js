@@ -30,6 +30,7 @@ const mutateObj = (obj, namespace, key, value) => {
 
 export const changeSelectedColor = (store, color) => {
   const selected = getSelectedValue(store);
+  if (!selected) return store;
   const { name, namespace } = selected;
   const theme = getTheme(store);
   const ind = getCurrentInd(store);

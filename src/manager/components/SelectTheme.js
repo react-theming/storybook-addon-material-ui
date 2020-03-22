@@ -2,14 +2,17 @@ import React from 'react';
 
 import * as styled from './SelectTheme.styled';
 
-const SelectTheme = ({ themeInfoList, setCurrent }) => {
+const SelectTheme = ({ themeInfoList, themeInd, setCurrent }) => {
   if (!themeInfoList) return 'No themes info';
   return (
     <styled.Container size={300}>
       <ul>
         {themeInfoList.map(({ name, theme }, ind) => (
           <li key={name}>
-            <styled.Theme onClick={() => setCurrent(ind)}>
+            <styled.Theme
+              onClick={() => setCurrent(ind)}
+              current={ind === themeInd}
+            >
               <styled.ThemeAvatar>
                 <styled.Swatch theme={{ main: Object.values(theme) }} />
               </styled.ThemeAvatar>

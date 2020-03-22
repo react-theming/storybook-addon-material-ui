@@ -1,7 +1,12 @@
 import React from 'react';
 import { register, Layout } from '@storybook/addon-devkit';
 
-import { getTheme, getThemeInfoList, getSelectedValue } from '../selectors';
+import {
+  getTheme,
+  getThemeInfoList,
+  getSelectedValue,
+  getCurrentInd,
+} from '../selectors';
 import SelectTheme from './components/SelectTheme';
 import ThemeBrowser from './components/ThemeBrowser';
 
@@ -11,6 +16,7 @@ import * as actions from '../actions';
 
 const AddonThemingPanel = ({
   theme,
+  themeInd,
   themeInfoList,
   selectedValue,
   setCurrent,
@@ -20,7 +26,11 @@ const AddonThemingPanel = ({
 }) =>
   isFirstDataReceived ? (
     <Layout name="adk-tmp">
-      <SelectTheme themeInfoList={themeInfoList} setCurrent={setCurrent} />
+      <SelectTheme
+        themeInfoList={themeInfoList}
+        themeInd={themeInd}
+        setCurrent={setCurrent}
+      />
       <ThemeBrowser theme={theme} selectValue={selectValue} />
       <ColorDetails
         selectedValue={selectedValue}
@@ -35,6 +45,7 @@ register(
   {
     themeInfoList: getThemeInfoList,
     theme: getTheme,
+    themeInd: getCurrentInd,
     selectedValue: getSelectedValue,
   },
   ({ global }) => ({

@@ -16,6 +16,8 @@ export const Container = styled(Block)`
 
 export const Theme = styled.button`
   border: 1px solid ${({ theme }) => theme.background.app};
+  ${({ current, theme }) =>
+    current ? `border-color: ${theme.color.secondary};` : null}
   border-radius: ${({ theme }) => theme.appBorderRadius}px;
   background-color: ${({ theme }) => theme.background.app};
   margin: ${({ theme }) => Math.floor(theme.layoutMargin / 2)}px 0px;
