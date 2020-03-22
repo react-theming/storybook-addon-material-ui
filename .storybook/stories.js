@@ -10,8 +10,8 @@ import { theme, themeAlt, darkTheme } from './theme';
 
 const setThemes = useThemes(ThemeProvider, [
   theme,
-  themeAlt,
-  darkTheme,
+  // themeAlt,
+  // darkTheme,
 ]);
 
 storiesOf('Button', module)
