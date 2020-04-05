@@ -10,7 +10,7 @@ const ColorDetails = ({ selectedValue, onChange }) => {
 
   const isColor = type === 'color';
 
-  const handleChange = (colorInfo) => {
+  const handleChange = colorInfo => {
     const { hex } = colorInfo;
     onChange(hex);
   };

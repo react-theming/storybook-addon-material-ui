@@ -1,3 +1,4 @@
+const prettier = require('./.prettierrc.js');
 const error = 2;
 const warn = 1;
 const ignore = 0;
@@ -17,15 +18,7 @@ module.exports = {
   },
   rules: {
     strict: [error, 'never'],
-    'prettier/prettier': [
-      warn,
-      {
-        tabWidth: 2,
-        bracketSpacing: true,
-        trailingComma: 'all',
-        singleQuote: true,
-      },
-    ],
+    'prettier/prettier': [warn, prettier],
     quotes: [warn, 'single', { avoidEscape: true }],
     'class-methods-use-this': ignore,
     'arrow-parens': [warn, 'as-needed'],

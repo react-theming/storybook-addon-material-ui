@@ -1372,7 +1372,7 @@
     react-inspector "^4.0.0"
     uuid "^3.3.2"
 
-"@storybook/addon-devkit@1.3.4":
+"@storybook/addon-devkit@^1.3.4":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@storybook/addon-devkit/-/addon-devkit-1.3.4.tgz#28ca3ec13a2849fcf93e6087de76b4974c0d83cd"
   integrity sha512-LIPPnXPYxV3jrhmS1isSdI2195oTGXtG5jJF9kCeqbR61yHVieMDgn9pe0YvXTF41rzxQMAPJlMuTpM+s4CGOQ==

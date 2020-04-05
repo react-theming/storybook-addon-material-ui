@@ -3,7 +3,7 @@ import { addDecorator } from '@storybook/react';
 import { createDecorator, setParameters } from '@storybook/addon-devkit';
 import '../config';
 
-const DecoratorUI = (ThemeProvider) => ({
+const DecoratorUI = ThemeProvider => ({
   context,
   getStory,
   theme,
@@ -23,7 +23,7 @@ const withData = (ThemeProvider, { providerFn }) => {
     );
   }
   return createDecorator({
-    theme: (store) => store.themesList[store.currentTheme],
+    theme: store => store.themesList[store.currentTheme],
   })(DecoratorUI(CurrentThemeProvider), { isGlobal: true });
 };
 
