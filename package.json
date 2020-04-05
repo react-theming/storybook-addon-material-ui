@@ -4,8 +4,9 @@
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
+    "@react-theming/flatten": "^0.1.0",
     "@react-theming/theme-name": "^1.0.2",
-    "@react-theming/theme-swatch": "^0.1.1",
+    "@react-theming/theme-swatch": "^0.2.0",
     "@usulpro/react-json-view": "^2.0.0",
     "react-color": "^2.18.0"
   },
