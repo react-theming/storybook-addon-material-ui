@@ -2,6 +2,16 @@
 
 # Storybook Addon Theming
 
+Storybook addon for Styled Components, Emotion, Material-UI and any other theming solution. Allows to develop themed components in isolation.
+
 ```shell
 npm i --save-dev @react-theming/storybook-addon
 ```
+
+![example](docs/theme-panel.png)
+
+## Credits
+
+<div align="left" style="height: 16px;">Created with ❤︎ to <b>React</b> and <b>CSS-in-JS</b> by <a
+    href="https://twitter.com/UsulPro">@usulpro</a> [<a href="https://github.com/react-theming">React Theming</a>]
+</div>
