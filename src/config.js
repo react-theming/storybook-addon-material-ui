@@ -1,6 +1,6 @@
 import { setConfig } from '@storybook/addon-devkit';
 
 setConfig({
-  addId: 'theming',
+  addonId: 'theming',
   panelTitle: 'Theming',
 });
