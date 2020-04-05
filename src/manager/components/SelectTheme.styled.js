@@ -32,17 +32,25 @@ export const Theme = styled.button`
   }
 
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ single }) => (single ? 'column' : 'row')};
   justify-content: flex-start;
   align-items: center;
 `;
 
+export const AvatarHolder = styled.div`
+  position: relative;
+  width: ${({ single }) => (single ? '150px' : '36px')};
+  height: ${({ single }) => (single ? '150px' : '36px')};
+  margin: 16px;
+`;
+
 export const ThemeAvatar = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Title = styled.h4`
   margin-left: 6px;
-  font-size: 16px;
+  font-size: ${({ single }) => (single ? '32px' : '16px')};
+  font-weight: ${({ single }) => (single ? 'bold' : 'normal')};
 `;

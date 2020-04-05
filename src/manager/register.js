@@ -37,6 +37,7 @@ const AddonThemingPanel = ({
         theme={theme}
         themeInfo={themeInfo}
         selectValue={selectValue}
+        selectedValue={selectedValue}
       />
       <ColorDetails
         selectedValue={selectedValue}

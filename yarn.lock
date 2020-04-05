@@ -1324,10 +1324,10 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@react-theming/flatten@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@react-theming/flatten/-/flatten-0.1.0.tgz#964324d86b0493fb5cb10737c4bad37227ed9c83"
-  integrity sha512-NseVYQYIvSijQDTHgG1TxqttNWesVzhfvTz9QxtzLmqIjVBUGtqP3w6WQ3GpYo/5qSQKLKrDFnm84y9hFacKEA==
+"@react-theming/flatten@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@react-theming/flatten/-/flatten-0.1.1.tgz#62dc8a11f77b3dc1c6f26937ad4044a4d3e13853"
+  integrity sha512-cieWCbO4xTgl8/LAUTEgiafEiFIcheARteyxXddnUHm/+7POCmRvSE/woHGXlVH7dFBlCbI4y/e5ikMzwBA3CA==
   dependencies:
     color "^3.1.2"
     color-convert "^2.0.1"

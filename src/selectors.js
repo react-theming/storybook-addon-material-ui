@@ -20,7 +20,7 @@ export const getTheme = createSelector(
 
 export const getThemeInfoList = createSelector(getThemesList, (list = []) =>
   list.map((theme, ind) => ({
-    name: themeName(theme, ind + 1),
+    name: themeName(theme, ind),
     theme,
   })),
 );
