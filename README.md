@@ -12,6 +12,6 @@ npm i --save-dev @react-theming/storybook-addon
 
 ## Credits
 
-<div align="left" style="height: 16px;">Created with ❤︎ to <b>React</b> and <b>CSS-in-JS</b> by <a
-    href="https://twitter.com/UsulPro">@usulpro</a> [<a href="https://github.com/react-theming">React Theming</a>]
+<div align="left" style="height: 16px;">Created with ❤︎ to <b>React</b> and <b>Material UI</b> by <a
+    href="https://twitter.com/UsulPro">Oleg Proskurin</a> [<a href="https://github.com/react-theming">React Theming</a>]
 </div>
