@@ -15,7 +15,7 @@ import { theme, themeAlt, darkTheme } from './theme';
 // ]);
 
 storiesOf('Button', module)
-  .addDecorator(withThemes(ThemeProvider, [theme, theme, theme, theme, theme]))
+  .addDecorator(withThemes(ThemeProvider, [theme]))
   .add(
     'Buttons1',
     () => <Button>Hello Button</Button>,

@@ -18,6 +18,8 @@ export const Container = styled(Block)`
 
 export const ListHolder = styled.div`
   overflow: auto;
+  height: 1px;
+  flex-grow: 1;
   padding: ${({ theme }) => theme.layoutMargin}px;
 `;
 
