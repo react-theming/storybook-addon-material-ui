@@ -1,6 +1,6 @@
 {
   "name": "@react-theming/storybook-addon",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -78,5 +78,30 @@
     "@storybook/react": "^5.0.0",
     "@storybook/theming": "^5.0.0",
     "react": "^16.8.6"
-  }
+  },
+  "keywords": [
+    "storybook",
+    "react",
+    "material",
+    "ui",
+    "material-ui",
+    "emotion",
+    "styled-components",
+    "jss",
+    "addon",
+    "decorator",
+    "theme",
+    "theming",
+    "themable",
+    "editor",
+    "switch themes",
+    "change colors",
+    "tool",
+    "develop",
+    "isolation",
+    "themable components",
+    "customization",
+    "dark theme",
+    "light theme"
+  ]
 }
