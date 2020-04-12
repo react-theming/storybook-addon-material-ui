@@ -11,7 +11,8 @@
     "dev": "nodemon --exec yarn prepare",
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "@react-theming/flatten": "^0.1.1",
@@ -52,6 +53,7 @@
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.5",
     "@usulpro/package-prepare": "^1.1.4",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
