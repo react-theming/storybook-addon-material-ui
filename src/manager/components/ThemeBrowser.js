@@ -4,6 +4,9 @@ import ReactJson from '@usulpro/react-json-view';
 import * as styled from './ThemeBrowser.styled';
 import Toolbar from '../UI/Toolbar';
 import Caption from '../UI/Caption';
+import IconButton from '../UI/IconButton';
+import Text from '../UI/Text';
+import { copyToClipboard } from '../../utils/clipboard';
 
 const showThemePath = selectedValue => {
   if (!selectedValue) return 'select value';
@@ -18,15 +21,6 @@ const showThemePath = selectedValue => {
   }
 };
 
-const copyToClipboard = str => () => {
-  const el = window.document.createElement('textarea');
-  el.value = str;
-  window.document.body.appendChild(el);
-  el.select();
-  window.document.execCommand('copy');
-  window.document.body.removeChild(el);
-};
-
 const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
   const footerAction = showThemePath(selectedValue);
   return (
@@ -37,15 +31,16 @@ const ThemeBrowser = ({ theme, themeInfo, selectValue, selectedValue }) => {
       <styled.ThemeHolder>
         <ReactJson src={theme} onSelect={selectValue} name={null} />
       </styled.ThemeHolder>
-      <styled.SelectedCard>
+      <Toolbar footer>
         {footerAction && (
-          <styled.Copy
+          <IconButton
+            icon="copy"
             title="copy to clipboard"
             onClick={copyToClipboard(footerAction)}
           />
         )}
-        {footerAction}
-      </styled.SelectedCard>
+        <Text>{footerAction}</Text>
+      </Toolbar>
     </styled.Container>
   );
 };

@@ -5,6 +5,10 @@ import { createSwatch } from '@react-theming/theme-swatch';
 export const Swatch = createSwatch(styled);
 
 export const Container = styled(Block)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   ul {
     list-style: none;
     padding: 0;
@@ -13,6 +17,7 @@ export const Container = styled(Block)`
 `;
 
 export const ListHolder = styled.div`
+  overflow: auto;
   padding: ${({ theme }) => theme.layoutMargin}px;
 `;
 
@@ -39,8 +44,8 @@ export const Theme = styled.button`
 
 export const AvatarHolder = styled.div`
   position: relative;
-  width: ${({ single }) => (single ? '150px' : '36px')};
-  height: ${({ single }) => (single ? '150px' : '36px')};
+  width: ${({ single }) => (single ? '120px' : '36px')};
+  height: ${({ single }) => (single ? '120px' : '36px')};
   margin: 16px;
 `;
 

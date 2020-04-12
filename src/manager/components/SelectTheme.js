@@ -4,6 +4,7 @@ import { flattenTheme } from '@react-theming/flatten';
 import * as styled from './SelectTheme.styled';
 import Toolbar from '../UI/Toolbar';
 import Caption from '../UI/Caption';
+import IconButton from '../UI/IconButton';
 
 const materialPreview = ({ palette }) => ({
   main: [palette.primary.main, palette.primary.light, palette.primary.dark],
@@ -20,7 +21,7 @@ const SelectTheme = ({ themeInfoList, themeInd, setCurrent }) => {
   if (!themeInfoList) return 'No themes info';
   const count = themeInfoList.length;
   const isMulti = count > 1;
-  const isSingle = count <= 2;
+  const isSingle = count <= 1;
   return (
     <styled.Container size={300}>
       <Toolbar>
@@ -59,6 +60,9 @@ const SelectTheme = ({ themeInfoList, themeInd, setCurrent }) => {
           })}
         </ul>
       </styled.ListHolder>
+      <Toolbar footer>
+        <IconButton title="download" />
+      </Toolbar>
     </styled.Container>
   );
 };

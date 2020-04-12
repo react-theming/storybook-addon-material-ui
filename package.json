@@ -8,6 +8,7 @@
     "prepare": "package-prepare",
     "_prestart": "relative-deps",
     "start": "nodemon --exec yarn start-storybook",
+    "dev": "nodemon --exec yarn prepare",
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test",
     "lint:fix": "eslint src --fix"
