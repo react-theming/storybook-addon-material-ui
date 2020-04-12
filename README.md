@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/%40react-theming%2Fstorybook-addon.svg)](https://badge.fury.io/js/%40react-theming%2Fstorybook-addon)
 [![Storybook](https://raw.githubusercontent.com/storybookjs/storybook-addon-console/master/docs/storybook.svg?sanitize=true)](https://react-theming.github.io/storybook-addon)
 
-# Storybook Addon Theming
+# Storybook Addon @ React Theming
 
 Storybook addon for Styled Components, Emotion, Material-UI and any other theming solution. Allows to develop themed components in isolation.
 
