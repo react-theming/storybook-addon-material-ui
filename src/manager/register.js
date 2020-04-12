@@ -1,36 +1,64 @@
 import React from 'react';
-import { register, Layout, Block } from '@storybook/addon-devkit';
-import { getTheme, getThemeNames } from '../selectors';
-import '../config';
+import { register, Layout } from '@storybook/addon-devkit';
 
-const Panel = ({ theme, names, setCurrent }) => (
-  <Layout name="adk-tmp">
-    <Block size={300}>
-      {names.map((name, ind) => (
-        <div key={name} onClick={() => setCurrent(ind)}>
-          {name}
-        </div>
-      ))}
-    </Block>
-    <Block>
-      <h1>Current Theme</h1>
-      <p>{JSON.stringify(theme)}</p>
-      <hr />
-    </Block>
-  </Layout>
-);
+import {
+  getTheme,
+  getThemeInfoList,
+  getThemeInfo,
+  getSelectedValue,
+  getCurrentInd,
+} from '../selectors';
+import SelectTheme from './components/SelectTheme';
+import ThemeBrowser from './components/ThemeBrowser';
+
+import '../config';
+import ColorDetails from './components/ColorDetails';
+import * as actions from '../actions';
+
+const AddonThemingPanel = ({
+  theme,
+  themeInd,
+  themeInfoList,
+  themeInfo,
+  selectedValue,
+  setCurrent,
+  selectValue,
+  changeSelectedColor,
+  isFirstDataReceived,
+}) =>
+  isFirstDataReceived ? (
+    <Layout name="adk-tmp">
+      <SelectTheme
+        themeInfoList={themeInfoList}
+        themeInd={themeInd}
+        setCurrent={setCurrent}
+      />
+      <ThemeBrowser
+        theme={theme}
+        themeInfo={themeInfo}
+        selectValue={selectValue}
+        selectedValue={selectedValue}
+      />
+      <ColorDetails
+        selectedValue={selectedValue}
+        onChange={changeSelectedColor}
+      />
+    </Layout>
+  ) : (
+    <p>Waiting for data</p>
+  );
 
 register(
   {
-    names: getThemeNames,
+    themeInfoList: getThemeInfoList,
     theme: getTheme,
+    themeInfo: getThemeInfo,
+    themeInd: getCurrentInd,
+    selectedValue: getSelectedValue,
   },
   ({ global }) => ({
-    setCurrent: global((store, ind) => ({
-      ...store,
-      currentTheme: ind,
-    })),
-  })
-)(Panel);
-
-export const AAA = '123';
+    setCurrent: global(actions.setCurrent),
+    selectValue: global(actions.selectValue),
+    changeSelectedColor: global(actions.changeSelectedColor),
+  }),
+)(AddonThemingPanel);

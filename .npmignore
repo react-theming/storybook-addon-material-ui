@@ -1,3 +1,5 @@
 /src
 /public
 /.storybook
+/node_modules
+/docs

@@ -1,7 +1,8 @@
 {
   "watch": [
-    "./src/manager",
-    "./.storybook/register.js"
+    "./src",
+    "./.storybook/register.js",
+    "../theme-name/dist"
   ],
   "ext": "js"
 
