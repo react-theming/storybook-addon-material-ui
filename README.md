@@ -12,6 +12,14 @@ npm i --save-dev @react-theming/storybook-addon
 
 ![example](docs/theme-panel.png)
 
+## Features :dizzy:
+
+- Universal - can be used with any styling library
+- Switching between themes from addon panel.
+- Change a color and see how it affects to your components
+- Easily copy-paste paths of nesting theme props into your code 
+
+
 ## Usage
 
 specify addon in `.storybook/main.js`
