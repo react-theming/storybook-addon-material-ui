@@ -167,6 +167,6 @@ There is an example app with CRA, Material-UI and Storybook Addon [Demo](https:/
 
 ## Credits
 
-<div align="left" style="height: 16px;">Created with ❤︎ to <b>React</b> and <b>Material UI</b> by <a
+<div align="left" style="height: 16px;">Created with ❤︎ to <b>React</b> and <b>Storybook</b> by <a
     href="https://twitter.com/UsulPro">Oleg Proskurin</a> [<a href="https://github.com/react-theming">React Theming</a>]
 </div>
