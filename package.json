@@ -1,6 +1,6 @@
 {
   "name": "@react-theming/storybook-addon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -49,7 +49,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-devkit": "1.3.4",
+    "@storybook/addon-devkit": "1.3.7",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
