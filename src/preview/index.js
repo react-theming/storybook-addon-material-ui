@@ -14,11 +14,8 @@ const withData = (ThemeProvider, { providerFn }) => {
       <>{providerFn({ theme, children })}</>
     );
   }
-
   return createDecorator({
-    theme: store => {
-      return store.themesList[store.currentTheme];
-    },
+    theme: store => store.themesList[store.currentTheme],
   })(DecoratorUI(CurrentThemeProvider), { isGlobal: true });
 };
 
