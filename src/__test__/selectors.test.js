@@ -1,4 +1,4 @@
-import { getTheme, getThemeNames } from '../selectors';
+import { getTheme, getThemeInfoList } from '../selectors';
 import { createTheme } from '../helpers/sampleTheme';
 
 const firstTheme = createTheme({
@@ -25,5 +25,5 @@ it('should select theme', () => {
 
 it('should select theme-names', () => {
   const names = ['red-theme', 'green-theme', 'blue-theme'];
-  expect(getThemeNames(store)).toEqual(names);
+  expect(getThemeInfoList(store).map(({ name }) => name)).toEqual(names);
 });
