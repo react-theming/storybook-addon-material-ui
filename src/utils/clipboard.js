@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export const copyToClipboard = str => () => {
   const el = window.document.createElement('textarea');
   el.value = str;

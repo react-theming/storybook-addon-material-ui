@@ -20,6 +20,7 @@
     "dev": "nodemon --exec yarn prepare",
     "build-storybook": "build-storybook -s public",
     "test": "react-scripts test",
+    "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "deploy-storybook": "storybook-to-ghpages"
   },

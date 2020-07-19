@@ -1,5 +1,4 @@
 import { themeName } from '@react-theming/theme-name';
-import { selectValue } from './actions';
 
 export const createSelector = (...args) => {
   const resultFn = args.pop();
