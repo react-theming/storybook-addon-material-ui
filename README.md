@@ -52,12 +52,77 @@ First, install the addon
 npm i storybook-addon-material-ui --save-dev
 ```
 
-Add this line to your addons.js file (create this file inside your storybook config directory if needed).
+### Storybook 6.1
+
+Add `storybook-addon-material-ui` to the storybook addons:
 
 ```js
-import 'storybook-addon-material-ui/register';
+//.storybook/main.js
+
+module.exports = {
+  stories: ['../stories/**/*.stories.(js|mdx)'],
+  addons: [
+    'storybook-addon-material-ui'
+  ],
+};
 ```
 
+Add the decorator to storybook preview:
+
+```js
+//.storybook/preview.js
+
+import { muiTheme } from 'storybook-addon-material-ui'
+
+export const decorators = [
+	muiTheme()
+];
+
+```
+> Note : You can switch between the loaded themes. Out of the box, you have two base themes, but you can simply add your custom themes like this:
+```js
+//.storybook/preview.js
+
+import { muiTheme } from 'storybook-addon-material-ui'
+
+// Create your own theme like this.
+// Note: you can specify theme name in `themeName` field. Otherwise it will be displayed by the number.
+// you can specify only required fields overriding the `Light Base Theme`
+const newTheme = {
+    themeName: 'Grey Theme',
+    palette: {
+        primary1Color: '#00bcd4',
+        alternateTextColor: '#4a4a4a',
+        canvasColor: '#616161',
+        textColor: '#bdbdbd',
+        secondaryTextColor: 'rgba(255, 255, 255, 0.54)',
+        disabledColor: '#757575',
+        accent1Color: '#607d8b',
+    },
+};
+
+
+export const decorators = [
+	muiTheme([newTheme])
+];
+
+```
+or even import from elsewhere
+```js
+//.storybook/preview.js
+
+import { muiTheme } from 'storybook-addon-material-ui'
+
+import theme1 from './src/theme/theme1'
+import theme2 from './src/theme/theme2'
+
+export const decorators = [
+	muiTheme([theme1, theme2])
+];
+
+```
+
+### Storybook 5 (and older versions)
 Now, write your stories with Material-UI Addon. By default your stories will be provided with [`Light Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/lightBaseTheme.js) and [`Dark Base Theme`](https://github.com/callemall/material-ui/blob/master/src/styles/baseThemes/darkBaseTheme.js)
 
 ```js
