@@ -211,7 +211,6 @@ http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ## CONTRIBUTING :raising_hand:
 
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
-[![Code Triagers Badge](https://www.codetriage.com/react-theming/storybook-addon-material-ui/badges/users.svg)](https://www.codetriage.com/react-theming/storybook-addon-material-ui)
 
 ### :wrench: Developers:
 
