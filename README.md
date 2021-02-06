@@ -1,5 +1,4 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/721efbed8ff544c2adbd996108e84165)](https://app.codacy.com/gh/react-theming/storybook-addon-material-ui?utm_source=github.com&utm_medium=referral&utm_content=react-theming/storybook-addon-material-ui&utm_campaign=Badge_Grade)
-[![GitHub version](https://badge.fury.io/gh/react-theming%2Fstorybook-addon-material-ui.svg)](https://badge.fury.io/gh/react-theming%2Fstorybook-addon-material-ui)
 [![npm version](https://badge.fury.io/js/storybook-addon-material-ui.svg)](https://badge.fury.io/js/storybook-addon-material-ui)
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
@@ -7,7 +6,7 @@
 
 
 [<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
-[<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/material-ui.png" align="left" class="logo" height="60" title="Material UI" alt="Storybook Addon" />](https://material-ui.com/styles/advanced/#theming)
+[<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/version-1/docs/logos/material-ui.png" align="left" class="logo" height="60" title="Material UI" alt="Storybook Addon" />](https://material-ui.com/styles/advanced/#theming)
 
 Provides development environment which helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) which wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
 
@@ -42,10 +41,6 @@ It contains the working setup with:
 - storybook-addon-material-ui
 
 ---
-
-## Roadmap
-
-We have many plans and ideas for further development. See [**projects**](https://github.com/react-theming/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [**hear**](https://github.com/react-theming/storybook-addon-material-ui/issues/new) your ideas and wishes.
 
 ## Getting Started
 
