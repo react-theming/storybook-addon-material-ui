@@ -9,6 +9,9 @@
     "url": "https://github.com/react-theming/storybook-addon-material-ui.git"
   },
   "keywords": [
+    "storybook-addons",
+    "style",
+    "debug",
     "storybook",
     "react",
     "material",
@@ -22,6 +25,11 @@
     "dark theme",
     "light theme"
   ],
+  "storybook": {
+    "displayName": "Material-UI",
+    "supportedFrameworks": ["React"],
+    "icon": "https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/material-ui.png"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/react-theming/storybook-addon-material-ui/issues"

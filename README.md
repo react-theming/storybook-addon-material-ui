@@ -4,17 +4,19 @@
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
 #  Storybook Addon Material-UI
-The core of [**React Theming**](https://github.com/react-theming/react-theming) project
 
 
 [<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/Storybook.png" align="left" class="logo" height="60" title="Storybook Addon" alt="Storybook Addon" />](https://storybooks.js.org/docs/react-storybook/addons/addon-gallery/)
+[<img src="https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/material-ui.png" align="left" class="logo" height="60" title="Material UI" alt="Storybook Addon" />](https://material-ui.com/styles/advanced/#theming)
+
 Provides development environment which helps creating [Material-UI Components](http://www.material-ui.com/). This is addon for [React Storybook](https://github.com/storybooks/react-storybook) which wraps your components into MuiThemeProvider. This accelerates and simplifies the [development](#getting-started-bookmark_tabs) process for Material-UI based applications.
 
 You can use this [project's demo page](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel) to discover `Material-UI Theme Settings` for any component and  create your `own new themes` right online. But to take [full advantage](#features-dizzy) of this project [run it locally](#quick-start) in your work environment.
 
-[![screen1](docs/WatchMe.gif)](https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/WatchMe.gif)
+[![screen1](https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/WatchMe.gif)](https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/WatchMe.gif)
 
-## Features :dizzy:
+
+## Features
 
 [![Live demo](https://img.shields.io/badge/Live%20Demo-%20Storybook-brightgreen.svg)](https://sm-react.github.io/storybook-boilerplate/?theme-ind=0&theme-sidebar=false&theme-full=false&knob-Title=Welcome%20to%20React-Theming&knob-Subtitle=Storybook%20Boilerplate%20Project&knob-Label1=Hello%20Button&knob-Label2=Hello%20Button&selectedKind=Material-UI&selectedStory=Components&full=0&down=1&left=1&panelRight=0&downPanel=sm%2Fstorybook-addon-material-ui%2Fmaterial-panel)
 
@@ -41,11 +43,11 @@ It contains the working setup with:
 
 ---
 
-## Roadmap :mountain_cableway:
+## Roadmap
 
 We have many plans and ideas for further development. See [**projects**](https://github.com/react-theming/storybook-addon-material-ui/projects/1) about what kind of features we plan to implement in the future. We create this tool for your convenience and productivity, so we are always happy to [**hear**](https://github.com/react-theming/storybook-addon-material-ui/issues/new) your ideas and wishes.
 
-## Getting Started :bookmark_tabs:
+## Getting Started
 
 First, install the addon
 
@@ -209,21 +211,21 @@ As you select themes and other options it stores in adress bar line. So this sta
 http://localhost:9001/?theme-ind=0&theme-sidebar=true&theme-full=true
 ```
 
-## CONTRIBUTING :raising_hand:
+## CONTRIBUTING
 
 [![@airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](./.eslintrc)
 
-### :wrench: Developers:
+### Developers:
 
 Our team welcome all contributing, testing, bug fixing. If you would like
 to help contribute to the project feel free to make an issue, PR or get in touch with me.
 
-### :ribbon: Designers:
+### Designers:
 
 We would really welcome the involvement of designers in this project. We are very interested in your opinion about working with this tool, the possibility of joint work of the designer and developer as well as its appearance and capabilities
 
 #### Credits
-[![@UsulPro](./twitter_button.png)](https://twitter.com/usulpro)
-[![@UsulPro](https://img.shields.io/badge/github-UsulPro-blue.svg)](https://github.com/UsulPro)
-[![@react-theming](https://img.shields.io/badge/github-smARTLight-red.svg)](https://github.com/react-theming)
 
+<div align="left" style="height: 16px;">Created with ❤︎ to <b>Storybook</b> and <b>Material-UI</b> by <a
+    href="https://twitter.com/UsulPro">Oleg Proskurin</a> [<a href="https://github.com/react-theming">React Theming</a>]
+</div>
