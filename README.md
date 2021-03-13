@@ -140,7 +140,7 @@ const providerFn = ({ theme, children }) => {
 };
 
 // pass ThemeProvider and array of your themes to decorator
-addDecorator(withThemes(null, [theme]));
+addDecorator(withThemes(null, [theme], { providerFn }));
 ```
 
 ```js
