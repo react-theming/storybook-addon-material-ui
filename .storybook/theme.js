@@ -36,8 +36,14 @@ export const themeAlt = {
 };
 
 export const darkTheme = {
-  ...colors,
-  bgGrey: '#888888',
-  white: '#222222',
-  textRed: '#Fd1500',
+  ...theme,
+  palette: {
+    colors: {
+      ...colors,
+      bgGrey: '#888888',
+      white: '#222222',
+      textRed: '#Fd1500',
+      accent1: '#32399b',
+    },
+  },
 };
