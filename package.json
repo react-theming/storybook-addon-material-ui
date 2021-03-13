@@ -1,6 +1,7 @@
 {
   "name": "@react-theming/storybook-addon",
-  "version": "1.0.3",
+  "description": "Develop themes and themable components with Emotion, Styled Components, Material-UI and your custom solution",
+  "version": "1.1.0",
   "private": false,
   "main": "dist/index.js",
   "homepage": "https://github.com/react-theming/storybook-addon",
@@ -87,6 +88,8 @@
   },
   "keywords": [
     "storybook",
+    "storybook-addons",
+    "style",
     "react",
     "material",
     "ui",
@@ -109,5 +112,8 @@
     "customization",
     "dark theme",
     "light theme"
-  ]
+  ],
+  "storybook": {
+    "displayName": "React Theming"
+  }
 }
