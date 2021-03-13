@@ -1022,7 +1022,7 @@
     "@emotion/utils" "0.11.3"
     "@emotion/weak-memoize" "0.2.5"
 
-"@emotion/core@^10.0.20", "@emotion/core@^10.0.28":
+"@emotion/core@^10.0.20":
   version "10.0.28"
   resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.28.tgz#bb65af7262a234593a9e952c041d0f1c9b9bef3d"
   integrity sha512-pH8UueKYO5jgg0Iq+AmCLxBsvuGtvlmiDCOuv8fGNYn3cowFpLN98L8zO56U0H1PjDIyAlXymgL3Wu7u7v6hbA==
@@ -1098,7 +1098,7 @@
     "@emotion/serialize" "^0.11.15"
     "@emotion/utils" "0.11.3"
 
-"@emotion/styled@^10.0.17", "@emotion/styled@^10.0.23", "@emotion/styled@^10.0.27":
+"@emotion/styled@^10.0.17", "@emotion/styled@^10.0.23":
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-10.0.27.tgz#12cb67e91f7ad7431e1875b1d83a94b814133eaf"
   integrity sha512-iK/8Sh7+NLJzyp9a5+vIQIXTYxfT4yB/OJbjzQanB2RZpvmzBQOHZWhpAMZWYEKRNNbsD6WfBw5sVWkb6WzS/Q==
@@ -1410,10 +1410,10 @@
     react-inspector "^4.0.0"
     uuid "^3.3.2"
 
-"@storybook/addon-devkit@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-devkit/-/addon-devkit-1.4.0.tgz#54c82550cb0681367fd1b5846000e555a3577e52"
-  integrity sha512-T75lPTtZpQfSAMB0XINzIQj1SH9cQLJOE8BtdGhPhIiXnTNP4C03OueqV6n8k7tFbqtUqOd/0hWVP85C4IeBgA==
+"@storybook/addon-devkit@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-devkit/-/addon-devkit-1.4.1.tgz#77786934e73854419c1a735aeb97d756a0e93902"
+  integrity sha512-OGcsY1KF3t6LlVsvxWq2HaETH0NWfJwlve6GacSfNNaFTr6nyLElVKsD+U97DkBh2RnFqCllkS7oljgRh46PAw==
   dependencies:
     "@reach/rect" "^0.2.1"
     "@storybook/addons" "^6.1.18"
@@ -5173,7 +5173,7 @@ emojis-list@^3.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
   integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
 
-emotion-theming@^10.0.19, emotion-theming@^10.0.27:
+emotion-theming@^10.0.19:
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/emotion-theming/-/emotion-theming-10.0.27.tgz#1887baaec15199862c89b1b984b79806f2b9ab10"
   integrity sha512-MlF1yu/gYh8u+sLUqA0YuA9JX0P4Hb69WlKc/9OLo+WCXuX6sy/KoIa+qJimgmr2dWqnypYKYPX37esjDBbhdw==
