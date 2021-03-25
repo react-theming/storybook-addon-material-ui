@@ -23,7 +23,8 @@
     "editor",
     "customization",
     "dark theme",
-    "light theme"
+    "light theme",
+    "storybook-addon"
   ],
   "storybook": {
     "displayName": "Material-UI",
