@@ -31,7 +31,7 @@
     "supportedFrameworks": [
       "React"
     ],
-    "icon": "https://raw.githubusercontent.com/react-theming/storybook-addon-material-ui/master/docs/logos/material-ui.png"
+    "icon": "https://github.com/react-theming/storybook-addon-material-ui/blob/b0ac1c444bd33212d693af182ac6fed1b069c3db/docs/logos/material-ui.png"
   },
   "license": "MIT",
   "bugs": {
