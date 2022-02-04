@@ -16,7 +16,7 @@ const currentTheme = data => {
 
 const MuiDecorator = ({ data, story }) => (
   <MuiThemeProvider theme={currentTheme(data)}>
-    <div>{story}</div>
+    {story}
   </MuiThemeProvider>
 );
 
