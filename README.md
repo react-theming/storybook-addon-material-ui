@@ -77,6 +77,7 @@ export const decorators = [
 ];
 
 ```
+
 > Note : You can switch between the loaded themes. Out of the box, you have two base themes, but you can simply add your custom themes like this:
 ```js
 //.storybook/preview.js
